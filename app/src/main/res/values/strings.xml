@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">bank_sampah_app</string>
+    <string name="hello">Hello</string>
+    <string name="username">Hrida</string>
+    <string name="bps">BPS</string>
+    <string name="pilahsampah">Sudah Pilah sampah Hari ini?</string>
+    <string name="kelolatabungan">Kelola Tabungan</string>
 </resources>
