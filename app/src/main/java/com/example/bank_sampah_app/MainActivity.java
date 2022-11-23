@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
-//        getSupportActionBar().hide();
+        getSupportActionBar().hide();
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
