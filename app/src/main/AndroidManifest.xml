@@ -10,14 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
-
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Home">
         </activity>
     </application>
 
