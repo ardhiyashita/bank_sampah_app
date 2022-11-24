@@ -19,7 +19,7 @@
                 android:layout_height="match_parent"
                 android:text="Informasi"
                 android:gravity="center"
-                android:textColor="@color/neutral_black"
+                android:textColor="@color/neutral80"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Jadwal Bank Sampah"
-                android:textColor="@color/neutral_black"
+                android:textColor="@color/neutral80"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
             <!-- jadwal pengumpulan sampah -->
@@ -63,13 +63,13 @@
                         android:layout_height="wrap_content"
                         android:text="Jadwal Pengumpulan Sampah"
                         android:textStyle="bold"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral80"
                         android:textSize="16sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pengumpulan sampah di Bank Sampah Sami Asri"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral40"
                         android:textSize="12sp" />
                 </LinearLayout>
                 <ImageView
@@ -106,13 +106,13 @@
                         android:layout_height="wrap_content"
                         android:text="Jadwal Penjemputan Sampah"
                         android:textStyle="bold"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral80"
                         android:textSize="16sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Penjemputan sampah ke rumah warga"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral40"
                         android:textSize="12sp" />
                 </LinearLayout>
                 <ImageView
@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Kategori Sampah"
-                android:textColor="@color/neutral_black"
+                android:textColor="@color/neutral80"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -162,7 +162,7 @@
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="12sp"/>
                         <ImageView
                             android:layout_width="80dp"
@@ -180,7 +180,7 @@
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_gray"
+                            android:textColor="@color/neutral40"
                             android:textSize="12sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -199,7 +199,7 @@
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="12sp"/>
                         <ImageView
                             android:layout_width="80dp"
@@ -217,7 +217,7 @@
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_gray"
+                            android:textColor="@color/neutral40"
                             android:textSize="12sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -236,7 +236,7 @@
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="12sp"/>
                         <ImageView
                             android:layout_width="80dp"
@@ -254,7 +254,7 @@
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_gray"
+                            android:textColor="@color/neutral40"
                             android:textSize="12sp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -279,7 +279,7 @@
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="12sp"/>
                         <ImageView
                             android:layout_width="80dp"
@@ -297,7 +297,7 @@
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_gray"
+                            android:textColor="@color/neutral40"
                             android:textSize="12sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -316,7 +316,7 @@
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="12sp"/>
                         <ImageView
                             android:layout_width="80dp"
@@ -334,7 +334,7 @@
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_gray"
+                            android:textColor="@color/neutral40"
                             android:textSize="12sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -353,7 +353,7 @@
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="12sp"/>
                         <ImageView
                             android:layout_width="80dp"
@@ -371,7 +371,7 @@
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_gray"
+                            android:textColor="@color/neutral40"
                             android:textSize="12sp"/>
                     </LinearLayout>
                 </LinearLayout>

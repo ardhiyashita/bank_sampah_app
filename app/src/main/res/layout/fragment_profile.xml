@@ -59,7 +59,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="Nama"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <EditText
@@ -90,7 +90,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="Alamat"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <EditText
@@ -121,7 +121,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="Email"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <EditText
@@ -152,7 +152,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="No HP"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <EditText
@@ -183,7 +183,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="Jenis Kelamin"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <EditText
@@ -214,7 +214,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="Tanggal Lahir"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <EditText

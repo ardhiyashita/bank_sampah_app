@@ -53,7 +53,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppinssemibold"
                 android:text="Nama"
-                android:textColor="@color/black"
+                android:textColor="@color/neutral80"
                 android:textSize="16sp" />
 
             <EditText

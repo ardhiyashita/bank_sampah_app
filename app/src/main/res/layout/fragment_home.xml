@@ -28,7 +28,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/hello"
-                android:textColor="@color/neutral_white"
+                android:textColor="@color/neutral0"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/username"
-                android:textColor="@color/neutral_white"
+                android:textColor="@color/neutral0"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/textHello"
@@ -53,7 +53,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/pilahsampah"
-                android:textColor="@color/neutral_white"
+                android:textColor="@color/neutral0"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Saldo Anda"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral80"
                         android:textSize="12sp"
                         android:paddingTop="10dp"
                         android:paddingHorizontal="10dp"/>
@@ -103,7 +103,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rp 100000"
-                        android:textColor="@color/primary1"
+                        android:textColor="@color/primary100"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:paddingBottom="10dp"
@@ -151,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/kelolatabungan"
                         android:textStyle="bold"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral80"
                         android:textSize="16sp"/>
 
                     <LinearLayout
@@ -176,7 +176,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Setor Sampah"
-                                android:textColor="@color/neutral_black"
+                                android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
 
@@ -198,7 +198,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Tarik Saldo"
-                                android:textColor="@color/neutral_black"
+                                android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
 
@@ -220,7 +220,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Riwayat Transaksi"
-                                android:textColor="@color/neutral_black"
+                                android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
                     </LinearLayout>
@@ -241,14 +241,14 @@
                                 android:text="Sampah Anda"
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
-                                android:textColor="@color/neutral_black"
+                                android:textColor="@color/neutral80"
                                 android:textSize="16sp"/>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total sampah yang berhasil dikumpulkan "
                                 android:layout_marginTop="0dp"
-                                android:textColor="@color/neutral_black"
+                                android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
 
@@ -284,7 +284,7 @@
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/total"
@@ -296,7 +296,7 @@
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                             </LinearLayout>
                             <LinearLayout
@@ -315,7 +315,7 @@
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/kertas"
@@ -327,7 +327,7 @@
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                             </LinearLayout>
                             <LinearLayout
@@ -346,7 +346,7 @@
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/botol"
@@ -358,7 +358,7 @@
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                             </LinearLayout>
                         </LinearLayout>
@@ -383,7 +383,7 @@
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/plastik"
@@ -395,7 +395,7 @@
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                             </LinearLayout>
                             <LinearLayout
@@ -414,7 +414,7 @@
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/logam"
@@ -426,7 +426,7 @@
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                             </LinearLayout>
                             <LinearLayout
@@ -445,7 +445,7 @@
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                                 <TextView
                                     android:id="@+id/lainnya"
@@ -457,7 +457,7 @@
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
                                     android:layout_gravity="center"
-                                    android:textColor="@color/neutral_white"
+                                    android:textColor="@color/neutral0"
                                     android:textSize="16sp"/>
                             </LinearLayout>
                         </LinearLayout>
@@ -470,7 +470,7 @@
                         android:text="Panduan"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral80"
                         android:textSize="16sp"/>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -491,7 +491,7 @@
                             android:text="Cara Menggunakan Aplikasi"
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="16sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -513,7 +513,7 @@
                             android:text="Cara Penyetoran Sampah"
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="16sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -535,7 +535,7 @@
                             android:text="Cara Penarikan Saldo"
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="16sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -557,7 +557,7 @@
                             android:text="Cara Memilah Sampah"
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_black"
+                            android:textColor="@color/neutral80"
                             android:textSize="16sp"/>
                     </LinearLayout>
 
@@ -568,7 +568,7 @@
                         android:text="Tentang Kami"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/neutral_black"
+                        android:textColor="@color/neutral80"
                         android:textSize="16sp"/>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -589,7 +589,7 @@
                             android:text="Bank Sampah Sami Asri"
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_white"
+                            android:textColor="@color/neutral0"
                             android:textSize="16sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -611,7 +611,7 @@
                             android:text="Pesan-Pede"
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textColor="@color/neutral_white"
+                            android:textColor="@color/neutral0"
                             android:textSize="16sp"/>
                     </LinearLayout>
 

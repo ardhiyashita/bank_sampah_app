@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary1">#00A86F</color>
-    <color name="secondary1">#27A654</color>
-    <color name="accent1">#FCA739</color>
-    <color name="accent2">#FDC727</color>
-    <color name="secondary2">#89BF2F</color>
-    <color name="secondary3">#64CE8A</color>
-    <color name="secondary4">#B0D671</color>
-    <color name="secondary5">#DBF6C5</color>
-    <color name="neutral_black">#000000</color>
-    <color name="neutral_white">#FBFBFF</color>
-    <color name="neutral_gray">#8D8888</color>
+    <color name="primary100">#00A86F</color>
+    <color name="primary80">#1BF3AA</color>
+    <color name="primary60">#87EEBC</color>
+    <color name="secondary100">#27A654</color>
+    <color name="secondary80">#64CE8A</color>
+    <color name="secondary60">#ACECB6</color>
+    <color name="accent100">#FCA739</color>
+    <color name="accent80">#F1B15D</color>
+    <color name="accent60">#FAE3C4</color>
+    <color name="yellow100">#FDC727</color>
+    <color name="yellow80">#F5D061</color>
+    <color name="yellow60">#F6F1D5</color>
+    <color name="green100">#89BF2F</color>
+    <color name="green80">#B0D671</color>
+    <color name="green60">#DBF6C5</color>
+    <color name="green40">#F0FFE4</color>
+    <color name="green20">#F7FFF6</color>
+    <color name="neutral100">#000000</color>
+    <color name="neutral80">#2E2E2E</color>
+    <color name="neutral60">#444343</color>
+    <color name="neutral40">#8D8888</color>
+    <color name="neutral20">#C9C9C9</color>
+    <color name="neutral0">#FBFBFF</color>
+
+<!--    <color name="neutral_black">#000000</color>-->
+<!--    <color name="neutral_white">#FBFBFF</color>-->
+<!--    <color name="neutral_gray">#8D8888</color>-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
