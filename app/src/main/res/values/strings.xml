@@ -7,4 +7,13 @@
     <string name="kelolatabungan">Kelola Tabungan</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help">ada yang bisa dibantu?</string>
+    <string name="help_desc">Kamu bisa cari dan tanyakan apa yang ingin ditanyakan.</string>
+    <string name="banksampah">Bank Sampah Sami Asri</string>
+    <string name="telp">088-123-456</string>
+    <string name="email">bps@gmail.com</string>
+    <string name="alamat">Desa Celuk, Kecamatan Sukawati, Gianyar, Bali</string>
+    <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
+    <string name="help_title">Masih Butuh Bantuan?</string>
+    <string name="kontak_title">Kontak Kami</string>
 </resources>
