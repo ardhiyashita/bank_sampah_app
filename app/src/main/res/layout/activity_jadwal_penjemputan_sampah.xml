@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Jadwal Pengumpulan Sampah"
+                android:text="Jadwal Penjemputan Sampah"
                 style="@style/heading2_semibold"
                 android:gravity="center"
                 android:textColor="@color/neutral100"
@@ -55,7 +55,7 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp">
                 <TextView
-                    android:id="@+id/hari1"
+                    android:id="@+id/hari8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
@@ -224,7 +224,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Titik Pengumpulan Sampah"
+                android:text="Titik Penjemputan Sampah"
                 style="@style/heading3_bold"
                 android:textColor="@color/neutral80"/>
             <!-- titik kumpul alamat 1 -->

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
+            android:name=".JadwalPenjemputanSampahActivity"
+            android:exported="false" />
+        <activity
             android:name=".JadwalPengumpulanSampahActivity"
             android:exported="false" />
         <activity
@@ -24,8 +27,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Home">
-        </activity>
+            android:label="Home"></activity>
     </application>
 
 </manifest>
