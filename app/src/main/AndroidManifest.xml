@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
-            android:name=".SetorSampah"
-            android:exported="false" />
-        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -24,7 +21,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Home"></activity>
+            android:label="Home">
+        </activity>
     </application>
 
 </manifest>
