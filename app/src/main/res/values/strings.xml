@@ -16,4 +16,8 @@
     <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
     <string name="help_title">Masih Butuh Bantuan?</string>
     <string name="kontak_title">Kontak Kami</string>
+
+    <string name="mulai">Mulai</string>
+    <string name="lanjut">Lanjutkan</string>
+    <string name="lewati">Lewati</string>
 </resources>
