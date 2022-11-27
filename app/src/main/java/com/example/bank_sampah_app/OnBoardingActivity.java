@@ -32,12 +32,12 @@ public class OnBoardingActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-//        //next activity
-//        if (restorePreData()){
-//            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(mainActivity);
-//            finish();
-//        }
+        //next activity
+        if (restorePreData()){
+            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainActivity);
+            finish();
+        }
 
         setContentView(R.layout.activity_onboarding);
 

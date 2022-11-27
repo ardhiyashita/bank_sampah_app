@@ -16,8 +16,9 @@
     <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
     <string name="help_title">Masih Butuh Bantuan?</string>
     <string name="kontak_title">Kontak Kami</string>
-
     <string name="mulai">Mulai</string>
     <string name="lanjut">Lanjutkan</string>
     <string name="lewati">Lewati</string>
+    <string name="welcome">Selamat Datang!</string>
+    <string name="welcome_text">Kelola dan ubah sampahmu jadi berkah! \n Bersama Bank Sampah Sami Asri \n BPS Desa Adat Cemenggaon</string>
 </resources>
