@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/neutral0"
     tools:context=".InformasiFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -18,6 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Informasi"
+                style="@style/heading1_semibold"
                 android:gravity="center"
                 android:textColor="@color/neutral80"
                 android:textStyle="bold"
@@ -33,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Jadwal Bank Sampah"
+                style="@style/heading2_bold"
                 android:textColor="@color/neutral80"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
@@ -44,13 +47,13 @@
                 android:layout_marginTop="8dp"
                 android:padding="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/secondary4_rectangle_background">
+                android:background="@drawable/bg_rectangle_green60">
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:padding="10dp"
                     android:layout_marginRight="8dp"
-                    android:src="@drawable/calendar" />
+                    android:src="@drawable/ic_calendar" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -62,6 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jadwal Pengumpulan Sampah"
+                        style="@style/heading3_semibold"
                         android:textStyle="bold"
                         android:textColor="@color/neutral80"
                         android:textSize="16sp" />
@@ -69,6 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pengumpulan sampah di Bank Sampah Sami Asri"
+                        style="@style/body3_regular"
                         android:textColor="@color/neutral40"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -77,7 +82,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_next" />
+                    android:src="@drawable/ic_next_green" />
             </LinearLayout>
             !-- jadwal jemput sampah -->
             <LinearLayout
@@ -87,13 +92,13 @@
                 android:layout_marginTop="8dp"
                 android:padding="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/secondary4_rectangle_background">
+                android:background="@drawable/bg_rectangle_green60">
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:padding="10dp"
                     android:layout_marginRight="8dp"
-                    android:src="@drawable/truck" />
+                    android:src="@drawable/ic_truck" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,6 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jadwal Penjemputan Sampah"
+                        style="@style/heading3_semibold"
                         android:textStyle="bold"
                         android:textColor="@color/neutral80"
                         android:textSize="16sp" />
@@ -113,6 +119,7 @@
                         android:layout_height="wrap_content"
                         android:text="Penjemputan sampah ke rumah warga"
                         android:textColor="@color/neutral40"
+                        style="@style/body3_regular"
                         android:textSize="12sp" />
                 </LinearLayout>
                 <ImageView
@@ -120,7 +127,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_next" />
+                    android:src="@drawable/ic_next_green" />
             </LinearLayout>
         </LinearLayout>
 
@@ -133,6 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Kategori Sampah"
+                style="@style/heading2_bold"
                 android:textColor="@color/neutral80"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
@@ -152,12 +160,13 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Botol Kaca"
+                            style="@style/body3_regular"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
@@ -176,6 +185,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="6 Poin/Kg"
+                            style="@style/body3_regular"
                             android:paddingBottom="5dp"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
@@ -189,12 +199,13 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Kardus"
+                            style="@style/body3_regular"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
@@ -213,6 +224,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="4 Poin/Kg"
+                            style="@style/body3_regular"
                             android:paddingBottom="5dp"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
@@ -226,12 +238,13 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Logam"
+                            style="@style/body3_regular"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
@@ -250,6 +263,8 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="5 Poin/Kg"
+
+                            style="@style/body3_regular"
                             android:paddingBottom="5dp"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
@@ -269,12 +284,13 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Kertas"
+                            style="@style/body3_regular"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
@@ -293,6 +309,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="3 Poin/Kg"
+                            style="@style/body3_regular"
                             android:paddingBottom="5dp"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
@@ -306,12 +323,13 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Botol Plastik"
+                            style="@style/body3_regular"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
@@ -330,6 +348,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="4 Poin/Kg"
+                            style="@style/body3_regular"
                             android:paddingBottom="5dp"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
@@ -343,12 +362,13 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Kresek"
+                            style="@style/body3_regular"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
                             android:paddingTop="5dp"
@@ -367,6 +387,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="2 Poin/Kg"
+                            style="@style/body3_regular"
                             android:paddingBottom="5dp"
                             android:textStyle="bold"
                             android:paddingHorizontal="5dp"
