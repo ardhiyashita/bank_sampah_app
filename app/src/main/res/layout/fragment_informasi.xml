@@ -6,378 +6,382 @@
     tools:context=".InformasiFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!-- informasi bar -->
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Informasi"
-                android:gravity="center"
-                android:textColor="@color/neutral80"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-        </LinearLayout>
-        <!-- jadwal bank sampah -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
+            <!-- informasi bar -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Jadwal Bank Sampah"
-                android:textColor="@color/neutral80"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-            <!-- jadwal pengumpulan sampah -->
+                android:layout_height="60dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Informasi"
+                    android:gravity="center"
+                    android:textColor="@color/neutral80"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+            <!-- jadwal bank sampah -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:padding="15dp"
-                android:layout_weight="1"
-                android:background="@drawable/secondary4_rectangle_background">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="10dp"
-                    android:layout_marginRight="8dp"
-                    android:src="@drawable/calendar" />
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Jadwal Bank Sampah"
+                    android:textColor="@color/neutral80"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+                <!-- jadwal pengumpulan sampah -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:padding="15dp"
                     android:layout_weight="1"
-                    android:gravity="left"
-                    android:layout_gravity="center">
-                    <TextView
+                    android:background="@drawable/secondary4_rectangle_background">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/calendar" />
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Jadwal Pengumpulan Sampah"
-                        android:textStyle="bold"
-                        android:textColor="@color/neutral80"
-                        android:textSize="16sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pengumpulan sampah di Bank Sampah Sami Asri"
-                        android:textColor="@color/neutral40"
-                        android:textSize="12sp" />
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jadwal Pengumpulan Sampah"
+                            android:textStyle="bold"
+                            android:textColor="@color/neutral80"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pengumpulan sampah di Bank Sampah Sami Asri"
+                            android:textColor="@color/neutral40"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_next" />
                 </LinearLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_next" />
-            </LinearLayout>
-            !-- jadwal jemput sampah -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:padding="15dp"
-                android:layout_weight="1"
-                android:background="@drawable/secondary4_rectangle_background">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="10dp"
-                    android:layout_marginRight="8dp"
-                    android:src="@drawable/truck" />
+                !-- jadwal jemput sampah -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:padding="15dp"
                     android:layout_weight="1"
-                    android:gravity="left"
-                    android:layout_gravity="center">
-                    <TextView
+                    android:background="@drawable/secondary4_rectangle_background">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/truck" />
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Jadwal Penjemputan Sampah"
-                        android:textStyle="bold"
-                        android:textColor="@color/neutral80"
-                        android:textSize="16sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Penjemputan sampah ke rumah warga"
-                        android:textColor="@color/neutral40"
-                        android:textSize="12sp" />
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jadwal Penjemputan Sampah"
+                            android:textStyle="bold"
+                            android:textColor="@color/neutral80"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Penjemputan sampah ke rumah warga"
+                            android:textColor="@color/neutral40"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_next" />
                 </LinearLayout>
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_next" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="15dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Kategori Sampah"
-                android:textColor="@color/neutral80"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="15dp">
+                android:layout_margin="15dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Kategori Sampah"
+                    android:textColor="@color/neutral80"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
-                        <TextView
+                        android:orientation="horizontal">
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Botol Kaca"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:paddingTop="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral80"
-                            android:textSize="12sp"/>
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/botolkaca" />
-                        <TextView
-                            android:id="@+id/botolkaca"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/panduan_rectangle">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Botol Kaca"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/botolkaca" />
+                            <TextView
+                                android:id="@+id/botolkaca"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="6 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="6 Poin/Kg"
-                            android:paddingBottom="5dp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral40"
-                            android:textSize="12sp"/>
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/panduan_rectangle">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Kardus"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/kardus" />
+                            <TextView
+                                android:id="@+id/kardus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="4 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/panduan_rectangle">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Logam"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/logam" />
+                            <TextView
+                                android:id="@+id/sampahlogam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="5 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
-                        <TextView
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Kardus"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:paddingTop="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral80"
-                            android:textSize="12sp"/>
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/kardus" />
-                        <TextView
-                            android:id="@+id/kardus"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/panduan_rectangle">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Kertas"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/kertas" />
+                            <TextView
+                                android:id="@+id/kertas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="3 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="4 Poin/Kg"
-                            android:paddingBottom="5dp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral40"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
-                        <TextView
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/panduan_rectangle">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Botol Plastik"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/plastik" />
+                            <TextView
+                                android:id="@+id/botolplastik"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="4 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Logam"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:paddingTop="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral80"
-                            android:textSize="12sp"/>
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/logam" />
-                        <TextView
-                            android:id="@+id/sampahlogam"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="5 Poin/Kg"
-                            android:paddingBottom="5dp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral40"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Kertas"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:paddingTop="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral80"
-                            android:textSize="12sp"/>
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/kertas" />
-                        <TextView
-                            android:id="@+id/kertas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="3 Poin/Kg"
-                            android:paddingBottom="5dp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral40"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Botol Plastik"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:paddingTop="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral80"
-                            android:textSize="12sp"/>
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/plastik" />
-                        <TextView
-                            android:id="@+id/botolplastik"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="4 Poin/Kg"
-                            android:paddingBottom="5dp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral40"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginHorizontal="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Kresek"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:paddingTop="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral80"
-                            android:textSize="12sp"/>
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:padding="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/kresek" />
-                        <TextView
-                            android:id="@+id/kresek"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="2 Poin/Kg"
-                            android:paddingBottom="5dp"
-                            android:textStyle="bold"
-                            android:paddingHorizontal="5dp"
-                            android:layout_gravity="center"
-                            android:textColor="@color/neutral40"
-                            android:textSize="12sp"/>
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/panduan_rectangle">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Kresek"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/kresek" />
+                            <TextView
+                                android:id="@+id/kresek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="2 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>
