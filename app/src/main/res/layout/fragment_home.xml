@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/neutral0"
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -28,6 +29,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/hello"
+                style="@style/heading2_regular"
                 android:textColor="@color/neutral0"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +42,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/username"
+                style="@style/heading2_regular"
                 android:textColor="@color/neutral0"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -49,9 +52,9 @@
             <TextView
                 android:id="@+id/textPilahSampah"
                 android:layout_width="wrap_content"
+                style="@style/heading2_bold"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
                 android:text="@string/pilahsampah"
                 android:textColor="@color/neutral0"
                 android:textSize="16sp"
@@ -77,7 +80,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/white_ractangle_background"
+                android:background="@drawable/bg_rectangle_white"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textPilahSampah">
@@ -95,6 +98,7 @@
                         android:text="Saldo Anda"
                         android:textColor="@color/neutral80"
                         android:textSize="12sp"
+                        style="@style/heading4_regular"
                         android:paddingTop="10dp"
                         android:paddingHorizontal="10dp"/>
 
@@ -103,10 +107,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rp 100000"
+                        style="@style/heading1_bold"
                         android:textColor="@color/primary100"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:paddingBottom="10dp"
                         android:paddingHorizontal="10dp"/>
                 </LinearLayout>
 
@@ -150,6 +154,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/kelolatabungan"
+                        style="@style/heading2_bold"
                         android:textStyle="bold"
                         android:textColor="@color/neutral80"
                         android:textSize="16sp"/>
@@ -176,6 +181,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Setor Sampah"
+                                style="@style/heading4_regular"
                                 android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
@@ -198,6 +204,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Tarik Saldo"
+                                style="@style/heading4_regular"
                                 android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
@@ -220,6 +227,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Riwayat Transaksi"
+                                style="@style/heading4_regular"
                                 android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
@@ -239,6 +247,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Sampah Anda"
+                                style="@style/heading2_bold"
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:textColor="@color/neutral80"
@@ -248,6 +257,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total sampah yang berhasil dikumpulkan "
                                 android:layout_marginTop="0dp"
+                                style="@style/body3_regular"
                                 android:textColor="@color/neutral80"
                                 android:textSize="12sp"/>
                         </LinearLayout>
@@ -256,7 +266,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_next"
+                            android:src="@drawable/ic_next_green"
                             android:layout_marginVertical="10dp" />
                     </LinearLayout>
 
@@ -274,12 +284,13 @@
                                 android:orientation="vertical"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/primary_rectangle_background">
+                                android:background="@drawable/bg_rectangle_primary">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Total"
+                                    style="@style/body1_semibold"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
@@ -292,6 +303,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="25"
+                                    style="@style/body1_bold"
                                     android:paddingBottom="20dp"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
@@ -304,13 +316,14 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_marginHorizontal="5dp"
-                                android:background="@drawable/secondary_rectangle_background"
+                                android:background="@drawable/bg_rectangle_green"
                                 android:layout_weight="1">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Kertas"
+                                    style="@style/body1_semibold"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
@@ -323,6 +336,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="25"
+                                    style="@style/body1_bold"
                                     android:paddingBottom="20dp"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
@@ -335,13 +349,14 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_marginHorizontal="5dp"
-                                android:background="@drawable/secondary2_rectangle_background"
+                                android:background="@drawable/bg_rectangle_secondary80"
                                 android:layout_weight="1">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Botol"
+                                    style="@style/body1_semibold"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
@@ -354,6 +369,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="25"
+                                    style="@style/body1_bold"
                                     android:paddingBottom="20dp"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
@@ -373,12 +389,13 @@
                                 android:orientation="vertical"
                                 android:layout_marginHorizontal="5dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/secondary3_rectangle_background">
+                                android:background="@drawable/bg_rectangle_green80">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Plastik"
+                                    style="@style/body1_semibold"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
@@ -391,6 +408,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="25"
+                                    style="@style/body1_bold"
                                     android:paddingBottom="20dp"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
@@ -403,13 +421,14 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_marginHorizontal="5dp"
-                                android:background="@drawable/accent_rectangle_background"
+                                android:background="@drawable/bg_rectangle_accent"
                                 android:layout_weight="1">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Logam"
+                                    style="@style/body1_semibold"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
@@ -422,6 +441,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="25"
+                                    style="@style/body1_bold"
                                     android:paddingBottom="20dp"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
@@ -434,13 +454,14 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_marginHorizontal="5dp"
-                                android:background="@drawable/accent_rectangle_background"
+                                android:background="@drawable/bg_rectangle_yellow"
                                 android:layout_weight="1">
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Lainnya"
+                                    style="@style/body1_semibold"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="20dp"
                                     android:paddingTop="20dp"
@@ -453,6 +474,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="25"
+                                    style="@style/body1_bold"
                                     android:paddingBottom="20dp"
                                     android:textStyle="bold"
                                     android:paddingHorizontal="30dp"
@@ -468,6 +490,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Panduan"
+                        style="@style/heading2_bold"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/neutral80"
@@ -478,7 +501,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -489,6 +512,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Cara Menggunakan Aplikasi"
+                            style="@style/heading4_semibold"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:textColor="@color/neutral80"
@@ -500,7 +524,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -511,6 +535,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Cara Penyetoran Sampah"
+                            style="@style/heading4_semibold"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:textColor="@color/neutral80"
@@ -522,7 +547,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -533,6 +558,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Cara Penarikan Saldo"
+                            style="@style/heading4_semibold"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:textColor="@color/neutral80"
@@ -544,7 +570,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -555,6 +581,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Cara Memilah Sampah"
+                            style="@style/heading4_semibold"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:textColor="@color/neutral80"
@@ -566,6 +593,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Tentang Kami"
+                        style="@style/heading2_bold"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/neutral80"
@@ -576,7 +604,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/primary_rectangle_background">
+                        android:background="@drawable/bg_rectangle_primary">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -587,6 +615,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Bank Sampah Sami Asri"
+                            style="@style/heading4_semibold"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:textColor="@color/neutral0"
@@ -598,7 +627,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/secondary_rectangle_background">
+                        android:background="@drawable/bg_rectangle_green">
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -609,6 +638,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Pesan-Pede"
+                            style="@style/heading4_semibold"
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:textColor="@color/neutral0"
