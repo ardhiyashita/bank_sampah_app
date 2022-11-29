@@ -2,12 +2,12 @@ package com.example.bank_sampah_app;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.bank_sampah_app.Transaksi.TransaksiFragment;
 import com.example.bank_sampah_app.databinding.MainActivityBinding;
 
 

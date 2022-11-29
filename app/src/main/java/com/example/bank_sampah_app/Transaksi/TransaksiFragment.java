@@ -1,15 +1,17 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.Transaksi;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.Transaksi.Diproses.ViewPagerDiprosesAdapter;
+import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 /**
@@ -20,6 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 public class TransaksiFragment extends Fragment {
 
     private TabLayout tabLayout;
+    private TabItem tabItem;
     private ViewPager viewPager;
 
 //  TODO: Rename parameter arguments, choose names that match
@@ -71,13 +74,18 @@ public class TransaksiFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
 
         tabLayout = v.findViewById(R.id.tablayouttransaksi);
+        tabItem = v.findViewById(R.id.tablayoutdiproses);
+        tabItem = v.findViewById(R.id.tablayoutriwayat);
         viewPager = v.findViewById(R.id.viewpager);
 
-        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.setupWithViewPager(viewPager);
+//
+//        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+//        viewPagerAdapter.addFragment(new DiprosesTransaksiFragment(), "Diproses");
+//        viewPagerAdapter.addFragment(new RiwayatTransaksiFragment(), "Riwayat");
+//        viewPager.setAdapter(viewPagerAdapter);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPagerAdapter.addFragment(new DiprosesTransaksiFragment(), "Diproses");
-        viewPagerAdapter.addFragment(new RiwayatTransaksiFragment(), "Riwayat");
+        ViewPagerDiprosesAdapter viewPagerAdapter = new ViewPagerDiprosesAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(viewPagerAdapter);
 
         return v;

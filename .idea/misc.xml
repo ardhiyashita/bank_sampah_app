@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/bg_roundedtop_rectangle_white.xml" value="0.129" />
+        <entry key="app/src/main/res/drawable/panduan_rectangle.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/secondary2_rectangle_background.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/white_ractangle_background.xml" value="0.1655" />
+        <entry key="app/src/main/res/layout/activity_jadwal_pengumpulan_sampah.xml" value="0.2718207096707995" />
+        <entry key="app/src/main/res/layout/activity_jadwal_penjemputan_sampah.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_diproses_transaksi.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3258453539198052" />
+        <entry key="app/src/main/res/layout/fragment_informasi.xml" value="0.32489776611328125" />
+        <entry key="app/src/main/res/layout/fragment_riwayat_transaksi.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_transaksi.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/list_diproses_item.xml" value="0.275030517578125" />
+        <entry key="app/src/main/res/layout/list_riwayat_item.xml" value="0.19610507246376813" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

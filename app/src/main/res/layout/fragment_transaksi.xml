@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TransaksiFragment">
+    tools:context=".Transaksi.TransaksiFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -33,12 +33,14 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tablayoutdiproses"
                 style="@style/heading3_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Diproses" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tablayoutriwayat"
                 style="@style/heading3_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

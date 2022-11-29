@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp">
@@ -12,17 +11,35 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:background="@drawable/bg_rectangle_white_stroke">
-        <TextView
-            android:id="@+id/jenisTransaksi"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingTop="15dp"
-            android:text="Setoran"
-            style="@style/heading1_semibold"
-            android:textStyle="bold"
-            android:textColor="@color/neutral80" />
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/jenisTransaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"
+                android:text="Setoran"
+                style="@style/heading1_semibold"
+                android:textStyle="bold"
+                android:textColor="@color/neutral80"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/jumlahSetoran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp"
+                android:text="+ Rp 4000"
+                style="@style/heading1_semibold"
+                android:textStyle="bold"
+                android:textColor="@color/primary100" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/statusTransaksi"
             android:layout_width="match_parent"
