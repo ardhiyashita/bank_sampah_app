@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RincianPenarikan"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinssemibold"
+            android:gravity="center"
+            android:text="Rincian Penarikan"
+            android:textAppearance="@style/heading2_bold"
+            android:textColor="@color/neutral80" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_custom_input">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rp50.000"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/heading1_bold" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/ic_process" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Sedang Diproses"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/heading3_regular"
+                    android:textColor="@color/accent100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:text="Metode Penarikan"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral40" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="320dp"
+                    android:layout_marginTop="100dp"
+                    android:text="Tunai"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral80" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="125dp"
+                    android:text="Jumlah Penarikan Dana"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral40" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="125dp"
+                    android:text="Rp50.000"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral80" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="150dp"
+                    android:text="Biaya Administrasi"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral40" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="330dp"
+                    android:layout_marginTop="150dp"
+                    android:text="Rp0"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral80" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="200dp"
+                    android:text="No. Transaksi"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral40" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="310dp"
+                    android:layout_marginTop="200dp"
+                    android:text="012345"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral80" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="225dp"
+                    android:text="Waktu Dibuat"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral40" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="260dp"
+                    android:layout_marginTop="225dp"
+                    android:text="11-11-2022 12:47"
+                    android:textAppearance="@style/heading4_regular"
+                    android:textColor="@color/neutral80" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="630dp"
+                android:background="@drawable/bg_rectangle_primary"
+                android:text="Selesai"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppinssemibold"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

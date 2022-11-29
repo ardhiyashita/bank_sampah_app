@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
+            android:name=".PanduanAplikasi"
+            android:exported="false" />
+        <activity
+            android:name=".RincianPenarikan"
+            android:exported="false" />
+        <activity
             android:name=".RincianSetorSampah"
             android:exported="false" />
         <activity
