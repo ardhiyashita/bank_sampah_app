@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
-            android:name=".JadwalJemputActivity"
+            android:name=".JadwalPenjemputanSampahActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JadwalPengumpulanSampahActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
