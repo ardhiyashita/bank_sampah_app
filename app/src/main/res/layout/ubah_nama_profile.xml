@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+<!--    tools:context=".MainActivity">-->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/asset1" />
+        app:srcCompat="@drawable/asset2" />
 
     <TextView
         android:id="@+id/textView2"
@@ -53,14 +53,14 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/poppinssemibold"
                 android:text="Nama"
-                android:textColor="@color/black"
+                android:textColor="@color/neutral80"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/custom_input"
+                android:background="@drawable/bg_custom_input"
                 android:ems="10"
                 android:fontFamily="@font/poppinsregular"
                 android:inputType="textPersonName"

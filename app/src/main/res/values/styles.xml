@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Display -->
+    <style name="display_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    <style name="display_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    <style name="display_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <!-- Heading 1 -->
+    <style name="heading1_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="heading1_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="heading1_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Heading 2 -->
+    <style name="heading2_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="heading2_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="heading2_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Heading 2 -->
+    <style name="heading3_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="heading3_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="heading3_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Heading 4 -->
+    <style name="heading4_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="heading4_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="heading4_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Button -->
+    <style name="button">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="caption_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="caption_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="caption_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Body 1 -->
+    <style name="body1_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="body1_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="body1_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Body 2 -->
+    <style name="body2_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="body2_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="body2_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Body 3 -->
+    <style name="body3_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="body3_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="body3_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- SmallText -->
+    <style name="smalltext_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="smalltext_semibold">
+        <item name="android:fontFamily">@font/poppinssemibold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="smalltext_regular">
+        <item name="android:fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>
