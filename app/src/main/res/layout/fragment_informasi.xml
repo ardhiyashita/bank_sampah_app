@@ -41,6 +41,7 @@
                     android:textSize="16sp"/>
                 <!-- jadwal pengumpulan sampah -->
                 <LinearLayout
+                    android:id="@+id/jadwalPengumpulan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -84,6 +85,7 @@
                 </LinearLayout>
                 !-- jadwal jemput sampah -->
                 <LinearLayout
+                    android:id="@+id/jadwalPenjemputan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
