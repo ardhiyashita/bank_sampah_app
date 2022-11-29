@@ -47,13 +47,13 @@
                 android:layout_marginTop="8dp"
                 android:padding="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/secondary4_rectangle_background">
+                android:background="@drawable/bg_rectangle_green60">
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:padding="10dp"
                     android:layout_marginRight="8dp"
-                    android:src="@drawable/calendar" />
+                    android:src="@drawable/ic_calendar" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_next" />
+                    android:src="@drawable/ic_next_green" />
             </LinearLayout>
             !-- jadwal jemput sampah -->
             <LinearLayout
@@ -92,13 +92,13 @@
                 android:layout_marginTop="8dp"
                 android:padding="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/secondary4_rectangle_background">
+                android:background="@drawable/bg_rectangle_green60">
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:padding="10dp"
                     android:layout_marginRight="8dp"
-                    android:src="@drawable/truck" />
+                    android:src="@drawable/ic_truck" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_next" />
+                    android:src="@drawable/ic_next_green" />
             </LinearLayout>
         </LinearLayout>
 
@@ -160,7 +160,7 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -362,7 +362,7 @@
                         android:orientation="vertical"
                         android:layout_marginHorizontal="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/panduan_rectangle">
+                        android:background="@drawable/bg_rectangle_white_stroke">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
