@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -88,8 +89,8 @@ public class OnBoardingActivity extends AppCompatActivity {
 
         // Button Start
         btnStart.setOnClickListener(view -> {
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(mainActivity);
+            Intent welcomeActivity = new Intent(getApplicationContext(), WelcomeActivity.class);
+            startActivity(welcomeActivity);
 
             savePrefsData();
             finish();
