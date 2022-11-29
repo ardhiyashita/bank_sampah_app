@@ -69,14 +69,50 @@
         android:layout_marginTop="20dp">
 
         <TextView
+            android:id="@+id/fotosampahtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/poppinsbold"
             android:text="Foto Sampah"
             android:textAppearance="@style/heading2_bold"
             android:textColor="@color/neutral80"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:layout_marginTop="1dp">
+
+        <Button
+            android:id="@+id/unggahbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rectangle_white_stroke"
+            android:src="@drawable/ic_camera"
+            android:text="Unggah Foto">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_rectangle_primary"
+            android:text="Kirim"/>
     </LinearLayout>
 
 </LinearLayout>

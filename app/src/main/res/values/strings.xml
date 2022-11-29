@@ -16,6 +16,6 @@
     <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
     <string name="help_title">Masih Butuh Bantuan?</string>
     <string name="kontak_title">Kontak Kami</string>
-    <string name="select">Select Item</string>
+    <string name="select">Pilih Jenis Penyetoran</string>
     <string name="jenis">Jenis Sampah</string>
 </resources>
