@@ -16,4 +16,12 @@
     <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
     <string name="help_title">Masih Butuh Bantuan?</string>
     <string name="kontak_title">Kontak Kami</string>
+
+    //diproses content
+    <string name="jenisTransaksi_1">Setoran</string>
+    <string name="jenisTransaksi_2">Penarikan</string>
+    <string name="statusTransaksi_1">Penyetoran Sedang Diverifikasi</string>
+    <string name="statusTransaksi_2">Menunggu Penjemputan</string>
+    <string name="statusTransaksi_3">Penarikan Dana Sedang Diproses</string>
+
 </resources>
