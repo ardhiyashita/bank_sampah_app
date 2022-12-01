@@ -24,4 +24,11 @@
     <string name="statusTransaksi_2">Menunggu Penjemputan</string>
     <string name="statusTransaksi_3">Penarikan Dana Sedang Diproses</string>
 
+    <string name="mulai">Mulai</string>
+    <string name="lanjut">Lanjutkan</string>
+    <string name="lewati">Lewati</string>
+    <string name="welcome">Selamat Datang!</string>
+    <string name="welcome_text">Kelola dan ubah sampahmu jadi berkah! \n Bersama Bank Sampah Sami Asri \n BPS Desa Adat Cemenggaon</string>
+    <string name="daftar">Daftar</string>
+
 </resources>

@@ -3,22 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2115" />
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/drawable/custom_input.xml" value="0.2115" />
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2115" />
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/drawable/white_background.xml" value="0.19" />
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/layout/edit_profile.xml" value="0.25" />
-        <entry key="..\:/Users/ARDHIA/AndroidStudioProjects/bank_sampah_app/app/src/main/res/layout/profile_user.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25911865234375003" />
-        <entry key="app/src/main/res/layout/profile_user.xml" value="0.15520833333333334" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/drawable/bg_custom_input.xml" value="0.124" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/drawable/cb_checked.xml" value="0.124" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/layout/activity_jadwal_pengumpulan_sampah.xml" value="0.264" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/layout/activity_jadwal_penjemputan_sampah.xml" value="0.264" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/layout/fragment_help.xml" value="0.25416666666666665" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/layout/fragment_informasi.xml" value="0.2" />
+        <entry key="..\:/PPK ORMAWA/banksampah/app/src/main/res/layout/list_faq.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
