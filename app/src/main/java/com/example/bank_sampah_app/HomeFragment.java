@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
         setorSampahImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentsetorsampah = new Intent(getActivity(), SetorSampah.class);
+                Intent intentsetorsampah = new Intent(getActivity(), SetorSampahActivity.class);
                 startActivity(intentsetorsampah);
 
             }
