@@ -40,6 +40,15 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="Home" />
+        <activity
+            android:name=".RincianPenarikan"
+            android:exported="false" />
+        <activity
+            android:name=".RincianSetorSampah"
+            android:exported="false" />
+        <activity
+            android:name=".FormSetorSampah"
+            android:exported="false" />
     </application>
 
 </manifest>
