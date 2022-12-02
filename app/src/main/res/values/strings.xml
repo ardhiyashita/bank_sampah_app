@@ -31,4 +31,12 @@
     <string name="welcome_text">Kelola dan ubah sampahmu jadi berkah! \n Bersama Bank Sampah Sami Asri \n BPS Desa Adat Cemenggaon</string>
     <string name="daftar">Daftar</string>
 
+    <string name="select">Pilih Jenis Penyetoran</string>
+    <string name="jenis">Jenis Sampah</string>
+
+    <string-array name="jenisPenyetoranSampahString">
+        <item>Jemput Sampah</item>
+        <item>Setor Langsung</item>
+    </string-array>
+
 </resources>

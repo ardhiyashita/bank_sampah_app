@@ -1,5 +1,6 @@
 package com.example.bank_sampah_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
  */
 public class HomeFragment extends Fragment {
 
+    ImageView setorSampahImg;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +62,19 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+
+        setorSampahImg = v.findViewById(R.id.setorSampahImg);
+
+        setorSampahImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentsetorsampah = new Intent(getActivity(), SetorSampah.class);
+                startActivity(intentsetorsampah);
+
+            }
+        });
+
+        return v;
     }
 }

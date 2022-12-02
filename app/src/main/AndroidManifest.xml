@@ -41,7 +41,13 @@
             android:exported="false"
             android:label="Home" />
         <activity
-            android:name=".TarikSaldoActivity"
+            android:name=".RincianPenarikan"
+            android:exported="false" />
+        <activity
+            android:name=".RincianSetorSampah"
+            android:exported="false" />
+        <activity
+            android:name=".SetorSampah"
             android:exported="false" />
     </application>
 
