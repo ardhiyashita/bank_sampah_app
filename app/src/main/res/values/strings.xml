@@ -39,4 +39,12 @@
         <item>Setor Langsung</item>
     </string-array>
 
+    <string-array name="jenisSampah">
+        <item>Plastik</item>
+        <item>Kertas</item>
+        <item>Kaca</item>
+        <item>Logam</item>
+        <item>Lainnya</item>
+    </string-array>
+
 </resources>
