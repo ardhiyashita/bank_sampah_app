@@ -34,4 +34,9 @@
     <string name="select">Pilih Jenis Penyetoran</string>
     <string name="jenis">Jenis Sampah</string>
 
+    <string-array name="jenisPenyetoranSampahString">
+        <item>Jemput Sampah</item>
+        <item>Setor Langsung</item>
+    </string-array>
+
 </resources>

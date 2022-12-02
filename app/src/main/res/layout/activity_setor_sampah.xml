@@ -52,18 +52,27 @@
             android:fontFamily="@font/poppinsbold"
             android:textColor="@color/neutral80"/>
 
-        <com.google.android.material.textfield.TextInputLayout
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/select"-->
+<!--            android:background="@drawable/bg_custom_input"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">-->
+<!--            <AutoCompleteTextView-->
+<!--                android:id="@+id/auto_complete_txt"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="none"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <Spinner
+            android:id="@+id/jenisPenyetoranSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/select"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bg_custom_input"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:id="@+id/auto_complete_txt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            style="@style/body2_regular"
+            android:padding="10dp" />
 
         <Button
             android:layout_width="match_parent"

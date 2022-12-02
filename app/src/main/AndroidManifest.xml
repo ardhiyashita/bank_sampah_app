@@ -47,7 +47,7 @@
             android:name=".RincianSetorSampah"
             android:exported="false" />
         <activity
-            android:name=".FormSetorSampah"
+            android:name=".SetorSampah"
             android:exported="false" />
     </application>
 
