@@ -40,6 +40,9 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="Home" />
+        <activity
+            android:name=".TarikSaldoActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
