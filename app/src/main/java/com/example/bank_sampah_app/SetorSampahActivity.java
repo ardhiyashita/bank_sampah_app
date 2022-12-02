@@ -23,12 +23,13 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         //spinner pilihan jenis penyetoran
 //        jenisPenyotaranSpinner = findViewById(R.id.jenisPenyetoranSpinner);
 //
-//        //adapter spinner
-        jenisPenyetoranAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,jenisPenyetoranSampahString);
-        jenisPenyotaranSpinner.setAdapter(jenisPenyetoranAdapter);
-
+        //adapter spinner
+//        jenisPenyetoranAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,jenisPenyetoranSampahString);
+//        jenisPenyotaranSpinner.setAdapter(jenisPenyetoranAdapter);
         jenisPenyotaranSpinner = findViewById(R.id.jenisPenyetoranSpinner);
-        jenisPenyotaranSpinner.setOnItemSelectedListener(this);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.jenisPenyetoranSampahString, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        jenisPenyotaranSpinner.setAdapter(adapter);
 
     }
 
