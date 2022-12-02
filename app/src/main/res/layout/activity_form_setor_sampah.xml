@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormSetorSampah"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_marginLeft="18dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinssemibold"
+            android:gravity="center"
+            android:text="Setor Sampah"
+            android:textColor="@color/neutral80"
+            android:textAppearance="@style/heading2_bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Penyetoran"
+                android:textAppearance="@style/heading2_bold"
+                android:textColor="@color/neutral80" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_custom_input"
+                android:clickable="false"
+                android:paddingStart="15dp"
+                android:text="Setor Sampah"
+                android:textAppearance="@style/body2_regular"
+                android:textColor="@color/neutral40" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Alamat"
+                android:textAppearance="@style/heading2_bold"
+                android:textColor="@color/neutral80" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:elevation="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_map" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Hrida Karuna"
+                        android:textAppearance="@style/heading3_bold"
+                        android:textColor="@color/neutral80" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="40dp"
+                        android:text="Br. Cemenggaon, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali 80582"
+                        android:textAppearance="@style/heading3_regular"
+                        android:textColor="@color/neutral80" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Jenis Sampah"
+                android:textAppearance="@style/heading2_bold"
+                android:textColor="@color/neutral80" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/jenis">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/auto_complete_txt"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:background="@drawable/bg_custom_input"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="215dp"
+                    android:paddingStart="10dp"
+                    android:background="@drawable/bg_custom_input"
+                    android:clickable="true"
+                    android:text="Berat (kg)"
+                    android:textAppearance="@style/body2_regular"
+                    android:textColor="@color/neutral40" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="330dp"
+                    android:layout_marginLeft="18dp"
+                    android:src="@drawable/ic_baseline_add_circle_outline_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="false"
+                    android:text="Plastik"
+                    android:textAppearance="@style/body2_regular"
+                    android:textColor="@color/neutral40" />
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="215dp"
+                    android:textAlignment="center"
+                    android:clickable="false"
+                    android:text="2 Kg"
+                    android:textAppearance="@style/body2_regular"
+                    android:textColor="@color/neutral40" />
+
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAllCaps="false"
+                android:background="@drawable/bg_rectangle_primary"
+                android:layout_marginTop="180dp"
+                android:text="Lanjut"
+                android:fontFamily="@font/poppinssemibold"
+                android:textSize="16sp"
+                android:textColor="@color/neutral0"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
