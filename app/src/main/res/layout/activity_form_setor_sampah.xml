@@ -132,7 +132,7 @@
                     android:clickable="true"
                     android:inputType="number"
                     android:paddingStart="10dp"
-                    android:text="Berat (kg)"
+                    android:hint="Berat (kg)"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
 
@@ -153,24 +153,22 @@
                 android:layout_marginTop="20dp">
 
                 <TextView
-                        android:id="@+id/jenisSampahTv"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:clickable="false"
-                        android:text="Plastik"
-                        android:textAppearance="@style/body2_regular"
-                        android:textColor="@color/neutral40"/>
+                    android:id="@+id/jenisSampahTv"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="false"
+                    android:textAppearance="@style/body2_regular"
+                    android:textColor="@color/neutral40" />
                 <TextView
-                        android:id="@+id/beratSampahTv"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="215dp"
-                        android:clickable="false"
-                        android:text="2 Kg"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/body2_regular"
-                        android:textColor="@color/neutral40" />
+                    android:id="@+id/beratSampahTv"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="215dp"
+                    android:clickable="false"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/body2_regular"
+                    android:textColor="@color/neutral40" />
             </RelativeLayout>
 
             <Button
