@@ -162,9 +162,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Botol Kaca"
+                                android:text="Kantong Plastik"
                                 android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
                                 android:paddingTop="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral80"
@@ -174,130 +173,13 @@
                                 android:layout_height="80dp"
                                 android:padding="10dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/botolkaca" />
+                                android:src="@drawable/kresek" />
                             <TextView
-                                android:id="@+id/botolkaca"
+                                android:id="@+id/kantongPlastikHarga"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="6 Poin/Kg"
-                                android:paddingBottom="5dp"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:layout_gravity="center"
-                                android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/bg_rectangle_white_stroke">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Kardus"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:paddingTop="5dp"
-                                android:layout_gravity="center"
-                                android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:padding="10dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/kardus" />
-                            <TextView
-                                android:id="@+id/kardus"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="4 Poin/Kg"
-                                android:paddingBottom="5dp"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:layout_gravity="center"
-                                android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/bg_rectangle_white_stroke">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Logam"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:paddingTop="5dp"
-                                android:layout_gravity="center"
-                                android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:padding="10dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/logam" />
-                            <TextView
-                                android:id="@+id/sampahlogam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="5 Poin/Kg"
-                                android:paddingBottom="5dp"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:layout_gravity="center"
-                                android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginHorizontal="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/bg_rectangle_white_stroke">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Kertas"
-                                android:textStyle="bold"
-                                android:paddingHorizontal="5dp"
-                                android:paddingTop="5dp"
-                                android:layout_gravity="center"
-                                android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
-                            <ImageView
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:padding="10dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/kertas" />
-                            <TextView
-                                android:id="@+id/kertas"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="3 Poin/Kg"
                                 android:paddingBottom="5dp"
                                 android:textStyle="bold"
                                 android:paddingHorizontal="5dp"
@@ -330,7 +212,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/plastik" />
                             <TextView
-                                android:id="@+id/botolplastik"
+                                android:id="@+id/botolPlastikHarga"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -353,7 +235,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="Kresek"
+                                android:text="Kertas"
                                 android:textStyle="bold"
                                 android:paddingHorizontal="5dp"
                                 android:paddingTop="5dp"
@@ -365,13 +247,13 @@
                                 android:layout_height="80dp"
                                 android:padding="10dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/kresek" />
+                                android:src="@drawable/kardus" />
                             <TextView
-                                android:id="@+id/kresek"
+                                android:id="@+id/kertasHarga"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="2 Poin/Kg"
+                                android:text="5 Poin/Kg"
                                 android:paddingBottom="5dp"
                                 android:textStyle="bold"
                                 android:paddingHorizontal="5dp"
@@ -379,6 +261,123 @@
                                 android:textColor="@color/neutral40"
                                 android:textSize="12sp"/>
                         </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_rectangle_white_stroke">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Logam"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/logam" />
+                            <TextView
+                                android:id="@+id/logamHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="3 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_rectangle_white_stroke">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Lainnya"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral80"
+                                android:textSize="12sp"/>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:padding="10dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/botolkaca" />
+                            <TextView
+                                android:id="@+id/lainnyaHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="4 Poin/Kg"
+                                android:paddingBottom="5dp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/neutral40"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="vertical"-->
+<!--                            android:layout_marginHorizontal="5dp"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:background="@drawable/bg_rectangle_white_stroke">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Kresek"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:paddingHorizontal="5dp"-->
+<!--                                android:paddingTop="5dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:textColor="@color/neutral80"-->
+<!--                                android:textSize="12sp"/>-->
+<!--                            <ImageView-->
+<!--                                android:layout_width="80dp"-->
+<!--                                android:layout_height="80dp"-->
+<!--                                android:padding="10dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:src="@drawable/kresek" />-->
+<!--                            <TextView-->
+<!--                                android:id="@+id/kresek"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="2 Poin/Kg"-->
+<!--                                android:paddingBottom="5dp"-->
+<!--                                android:textStyle="bold"-->
+<!--                                android:paddingHorizontal="5dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:textColor="@color/neutral40"-->
+<!--                                android:textSize="12sp"/>-->
+<!--                        </LinearLayout>-->
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

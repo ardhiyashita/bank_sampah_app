@@ -6,7 +6,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class RincianSetorSampah extends AppCompatActivity {
+public class RincianSetorSampahActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

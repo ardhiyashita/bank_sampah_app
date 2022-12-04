@@ -114,36 +114,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/jenis">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/auto_complete_txt"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:background="@drawable/bg_custom_input"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                <Spinner
+                    android:id="@+id/jenisSampahSpinner"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_custom_input"
+                    android:paddingStart="10dp"
+                    android:textAppearance="@style/body2_regular"
+                    android:textColor="@color/neutral40" />
 
                 <EditText
+                    android:id="@+id/beratJenisSampah"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="215dp"
-                    android:paddingStart="10dp"
                     android:background="@drawable/bg_custom_input"
                     android:clickable="true"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
                     android:text="Berat (kg)"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
 
                 <ImageView
+                    android:id="@+id/add"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="330dp"
                     android:layout_marginLeft="18dp"
+                    android:clickable="true"
                     android:src="@drawable/ic_baseline_add_circle_outline_24" />
 
             </RelativeLayout>
@@ -153,40 +152,39 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
-                <EditText
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:clickable="false"
-                    android:text="Plastik"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
-
-                <EditText
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="215dp"
-                    android:textAlignment="center"
-                    android:clickable="false"
-                    android:text="2 Kg"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
-
-
+                <TextView
+                        android:id="@+id/jenisSampahTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:clickable="false"
+                        android:text="Plastik"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColor="@color/neutral40"/>
+                <TextView
+                        android:id="@+id/beratSampahTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="215dp"
+                        android:clickable="false"
+                        android:text="2 Kg"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColor="@color/neutral40" />
             </RelativeLayout>
 
             <Button
+                android:id="@+id/lanjutFormSampahButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:textAllCaps="false"
-                android:background="@drawable/bg_rectangle_primary"
                 android:layout_marginTop="180dp"
-                android:text="Lanjut"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_rectangle_primary"
                 android:fontFamily="@font/poppinssemibold"
-                android:textSize="16sp"
-                android:textColor="@color/neutral0"/>
-
+                android:text="Lanjut"
+                android:textAllCaps="false"
+                android:textColor="@color/neutral0"
+                android:textSize="16sp" />
 
 
         </LinearLayout>

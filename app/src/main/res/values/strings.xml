@@ -40,9 +40,9 @@
     </string-array>
 
     <string-array name="jenisSampah">
-        <item>Plastik</item>
+        <item>Kantong Plastik</item>
+        <item>Botol Plastik</item>
         <item>Kertas</item>
-        <item>Kaca</item>
         <item>Logam</item>
         <item>Lainnya</item>
     </string-array>
