@@ -47,19 +47,24 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <!-- rincian setor -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/list_setor"/>
-    </LinearLayout>
+            android:layout_height="300dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp">
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                tools:listitem="@layout/list_setor"/>-->
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,6 +102,14 @@
             android:text="Unggah Foto">
         </Button>
 
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/showPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+        </ImageView>
     </LinearLayout>
 
     <LinearLayout
@@ -104,13 +117,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="85dp"
         android:layout_marginBottom="16dp">
 
         <Button
+            android:id="@+id/kirimSampahButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
             android:background="@drawable/bg_rectangle_primary"
             android:text="Kirim"/>
     </LinearLayout>
