@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app.Transaksi;
+package com.example.bank_sampah_app.transaksi;
 
 import android.os.Bundle;
 
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.Transaksi.Diproses.ViewPagerDiprosesAdapter;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 

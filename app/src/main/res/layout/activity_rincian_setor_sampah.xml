@@ -5,29 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RincianSetorSampahActivity"
+    tools:context=".setorSampah.RincianSetorSampahActivity"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            android:layout_marginLeft="18dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinssemibold"
-            android:gravity="center"
-            android:text="Setor Sampah"
-            android:textColor="@color/neutral80"
-            android:textAppearance="@style/heading2_bold" />
-    </RelativeLayout>
+    <include layout="@layout/layout_toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,7 +39,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/recycler_setor"/>
+            tools:listitem="@layout/list_setor"/>
     </LinearLayout>
 
     <LinearLayout

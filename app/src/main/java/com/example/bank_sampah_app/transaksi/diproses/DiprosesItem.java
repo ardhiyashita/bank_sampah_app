@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app.Transaksi.Diproses;
+package com.example.bank_sampah_app.transaksi.diproses;
 
 public class DiprosesItem {
 

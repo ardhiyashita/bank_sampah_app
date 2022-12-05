@@ -1,8 +1,10 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.tarikSaldo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.bank_sampah_app.R;
 
 public class TarikSaldoActivity extends AppCompatActivity {
 
