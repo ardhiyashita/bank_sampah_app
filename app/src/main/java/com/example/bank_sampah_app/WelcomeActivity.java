@@ -3,12 +3,14 @@ package com.example.bank_sampah_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.example.bank_sampah_app.authentication.LoginActivity;
+import com.example.bank_sampah_app.authentication.RegisterActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btnRegister, btnLogin;

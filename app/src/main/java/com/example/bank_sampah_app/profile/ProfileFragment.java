@@ -1,6 +1,5 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.profile;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,16 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+
+import com.example.bank_sampah_app.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link InformasiFragment#newInstance} factory method to
+ * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InformasiFragment extends Fragment {
-
-    LinearLayout jadwalPengumpulan, jadwalPenjemputan;
+public class ProfileFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +26,7 @@ public class InformasiFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public InformasiFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +36,11 @@ public class InformasiFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InformasiFragment.
+     * @return A new instance of fragment ProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static InformasiFragment newInstance(String param1, String param2) {
-        InformasiFragment fragment = new InformasiFragment();
+    public static ProfileFragment newInstance(String param1, String param2) {
+        ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,21 +61,6 @@ public class InformasiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_informasi, container, false);
-
-        jadwalPengumpulan = v.findViewById(R.id.jadwalPengumpulan);
-        jadwalPenjemputan = v.findViewById(R.id.jadwalPenjemputan);
-
-        jadwalPengumpulan.setOnClickListener(v1 -> {
-            Intent intentPengumpulan = new Intent(getActivity(),JadwalPengumpulanSampahActivity.class);
-            startActivity(intentPengumpulan);
-        });
-
-        jadwalPenjemputan.setOnClickListener(v12 -> {
-            Intent intentPenjemputan = new Intent(getActivity(),JadwalPenjemputanSampahActivity.class);
-            startActivity(intentPenjemputan);
-        });
-
-        return v;
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }

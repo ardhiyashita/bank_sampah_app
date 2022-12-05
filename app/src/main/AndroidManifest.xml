@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
-            android:name=".JadwalPenjemputanSampahActivity"
+            android:name=".informasi.JadwalPenjemputanSampahActivity"
             android:exported="false" />
         <activity
-            android:name=".JadwalPengumpulanSampahActivity"
+            android:name=".informasi.JadwalPengumpulanSampahActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
@@ -27,32 +27,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".authentication.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".authentication.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".OnBoardingActivity"
+            android:name=".onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="Home" />
         <activity
-            android:name=".RincianPenarikan"
+            android:name=".tarikSaldo.RincianPenarikanActivity"
             android:exported="false" />
         <activity
-            android:name=".RincianSetorSampahActivity"
+            android:name=".setorSampah.RincianSetorSampahActivity"
             android:exported="false" />
         <activity
-            android:name=".SetorSampahActivity"
+            android:name=".setorSampah.SetorSampahActivity"
             android:exported="false" />
         <activity
-            android:name=".FormSetorSampahActivity"
+            android:name=".setorSampah.FormSetorSampahActivity"
             android:exported="false" />
     </application>
 

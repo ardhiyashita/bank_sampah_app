@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.onboarding;
 
 public class OnBoardingItem {
     String Title, Description;

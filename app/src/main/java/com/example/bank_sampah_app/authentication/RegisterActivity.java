@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.telecom.Call;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+import com.example.bank_sampah_app.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class RegisterActivity extends AppCompatActivity {
