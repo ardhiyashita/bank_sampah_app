@@ -11,15 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.bank_sampah_app.R;
 
 public class FormSetorSampahActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ImageView add;
+    String positionToShowToSpinner;
     EditText beratJenisSampah;
     Spinner jenisSampahSpinner;
     Button lanjutFormSampahButton;
+    TextView jenisPenyetoranTv;
     String[] jenisPenyetoranSampahString;
     ArrayAdapter<String> jenisPenyetoranAdapter;
 
@@ -31,6 +34,13 @@ public class FormSetorSampahActivity extends AppCompatActivity implements Adapte
         //init
         beratJenisSampah = findViewById(R.id.beratJenisSampah);
         add = findViewById(R.id.add);
+        jenisPenyetoranTv = findViewById(R.id.jenisPenyetoranTv);
+
+        //ambil data intent jenis setor dan set text
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("jenisSampahValue");
+
+        jenisPenyetoranTv.setText(text);
 
         //spinner dan adapter pilihan jenis penyetoran
         jenisSampahSpinner = findViewById(R.id.jenisSampahSpinner);

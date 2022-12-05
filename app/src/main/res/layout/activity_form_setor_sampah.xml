@@ -163,7 +163,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:clickable="false"
-                        android:text="Plastik"
                         android:textAppearance="@style/body2_regular"
                         android:textColor="@color/neutral40" />
                     <TextView
@@ -172,7 +171,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="215dp"
                         android:clickable="false"
-                        android:text="2 Kg"
                         android:textAlignment="center"
                         android:textAppearance="@style/body2_regular"
                         android:textColor="@color/neutral40" />
