@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RincianSetorSampahActivity"
+    tools:context=".setorSampah.RincianSetorSampahActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -58,7 +58,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/recycler_setor"/>
+            tools:listitem="@layout/list_setor"/>
     </LinearLayout>
 
     <LinearLayout

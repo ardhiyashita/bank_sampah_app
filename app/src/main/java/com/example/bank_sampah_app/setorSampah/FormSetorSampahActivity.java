@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.setorSampah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import com.example.bank_sampah_app.R;
 
 public class FormSetorSampahActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

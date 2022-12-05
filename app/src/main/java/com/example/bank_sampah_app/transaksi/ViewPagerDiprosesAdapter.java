@@ -1,11 +1,12 @@
-package com.example.bank_sampah_app.Transaksi.Diproses;
+package com.example.bank_sampah_app.transaksi;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.bank_sampah_app.Transaksi.RiwayatTransaksiFragment;
+import com.example.bank_sampah_app.transaksi.diproses.DiprosesTransaksiFragment;
+import com.example.bank_sampah_app.transaksi.riwayat.RiwayatTransaksiFragment;
 
 public class ViewPagerDiprosesAdapter extends FragmentPagerAdapter {
 

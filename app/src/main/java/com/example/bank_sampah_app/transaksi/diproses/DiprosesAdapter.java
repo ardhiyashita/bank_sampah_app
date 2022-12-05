@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app.Transaksi.Diproses;
+package com.example.bank_sampah_app.transaksi.diproses;
 
 import android.content.Context;
 import android.view.LayoutInflater;

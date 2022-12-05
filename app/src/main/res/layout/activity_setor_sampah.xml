@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SetorSampahActivity"
+    tools:context=".setorSampah.SetorSampahActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinssemibold"
             android:gravity="center"
-            android:text="Setor Sampah"
+            android:text="@string/setor_sampah"
             android:textColor="@color/neutral80"
             android:textAppearance="@style/heading2_bold" />
     </RelativeLayout>
@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ubah Sampah \nJadi Berkah"
+            android:text="@string/ubah_sampah_jadi_berkah"
             android:fontFamily="@font/poppinsbold"
             android:textSize="24sp"
             android:textColor="@color/primary100"/>
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Penyetoran"
+            android:text="@string/penyetoran"
             android:textAppearance="@style/heading2_bold"
             android:fontFamily="@font/poppinsbold"
             android:textColor="@color/neutral80"/>
@@ -81,7 +81,7 @@
             android:textAllCaps="false"
             android:background="@drawable/bg_rectangle_primary"
             android:layout_marginTop="32dp"
-            android:text="Lanjut"
+            android:text="@string/lanjut"
             android:fontFamily="@font/poppinssemibold"
             android:textSize="16sp"
             android:textColor="@color/neutral0"/>

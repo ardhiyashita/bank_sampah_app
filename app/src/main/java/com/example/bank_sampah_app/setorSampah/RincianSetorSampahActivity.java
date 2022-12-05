@@ -1,10 +1,12 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.setorSampah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.bank_sampah_app.R;
 
 public class RincianSetorSampahActivity extends AppCompatActivity {
 

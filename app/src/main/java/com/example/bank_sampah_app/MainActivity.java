@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.bank_sampah_app.Transaksi.TransaksiFragment;
+import com.example.bank_sampah_app.help.HelpFragment;
+import com.example.bank_sampah_app.informasi.InformasiFragment;
+import com.example.bank_sampah_app.profile.ProfileFragment;
+import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 import com.example.bank_sampah_app.databinding.MainActivityBinding;
 
 
