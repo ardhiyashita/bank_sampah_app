@@ -5,27 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormSetorSampahActivity"
+    android:background="@color/neutral0"
+    tools:context=".setorSampah.FormSetorSampahActivity"
     android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            android:layout_marginLeft="18dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinssemibold"
-            android:gravity="center"
-            android:text="Setor Sampah"
-            android:textColor="@color/neutral80"
-            android:textAppearance="@style/heading2_bold" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,20 +25,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:fontFamily="@font/poppinsbold"
                 android:text="Penyetoran"
                 android:textAppearance="@style/heading2_bold"
                 android:textColor="@color/neutral80" />
 
-            <TextView
-                android:id="@+id/jenisPenyetoranTv"
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_custom_input"
                 android:clickable="false"
-                android:padding="13dp"
+                android:paddingStart="15dp"
+                android:text="Setor Sampah"
                 android:textAppearance="@style/body2_regular"
                 android:textColor="@color/neutral40" />
 
@@ -81,7 +68,6 @@
                         android:src="@drawable/ic_map" />
 
                     <TextView
-                        android:id="@+id/usernameSetorSampah"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="45dp"
@@ -91,7 +77,6 @@
                         android:textColor="@color/neutral80" />
 
                     <TextView
-                        android:id="@+id/usernameAlamatSetorSampah"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="45dp"
@@ -132,9 +117,9 @@
                     android:layout_marginLeft="215dp"
                     android:background="@drawable/bg_custom_input"
                     android:clickable="true"
-                    android:hint="Berat (kg)"
                     android:inputType="number"
                     android:paddingStart="10dp"
+                    android:text="Berat (kg)"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
 
@@ -160,14 +145,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:clickable="false"
+                    android:text="Plastik"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
+
                 <TextView
                     android:id="@+id/beratSampahTv"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="215dp"
                     android:clickable="false"
+                    android:text="2 Kg"
                     android:textAlignment="center"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
@@ -185,7 +173,12 @@
                 android:textAllCaps="false"
                 android:textColor="@color/neutral0"
                 android:textSize="16sp" />
+
+
         </LinearLayout>
+
+
+
     </RelativeLayout>
 
 </LinearLayout>

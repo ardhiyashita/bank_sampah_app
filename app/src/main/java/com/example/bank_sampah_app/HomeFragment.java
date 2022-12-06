@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
+import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +20,7 @@ import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
  */
 public class HomeFragment extends Fragment {
 
-    ImageView setorSampahImg;
+    ImageView setorSampahImg, tarikSaldoImg;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,6 +67,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+        //intent to setor sampah
         setorSampahImg = v.findViewById(R.id.setorSampahImg);
 
         setorSampahImg.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +76,18 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intentsetorsampah = new Intent(getActivity(), SetorSampahActivity.class);
                 startActivity(intentsetorsampah);
+
+            }
+        });
+
+        //intent to tarik saldo
+        tarikSaldoImg = v.findViewById(R.id.tarikSaldoImg);
+
+        tarikSaldoImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intenttariksaldo = new Intent(getActivity(), TarikSaldoActivity.class);
+                startActivity(intenttariksaldo);
 
             }
         });
