@@ -11,174 +11,290 @@
 
     <include layout="@layout/layout_toolbar"/>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsbold"
-                android:text="Penyetoran"
-                android:textAppearance="@style/heading2_bold"
-                android:textColor="@color/neutral80" />
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_custom_input"
-                android:clickable="false"
-                android:paddingStart="15dp"
-                android:text="Setor Sampah"
-                android:textAppearance="@style/body2_regular"
-                android:textColor="@color/neutral40" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppinsbold"
-                android:text="Alamat"
-                android:textAppearance="@style/heading2_bold"
-                android:textColor="@color/neutral80" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:elevation="10dp">
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:src="@drawable/ic_map" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Hrida Karuna"
-                        android:textAppearance="@style/heading3_bold"
-                        android:textColor="@color/neutral80" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="40dp"
-                        android:text="Br. Cemenggaon, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali 80582"
-                        android:textAppearance="@style/heading3_regular"
-                        android:textColor="@color/neutral80" />
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppinsbold"
-                android:text="Jenis Sampah"
-                android:textAppearance="@style/heading2_bold"
-                android:textColor="@color/neutral80" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <Spinner
-                    android:id="@+id/jenisSampahSpinner"
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_custom_input"
-                    android:paddingStart="10dp"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsbold"
+                    android:text="Penyetoran"
+                    android:textAppearance="@style/heading2_bold"
+                    android:textColor="@color/neutral80" />
 
                 <EditText
-                    android:id="@+id/beratJenisSampah"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="215dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/bg_custom_input"
-                    android:clickable="true"
-                    android:inputType="number"
-                    android:paddingStart="10dp"
-                    android:text="Berat (kg)"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
-
-                <ImageView
-                    android:id="@+id/add"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="330dp"
-                    android:layout_marginLeft="18dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_baseline_add_circle_outline_24" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:id="@+id/jenisSampahTv"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:clickable="false"
-                    android:text="Plastik"
+                    android:paddingStart="15dp"
+                    android:text="Setor Sampah"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
 
                 <TextView
-                    android:id="@+id/beratSampahTv"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="215dp"
-                    android:clickable="false"
-                    android:text="2 Kg"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
-            </RelativeLayout>
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppinsbold"
+                    android:text="Alamat"
+                    android:textAppearance="@style/heading2_bold"
+                    android:textColor="@color/neutral80" />
 
-            <Button
-                android:id="@+id/lanjutFormSampahButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="180dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_rectangle_primary"
-                android:fontFamily="@font/poppinssemibold"
-                android:text="Lanjut"
-                android:textAllCaps="false"
-                android:textColor="@color/neutral0"
-                android:textSize="16sp" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:elevation="10dp">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-        </LinearLayout>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/ic_map" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Hrida Karuna"
+                            android:textAppearance="@style/heading3_bold"
+                            android:textColor="@color/neutral80" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="40dp"
+                            android:text="Br. Cemenggaon, Celuk, Kec. Sukawati, Kabupaten Gianyar, Bali 80582"
+                            android:textAppearance="@style/heading3_regular"
+                            android:textColor="@color/neutral80" />
 
-    </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Jenis Sampah"
+                    android:textAppearance="@style/heading2_bold"
+                    android:textColor="@color/neutral80" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Mohon masukan berat sampah yang di setor atau jemput. Sampah yang tidak di setor atau jemput, silahkan isikan dengan angka 0."
+                    android:textAppearance="@style/heading3_regular"
+                    android:textColor="@color/neutral80" />
+
+                <!--            <RelativeLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="50dp">-->
+
+                <!--                <Spinner-->
+                <!--                    android:id="@+id/jenisSampahSpinner"-->
+                <!--                    android:layout_width="200dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:background="@drawable/bg_custom_input"-->
+                <!--                    android:paddingStart="10dp"-->
+                <!--                    android:textAppearance="@style/body2_regular"-->
+                <!--                    android:textColor="@color/neutral40" />-->
+
+                <!--                <EditText-->
+                <!--                    android:id="@+id/beratJenisSampah"-->
+                <!--                    android:layout_width="100dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:layout_marginLeft="215dp"-->
+                <!--                    android:background="@drawable/bg_custom_input"-->
+                <!--                    android:clickable="true"-->
+                <!--                    android:inputType="number"-->
+                <!--                    android:paddingStart="10dp"-->
+                <!--                    android:text="Berat (kg)"-->
+                <!--                    android:textAppearance="@style/body2_regular"-->
+                <!--                    android:textColor="@color/neutral40" />-->
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/add"-->
+                <!--                    android:layout_width="50dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:layout_marginStart="330dp"-->
+                <!--                    android:layout_marginLeft="18dp"-->
+                <!--                    android:clickable="true"-->
+                <!--                    android:src="@drawable/ic_baseline_add_circle_outline_24" />-->
+
+                <!--            </RelativeLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/kantongPlastikTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:clickable="false"
+                        android:text="Kantong Plastik"
+                        android:textAppearance="@style/heading1_bold"
+                        android:textColor="@color/primary100"
+                        android:layout_weight="2"/>
+
+                    <EditText
+                        android:id="@+id/beratKantongPlastikEt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="0 Kg"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/heading2_semibold"
+                        android:textColor="@color/neutral100"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/botolPlastikTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:clickable="false"
+                        android:text="Botol Plastik"
+                        android:textAppearance="@style/heading1_bold"
+                        android:textColor="@color/primary100"
+                        android:layout_weight="2"/>
+
+                    <EditText
+                        android:id="@+id/beratBotolPlatikEt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="0 Kg"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/heading2_semibold"
+                        android:textColor="@color/neutral100"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/kertasTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:clickable="false"
+                        android:text="Kertas"
+                        android:textAppearance="@style/heading1_bold"
+                        android:textColor="@color/primary100"
+                        android:layout_weight="2"/>
+
+                    <EditText
+                        android:id="@+id/beratKertasEt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="0 Kg"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/heading2_semibold"
+                        android:textColor="@color/neutral100"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/logamTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:clickable="false"
+                        android:text="Logam"
+                        android:textAppearance="@style/heading1_bold"
+                        android:textColor="@color/primary100"
+                        android:layout_weight="2"/>
+
+                    <EditText
+                        android:id="@+id/beratLogamEt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="0 Kg"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/heading2_semibold"
+                        android:textColor="@color/neutral100"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/lainnyaTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:clickable="false"
+                        android:text="Lainnya"
+                        android:textAppearance="@style/heading1_bold"
+                        android:textColor="@color/primary100"
+                        android:layout_weight="2"/>
+
+                    <EditText
+                        android:id="@+id/beratLainnyaEt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="0 Kg"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/heading2_semibold"
+                        android:textColor="@color/neutral100"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/lanjutFormSampahButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_rectangle_primary"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="Lanjut"
+                    android:textAllCaps="false"
+                    android:textColor="@color/neutral0"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>
