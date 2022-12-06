@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/poppinssemibold"
+                    style="@style/body1_semibold"
                     android:gravity="bottom"
                     android:text="Ni Made Ardhiya Shita Pramesti"
                     android:textColor="@color/black"
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/poppinsregular"
+                    style="@style/body2_regular"
                     android:gravity="bottom"
                     android:text="ardhiyashita@gmail.com" />
 
@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/poppinsregular"
+                    style="@style/body2_regular"
                     android:text="+6281237491235" />
 
                 <TextView
@@ -69,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/poppinssemibold"
+                    style="@style/body2_semibold"
                     android:text="akun terverifikasi"
                     android:textColor="#00A86F" />
             </LinearLayout>
@@ -120,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:fontFamily="@font/poppinsbold"
+                style="@style/body1_bold"
                 android:text="  Akun dan Keamanan"
                 android:textColor="#00A86F"
                 android:textSize="16sp" />
@@ -148,7 +148,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body2_regular"
                         android:text="Ubah Data Akun" />
 
                 </LinearLayout>
@@ -192,7 +192,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body2_regular"
                         android:text="Ubah Password" />
                 </LinearLayout>
 
@@ -235,7 +235,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="Log Out" />
                 </LinearLayout>
 
@@ -261,7 +261,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:fontFamily="@font/poppinsbold"
+                style="@style/body1_bold"
                 android:text="  Info Lainnya"
                 android:textColor="#00A86F"
                 android:textSize="16sp" />
@@ -289,7 +289,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body2_regular"
                         android:text="Beri Penilaian" />
                 </LinearLayout>
 
@@ -332,7 +332,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body2_regular"
                         android:text="Syarat dan Ketentuan" />
                 </LinearLayout>
 
@@ -375,7 +375,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body2_regular"
                         android:text="Bantuan dan Pencarian" />
                 </LinearLayout>
 
