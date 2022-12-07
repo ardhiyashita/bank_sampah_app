@@ -30,18 +30,5 @@ public class ApiClient {
                 .build();
     }
 
-//    private static Retrofit getRetrofit(){
-//
-//        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-//        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//
-//        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
-//
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .baseUrl("Constant.BASE_URL")
-//                .client(okHttpClient)
-//                .build();
-//        return retrofit;
-//    }
+
 }

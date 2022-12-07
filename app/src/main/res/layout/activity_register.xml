@@ -176,7 +176,7 @@
                         android:paddingBottom="8dp"
                         android:hint="Masukan alamat email anda (opsional)"
                         android:singleLine="true"
-                        android:inputType="phone"
+                        android:inputType="textEmailAddress"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />
 
@@ -223,7 +223,7 @@
                         android:background="@drawable/bg_custom_input"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        android:hint="contoh: 01/01/1990"
+                        android:hint="contoh: 2001-01-01"
                         android:singleLine="true"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />

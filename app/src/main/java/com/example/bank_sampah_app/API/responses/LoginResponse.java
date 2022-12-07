@@ -5,13 +5,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginResponse {
 
+    @SerializedName("success")
     private Boolean success;
 
     @SerializedName("message")
     private String message;
 
+    @SerializedName("token")
     private String token;
 
+    @SerializedName("user")
     private User user;
 
 

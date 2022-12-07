@@ -2,7 +2,7 @@ package com.example.bank_sampah_app.API;
 
 import android.content.Context;
 
-import com.example.bank_sampah_app.SessionManager;
+import com.example.bank_sampah_app.authentication.SessionManager;
 
 import java.io.IOException;
 

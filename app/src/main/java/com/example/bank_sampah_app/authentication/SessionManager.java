@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.authentication;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,6 +17,7 @@ public class SessionManager{
     public void saveAuthToken (String token){
         editor=sharedPreferences.edit();
         editor.putString(USER_TOKEN, token);
+        editor.putBoolean("isUserLogin", true);
         editor.apply();
     }
 
