@@ -4,7 +4,7 @@
     <item android:drawable="@drawable/shadow_background"/>
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/white"></solid>
+            <solid android:color="@color/neutral0"></solid>
             <corners android:radius="6dp"></corners>
             <stroke android:color="#00A86F" android:width="2dp"></stroke>
         </shape>

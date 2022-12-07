@@ -1,8 +1,13 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.API.requests;
+
+import com.google.gson.annotations.SerializedName;
 
 public class LoginRequest {
 
+    @SerializedName("email")
     private String username;
+
+    @SerializedName("password")
     private String password;
 
     public String getUsername() {
