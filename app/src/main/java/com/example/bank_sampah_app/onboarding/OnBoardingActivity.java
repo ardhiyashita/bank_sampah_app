@@ -35,12 +35,12 @@ public class OnBoardingActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //next activity
-        if (restorePreData()){
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(mainActivity);
-            finish();
-        }
+//        //next activity
+//        if (restorePreData()){
+//            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+//            startActivity(mainActivity);
+//            finish();
+//        }
 
         setContentView(R.layout.activity_onboarding);
 
@@ -94,25 +94,25 @@ public class OnBoardingActivity extends AppCompatActivity {
             Intent welcomeActivity = new Intent(getApplicationContext(), WelcomeActivity.class);
             startActivity(welcomeActivity);
 
-            savePrefsData();
+//            savePrefsData();
             finish();
         });
     }
 
-    private boolean restorePreData(){
-        SharedPreferences preferences = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
-
-        return preferences.getBoolean("isOnboardingOpened",false);
-    }
-
-    private void savePrefsData(){
-        SharedPreferences preferences = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = preferences.edit();
-
-        editor.putBoolean("isOnboardingOpened",true);
-        editor.apply();
-    }
+//    private boolean restorePreData(){
+//        SharedPreferences preferences = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
+//
+//        return preferences.getBoolean("isOnboardingOpened",false);
+//    }
+//
+//    private void savePrefsData(){
+//        SharedPreferences preferences = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
+//
+//        SharedPreferences.Editor editor = preferences.edit();
+//
+//        editor.putBoolean("isOnboardingOpened",true);
+//        editor.apply();
+//    }
 
     private  void loadLastScreen(){
         linearNext.setVisibility(View.INVISIBLE);

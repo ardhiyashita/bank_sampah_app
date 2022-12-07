@@ -44,7 +44,7 @@
                     android:fontFamily="@font/poppinssemibold"
                     android:gravity="bottom"
                     android:text="Ni Made Ardhiya Shita Pramesti"
-                    android:textColor="@color/black"
+                    android:textColor="@color/neutral80"
                     android:textSize="16sp" />
 
                 <TextView
