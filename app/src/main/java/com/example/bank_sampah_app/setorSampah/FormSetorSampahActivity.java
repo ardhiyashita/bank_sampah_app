@@ -41,14 +41,14 @@ public class FormSetorSampahActivity extends AppCompatActivity implements Adapte
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
         
         //init
-        beratJenisSampah = findViewById(R.id.beratJenisSampah);
-        add = findViewById(R.id.add);
-
-        //spinner dan adapter pilihan jenis penyetoran
-        jenisSampahSpinner = findViewById(R.id.jenisSampahSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.jenisSampah, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        jenisSampahSpinner.setAdapter(adapter);
+//        beratJenisSampah = findViewById(R.id.beratJenisSampah);
+//        add = findViewById(R.id.add);
+//
+//        //spinner dan adapter pilihan jenis penyetoran
+//        jenisSampahSpinner = findViewById(R.id.jenisSampahSpinner);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.jenisSampah, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        jenisSampahSpinner.setAdapter(adapter);
 
         //button lanjut
         lanjutFormSampahButton = findViewById(R.id.lanjutFormSampahButton);
