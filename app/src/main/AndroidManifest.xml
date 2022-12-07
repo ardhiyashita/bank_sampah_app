@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
+            android:name=".setorSampah.SelesaiSetorSampahActivity"
+            android:exported="false" />
+        <activity
             android:name=".informasi.JadwalPenjemputanSampahActivity"
             android:exported="false" />
         <activity
@@ -44,6 +47,9 @@
             android:label="Home" />
         <activity
             android:name=".tarikSaldo.RincianPenarikanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tarikSaldo.TarikSaldoActivity"
             android:exported="false" />
         <activity
             android:name=".setorSampah.RincianSetorSampahActivity"

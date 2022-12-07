@@ -63,7 +63,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    app:boxBackgroundMode="none"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/error"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorTextColor="@color/error"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -71,9 +77,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@drawable/bg_custom_input"
+                        android:hint="Masukan nama lengkap anda"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        android:hint="Masukan nama lengkap anda"
+                        android:singleLine="true"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />
 
@@ -103,7 +110,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    app:boxBackgroundMode="none"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -114,6 +127,7 @@
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:hint="Masukan nomor HP anda"
+                        android:singleLine="true"
                         android:inputType="phone"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />
@@ -144,7 +158,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    app:boxBackgroundMode="none"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -154,7 +174,8 @@
                         android:background="@drawable/bg_custom_input"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        android:hint="dd/mm/yyy"
+                        android:hint="contoh: 01-01-1990"
+                        android:singleLine="true"
                         android:inputType="date"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />
@@ -185,7 +206,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    app:boxBackgroundMode="none"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -196,6 +223,7 @@
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:hint="Masukan alamat anda"
+                        android:singleLine="true"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />
 
@@ -213,9 +241,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/linear_alamat">
 
                 <TextView
+                    android:id="@+id/tv_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Jenis Kelamin"
+                    android:layout_marginEnd="16dp"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/heading3_semibold"
                     android:textColor="@color/neutral80" />
@@ -267,7 +297,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    app:boxBackgroundMode="none"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
                     app:hintEnabled="false"
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/neutral20">
@@ -280,6 +316,7 @@
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:hint="Masukan kata sandi anda"
+                        android:singleLine="true"
                         android:textAlignment="viewStart"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40"
@@ -312,7 +349,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    app:boxBackgroundMode="none"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
                     app:hintEnabled="false"
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/neutral20"
@@ -322,7 +364,8 @@
                         android:id="@+id/reg_cpassword"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:hint="Masukan kata sandi anda"
+                        android:hint="Masukan kembali kata sandi anda"
+                        android:singleLine="true"
                         android:background="@drawable/bg_custom_input"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
@@ -383,17 +426,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Belum punya akun?"
+                android:text="Sudah punya akun?"
                 android:textAppearance="@style/heading4_regular"
                 android:textColor="@color/neutral40"/>
 
             <TextView
-                android:id="@+id/link_register"
+                android:id="@+id/link_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="@string/daftar"
-                android:textAppearance="@style/heading4_semibold"
+                android:text="Masuk"
+                android:textAppearance="@style/heading3_semibold"
                 android:textColor="@drawable/text_selector"
                 android:clickable="true"
                 android:focusable="true"/>
