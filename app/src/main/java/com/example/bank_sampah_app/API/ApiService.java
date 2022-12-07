@@ -1,8 +1,10 @@
 package com.example.bank_sampah_app.API;
 
 import com.example.bank_sampah_app.API.requests.LoginRequest;
+import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
+import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
 
 import okhttp3.ResponseBody;
@@ -21,6 +23,9 @@ public interface ApiService {
 
     @POST("register")
     Call<RegisterResponse> userRegister(@Body RegisterRequest registerRequest);
+
+    @POST("pengajuan/create/")
+    Call<PengajuanResponse> userPengajuan(@Body PengajuanRequest pengajuanRequest);
 
 
 }

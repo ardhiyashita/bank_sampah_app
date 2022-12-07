@@ -57,22 +57,6 @@
             style="@style/body2_regular"
             android:padding="10dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Catatan"
-            android:textAppearance="@style/heading2_bold"
-            android:textColor="@color/neutral80" />
-        <EditText
-            android:id="@+id/catatanSampahEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_custom_input"
-            android:padding="10dp"
-            android:layout_marginTop="5dp"
-            android:textAppearance="@style/heading3_regular"
-            android:textColor="@color/neutral80" />
 
         <LinearLayout
             android:layout_width="match_parent"
