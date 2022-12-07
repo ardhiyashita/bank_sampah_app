@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -16,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bank_sampah_app.API.requests.RegisterRequest;
+import com.example.bank_sampah_app.API.responses.RegisterResponse;
 import com.example.bank_sampah_app.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -23,10 +25,14 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterActivity extends AppCompatActivity {
     Button btnRegist;
-    TextInputEditText etNama, etHp, etLahir, etAlamat, etPass, etCpass;
-    TextInputLayout tlNama, tlHp, tlLahir, tlAlamat, tlPass, tLCpass;
+    TextInputEditText etNama, etHp, etEmail, etLahir, etAlamat, etPass, etCpass;
+    TextInputLayout tlNama, tlHp, tlEmail, tlLahir, tlAlamat, tlPass, tLCpass;
     RadioGroup rgGender;
     RadioButton radioButton;
     TextView tvLogin, tvGender;
@@ -44,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         etNama = findViewById(R.id.reg_nama);
         etHp = findViewById(R.id.reg_hp);
+        etEmail = findViewById(R.id.reg_email);
         etLahir = findViewById(R.id.reg_lahir);
         etAlamat = findViewById(R.id.reg_alamat);
         rgGender = findViewById(R.id.reg_gender);
@@ -52,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         tlNama = findViewById(R.id.input_layout_nama);
         tlHp = findViewById(R.id.input_layout_hp);
+        tlEmail = findViewById(R.id.input_layout_email);
         tlLahir = findViewById(R.id.input_layout_lahir);
         tlAlamat = findViewById(R.id.input_layout_alamat);
         tlPass = findViewById(R.id.input_layout_password);
@@ -78,6 +86,22 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 tlHp.setError(null);
+            }
+        });
+
+        etEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString()).matches()){
+                    tlEmail.setError("Alamat email salah");
+                } else {
+                    tlEmail.setError(null);
+                }
             }
         });
 
@@ -166,13 +190,39 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerValidation();
-                // tambah post api
+//                register();
             }
 
         });
     }
 
-    void registerValidation(){
+//    private void register(){
+//        RegisterRequest registerRequest = new RegisterRequest();
+//        registerRequest.setName(etNama.getText().toString());
+//
+//        retrofit2.Call<LoginResponse> loginResponseCall = apiClient.getApiService(this).userLogin(loginRequest);
+//        loginResponseCall.enqueue(new Callback<LoginResponse>() {
+//            @Override
+//            public void onResponse(retrofit2.Call<LoginResponse> call, Response<LoginResponse> response) {
+//                LoginResponse loginResponse = response.body();
+//                if (loginResponse.getSuccess()==true) {
+//                    sessionManager.saveAuthToken(loginResponse.getToken());
+//                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+//                    toMain();
+//                } else {
+//                    Toast.makeText(LoginActivity.this, "Username dan password tidak sesuai", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<LoginResponse> call, Throwable t) {
+//                Toast.makeText(LoginActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
+
+    private void registerValidation(){
         String nama = etNama.getText().toString();
         String hp = etHp.getText().toString();
         String lahir = etLahir.getText().toString();

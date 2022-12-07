@@ -136,7 +136,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_lahir"
+                android:id="@+id/linear_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -144,6 +144,55 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linear_hp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="Masukan alamat email anda (opsional)"
+                        android:singleLine="true"
+                        android:inputType="phone"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_lahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_email">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -174,9 +223,8 @@
                         android:background="@drawable/bg_custom_input"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        android:hint="contoh: 01-01-1990"
+                        android:hint="contoh: 01/01/1990"
                         android:singleLine="true"
-                        android:inputType="date"
                         android:textAppearance="@style/body2_regular"
                         android:textColorHint="@color/neutral40" />
 

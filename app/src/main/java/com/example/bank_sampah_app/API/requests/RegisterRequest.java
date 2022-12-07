@@ -28,7 +28,6 @@ public class RegisterRequest {
         this.email = email;
     }
 
-
     public String getAlamat() {
         return alamat;
     }

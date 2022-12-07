@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLoginListener();
         txtRegisterListener();
-        txtForgotListener();
+//        txtForgotListener();
 
     }
 
@@ -78,15 +78,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void txtForgotListener() {
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+//    public void txtForgotListener() {
+//        forgotPassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(RegisterActivitys.this, .class);
 //                startActivity(intent);
-            }
-        });
-    }
+//            }
+//        });
+//    }
 
     private void login() {
         LoginRequest loginRequest = new LoginRequest();
