@@ -11,6 +11,12 @@
 
     <include layout="@layout/layout_toolbar"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,24 +29,50 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/poppinsbold"
-            android:text="Rincian Setoran"
-            android:textAppearance="@style/heading1_bold"
+            android:text="Tipe Pengambilan"
+            android:textAppearance="@style/heading2_bold"
             android:textColor="@color/neutral80" />
+
+        <TextView
+            android:id="@+id/tipePengambilanTv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_custom_input"
+            android:clickable="false"
+            android:padding="13dp"
+            android:textAppearance="@style/body2_regular"
+            android:textColor="@color/neutral40" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginRight="16dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="10dp"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/list_setor"/>
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppinsbold"
+            android:text="Total Berat Sampah"
+            android:textAppearance="@style/heading2_bold"
+            android:textColor="@color/neutral80" />
+
+        <TextView
+            android:id="@+id/totalBeratRincianTv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_custom_input"
+            android:clickable="false"
+            android:padding="13dp"
+            android:textAppearance="@style/body2_regular"
+            android:textColor="@color/neutral40" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -74,28 +106,40 @@
             android:id="@+id/unggahbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bg_rectangle_white_stroke"
             android:src="@drawable/ic_camera"
             android:text="Unggah Foto">
         </Button>
-
+        <ImageView
+            android:id="@+id/fotoSampahImg"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginBottom="16dp">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/kirimSetorSampahButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bg_rectangle_primary"
-            android:text="Kirim"/>
+            style="@style/button"
+            android:text="Kirim"
+            android:textAllCaps="false"
+            android:textColor="@color/neutral0"
+            android:textSize="16sp" />
+
     </LinearLayout>
 
 </LinearLayout>

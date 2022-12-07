@@ -12,10 +12,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="@string/penyetoran"
+            android:text="Tipe Pengambilan"
             android:textAppearance="@style/heading2_bold"
             android:fontFamily="@font/poppinsbold"
             android:textColor="@color/neutral80"/>
@@ -49,7 +49,7 @@
 <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <Spinner
-            android:id="@+id/jenisPenyetoranSpinner"
+            android:id="@+id/tipePengambilanSpinner"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_marginTop="10dp"
@@ -57,17 +57,83 @@
             style="@style/body2_regular"
             android:padding="10dp" />
 
-        <Button
-            android:id="@+id/lanjutButton"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:background="@drawable/bg_rectangle_primary"
-            android:layout_marginTop="32dp"
-            android:text="@string/lanjut"
-            android:fontFamily="@font/poppinssemibold"
-            android:textSize="16sp"
-            android:textColor="@color/neutral0"/>
+            android:layout_marginTop="20dp"
+            android:text="Catatan"
+            android:textAppearance="@style/heading2_bold"
+            android:textColor="@color/neutral80" />
+        <EditText
+            android:id="@+id/catatanSampahEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_custom_input"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/heading3_regular"
+            android:textColor="@color/neutral80" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/totalBeratTv"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:clickable="false"
+                android:text="Total Berat"
+                android:textAppearance="@style/heading1_bold"
+                android:textColor="@color/primary100"
+                android:layout_weight="2"/>
+
+            <EditText
+                android:id="@+id/totalBeratEt"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:text="0"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textAppearance="@style/heading2_semibold"
+                android:textColor="@color/neutral100"
+                android:layout_weight="3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:text="gram"
+                android:textAppearance="@style/heading3_regular"
+                android:textColor="@color/neutral100"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/lanjutSetorButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_rectangle_primary"
+                style="@style/button"
+                android:text="Lanjut"
+                android:textAllCaps="false"
+                android:textColor="@color/neutral0"
+                android:textSize="16sp" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

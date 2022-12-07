@@ -38,9 +38,9 @@
     <string name="penyetoran">Penyetoran</string>
     <string name="ubah_sampah_jadi_berkah">Ubah Sampah \nJadi Berkah</string>
 
-    <string-array name="jenisPenyetoranSampahString">
-        <item>Jemput Sampah</item>
-        <item>Setor Langsung</item>
+    <string-array name="tipePengambilanString">
+        <item>Bank</item>
+        <item>Rumah</item>
     </string-array>
 
     <string-array name="jenisSampah">
