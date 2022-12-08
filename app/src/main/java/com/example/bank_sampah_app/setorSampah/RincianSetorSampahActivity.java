@@ -1,10 +1,20 @@
 package com.example.bank_sampah_app.setorSampah;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,8 +32,10 @@ import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.RealPathUtil;
 import com.example.bank_sampah_app.SessionManager;
 import com.example.bank_sampah_app.authentication.LoginActivity;
+import com.example.bank_sampah_app.databinding.ActivityRincianSetorSampahBinding;
 import com.example.bank_sampah_app.tarikSaldo.RincianPenarikanActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 
@@ -42,13 +54,19 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
     private SessionManager sessionManager;
     ImageView fotoSampahImg;
     EditText catatanSampahEt;
-    private static final int requestcamera_code= 12;
+//    private static final int requestcamera_code= 12;
+
+//    ActivityRincianSetorSampahBinding setorSampahBinding;
+    String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rincian_setor_sampah);
+//        setContentView(setorSampahBinding.getRoot());
 
+//        setorSampahBinding = DataBindingUtil.setContentView(this, R.layout.activity_rincian_setor_sampah);
+//        setorSampahBinding = ActivityRincianSetorSampahBinding.inflate(getLayoutInflater());
         apiClient = new ApiClient();
         sessionManager = new SessionManager(this);
 
@@ -82,8 +100,18 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
         unggahbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(camera,requestcamera_code);
+//                Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(camera,requestcamera_code);
+                if (ContextCompat.checkSelfPermission(getApplicationContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)  == PackageManager.PERMISSION_GRANTED) {
+                    Intent intentCam = new Intent();
+                    intentCam.setType("image/*");
+                    intentCam.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(intentCam, 10);
+                }else {
+                    ActivityCompat.requestPermissions(RincianSetorSampahActivity.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                }
             }
         });
 
@@ -99,11 +127,13 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
         });
     }
 
+
     private void pengajuan() {
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
         pengajuanRequest.setTipe_pengambilan(tipePengambilanTv.getText().toString());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
         pengajuanRequest.setBerat(Integer.parseInt(totalBeratRincianTv.getText().toString()));
+//        pengajuanRequest.setFoto_sampah();
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
         pengajuanResponseCall.enqueue(new Callback<PengajuanResponse>() {
@@ -130,9 +160,16 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==requestcamera_code){
-            Bitmap imageBitmap=(Bitmap) data.getExtras().get("data");
-            fotoSampahImg.setImageBitmap(imageBitmap);
+//        if(requestCode==requestcamera_code){
+//            Bitmap imageBitmap=(Bitmap) data.getExtras().get("data");
+//            fotoSampahImg.setImageBitmap(imageBitmap);
+//        }
+        if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
+            Uri uri = data.getData();
+            Context context = RincianSetorSampahActivity.this;
+            path = RealPathUtil.getRealPath(context, uri);
+            Bitmap bitmap = BitmapFactory.decodeFile(path);
+            fotoSampahImg.setImageBitmap(bitmap);
         }
     }
 }

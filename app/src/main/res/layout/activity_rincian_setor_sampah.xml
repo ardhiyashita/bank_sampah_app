@@ -1,166 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/neutral0"
-    tools:context=".setorSampah.RincianSetorSampahActivity"
-    android:orientation="vertical">
-
-    <include layout="@layout/layout_toolbar"/>
-
-    <ScrollView
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:background="@color/neutral0"
+        tools:context=".setorSampah.RincianSetorSampahActivity"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_toolbar"/>
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Tipe Pengambilan"
-                    android:textAppearance="@style/heading2_bold"
-                    android:textColor="@color/neutral80" />
-
-                <TextView
-                    android:id="@+id/tipePengambilanTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_custom_input"
-                    android:clickable="false"
-                    android:padding="13dp"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Total Berat Sampah"
-                    android:textAppearance="@style/heading2_bold"
-                    android:textColor="@color/neutral80" />
-
-                <TextView
-                    android:id="@+id/totalBeratRincianTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_custom_input"
-                    android:clickable="false"
-                    android:padding="13dp"
-                    android:textAppearance="@style/body2_regular"
-                    android:textColor="@color/neutral40" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Catatan"
-                    android:textAppearance="@style/heading2_bold"
-                    android:textColor="@color/neutral80" />
-                <EditText
-                    android:id="@+id/catatanSampahEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_custom_input"
-                    android:padding="10dp"
-                    android:layout_marginTop="5dp"
-                    android:textAppearance="@style/heading3_regular"
-                    android:textColor="@color/neutral80" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:id="@+id/fotosampahtxt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Foto Sampah"
-                    android:textAppearance="@style/heading2_bold"
-                    android:textColor="@color/neutral80"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:orientation="vertical"
-                android:layout_marginTop="1dp">
-
-                <Button
-                    android:id="@+id/unggahbutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_rectangle_white_stroke"
-                    android:src="@drawable/ic_camera"
-                    android:text="Unggah Foto">
-                </Button>
-                <ImageView
-                    android:id="@+id/fotoSampahImg"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="bottom"
                 android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/kirimSetorSampahButton"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_rectangle_primary"
-                    style="@style/button"
-                    android:text="Kirim"
-                    android:textAllCaps="false"
-                    android:textColor="@color/neutral0"
-                    android:textSize="16sp" />
+                    android:orientation="vertical"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Tipe Pengambilan"
+                        android:textAppearance="@style/heading2_bold"
+                        android:textColor="@color/neutral80" />
+
+                    <TextView
+                        android:id="@+id/tipePengambilanTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:clickable="false"
+                        android:padding="13dp"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColor="@color/neutral40" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Total Berat Sampah"
+                        android:textAppearance="@style/heading2_bold"
+                        android:textColor="@color/neutral80" />
+
+                    <TextView
+                        android:id="@+id/totalBeratRincianTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:clickable="false"
+                        android:padding="13dp"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColor="@color/neutral40" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Catatan"
+                        android:textAppearance="@style/heading2_bold"
+                        android:textColor="@color/neutral80" />
+                    <EditText
+                        android:id="@+id/catatanSampahEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_custom_input"
+                        android:padding="10dp"
+                        android:layout_marginTop="5dp"
+                        android:textAppearance="@style/heading3_regular"
+                        android:textColor="@color/neutral80" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/fotosampahtxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Foto Sampah"
+                        android:textAppearance="@style/heading2_bold"
+                        android:textColor="@color/neutral80"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="1dp">
+
+                    <Button
+                        android:id="@+id/unggahbutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_rectangle_white_stroke"
+                        android:src="@drawable/ic_camera"
+                        android:text="Unggah Foto">
+                    </Button>
+                    <ImageView
+                        android:id="@+id/fotoSampahImg"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/kirimSetorSampahButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_rectangle_primary"
+                        style="@style/button"
+                        android:text="Kirim"
+                        android:textAllCaps="false"
+                        android:textColor="@color/neutral0"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>
