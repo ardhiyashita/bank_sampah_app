@@ -33,7 +33,7 @@ import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.RealPathUtil;
-import com.example.bank_sampah_app.SessionManager;
+import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.databinding.ActivityRincianSetorSampahBinding;
 import com.example.bank_sampah_app.tarikSaldo.RincianPenarikanActivity;
