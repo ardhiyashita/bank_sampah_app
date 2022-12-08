@@ -19,7 +19,7 @@ public interface ApiService {
     Call<LoginResponse> userLogin(@Body LoginRequest loginRequest);
 
 
-    @POST("register")
+    @POST(Constant.REGISTER)
     Call<RegisterResponse> userRegister(@Body RegisterRequest registerRequest);
 
 
