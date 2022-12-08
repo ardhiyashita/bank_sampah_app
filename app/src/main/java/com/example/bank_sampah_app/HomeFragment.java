@@ -20,7 +20,7 @@ import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
  */
 public class HomeFragment extends Fragment {
 
-    ImageView setorSampahImg, tarikSaldoImg;
+    ImageView setorSampahImg, tarikSaldoImg, celengan;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -88,6 +88,18 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intenttariksaldo = new Intent(getActivity(), TarikSaldoActivity.class);
                 startActivity(intenttariksaldo);
+
+            }
+        });
+
+        //intent to tarik saldo from celengan
+        celengan = v.findViewById(R.id.celengan);
+
+        celengan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentsetorfromcelengan = new Intent(getActivity(), SetorSampahActivity.class);
+                startActivity(intentsetorfromcelengan);
 
             }
         });

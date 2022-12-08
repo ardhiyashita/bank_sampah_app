@@ -17,7 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.bank_sampah_app.R;
 
-public class FormSetorSampahActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class FormSetorSampahActivity extends AppCompatActivity {
 
     ImageView add;
     EditText beratJenisSampah;
@@ -25,6 +25,7 @@ public class FormSetorSampahActivity extends AppCompatActivity implements Adapte
     Button lanjutFormSampahButton;
     String[] jenisPenyetoranSampahString;
     ArrayAdapter<String> jenisPenyetoranAdapter;
+    TextView jenisPenyetoranTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +40,17 @@ public class FormSetorSampahActivity extends AppCompatActivity implements Adapte
 
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
-        
-        //init
-        beratJenisSampah = findViewById(R.id.beratJenisSampah);
-        add = findViewById(R.id.add);
 
-        //spinner dan adapter pilihan jenis penyetoran
-        jenisSampahSpinner = findViewById(R.id.jenisSampahSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.jenisSampah, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        jenisSampahSpinner.setAdapter(adapter);
+        //init
+        jenisPenyetoranTv = findViewById(R.id.jenisPenyetoranTv);
+
+        //get data jenis setor
+        Intent intent = getIntent();
+        String jenisSetorValue = intent.getStringExtra("jenisSampahValue");
+        jenisPenyetoranTv.setText(jenisSetorValue);
 
         //button lanjut
-        lanjutFormSampahButton = findViewById(R.id.lanjutFormSampahButton);
+//        lanjutFormSampahButton = findViewById(R.id.lanjutFormButton);
         lanjutFormSampahButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,26 +58,5 @@ public class FormSetorSampahActivity extends AppCompatActivity implements Adapte
                 startActivity(intentlanjutformsampahsetor);
             }
         });
-    }
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//        switch (position) {
-//            case 0:
-//                Toast.makeText(parent.getContext(), "Spinner item 1!", Toast.LENGTH_SHORT).show();
-//                break;
-//            case 1:
-//                Toast.makeText(parent.getContext(), "Spinner item 2!", Toast.LENGTH_SHORT).show();
-//                break;
-//            case 2:
-//                Toast.makeText(parent.getContext(), "Spinner item 3!", Toast.LENGTH_SHORT).show();
-//                break;
-//        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }

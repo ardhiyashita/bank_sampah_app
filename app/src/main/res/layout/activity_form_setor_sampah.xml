@@ -11,16 +11,13 @@
 
     <include layout="@layout/layout_toolbar"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:orientation="vertical">
@@ -33,14 +30,14 @@
                     android:textAppearance="@style/heading2_bold"
                     android:textColor="@color/neutral80" />
 
-                <EditText
+                <TextView
+                    android:id="@+id/jenisPenyetoranTv"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bg_custom_input"
                     android:clickable="false"
-                    android:paddingStart="15dp"
-                    android:text="Setor Sampah"
+                    android:padding="13dp"
                     android:textAppearance="@style/body2_regular"
                     android:textColor="@color/neutral40" />
 
@@ -71,6 +68,7 @@
                             android:src="@drawable/ic_map" />
 
                         <TextView
+                            android:id="@+id/usernameSetorTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="45dp"
@@ -80,6 +78,7 @@
                             android:textColor="@color/neutral80" />
 
                         <TextView
+                            android:id="@+id/usernameAlamatSetorTv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="45dp"
@@ -102,7 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Mohon masukan berat sampah yang di setor atau jemput. Sampah yang tidak di setor atau jemput, silahkan isikan dengan angka 0."
+                    android:text="Mohon masukan total berat sampah yang di setor atau jemput."
                     android:textAppearance="@style/heading3_regular"
                     android:textColor="@color/neutral80" />
 
@@ -149,152 +148,168 @@
                     android:layout_marginTop="20dp">
 
                     <TextView
-                        android:id="@+id/kantongPlastikTv"
+                        android:id="@+id/totalBeratTv"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:clickable="false"
-                        android:text="Kantong Plastik"
+                        android:text="Total Berat"
                         android:textAppearance="@style/heading1_bold"
                         android:textColor="@color/primary100"
                         android:layout_weight="2"/>
 
                     <EditText
-                        android:id="@+id/beratKantongPlastikEt"
+                        android:id="@+id/totalBeratEt"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:hint="0 Kg"
+                        android:inputType="number"
                         android:textAlignment="center"
                         android:textAppearance="@style/heading2_semibold"
                         android:textColor="@color/neutral100"
                         android:layout_weight="1"/>
                 </LinearLayout>
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/botolPlastikTv"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:clickable="false"-->
+<!--                        android:text="Botol Plastik"-->
+<!--                        android:textAppearance="@style/heading1_bold"-->
+<!--                        android:textColor="@color/primary100"-->
+<!--                        android:layout_weight="2"/>-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/beratBotolPlatikEt"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:clickable="false"-->
+<!--                        android:hint="0 Kg"-->
+<!--                        android:inputType="number"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textAppearance="@style/heading2_semibold"-->
+<!--                        android:textColor="@color/neutral100"-->
+<!--                        android:layout_weight="1"/>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/kertasTv"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:clickable="false"-->
+<!--                        android:text="Kertas"-->
+<!--                        android:textAppearance="@style/heading1_bold"-->
+<!--                        android:textColor="@color/primary100"-->
+<!--                        android:layout_weight="2"/>-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/beratKertasEt"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:clickable="false"-->
+<!--                        android:hint="0 Kg"-->
+<!--                        android:inputType="number"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textAppearance="@style/heading2_semibold"-->
+<!--                        android:textColor="@color/neutral100"-->
+<!--                        android:layout_weight="1"/>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/logamTv"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:clickable="false"-->
+<!--                        android:text="Logam"-->
+<!--                        android:textAppearance="@style/heading1_bold"-->
+<!--                        android:textColor="@color/primary100"-->
+<!--                        android:layout_weight="2"/>-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/beratLogamEt"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:clickable="false"-->
+<!--                        android:hint="0 Kg"-->
+<!--                        android:inputType="number"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textAppearance="@style/heading2_semibold"-->
+<!--                        android:textColor="@color/neutral100"-->
+<!--                        android:layout_weight="1"/>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/lainnyaTv"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:clickable="false"-->
+<!--                        android:text="Lainnya"-->
+<!--                        android:textAppearance="@style/heading1_bold"-->
+<!--                        android:textColor="@color/primary100"-->
+<!--                        android:layout_weight="2"/>-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/beratLainnyaEt"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:clickable="false"-->
+<!--                        android:hint="0 Kg"-->
+<!--                        android:inputType="number"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textAppearance="@style/heading2_semibold"-->
+<!--                        android:textColor="@color/neutral100"-->
+<!--                        android:layout_weight="1"/>-->
+<!--                </LinearLayout>-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
 
-                    <TextView
-                        android:id="@+id/botolPlastikTv"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:clickable="false"
-                        android:text="Botol Plastik"
-                        android:textAppearance="@style/heading1_bold"
-                        android:textColor="@color/primary100"
-                        android:layout_weight="2"/>
+                    android:gravity="bottom"
+                    android:orientation="vertical"
+                    android:paddingLeft="6dp">
 
-                    <EditText
-                        android:id="@+id/beratBotolPlatikEt"
-                        android:layout_width="100dp"
+                    <Button
+                        android:id="@+id/lanjutFormSetorButton"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:hint="0 Kg"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/heading2_semibold"
-                        android:textColor="@color/neutral100"
-                        android:layout_weight="1"/>
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_rectangle_primary"
+                        android:fontFamily="@font/poppinssemibold"
+                        android:text="Lanjut"
+                        android:textAllCaps="false"
+                        android:textColor="@color/neutral0"
+                        android:textSize="16sp" />
+
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:id="@+id/kertasTv"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:clickable="false"
-                        android:text="Kertas"
-                        android:textAppearance="@style/heading1_bold"
-                        android:textColor="@color/primary100"
-                        android:layout_weight="2"/>
-
-                    <EditText
-                        android:id="@+id/beratKertasEt"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:hint="0 Kg"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/heading2_semibold"
-                        android:textColor="@color/neutral100"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:id="@+id/logamTv"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:clickable="false"
-                        android:text="Logam"
-                        android:textAppearance="@style/heading1_bold"
-                        android:textColor="@color/primary100"
-                        android:layout_weight="2"/>
-
-                    <EditText
-                        android:id="@+id/beratLogamEt"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:hint="0 Kg"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/heading2_semibold"
-                        android:textColor="@color/neutral100"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:id="@+id/lainnyaTv"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:clickable="false"
-                        android:text="Lainnya"
-                        android:textAppearance="@style/heading1_bold"
-                        android:textColor="@color/primary100"
-                        android:layout_weight="2"/>
-
-                    <EditText
-                        android:id="@+id/beratLainnyaEt"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:hint="0 Kg"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/heading2_semibold"
-                        android:textColor="@color/neutral100"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/lanjutFormSampahButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_rectangle_primary"
-                    android:fontFamily="@font/poppinssemibold"
-                    android:text="Lanjut"
-                    android:textAllCaps="false"
-                    android:textColor="@color/neutral0"
-                    android:textSize="16sp" />
 
             </LinearLayout>
 
         </RelativeLayout>
-    </ScrollView>
 
 </LinearLayout>

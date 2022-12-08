@@ -94,7 +94,7 @@ public class OnBoardingActivity extends AppCompatActivity {
             Intent welcomeActivity = new Intent(getApplicationContext(), WelcomeActivity.class);
             startActivity(welcomeActivity);
 
-            savePrefsData();
+//            savePrefsData();
             finish();
         });
     }

@@ -99,7 +99,7 @@
                 app:passwordToggleTint="@color/neutral20">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/pasword"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/bg_custom_input"
@@ -149,7 +149,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_rectangle_primary"
             android:gravity="center"
-            android:text="Masuk"
+            android:text="@string/masuk"
             android:textAllCaps="false"
             android:textAppearance="@style/button"
             android:textColor="@color/neutral0" />
@@ -180,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="Daftar"
-            android:textAppearance="@style/heading4_semibold"
+            android:textAppearance="@style/heading3_semibold"
             android:textColor="@drawable/text_selector"
             android:clickable="true"/>
 
