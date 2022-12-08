@@ -1,15 +1,24 @@
 package com.example.bank_sampah_app.API.requests;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class RegisterRequest {
 
+    @SerializedName("name")
     private String name;
+    @SerializedName("email")
     private String email;
+    @SerializedName("alamat")
     private String alamat;
+    @SerializedName("jenis_kelamin")
     private String jenis_kelamin;
+    @SerializedName("no_hp")
     private String no_hp;
-    private Date tgl_lahir;
+    @SerializedName("tgl_lahir")
+    private String tgl_lahir;
+    @SerializedName("password")
     private String password;
 
     public String getName() {
@@ -27,7 +36,6 @@ public class RegisterRequest {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getAlamat() {
         return alamat;
@@ -53,11 +61,11 @@ public class RegisterRequest {
         this.no_hp = no_hp;
     }
 
-    public Date getTgl_lahir() {
+    public String getTgl_lahir() {
         return tgl_lahir;
     }
 
-    public void setTgl_lahir(Date tgl_lahir) {
+    public void setTgl_lahir(String tgl_lahir) {
         this.tgl_lahir = tgl_lahir;
     }
 
