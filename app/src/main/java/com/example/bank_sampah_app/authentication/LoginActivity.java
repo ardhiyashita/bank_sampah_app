@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.LoginRequest;
+import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
@@ -44,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLoginListener();
         txtRegisterListener();
-//        txtForgotListener();
+        txtForgotListener();
 
     }
 
@@ -74,15 +77,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-//    public void txtForgotListener() {
-//        forgotPassword.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(RegisterActivitys.this, .class);
+    public void txtForgotListener() {
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 //                startActivity(intent);
-//            }
-//        });
-//    }
+            }
+        });
+    }
 
     private void login() {
         LoginRequest loginRequest = new LoginRequest();
