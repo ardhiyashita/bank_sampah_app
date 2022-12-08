@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -18,18 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
-import com.example.bank_sampah_app.API.requests.LoginRequest;
 import com.example.bank_sampah_app.API.requests.RegisterRequest;
-import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
-import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,8 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton radioButton;
     TextView tvLogin, tvGender;
     int checkgroup;
-    Date lahirDate;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 tvGender.setError(null);
                 checkgroup = checkedId;
-                radioButton = findViewById(checkedId);
+                radioButton = (RadioButton) findViewById(checkedId);
             }
         });
 
@@ -205,8 +198,9 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerValidation();
-                register();
+                if (registerValidation()== true){
+                    register();
+                }
             }
 
         });
@@ -249,7 +243,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    private void registerValidation(){
+    private boolean registerValidation(){
         String nama = etNama.getText().toString();
         String hp = etHp.getText().toString();
         String lahir = etLahir.getText().toString();
@@ -257,38 +251,41 @@ public class RegisterActivity extends AppCompatActivity {
         String pass = etPass.getText().toString();
         String cpass = etCpass.getText().toString();
 
-        if(TextUtils.isEmpty(nama) && TextUtils.isEmpty(hp) && TextUtils.isEmpty(lahir) && TextUtils.isEmpty(alamat) && checkgroup <=0 && TextUtils.isEmpty(pass) && TextUtils.isEmpty(cpass)){
-            Toast.makeText(RegisterActivity.this, "Semua kolom wajib diisi", Toast.LENGTH_LONG).show();
+        if(TextUtils.isEmpty(nama) || TextUtils.isEmpty(hp) || TextUtils.isEmpty(lahir) || TextUtils.isEmpty(alamat) || checkgroup <=0 || TextUtils.isEmpty(pass) || TextUtils.isEmpty(cpass)){
+            if(TextUtils.isEmpty(nama) && TextUtils.isEmpty(hp) && TextUtils.isEmpty(lahir) && TextUtils.isEmpty(alamat) && checkgroup <=0 && TextUtils.isEmpty(pass) && TextUtils.isEmpty(cpass)){
+                Toast.makeText(RegisterActivity.this, "Semua kolom wajib diisi", Toast.LENGTH_LONG).show();
+            }
+            if(TextUtils.isEmpty(nama)){
+                tlNama.setError("Nama wajib diisi");
+            }
+            if(TextUtils.isEmpty(hp)){
+                tlHp.setError("Nomor HP wajib diisi");
+            }
+            if(TextUtils.isEmpty(lahir)){
+                tlLahir.setError("Tanggal Lahir wajib diisi");
+            }
+            if(TextUtils.isEmpty(alamat)){
+                tlAlamat.setError("Alamat wajib diisi");
+            }
+            if (checkgroup <= 0){
+                Drawable errorIcon = getResources().getDrawable(R.drawable.ic_error_outline_red);
+                errorIcon.setBounds(0, 0, errorIcon.getIntrinsicWidth(), errorIcon.getIntrinsicHeight());
+                tvGender.setError("Jenis kelamin wajib diisi",errorIcon);
+            }
+            if(TextUtils.isEmpty(pass)){
+                tlPass.setError("Password wajib diisi");
+            }
+            if(TextUtils.isEmpty(cpass)){
+                tLCpass.setError("Konfirmasi password wajib diisi");
+            }
+            return false;
         }
-        if(TextUtils.isEmpty(nama)){
-            tlNama.setError("Nama wajib diisi");
-        }
-        if(TextUtils.isEmpty(hp)){
-            tlHp.setError("Nomor HP wajib diisi");
-        }
-        if(TextUtils.isEmpty(lahir)){
-            tlLahir.setError("Tanggal Lahir wajib diisi");
-        }
-        if(TextUtils.isEmpty(alamat)){
-            tlAlamat.setError("Alamat wajib diisi");
-        }
-        if (checkgroup <= 0){
-            Drawable errorIcon = getResources().getDrawable(R.drawable.ic_error_outline_red);
-            errorIcon.setBounds(0, 0, errorIcon.getIntrinsicWidth(), errorIcon.getIntrinsicHeight());
-            tvGender.setError("Jenis kelamin wajib diisi",errorIcon);
-        }
-        if(TextUtils.isEmpty(pass)){
-            tlPass.setError("Password wajib diisi");
-        }
-        if(TextUtils.isEmpty(cpass)){
-            tLCpass.setError("Konfirmasi password wajib diisi");
-        }
-
+        return true;
     }
 
 
     public Boolean checkDateFormat(String date){
-        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD200");
         try {
             format.parse(date);
             return true;
