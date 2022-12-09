@@ -22,10 +22,9 @@ import java.util.List;
 
 public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ListViewHolder>{
 
-    private List<HelpItem> listQuestion;
+    private ArrayList<HelpItem> listQuestion;
     private OnItemClickCallback onItemClickCallback;
-//    private AdapterView.OnItemClickListener onItemClickListener;
-//
+
     public void setOnItemClickListener(OnItemClickCallback onItemClickCallback){
         this.onItemClickCallback = onItemClickCallback;
     }
@@ -33,11 +32,6 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ListViewHolder
     public HelpAdapter(ArrayList<HelpItem> list) {
         this.listQuestion = list;
     }
-
-//    public void setFilteredList(List<HelpItem> filteredList){
-//        this.listQuestion = filteredList;
-//        notifyDataSetChanged();
-//    }
 
     @NonNull
     @Override

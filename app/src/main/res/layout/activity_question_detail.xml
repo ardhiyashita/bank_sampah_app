@@ -23,13 +23,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/neutral100"
-            style="@style/heading1_bold"/>
+            style="@style/heading3_semibold"/>
         <TextView
             android:id="@+id/answerDetailTv"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/neutral100"
-            style="@style/heading2_regular"/>
+            style="@style/body2_regular"/>
     </LinearLayout>
 </LinearLayout>

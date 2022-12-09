@@ -26,8 +26,6 @@ import java.util.List;
 public class HelpFragment extends Fragment {
     private RecyclerView rv_faq;
     private ArrayList<HelpItem> list = new ArrayList<>();
-    private SearchView search_faq;
-    private HelpAdapter helpAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,40 +74,12 @@ public class HelpFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_help, container, false);
 
         rv_faq = v.findViewById(R.id.rv_faq);
-//        search_faq = v.findViewById(R.id.search_faq);
-//        search_faq.clearFocus();
-//        search_faq.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                filterList(newText);
-//                return true;
-//            }
-//        });
 
         list.addAll(FaqData.getListData());
         showRecyclerList();
         return v;
     }
 
-//    private void filterList(String text) {
-//        List<HelpItem> filteredList = new ArrayList<>();
-//        for (HelpItem helpItem : list){
-//            if(helpItem.getQuestion().toLowerCase().contains(text.toLowerCase())){
-//                filteredList.add(helpItem);
-//            }
-//        }
-//
-//        if(filteredList.isEmpty()){
-//            Toast.makeText(getActivity(),"Pertanyaan Tidak Ditemukan", Toast.LENGTH_SHORT).show();
-//        }else{
-//            helpAdapter.setFilteredList(filteredList);
-//        }
-//    }
 
     private void showRecyclerList(){
         rv_faq.setLayoutManager(new LinearLayoutManager(getActivity()));
