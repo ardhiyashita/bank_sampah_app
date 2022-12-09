@@ -1,14 +1,22 @@
 package com.example.bank_sampah_app.help;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.appcompat.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.bank_sampah_app.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,10 @@ import com.example.bank_sampah_app.R;
  * create an instance of this fragment.
  */
 public class HelpFragment extends Fragment {
+    private RecyclerView rv_faq;
+    private ArrayList<HelpItem> list = new ArrayList<>();
+    private SearchView search_faq;
+    private HelpAdapter helpAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +73,56 @@ public class HelpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_help, container, false);
+        View v = inflater.inflate(R.layout.fragment_help, container, false);
+
+        rv_faq = v.findViewById(R.id.rv_faq);
+//        search_faq = v.findViewById(R.id.search_faq);
+//        search_faq.clearFocus();
+//        search_faq.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                filterList(newText);
+//                return true;
+//            }
+//        });
+
+        list.addAll(FaqData.getListData());
+        showRecyclerList();
+        return v;
+    }
+
+//    private void filterList(String text) {
+//        List<HelpItem> filteredList = new ArrayList<>();
+//        for (HelpItem helpItem : list){
+//            if(helpItem.getQuestion().toLowerCase().contains(text.toLowerCase())){
+//                filteredList.add(helpItem);
+//            }
+//        }
+//
+//        if(filteredList.isEmpty()){
+//            Toast.makeText(getActivity(),"Pertanyaan Tidak Ditemukan", Toast.LENGTH_SHORT).show();
+//        }else{
+//            helpAdapter.setFilteredList(filteredList);
+//        }
+//    }
+
+    private void showRecyclerList(){
+        rv_faq.setLayoutManager(new LinearLayoutManager(getActivity()));
+        HelpAdapter helpAdapter = new HelpAdapter(list);
+        rv_faq.setAdapter(helpAdapter);
+
+        helpAdapter.setOnItemClickListener(new HelpAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(HelpItem helpItem) {
+                Intent moveToDetailQuestion = new Intent(getActivity(), QuestionDetailActivity.class);
+                moveToDetailQuestion.putExtra(QuestionDetailActivity.ITEM_EXTRA, helpItem);
+                startActivity(moveToDetailQuestion);
+            }
+        });
     }
 }
