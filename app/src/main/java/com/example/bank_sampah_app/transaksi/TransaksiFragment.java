@@ -1,4 +1,4 @@
-package com.example.bank_sampah_app.Transaksi;
+package com.example.bank_sampah_app.transaksi;
 
 import android.os.Bundle;
 
