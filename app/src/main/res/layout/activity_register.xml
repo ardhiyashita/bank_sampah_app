@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral0"
+    tools:context=".authentication.RegisterActivity">
+
+    <ScrollView
+        android:id="@+id/scrollview_register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraint_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:text="Buat Akun Bank Sampah Anda"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/display_semibold"
+                android:textColor="@color/primary100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linear_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_register">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/error"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:hint="Masukan nama lengkap anda"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_hp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_nama">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor HP"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_hp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_hp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="Masukan nomor HP anda"
+                        android:singleLine="true"
+                        android:inputType="phone"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_hp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="Masukan alamat email anda (opsional)"
+                        android:singleLine="true"
+                        android:inputType="textEmailAddress"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_lahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_email">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Lahir"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_lahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_lahir"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="contoh: 2001-01-01"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_lahir">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="Masukan alamat anda"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_alamat">
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jenis Kelamin"
+                    android:layout_marginEnd="16dp"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <RadioGroup
+                    android:id="@+id/reg_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/laki_laki"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laki-laki"
+                        android:textAppearance="@style/body2_regular" />
+
+                    <RadioButton
+                        android:id="@+id/perempuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Perempuan"
+                        android:textAppearance="@style/body2_regular" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_register_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_gender">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kata Sandi"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/neutral20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="Masukan kata sandi anda"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40"
+                        android:inputType="textPassword"
+                        tools:ignore="TextContrastCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_confirm_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_register_pass">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Konfirmasi Kata Sandi"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxStrokeColor="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:hintEnabled="false"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/neutral20"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reg_cpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Masukan kembali kata sandi anda"
+                        android:singleLine="true"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40"
+                        android:inputType="textPassword"
+                        tools:ignore="TextContrastCheck" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_bottom_daftar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/neutral0"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@id/linear_daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/btn_daftar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_primary"
+                android:gravity="center"
+                android:text="@string/daftar"
+                android:textAllCaps="false"
+                android:textAppearance="@style/button"
+                android:textColor="@color/neutral0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_switchregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_daftar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah punya akun?"
+                android:textAppearance="@style/heading4_regular"
+                android:textColor="@color/neutral40"/>
+
+            <TextView
+                android:id="@+id/link_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Masuk"
+                android:textAppearance="@style/heading3_semibold"
+                android:textColor="@drawable/text_selector"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

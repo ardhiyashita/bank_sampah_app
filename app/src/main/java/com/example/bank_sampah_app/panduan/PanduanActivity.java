@@ -1,14 +1,16 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.panduan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class JadwalJemputActivity extends AppCompatActivity {
+import com.example.bank_sampah_app.R;
+
+public class PanduanActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jadwal_jemput);
+        setContentView(R.layout.activity_panduan_aplikasi);
     }
 }

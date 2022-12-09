@@ -1,5 +1,6 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.informasi;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.example.bank_sampah_app.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class InformasiFragment extends Fragment {
+
+    LinearLayout jadwalPengumpulan, jadwalPenjemputan;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +65,21 @@ public class InformasiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_informasi, container, false);
+        View v = inflater.inflate(R.layout.fragment_informasi, container, false);
+
+        jadwalPengumpulan = v.findViewById(R.id.jadwalPengumpulan);
+        jadwalPenjemputan = v.findViewById(R.id.jadwalPenjemputan);
+
+        jadwalPengumpulan.setOnClickListener(v1 -> {
+            Intent intentPengumpulan = new Intent(getActivity(),JadwalPengumpulanSampahActivity.class);
+            startActivity(intentPengumpulan);
+        });
+
+        jadwalPenjemputan.setOnClickListener(v12 -> {
+            Intent intentPenjemputan = new Intent(getActivity(),JadwalPenjemputanSampahActivity.class);
+            startActivity(intentPenjemputan);
+        });
+
+        return v;
     }
 }

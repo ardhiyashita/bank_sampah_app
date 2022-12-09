@@ -1,12 +1,17 @@
-package com.example.bank_sampah_app;
+package com.example.bank_sampah_app.transaksi;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.bank_sampah_app.R;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,12 +20,16 @@ import android.view.ViewGroup;
  */
 public class TransaksiFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private TabLayout tabLayout;
+    private TabItem tabItem;
+    private ViewPager viewPager;
+
+//  TODO: Rename parameter arguments, choose names that match
+//  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+//  TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -36,7 +45,7 @@ public class TransaksiFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment TransaksiFragment.
      */
-    // TODO: Rename and change types and number of parameters
+//  TODO: Rename and change types and number of parameters
     public static TransaksiFragment newInstance(String param1, String param2) {
         TransaksiFragment fragment = new TransaksiFragment();
         Bundle args = new Bundle();
@@ -49,6 +58,7 @@ public class TransaksiFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -58,7 +68,26 @@ public class TransaksiFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaksi, container, false);
+        View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
+
+        tabLayout = v.findViewById(R.id.tablayouttransaksi);
+        tabItem = v.findViewById(R.id.tablayoutdiproses);
+        tabItem = v.findViewById(R.id.tablayoutriwayat);
+        viewPager = v.findViewById(R.id.viewpager);
+
+//        tabLayout.setupWithViewPager(viewPager);
+//
+//        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+//        viewPagerAdapter.addFragment(new DiprosesTransaksiFragment(), "Diproses");
+//        viewPagerAdapter.addFragment(new RiwayatTransaksiFragment(), "Riwayat");
+//        viewPager.setAdapter(viewPagerAdapter);
+
+        com.example.bank_sampah_app.Transaksi.ViewPagerDiprosesAdapter viewPagerAdapter = new com.example.bank_sampah_app.Transaksi.ViewPagerDiprosesAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(viewPagerAdapter);
+
+        return v;
+
     }
 }

@@ -8,7 +8,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="help">ada yang bisa dibantu?</string>
-    <string name="help_desc">Kamu bisa cari dan tanyakan apa yang ingin ditanyakan.</string>
+    <string name="help_desc">Kamu bisa cari pertanyaan yang sering ditanyakan atau menghubungi kami jika masih membutuhkan bantuan</string>
     <string name="banksampah">Bank Sampah Sami Asri</string>
     <string name="telp">088-123-456</string>
     <string name="email">bps@gmail.com</string>
@@ -16,4 +16,39 @@
     <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
     <string name="help_title">Masih Butuh Bantuan?</string>
     <string name="kontak_title">Kontak Kami</string>
+
+    //diproses content
+    <string name="jenisTransaksi_1">Setoran</string>
+    <string name="jenisTransaksi_2">Penarikan</string>
+    <string name="statusTransaksi_1">Penyetoran Sedang Diverifikasi</string>
+    <string name="statusTransaksi_2">Menunggu Penjemputan</string>
+    <string name="statusTransaksi_3">Penarikan Dana Sedang Diproses</string>
+
+    <string name="mulai">Mulai</string>
+    <string name="lanjut">Lanjutkan</string>
+    <string name="lewati">Lewati</string>
+    <string name="welcome">Selamat Datang!</string>
+    <string name="welcome_text">Kelola dan ubah sampahmu jadi berkah! \n Bersama Bank Sampah Sami Asri \n BPS Desa Adat Cemenggaon</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk">Masuk</string>
+
+    <string name="select">Pilih Jenis Penyetoran</string>
+    <string name="jenis">Jenis Sampah</string>
+    <string name="setor_sampah">Setor Sampah</string>
+    <string name="penyetoran">Penyetoran</string>
+    <string name="ubah_sampah_jadi_berkah">Ubah Sampah \nJadi Berkah</string>
+
+    <string-array name="tipePengambilanString">
+        <item>Bank</item>
+        <item>Rumah</item>
+    </string-array>
+
+    <string-array name="jenisSampah">
+        <item>Kantong Plastik</item>
+        <item>Botol Plastik</item>
+        <item>Kertas</item>
+        <item>Logam</item>
+        <item>Lainnya</item>
+    </string-array>
+
 </resources>
