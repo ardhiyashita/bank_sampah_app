@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="4 Keuntungan Memilah Sampah Organik dan Anorganik"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/neutral100" />
 
                 <TextView
                     android:id="@+id/article_content"

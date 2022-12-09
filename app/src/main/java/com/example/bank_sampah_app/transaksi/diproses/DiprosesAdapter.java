@@ -1,11 +1,11 @@
-package com.example.bank_sampah_app.transaksi.diproses;
+package com.example.bank_sampah_app.Transaksi.Diproses;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import com.example.bank_sampah_app.Transaksi.Diproses.DiprosesItem;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 

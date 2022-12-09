@@ -26,6 +26,4 @@ public interface ApiService {
 
     @POST("pengajuan/create/")
     Call<PengajuanResponse> userPengajuan(@Body PengajuanRequest pengajuanRequest);
-
-
 }

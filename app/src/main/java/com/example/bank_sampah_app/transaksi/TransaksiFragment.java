@@ -84,7 +84,7 @@ public class TransaksiFragment extends Fragment {
 //        viewPagerAdapter.addFragment(new RiwayatTransaksiFragment(), "Riwayat");
 //        viewPager.setAdapter(viewPagerAdapter);
 
-        com.example.bank_sampah_app.transaksi.ViewPagerDiprosesAdapter viewPagerAdapter = new com.example.bank_sampah_app.transaksi.ViewPagerDiprosesAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+        com.example.bank_sampah_app.Transaksi.ViewPagerDiprosesAdapter viewPagerAdapter = new com.example.bank_sampah_app.Transaksi.ViewPagerDiprosesAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(viewPagerAdapter);
 
         return v;
