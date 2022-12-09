@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppinsmedium"
+            style="@style/body1_regular"
             android:text="Tambah Foto"
             android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -76,7 +76,7 @@
                         android:id="@+id/tv_namafield"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="Nama"
                         android:textColor="#00A86F"
                         android:textSize="16sp" />
@@ -85,13 +85,12 @@
                         android:id="@+id/tv_inputnama"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
+                        android:background="@drawable/bg_custom_input"
                         android:ems="10"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body1_regular"
                         android:inputType="textPersonName"
                         android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Ardhiya Shita" />
+                        android:paddingEnd="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -107,7 +106,7 @@
                         android:id="@+id/tv_alamatfield"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="Alamat"
                         android:textColor="#00A86F"
                         android:textSize="16sp" />
@@ -116,13 +115,12 @@
                         android:id="@+id/tv_inputalamat"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
+                        android:background="@drawable/bg_custom_input"
                         android:ems="10"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body1_regular"
                         android:inputType="textPersonName"
                         android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Jalan Pakusari Gg. XIII, No. 10, Sesetan, DPS" />
+                        android:paddingEnd="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -138,7 +136,7 @@
                         android:id="@+id/tv_emailfield"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="Email"
                         android:textColor="#00A86F"
                         android:textSize="16sp" />
@@ -147,13 +145,12 @@
                         android:id="@+id/tv_inputemail"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
+                        android:background="@drawable/bg_custom_input"
                         android:ems="10"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body1_regular"
                         android:inputType="textPersonName"
                         android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="nananana77@gmail.com" />
+                        android:paddingEnd="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -169,7 +166,7 @@
                         android:id="@+id/tv_hpfield"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="No HP"
                         android:textColor="#00A86F"
                         android:textSize="16sp" />
@@ -178,13 +175,12 @@
                         android:id="@+id/tv_inputhp"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
+                        android:background="@drawable/bg_custom_input"
                         android:ems="10"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body1_regular"
                         android:inputType="textPersonName"
                         android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="+628812345678" />
+                        android:paddingEnd="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -200,7 +196,7 @@
                         android:id="@+id/tv_genderfield"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="Jenis Kelamin"
                         android:textColor="#00A86F"
                         android:textSize="16sp" />
@@ -209,13 +205,12 @@
                         android:id="@+id/tv_inputgender"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
+                        android:background="@drawable/bg_custom_input"
                         android:ems="10"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body1_regular"
                         android:inputType="textPersonName"
                         android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Perempuan" />
+                        android:paddingEnd="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -231,7 +226,7 @@
                         android:id="@+id/tv_tanggal_lahir_field"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/poppinssemibold"
+                        style="@style/body2_semibold"
                         android:text="Tanggal Lahir"
                         android:textColor="#00A86F"
                         android:textSize="16sp" />
@@ -240,13 +235,13 @@
                         android:id="@+id/tv_input_tanggal_lahir"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="@drawable/custom_input"
+                        android:background="@drawable/bg_custom_input"
                         android:ems="10"
-                        android:fontFamily="@font/poppinsregular"
+                        style="@style/body1_regular"
                         android:inputType="textPersonName"
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
-                        android:text="22 Desember 2001" />
+                        android:text="" />
                 </LinearLayout>
 
                 <Button
@@ -255,7 +250,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:backgroundTint="#00A86F"
-                    android:fontFamily="@font/poppinssemibold"
+                    style="@style/body2_semibold"
                     android:text="Simpan"
                     app:cornerRadius="6dp" />
 
