@@ -4,14 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.bank_sampah_app.article.ArticleAdapter;
+import com.example.bank_sampah_app.article.ArticleFragment;
+import com.example.bank_sampah_app.article.ArticleModelClass;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +66,7 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -66,6 +74,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        View w = inflater.inflate(R.layout.fragment_article, container, false);
 
 
         //intent to setor sampah
@@ -93,5 +102,6 @@ public class HomeFragment extends Fragment {
         });
 
         return v;
+
     }
 }
