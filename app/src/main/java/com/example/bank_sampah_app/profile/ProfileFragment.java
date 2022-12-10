@@ -76,14 +76,14 @@ public class ProfileFragment extends Fragment {
         lBantuan = view.findViewById(R.id.bantuandanpencarian);
         logout = view.findViewById(R.id.logout);
 
-//        lUbahData.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intentUbahData = new Intent(getActivity(), UbahProfileActivity.class);
-//                startActivity(intentUbahData);
-//
-//            }
-//        });
+        lUbahData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentUbahData = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(intentUbahData);
+
+            }
+        });
 
 //        lUbahPass.setOnClickListener(new View.OnClickListener() {
 //            @Override

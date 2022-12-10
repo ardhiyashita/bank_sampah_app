@@ -37,6 +37,7 @@
     <string name="setor_sampah">Setor Sampah</string>
     <string name="penyetoran">Penyetoran</string>
     <string name="ubah_sampah_jadi_berkah">Ubah Sampah \nJadi Berkah</string>
+    <string name="simpan">Simpan</string>
 
     <string-array name="tipePengambilanString">
         <item>Bank</item>
