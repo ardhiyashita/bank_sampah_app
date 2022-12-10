@@ -4,14 +4,26 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.bank_sampah_app.help.FaqData;
+import com.example.bank_sampah_app.help.HelpAdapter;
+import com.example.bank_sampah_app.help.HelpItem;
+import com.example.bank_sampah_app.help.QuestionDetailActivity;
+import com.example.bank_sampah_app.panduan.PanduanAdapter;
+import com.example.bank_sampah_app.panduan.PanduanData;
+import com.example.bank_sampah_app.panduan.PanduanDetailActivity;
+import com.example.bank_sampah_app.panduan.PanduanItem;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +33,8 @@ import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 public class HomeFragment extends Fragment {
 
     ImageView setorSampahImg, tarikSaldoImg, celengan;
+    private RecyclerView rv_panduan;
+    private ArrayList<PanduanItem> list = new ArrayList<>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -104,6 +118,26 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //panduan
+        rv_panduan = v.findViewById(R.id.rv_panduan);
+        list.addAll(PanduanData.getListData());
+        showRecyclerList();
+
         return v;
+    }
+
+    private void showRecyclerList(){
+        rv_panduan.setLayoutManager(new LinearLayoutManager(getActivity()));
+        PanduanAdapter panduanAdapter = new PanduanAdapter(list);
+        rv_panduan.setAdapter(panduanAdapter);
+
+        panduanAdapter.setOnItemClickListener(new PanduanAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(PanduanItem panduanItem) {
+                Intent moveToDetailPanduan = new Intent(getActivity(), PanduanDetailActivity.class);
+                moveToDetailPanduan.putExtra(PanduanDetailActivity.ITEM_EXTRA, panduanItem);
+                startActivity(moveToDetailPanduan);
+            }
+        });
     }
 }
