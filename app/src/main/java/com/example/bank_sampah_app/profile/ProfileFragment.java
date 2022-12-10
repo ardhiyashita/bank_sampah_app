@@ -3,7 +3,6 @@ package com.example.bank_sampah_app.profile;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,12 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.authentication.RegisterActivity;
+import com.example.bank_sampah_app.authentication.LoginActivity;
+import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.HelpFragment;
-import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,14 +30,15 @@ import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+    private SessionManager sessionManager;
     View view;
     LinearLayout lUbahData, lUbahPass, lBantuan, logout;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
+//    private static final String ARG_PARAM1 = "param1";
+//    private static final String ARG_PARAM2 = "param2";
+//
+//    private String mParam1;
+//    private String mParam2;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -40,20 +46,21 @@ public class ProfileFragment extends Fragment {
 
     public static ProfileFragment newInstance(String param1, String param2) {
         ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+//        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
     }
 
     @Override
@@ -61,6 +68,8 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        sessionManager = new SessionManager(getActivity().getApplicationContext());
 
         lUbahData = view.findViewById(R.id.ubahdataakun);
         lUbahPass = view.findViewById(R.id.ubahpassword);
@@ -92,6 +101,13 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userLogout();
+            }
+        });
+
         return view;
     }
 
@@ -101,5 +117,33 @@ public class ProfileFragment extends Fragment {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout,fragment);
         fragmentTransaction.commit();
+    }
+
+    private void userLogout(){
+        ApiClient apiClient = new ApiClient();
+        Call<LogoutResponse> logoutResponseCall = apiClient.getApiService(getActivity().getApplicationContext()).userLogout();
+        logoutResponseCall.enqueue(new Callback<LogoutResponse>() {
+            @Override
+            public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                LogoutResponse logoutResponse = response.body();
+                if (logoutResponse.getSuccess()==true) {
+                    if (sessionManager.fetchAuthToken() != null) {
+                        sessionManager.deleteAuthToken();
+                        Toast.makeText(getActivity(),"Logout Berhasil", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                } else {
+                    Toast.makeText(getActivity(),"Logout Gagal", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }

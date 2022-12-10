@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/neutral0">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        app:cardElevation="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -57,7 +57,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <View
         android:id="@+id/view1"
@@ -103,13 +103,15 @@
             <LinearLayout
                 android:id="@+id/ubahdataakun"
                 android:layout_marginTop="16dp"
+                android:paddingVertical="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:focusableInTouchMode="true">
+                android:focusableInTouchMode="true"
+                android:background="@drawable/list_selector_bg_green">
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -132,13 +134,15 @@
             <LinearLayout
                 android:id="@+id/ubahpassword"
                 android:layout_marginTop="16dp"
+                android:paddingVertical="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:focusableInTouchMode="true">
+                android:focusableInTouchMode="true"
+                android:background="@drawable/list_selector_bg_green">
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -224,13 +228,15 @@
                 <LinearLayout
                     android:id="@+id/bantuandanpencarian"
                     android:layout_marginTop="16dp"
+                    android:paddingVertical="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:clickable="true"
                     android:focusable="true"
-                    android:focusableInTouchMode="true">
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/list_selector_bg_green">
 
                     <ImageView
                         android:id="@+id/imageView7"
@@ -253,16 +259,19 @@
 
             <LinearLayout
                 android:id="@+id/logout"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="16dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:focusableInTouchMode="true">
+                android:focusableInTouchMode="true"
+                android:background="@drawable/list_selector_bg_accent">
 
-                <ImageView
+
+            <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
@@ -270,7 +279,7 @@
                     app:srcCompat="@drawable/ic_logout_accent" />
 
                 <TextView
-                    android:textAppearance="@style/body2_regular"
+                    android:textAppearance="@style/body2_semibold"
                     android:textColor="@color/accent100"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -18,6 +18,7 @@ import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.WelcomeActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import retrofit2.Call;
