@@ -6,9 +6,19 @@ public class PengajuanRequest {
 
     private int user_id;
     private String foto_sampah;
+    private String token;
     private String catatan_sampah;
     private String tipe_pengambilan;
     private int berat;
+    private int admin_id;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public int getUser_id() {
         return user_id;
@@ -48,5 +58,13 @@ public class PengajuanRequest {
 
     public void setBerat(int berat) {
         this.berat = berat;
+    }
+
+    public int getAdmin_id() {
+        return admin_id;
+    }
+
+    public void setAdmin_id(int admin_id) {
+        this.admin_id = admin_id;
     }
 }
