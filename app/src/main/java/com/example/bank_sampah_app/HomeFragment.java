@@ -11,7 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.bank_sampah_app.authentication.LoginActivity;
+import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.FaqData;
 import com.example.bank_sampah_app.help.HelpAdapter;
 import com.example.bank_sampah_app.help.HelpItem;
@@ -31,8 +35,10 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
-
+    private SessionManager sessionManager;
     ImageView setorSampahImg, tarikSaldoImg, celengan;
+    TextView usernameTv, saldoTv;
+
     private RecyclerView rv_panduan;
     private ArrayList<PanduanItem> list = new ArrayList<>();
     // TODO: Rename parameter arguments, choose names that match
@@ -78,12 +84,23 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        sessionManager = new SessionManager(getActivity().getApplicationContext());
 
+        User user = sessionManager.fetchUser();
 
-        //intent to setor sampah
         setorSampahImg = v.findViewById(R.id.setorSampahImg);
+        usernameTv = v.findViewById(R.id.username);
+        saldoTv = v.findViewById(R.id.saldo);
+
+        usernameTv.setText(user.getName());
+        saldoTv.setText(Integer.toString(user.getSaldo()));
+
+
+        if(user!=null){
+            Toast.makeText(getActivity(), "User Saved", Toast.LENGTH_LONG).show();
+        };
 
         setorSampahImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +144,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void showRecyclerList(){
-        rv_panduan.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager horizontalLayoutManager
+                = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        rv_panduan.setLayoutManager(horizontalLayoutManager);
         PanduanAdapter panduanAdapter = new PanduanAdapter(list);
         rv_panduan.setAdapter(panduanAdapter);
 

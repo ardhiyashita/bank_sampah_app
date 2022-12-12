@@ -1,22 +1,20 @@
 package com.example.bank_sampah_app;
 
-import java.util.Date;
-
 public class User {
 
-    private String id_user;
-    private String nama;
+    private int id_user;
+    private String name;
     private String email;
-    private String saldo;
+    private int saldo;
     private String foto;
     private String alamat;
     private String jenis_kelamin;
     private String no_hp;
-    private Date tgl_lahir;
+    private String tgl_lahir;
 
-    public User(String id_user, String nama, String email, String saldo, String foto, String alamat, String jenis_kelamin, String no_hp, Date tgl_lahir) {
+    public User(int id_user, String name, String email, int saldo, String foto, String alamat, String jenis_kelamin, String no_hp, String tgl_lahir) {
         this.id_user = id_user;
-        this.nama = nama;
+        this.name = name;
         this.email = email;
         this.saldo = saldo;
         this.foto = foto;
@@ -26,20 +24,20 @@ public class User {
         this.tgl_lahir = tgl_lahir;
     }
 
-    public String getId_user() {
+    public int getId_user() {
         return id_user;
     }
 
-    public void setId_user(String id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 
-    public String getNama() {
-        return nama;
+    public String getName() {
+        return name;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -50,11 +48,11 @@ public class User {
         this.email = email;
     }
 
-    public String getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(String saldo) {
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 
@@ -90,11 +88,11 @@ public class User {
         this.no_hp = no_hp;
     }
 
-    public Date getTgl_lahir() {
+    public String getTgl_lahir() {
         return tgl_lahir;
     }
 
-    public void setTgl_lahir(Date tgl_lahir) {
+    public void setTgl_lahir(String tgl_lahir) {
         this.tgl_lahir = tgl_lahir;
     }
 }

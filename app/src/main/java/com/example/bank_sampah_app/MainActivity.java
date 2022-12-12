@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.bank_sampah_app.help.HelpFragment;
 import com.example.bank_sampah_app.informasi.InformasiFragment;
 import com.example.bank_sampah_app.profile.ProfileFragment;
-import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 import com.example.bank_sampah_app.databinding.MainActivityBinding;
+import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -285,7 +285,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     public Boolean checkDateFormat(String date){
-        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD200");
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD");
         try {
             format.parse(date);
             return true;
