@@ -97,11 +97,6 @@ public class HomeFragment extends Fragment {
         usernameTv.setText(user.getName());
         saldoTv.setText(Integer.toString(user.getSaldo()));
 
-
-        if(user!=null){
-            Toast.makeText(getActivity(), "Selamat datang kembali" + " " +user.getName(), Toast.LENGTH_SHORT).show();
-        };
-
         setorSampahImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

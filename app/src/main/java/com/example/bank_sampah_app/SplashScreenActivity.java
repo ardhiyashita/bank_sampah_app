@@ -32,13 +32,12 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (preferences.contains("isUserLogin")) {
-                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
                     startActivity(intent);
                 }
-//                startActivity(new Intent(getApplicationContext(), OnBoardingActivity.class));
                 finish();
             }
         },3000);

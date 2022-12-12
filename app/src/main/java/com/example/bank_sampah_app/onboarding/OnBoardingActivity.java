@@ -3,6 +3,7 @@ package com.example.bank_sampah_app.onboarding;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.SplashScreenActivity;
 import com.example.bank_sampah_app.WelcomeActivity;
 import com.google.android.material.tabs.TabLayout;
 
@@ -35,11 +37,16 @@ public class OnBoardingActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
         //next activity
         if (restorePreData()){
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(mainActivity);
-            finish();
+            if (preferences.contains("isUserLogin")) {
+                Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(OnBoardingActivity.this, WelcomeActivity.class);
+                startActivity(intent);
+            }
         }
 
         setContentView(R.layout.activity_onboarding);
@@ -94,7 +101,7 @@ public class OnBoardingActivity extends AppCompatActivity {
             Intent welcomeActivity = new Intent(getApplicationContext(), WelcomeActivity.class);
             startActivity(welcomeActivity);
 
-//            savePrefsData();
+            savePrefsData();
             finish();
         });
     }
@@ -107,9 +114,7 @@ public class OnBoardingActivity extends AppCompatActivity {
 
     private void savePrefsData(){
         SharedPreferences preferences = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
-
         SharedPreferences.Editor editor = preferences.edit();
-
         editor.putBoolean("isOnboardingOpened",true);
         editor.apply();
     }

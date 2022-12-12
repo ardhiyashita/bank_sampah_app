@@ -33,7 +33,6 @@ public class SessionManager{
     public void deleteAuthToken(){
         editor=sharedPreferences.edit();
         editor.clear();
-        editor.putBoolean("isUserLogin", false);
         editor.apply();
     }
 
