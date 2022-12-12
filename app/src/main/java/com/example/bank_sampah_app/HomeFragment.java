@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
 
 
         if(user!=null){
-            Toast.makeText(getActivity(), "User Saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Selamat datang kembali" + " " +user.getName(), Toast.LENGTH_SHORT).show();
         };
 
         setorSampahImg.setOnClickListener(new View.OnClickListener() {

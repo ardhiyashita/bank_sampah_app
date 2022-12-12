@@ -10,15 +10,19 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.HelpFragment;
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,6 +37,8 @@ public class ProfileFragment extends Fragment {
     private SessionManager sessionManager;
     View view;
     LinearLayout lUbahData, lUbahPass, lBantuan, logout;
+    ImageView imgProfile;
+    TextView tvNama, tvNoHp;
 
 //    private static final String ARG_PARAM1 = "param1";
 //    private static final String ARG_PARAM2 = "param2";
@@ -70,11 +76,23 @@ public class ProfileFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         sessionManager = new SessionManager(getActivity().getApplicationContext());
+        User user = sessionManager.fetchUser();
 
         lUbahData = view.findViewById(R.id.ubahdataakun);
         lUbahPass = view.findViewById(R.id.ubahpassword);
         lBantuan = view.findViewById(R.id.bantuandanpencarian);
         logout = view.findViewById(R.id.logout);
+        imgProfile = view.findViewById(R.id.img_profile);
+        tvNama = view.findViewById(R.id.tv_namaprofile);
+        tvNoHp = view.findViewById(R.id.tv_hpprofile);
+
+        tvNama.setText(user.getName());
+        tvNoHp.setText(user.getNo_hp());
+
+        String url_image = user.getFoto();
+        if (url_image != null){
+            Picasso.get().load(url_image).into(imgProfile);
+        }
 
         lUbahData.setOnClickListener(new View.OnClickListener() {
             @Override
