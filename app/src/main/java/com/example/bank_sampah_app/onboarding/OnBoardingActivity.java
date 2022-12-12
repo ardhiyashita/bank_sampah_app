@@ -47,6 +47,7 @@ public class OnBoardingActivity extends AppCompatActivity {
                 Intent intent = new Intent(OnBoardingActivity.this, WelcomeActivity.class);
                 startActivity(intent);
             }
+            finish();
         }
 
         setContentView(R.layout.activity_onboarding);
