@@ -48,14 +48,38 @@
 <!--                android:inputType="none"/>-->
 <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-        <Spinner
-            android:id="@+id/tipePengambilanSpinner"
+<!--        <Spinner-->
+<!--            android:id="@+id/tipePengambilanSpinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:background="@drawable/bg_custom_input"-->
+<!--            style="@style/body2_regular"-->
+<!--            android:padding="10dp" />-->
+
+        <RadioGroup
+            android:id="@+id/radioGroup_pengambilan"
             android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_custom_input"
-            style="@style/body2_regular"
-            android:padding="10dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bank"
+                android:textAppearance="@style/body2_regular" />
+
+            <RadioButton
+                android:id="@+id/rumah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="rumah"
+                android:textAppearance="@style/body2_regular" />
+        </RadioGroup>
+
 
 
         <LinearLayout
@@ -67,7 +91,6 @@
                 android:id="@+id/totalBeratTv"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:text="Total Berat"
                 android:textAppearance="@style/heading1_bold"
@@ -95,7 +118,22 @@
                 android:layout_weight="1"/>
         </LinearLayout>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Catatan"
+            android:textAppearance="@style/heading2_bold"
+            android:textColor="@color/neutral80" />
+        <EditText
+            android:id="@+id/catatanSampahEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_custom_input"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/heading3_regular"
+            android:textColor="@color/neutral80" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,7 +150,7 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_rectangle_primary"
                 style="@style/button"
-                android:text="Lanjut"
+                android:text="Kirim"
                 android:textAllCaps="false"
                 android:textColor="@color/neutral0"
                 android:textSize="16sp" />

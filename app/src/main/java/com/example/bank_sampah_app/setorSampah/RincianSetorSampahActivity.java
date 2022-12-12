@@ -41,6 +41,8 @@ import com.example.bank_sampah_app.tarikSaldo.RincianPenarikanActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -133,12 +135,11 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
     public void pengajuan() {
         User user = sessionManager.fetchUser();
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
-        pengajuanRequest.setToken(sessionManager.fetchAuthToken());
         pengajuanRequest.setUser_id(user.getId_user());
         pengajuanRequest.setTipe_pengambilan(tipePengambilanTv.getText().toString());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
-        pengajuanRequest.setBerat(Integer.parseInt(totalBeratRincianTv.getText().toString()));
-        pengajuanRequest.setAdmin_id(admin_id);
+        pengajuanRequest.setBerat(totalBeratRincianTv.getText().toString());
+//        pengajuanRequest.setAdmin_id(admin_id);
 //        pengajuanRequest.setFoto_sampah(path.getText.toString());
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
@@ -147,7 +148,6 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
             public void onResponse(Call<PengajuanResponse> call, Response<PengajuanResponse> response) {
                 PengajuanResponse pengajuanResponse = response.body();
                 if (pengajuanResponse.getSuccess()==true) {
-                    sessionManager.saveAuthToken(pengajuanResponse.getToken());
                     Toast.makeText(RincianSetorSampahActivity.this, "Data Berhasil Terkirim", Toast.LENGTH_SHORT).show();
                     Intent intentkirimsampah = new Intent(RincianSetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);

@@ -2,21 +2,15 @@ package com.example.bank_sampah_app.API.responses;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class PengajuanResponse {
 
+    @SerializedName("success")
     private Boolean success;
 
     @SerializedName("message")
-    private String message;
-    private String token;
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
+    private Message message;
 
     public Boolean getSuccess() {
         return success;
@@ -26,11 +20,23 @@ public class PengajuanResponse {
         this.success = success;
     }
 
-    public String getMessage() {
+    public Message getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Message message) {
         this.message = message;
+    }
+
+    public class Message{
+        public ArrayList<Object> getErrorInfo() {
+            return errorInfo;
+        }
+
+        public void setErrorInfo(ArrayList<Object> errorInfo) {
+            this.errorInfo = errorInfo;
+        }
+
+        public ArrayList<Object> errorInfo;
     }
 }
