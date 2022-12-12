@@ -33,7 +33,6 @@ public class SessionManager{
     public void deleteAuthToken(){
         editor=sharedPreferences.edit();
         editor.clear();
-        editor.putBoolean("isUserLogin", false);
         editor.apply();
     }
 
@@ -53,10 +52,10 @@ public class SessionManager{
     }
 
     public User fetchUser(){
-        int id_user = sharedPreferences.getInt("id_user",-1);
+        int id_user = sharedPreferences.getInt("id_user",0);
         String name = sharedPreferences.getString("name",null);
         String email = sharedPreferences.getString("email",null);
-        int saldo = sharedPreferences.getInt("saldo",-1);
+        int saldo = sharedPreferences.getInt("saldo",0);
         String foto = sharedPreferences.getString("foto",null);
         String alamat = sharedPreferences.getString("alamat",null);
         String jenis_kelamin = sharedPreferences.getString("jenis_kelamin",null);
