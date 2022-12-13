@@ -48,37 +48,37 @@
 <!--                android:inputType="none"/>-->
 <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
-<!--        <Spinner-->
-<!--            android:id="@+id/tipePengambilanSpinner"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="57dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@drawable/bg_custom_input"-->
-<!--            style="@style/body2_regular"-->
-<!--            android:padding="10dp" />-->
-
-        <RadioGroup
-            android:id="@+id/radioGroup_pengambilan"
+        <Spinner
+            android:id="@+id/tipePengambilanSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_custom_input"
+            style="@style/body2_regular"
+            android:padding="10dp" />
 
-            <RadioButton
-                android:id="@+id/bank"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bank"
-                android:textAppearance="@style/body2_regular" />
+<!--        <RadioGroup-->
+<!--            android:id="@+id/radioGroup_pengambilan"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:orientation="horizontal">-->
 
-            <RadioButton
-                android:id="@+id/rumah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="rumah"
-                android:textAppearance="@style/body2_regular" />
-        </RadioGroup>
+<!--            <RadioButton-->
+<!--                android:id="@+id/bank"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="bank"-->
+<!--                android:textAppearance="@style/body2_regular" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rumah"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:text="rumah"-->
+<!--                android:textAppearance="@style/body2_regular" />-->
+<!--        </RadioGroup>-->
 
 
 

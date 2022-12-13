@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class PengajuanRequest {
 
-    @SerializedName("user-id")
+    @SerializedName("user_id")
     private int user_id;
     @SerializedName("foto_sampah")
     private String foto_sampah;

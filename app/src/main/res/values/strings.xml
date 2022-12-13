@@ -40,8 +40,8 @@
     <string name="simpan">Simpan</string>
 
     <string-array name="tipePengambilanString">
-        <item>Bank</item>
-        <item>Rumah</item>
+        <item>bank</item>
+        <item>rumah</item>
     </string-array>
 
     <string-array name="jenisSampah">

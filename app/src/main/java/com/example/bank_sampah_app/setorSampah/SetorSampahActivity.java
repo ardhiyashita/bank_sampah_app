@@ -27,13 +27,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SetorSampahActivity extends AppCompatActivity{
+public class SetorSampahActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     Spinner tipePengambilanSpinner;
     EditText totalBeratEt, catatanSampahEt;
     Button lanjutSetorButton;
     CharSequence textJenisSampah;
-    int admin_id = 0;
+//    int admin_id = 0;
     private ApiClient apiClient;
     RadioGroup radioButton_pengambilan;
     int checkgroup;
@@ -63,30 +63,18 @@ public class SetorSampahActivity extends AppCompatActivity{
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         //init
-//        tipePengambilanSpinner = findViewById(R.id.tipePengambilanSpinner);
+        tipePengambilanSpinner = findViewById(R.id.tipePengambilanSpinner);
         totalBeratEt = findViewById(R.id.totalBeratEt);
         lanjutSetorButton = findViewById(R.id.lanjutSetorButton);
         catatanSampahEt = findViewById(R.id.catatanSampahEt);
-        radioButton_pengambilan = findViewById(R.id.radioGroup_pengambilan);
 
         //spinner dan adapter pilihan tipe pengambilan
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipePengambilanString, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        tipePengambilanSpinner.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipePengambilanString, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tipePengambilanSpinner.setAdapter(adapter);
 
         //ambil data spinner
-//        tipePengambilanSpinner.setOnItemSelectedListener(this);
-//        textJenisSampah = (CharSequence) tipePengambilanSpinner.getSelectedItem().toString();
-
-
-        //button lanjut
-        radioButton_pengambilan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                checkgroup = checkedId;
-                radioButton = (RadioButton) findViewById(checkedId);
-            }
-        });
+        tipePengambilanSpinner.setOnItemSelectedListener(this);
 
         lanjutSetorButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,10 +100,12 @@ public class SetorSampahActivity extends AppCompatActivity{
         User user = sessionManager.fetchUser();
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
         pengajuanRequest.setUser_id(user.getId_user());
-        pengajuanRequest.setTipe_pengambilan(radioButton.getText().toString());
+        String stringInt = String.valueOf(user.getId_user());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
+        pengajuanRequest.setTipe_pengambilan(tipePengambilanSpinner.getSelectedItem().toString());
+//        pengajuanRequest.setTipe_pengambilan(radioButton.getText().toString());
         pengajuanRequest.setBerat(totalBeratEt.getText().toString());
-        pengajuanRequest.setAdmin_id(admin_id);
+//        pengajuanRequest.setAdmin_id(admin_id);
 //        pengajuanRequest.setFoto_sampah(path.getText.toString());
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
@@ -139,13 +129,13 @@ public class SetorSampahActivity extends AppCompatActivity{
         });
     }
 
-//    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-//        // An item was selected. You can retrieve the selected item using
-//        selectedTipePengambilan = (String) parent.getItemAtPosition(pos);
-//
-//    }
-//
-//    public void onNothingSelected(AdapterView<?> parent) {
-//        // Another interface callback
-//    }
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        selectedTipePengambilan = (String) parent.getItemAtPosition(pos);
+
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
 }
