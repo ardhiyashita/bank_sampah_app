@@ -33,7 +33,8 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     EditText totalBeratEt, catatanSampahEt;
     Button lanjutSetorButton;
     CharSequence textJenisSampah;
-//    int admin_id = 0;
+    int admin_id = 0;
+    String foto_sampah = null;
     private ApiClient apiClient;
     RadioGroup radioButton_pengambilan;
     int checkgroup;
@@ -100,13 +101,13 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         User user = sessionManager.fetchUser();
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
         pengajuanRequest.setUser_id(user.getId_user());
-        String stringInt = String.valueOf(user.getId_user());
+//        String stringInt = String.valueOf(user.getId_user());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
         pengajuanRequest.setTipe_pengambilan(tipePengambilanSpinner.getSelectedItem().toString());
 //        pengajuanRequest.setTipe_pengambilan(radioButton.getText().toString());
         pengajuanRequest.setBerat(totalBeratEt.getText().toString());
-//        pengajuanRequest.setAdmin_id(admin_id);
-//        pengajuanRequest.setFoto_sampah(path.getText.toString());
+        pengajuanRequest.setAdmin_id(admin_id);
+        pengajuanRequest.setFoto_sampah(foto_sampah);
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
         pengajuanResponseCall.enqueue(new Callback<PengajuanResponse>() {
@@ -118,7 +119,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
                     Intent intentkirimsampah = new Intent(SetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);
                 } else {
-                    Toast.makeText(SetorSampahActivity.this, "Data Tidak Berhasil Terkirim", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SetorSampahActivity.this, "Data Tidak Berhasil Terkirim"+ pengajuanResponse.getMessage().getErrorInfo(), Toast.LENGTH_LONG).show();
                 }
             }
 
