@@ -2,8 +2,18 @@ package com.example.bank_sampah_app.setorSampah;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -21,10 +32,13 @@ import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.RealPathUtil;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.RegisterActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.io.File;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,12 +48,15 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
 
     Spinner tipePengambilanSpinner;
     EditText totalBeratEt, catatanSampahEt;
-    Button lanjutSetorButton;
+    Button lanjutSetorButton, unggahButton;
     int admin_id = 0;
     String foto_sampah = null;
     private ApiClient apiClient;
     private SessionManager sessionManager;
     String selectedTipePengambilan;
+//    ImageView fotoSampahImg;
+//    String path;
+//    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +80,8 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         totalBeratEt = findViewById(R.id.totalBeratEt);
         lanjutSetorButton = findViewById(R.id.lanjutSetorButton);
         catatanSampahEt = findViewById(R.id.catatanSampahEt);
+//        unggahButton = findViewById(R.id.unggahbutton);
+//        fotoSampahImg = findViewById(R.id.fotoSampahImg);
 
         //spinner dan adapter pilihan tipe pengambilan
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipePengambilanString, android.R.layout.simple_spinner_item);
@@ -71,6 +90,22 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
 
         //ambil data spinner
         tipePengambilanSpinner.setOnItemSelectedListener(this);
+
+        //akses kamera
+//        unggahButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)  == PackageManager.PERMISSION_GRANTED) {
+//                    Intent intentCam = new Intent();
+//                        intentCam.setType("image/*");
+//                        intentCam.setAction(Intent.ACTION_GET_CONTENT);
+//                    startActivityForResult(intentCam, 10);
+//                }else {
+//                    ActivityCompat.requestPermissions(SetorSampahActivity.this,
+//                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+//                }
+//            }
+//        });
 
         lanjutSetorButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,13 +120,14 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
 
     public void pengajuan() {
         User user = sessionManager.fetchUser();
+//        File file = new File(path);
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
         pengajuanRequest.setUser_id(user.getId_user());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
         pengajuanRequest.setTipe_pengambilan(tipePengambilanSpinner.getSelectedItem().toString());
         pengajuanRequest.setBerat(totalBeratEt.getText().toString());
         pengajuanRequest.setAdmin_id(admin_id);
-        pengajuanRequest.setFoto_sampah(foto_sampah);
+//        pengajuanRequest.setFoto_sampah(path.getBytes().toString());
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
         pengajuanResponseCall.enqueue(new Callback<PengajuanResponse>() {
@@ -99,7 +135,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             public void onResponse(Call<PengajuanResponse> call, Response<PengajuanResponse> response) {
                 PengajuanResponse pengajuanResponse = response.body();
                 if (pengajuanResponse.getSuccess()==true) {
-                    Toast.makeText(SetorSampahActivity.this, (CharSequence) pengajuanResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetorSampahActivity.this, pengajuanResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentkirimsampah = new Intent(SetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);
                 } else {
@@ -135,4 +171,16 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         }
         return true;
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
+//            Uri uri = data.getData();
+//            Context context = SetorSampahActivity.this;
+//            path = RealPathUtil.getRealPath(context, uri);
+//            Bitmap bitmap = BitmapFactory.decodeFile(path);
+//            fotoSampahImg.setImageBitmap(bitmap);
+//        }
+//    }
 }
