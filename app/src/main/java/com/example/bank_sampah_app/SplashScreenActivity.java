@@ -18,31 +18,24 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
-
         //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splash_screen);
 
-        Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
+//        startActivity(intent);
+//        finish();
 
-//        final Handler handler =new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (preferences.contains("isUserLogin")) {
-//                    Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    Intent intent = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
-//                    startActivity(intent);
-//                }
-//                finish();
-//            }
-//        },3000);
+        final Handler handler =new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                    Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
+                    startActivity(intent);
+                    finish();
+            }
+        },3000);
     }
 }
