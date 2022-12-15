@@ -24,23 +24,18 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash_screen);
 
-        Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
+//        startActivity(intent);
+//        finish();
 
-//        final Handler handler =new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (preferences.contains("isUserLogin")) {
-//                    Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    Intent intent = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
-//                    startActivity(intent);
-//                }
-//                finish();
-//            }
-//        },3000);
+        final Handler handler =new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                    Intent intent = new Intent(SplashScreenActivity.this, OnBoardingActivity.class);
+                    startActivity(intent);
+                    finish();
+            }
+        },3000);
     }
 }

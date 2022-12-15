@@ -7,6 +7,7 @@ import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
+import com.example.bank_sampah_app.API.responses.UserDataResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -27,4 +28,7 @@ public interface ApiService {
 
     @POST(Constant.PENGAJUAN)
     Call<PengajuanResponse> userPengajuan(@Body PengajuanRequest pengajuanRequest);
+
+    @GET(Constant.DATA_USER)
+    Call<UserDataResponse> getUserData();
 }

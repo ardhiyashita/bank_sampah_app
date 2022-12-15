@@ -6,7 +6,9 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.requests.LoginRequest;
+import com.example.bank_sampah_app.API.responses.LoginResponse;
+import com.example.bank_sampah_app.API.responses.UserDataResponse;
 import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.FaqData;
@@ -29,15 +35,21 @@ import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+    private ApiClient apiClient;
     private SessionManager sessionManager;
     ImageView setorSampahImg, tarikSaldoImg, celengan;
     TextView usernameTv, saldoTv;
+    SwipeRefreshLayout swipeContainer;
 
     private RecyclerView rv_panduan;
     private ArrayList<PanduanItem> list = new ArrayList<>();
@@ -86,16 +98,33 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+
+        apiClient = new ApiClient();
         sessionManager = new SessionManager(getActivity().getApplicationContext());
 
         User user = sessionManager.fetchUser();
 
+        swipeContainer =v.findViewById(R.id.refresh_home);
         setorSampahImg = v.findViewById(R.id.setorSampahImg);
         usernameTv = v.findViewById(R.id.username);
         saldoTv = v.findViewById(R.id.saldo);
 
         usernameTv.setText(user.getName());
         saldoTv.setText(Integer.toString(user.getSaldo()));
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchUserAsync(0);
+            }
+        });
+
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
 
         setorSampahImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +180,30 @@ public class HomeFragment extends Fragment {
                 Intent moveToDetailPanduan = new Intent(getActivity(), PanduanDetailActivity.class);
                 moveToDetailPanduan.putExtra(PanduanDetailActivity.ITEM_EXTRA, panduanItem);
                 startActivity(moveToDetailPanduan);
+            }
+        });
+    }
+
+    public void fetchUserAsync(int page) {
+        Call<UserDataResponse> userDataResponseCall = apiClient.getApiService(getActivity()).getUserData();
+        userDataResponseCall.enqueue(new Callback<UserDataResponse>() {
+            @Override
+            public void onResponse(Call<UserDataResponse> call, Response<UserDataResponse> response) {
+                UserDataResponse userDataResponse = response.body();
+                if (userDataResponse.getSuccess()==true) {
+                    sessionManager.saveUser(userDataResponse.getUser());
+
+                    Toast.makeText(getActivity(), "Data berhasil diperbaharui", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Data gagal diperbaharui", Toast.LENGTH_LONG).show();
+                }
+                swipeContainer.setRefreshing(false);
+            }
+
+            @Override
+            public void onFailure(Call<UserDataResponse> call, Throwable t) {
+//                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
             }
         });
     }

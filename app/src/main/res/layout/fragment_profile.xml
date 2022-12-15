@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAppearance="@style/body1_semibold"
-                    android:text="Ni Made Ardhiya Shita Pramesti"
+                    android:text="@string/username"
                     android:textColor="@color/neutral80" />
 
                 <TextView
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/body2_regular"
-                    android:text="+6281237491235" />
+                    android:text="@string/telp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -79,7 +79,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true">
 
             <TextView
                 android:id="@+id/textView7"
@@ -163,56 +164,6 @@
                     android:text="  Info Lainnya"
                     android:textColor="@color/primary100"
                     android:textSize="16sp" />
-
-<!--                <LinearLayout-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/imageView5"-->
-<!--                            android:layout_width="100dp"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_weight="1"-->
-<!--                            app:srcCompat="@android:drawable/btn_star" />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/tv_beripenilaian"-->
-<!--                            android:textAppearance="@style/body2_regular"-->
-<!--                            android:textColor="@color/neutral80"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="1"-->
-<!--                            android:text="Beri Penilaian" />-->
-<!--                    </LinearLayout>-->
-
-<!--                </LinearLayout>-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:orientation="horizontal">-->
-<!--                    -->
-<!--                        <ImageView-->
-<!--                            android:id="@+id/imageView6"-->
-<!--                            android:layout_width="100dp"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_weight="1"-->
-<!--                            app:srcCompat="@android:drawable/ic_dialog_info" />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/tv_syaratdanketentuan"-->
-<!--                            android:textAppearance="@style/body2_regular"-->
-<!--                            android:textColor="@color/neutral80"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="1"-->
-<!--                            android:text="Syarat dan Ketentuan" />-->
-<!--                </LinearLayout>-->
 
                 <LinearLayout
                     android:id="@+id/bantuandanpencarian"
