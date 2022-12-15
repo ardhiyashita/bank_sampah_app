@@ -1,14 +1,23 @@
 package com.example.bank_sampah_app.API.requests;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class PengajuanRequest {
 
+    @SerializedName("user_id")
     private int user_id;
+    @SerializedName("foto_sampah")
     private String foto_sampah;
+    @SerializedName("catatan_sampah")
     private String catatan_sampah;
+    @SerializedName("tipe_pengambilan")
     private String tipe_pengambilan;
-    private int berat;
+    @SerializedName("berat")
+    private String berat;
+    @SerializedName("admin_id")
+    private int admin_id;
 
     public int getUser_id() {
         return user_id;
@@ -42,11 +51,19 @@ public class PengajuanRequest {
         this.tipe_pengambilan = tipe_pengambilan;
     }
 
-    public int getBerat() {
+    public String getBerat() {
         return berat;
     }
 
-    public void setBerat(int berat) {
+    public void setBerat(String berat) {
         this.berat = berat;
+    }
+
+    public int getAdmin_id() {
+        return admin_id;
+    }
+
+    public void setAdmin_id(int admin_id) {
+        this.admin_id = admin_id;
     }
 }

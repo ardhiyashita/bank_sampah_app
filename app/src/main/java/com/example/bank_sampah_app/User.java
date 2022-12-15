@@ -2,7 +2,7 @@ package com.example.bank_sampah_app;
 
 public class User {
 
-    private int id_user;
+    private int id;
     private String name;
     private String email;
     private int saldo;
@@ -13,7 +13,7 @@ public class User {
     private String tgl_lahir;
 
     public User(int id_user, String name, String email, int saldo, String foto, String alamat, String jenis_kelamin, String no_hp, String tgl_lahir) {
-        this.id_user = id_user;
+        this.id = id_user;
         this.name = name;
         this.email = email;
         this.saldo = saldo;
@@ -25,11 +25,11 @@ public class User {
     }
 
     public int getId_user() {
-        return id_user;
+        return id;
     }
 
     public void setId_user(int id_user) {
-        this.id_user = id_user;
+        this.id = id_user;
     }
 
     public String getName() {

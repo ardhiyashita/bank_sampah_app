@@ -33,6 +33,7 @@ import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.RealPathUtil;
+import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.databinding.ActivityRincianSetorSampahBinding;
@@ -40,6 +41,8 @@ import com.example.bank_sampah_app.tarikSaldo.RincianPenarikanActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +51,7 @@ import retrofit2.Response;
 public class RincianSetorSampahActivity extends AppCompatActivity {
 
     Button kirimSetorSampahButton, unggahbutton;
+    int admin_id = 0;
     TextView tipePengambilanTv, totalBeratRincianTv;
     int valueTotalBerat;
     private ApiClient apiClient;
@@ -69,6 +73,7 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
 //        setorSampahBinding = ActivityRincianSetorSampahBinding.inflate(getLayoutInflater());
         apiClient = new ApiClient();
         sessionManager = new SessionManager(this);
+        User user = sessionManager.fetchUser();
 
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -102,8 +107,7 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //                startActivityForResult(camera,requestcamera_code);
-                if (ContextCompat.checkSelfPermission(getApplicationContext(),
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)  == PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)  == PackageManager.PERMISSION_GRANTED) {
                     Intent intentCam = new Intent();
                     intentCam.setType("image/*");
                     intentCam.setAction(Intent.ACTION_GET_CONTENT);
@@ -128,12 +132,15 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
     }
 
 
-    private void pengajuan() {
+    public void pengajuan() {
+        User user = sessionManager.fetchUser();
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
+        pengajuanRequest.setUser_id(user.getId_user());
         pengajuanRequest.setTipe_pengambilan(tipePengambilanTv.getText().toString());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
-        pengajuanRequest.setBerat(Integer.parseInt(totalBeratRincianTv.getText().toString()));
-//        pengajuanRequest.setFoto_sampah();
+        pengajuanRequest.setBerat(totalBeratRincianTv.getText().toString());
+//        pengajuanRequest.setAdmin_id(admin_id);
+//        pengajuanRequest.setFoto_sampah(path.getText.toString());
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
         pengajuanResponseCall.enqueue(new Callback<PengajuanResponse>() {
@@ -141,7 +148,6 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
             public void onResponse(Call<PengajuanResponse> call, Response<PengajuanResponse> response) {
                 PengajuanResponse pengajuanResponse = response.body();
                 if (pengajuanResponse.getSuccess()==true) {
-                    sessionManager.saveAuthToken(pengajuanResponse.getToken());
                     Toast.makeText(RincianSetorSampahActivity.this, "Data Berhasil Terkirim", Toast.LENGTH_SHORT).show();
                     Intent intentkirimsampah = new Intent(RincianSetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);
