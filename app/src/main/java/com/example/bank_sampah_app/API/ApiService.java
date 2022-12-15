@@ -31,4 +31,7 @@ public interface ApiService {
 
     @GET(Constant.DATA_USER)
     Call<UserDataResponse> getUserData();
+
+    @POST(Constant.EDIT_USER)
+    Call<LoginResponse> userEdit(@Body RegisterRequest editProfileRequest);
 }

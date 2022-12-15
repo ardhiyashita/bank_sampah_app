@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.help.HelpItem;
 
 public class PanduanDetailActivity extends AppCompatActivity {
     TextView panduanDetailTv, panduanContentDetailTv;
@@ -32,7 +31,7 @@ public class PanduanDetailActivity extends AppCompatActivity {
         mTitle.setText("Panduan");
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 }

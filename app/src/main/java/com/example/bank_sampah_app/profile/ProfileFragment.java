@@ -6,7 +6,9 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
+import com.example.bank_sampah_app.API.responses.UserDataResponse;
+import com.example.bank_sampah_app.HomeFragment;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.LoginActivity;
@@ -35,8 +39,10 @@ import retrofit2.Response;
  */
 public class ProfileFragment extends Fragment {
     private SessionManager sessionManager;
+    private ApiClient apiClient;
     View view;
     LinearLayout lUbahData, lUbahPass, lBantuan, logout;
+    SwipeRefreshLayout swipeContainer;
     ImageView imgProfile;
     TextView tvNama, tvNoHp;
 
@@ -77,7 +83,9 @@ public class ProfileFragment extends Fragment {
 
         sessionManager = new SessionManager(getActivity().getApplicationContext());
         User user = sessionManager.fetchUser();
+        apiClient = new ApiClient();
 
+        swipeContainer =view.findViewById(R.id.refresh_profile);
         lUbahData = view.findViewById(R.id.ubahdataakun);
         lUbahPass = view.findViewById(R.id.ubahpassword);
         lBantuan = view.findViewById(R.id.bantuandanpencarian);
@@ -88,6 +96,21 @@ public class ProfileFragment extends Fragment {
 
         tvNama.setText(user.getName());
         tvNoHp.setText(user.getNo_hp());
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshUser(0);
+                Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_home);
+                if (currentFragment instanceof HomeFragment) {
+                    FragmentTransaction fragTransaction =   (getActivity()).getSupportFragmentManager().beginTransaction();
+                    fragTransaction.detach(currentFragment);
+                    fragTransaction.attach(currentFragment);
+                    fragTransaction.commit();
+                }
+            }
+        });
+        swipeContainer.setColorSchemeResources(android.R.color.holo_green_light);
 
         String url_image = user.getFoto();
         if (url_image != null){
@@ -138,7 +161,6 @@ public class ProfileFragment extends Fragment {
     }
 
     private void userLogout(){
-        ApiClient apiClient = new ApiClient();
         Call<LogoutResponse> logoutResponseCall = apiClient.getApiService(getActivity().getApplicationContext()).userLogout();
         logoutResponseCall.enqueue(new Callback<LogoutResponse>() {
             @Override
@@ -161,6 +183,29 @@ public class ProfileFragment extends Fragment {
             public void onFailure(Call<LogoutResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
+            }
+        });
+    }
+
+    public void refreshUser(int page) {
+        Call<UserDataResponse> userDataResponseCall = apiClient.getApiService(getActivity()).getUserData();
+        userDataResponseCall.enqueue(new Callback<UserDataResponse>() {
+            @Override
+            public void onResponse(Call<UserDataResponse> call, Response<UserDataResponse> response) {
+                UserDataResponse userDataResponse = response.body();
+                if (userDataResponse.getSuccess()==true) {
+                    sessionManager.saveUser(userDataResponse.getUser());
+                    Toast.makeText(getActivity(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Data gagal diperbarui", Toast.LENGTH_LONG).show();
+                }
+                swipeContainer.setRefreshing(false);
+            }
+
+            @Override
+            public void onFailure(Call<UserDataResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
             }
         });
     }

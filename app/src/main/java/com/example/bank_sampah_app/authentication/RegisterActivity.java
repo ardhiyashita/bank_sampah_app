@@ -225,7 +225,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
                     toLogin();
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Pendaftaran Gagal" + registerResponse.getMessage().getErrorInfo(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Pendaftaran Gagal", Toast.LENGTH_LONG).show();
                 }
             }
 

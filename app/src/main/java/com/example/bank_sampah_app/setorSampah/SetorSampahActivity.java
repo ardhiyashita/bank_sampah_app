@@ -2,18 +2,8 @@ package com.example.bank_sampah_app.setorSampah;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -21,9 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,13 +19,8 @@ import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.RealPathUtil;
 import com.example.bank_sampah_app.User;
-import com.example.bank_sampah_app.authentication.RegisterActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.io.File;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -72,7 +54,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         User user = sessionManager.fetchUser();
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         //init

@@ -20,6 +20,8 @@ public class RegisterRequest {
     private String tgl_lahir;
     @SerializedName("password")
     private String password;
+    @SerializedName("foto")
+    private String foto;
 
     public String getName() {
         return name;
@@ -75,6 +77,14 @@ public class RegisterRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
 }

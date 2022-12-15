@@ -1,12 +1,9 @@
 package com.example.bank_sampah_app.setorSampah;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 
 import android.Manifest;
 import android.app.Activity;
@@ -15,10 +12,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,22 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
-import com.example.bank_sampah_app.API.requests.LoginRequest;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
-import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.RealPathUtil;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.authentication.LoginActivity;
-import com.example.bank_sampah_app.databinding.ActivityRincianSetorSampahBinding;
-import com.example.bank_sampah_app.tarikSaldo.RincianPenarikanActivity;
-import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -81,7 +66,7 @@ public class RincianSetorSampahActivity extends AppCompatActivity {
         mTitle.setText("Rincian Setor Sampah");
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         //init

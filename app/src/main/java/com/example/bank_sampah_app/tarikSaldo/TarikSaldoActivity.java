@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.setorSampah.FormSetorSampahActivity;
-import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 
 import android.view.View;
 
@@ -28,7 +26,7 @@ public class TarikSaldoActivity extends AppCompatActivity {
         mTitle.setText("Tarik Saldo");
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         //button lanjut tarik saldo

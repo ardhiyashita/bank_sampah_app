@@ -21,7 +21,7 @@ public class RincianPenarikanActivity extends AppCompatActivity {
         mTitle.setText("Tarik Saldo");
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 }
