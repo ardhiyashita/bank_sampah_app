@@ -63,13 +63,7 @@
             android:name=".tarikSaldo.TarikSaldoActivity"
             android:exported="false" />
         <activity
-            android:name=".setorSampah.RincianSetorSampahActivity"
-            android:exported="false" />
-        <activity
             android:name=".setorSampah.SetorSampahActivity"
-            android:exported="false" />
-        <activity
-            android:name=".setorSampah.FormSetorSampahActivity"
             android:exported="false" />
     </application>
 

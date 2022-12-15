@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.setorSampah.FormSetorSampahActivity;
-import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 
 import android.view.View;
 

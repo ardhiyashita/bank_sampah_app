@@ -27,14 +27,6 @@ public class PengajuanRequest {
         this.user_id = user_id;
     }
 
-    public String getFoto_sampah() {
-        return foto_sampah;
-    }
-
-    public void setFoto_sampah(String foto_sampah) {
-        this.foto_sampah = foto_sampah;
-    }
-
     public String getCatatan_sampah() {
         return catatan_sampah;
     }
@@ -49,6 +41,14 @@ public class PengajuanRequest {
 
     public void setTipe_pengambilan(String tipe_pengambilan) {
         this.tipe_pengambilan = tipe_pengambilan;
+    }
+
+    public String getFoto_sampah() {
+        return foto_sampah;
+    }
+
+    public void setFoto_sampah(String foto_sampah) {
+        this.foto_sampah = foto_sampah;
     }
 
     public String getBerat() {

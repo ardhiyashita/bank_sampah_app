@@ -26,5 +26,7 @@ public interface ApiService {
     Call<LogoutResponse> userLogout();
 
     @POST(Constant.PENGAJUAN)
-    Call<PengajuanResponse> userPengajuan(@Body PengajuanRequest pengajuanRequest);
+    Call<PengajuanResponse> userPengajuan(
+            @Body PengajuanRequest pengajuanRequest
+    );
 }

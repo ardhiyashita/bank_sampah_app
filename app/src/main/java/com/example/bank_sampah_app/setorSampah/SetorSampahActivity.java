@@ -1,29 +1,24 @@
 package com.example.bank_sampah_app.setorSampah;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,13 +27,11 @@ import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.RealPathUtil;
 import com.example.bank_sampah_app.User;
-import com.example.bank_sampah_app.authentication.RegisterActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.google.android.material.textfield.TextInputEditText;
 
-import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,9 +47,12 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     private ApiClient apiClient;
     private SessionManager sessionManager;
     String selectedTipePengambilan;
-//    ImageView fotoSampahImg;
-//    String path;
-//    ProgressDialog pd;
+    ImageView fotoSampahImg;
+    String path;
+    ProgressDialog pd;
+    private static final int GALLERY_ADD_PROFILE = 1;
+    private Bitmap bitmap = null;
+    TextView fotoSampagTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +76,9 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         totalBeratEt = findViewById(R.id.totalBeratEt);
         lanjutSetorButton = findViewById(R.id.lanjutSetorButton);
         catatanSampahEt = findViewById(R.id.catatanSampahEt);
-//        unggahButton = findViewById(R.id.unggahbutton);
-//        fotoSampahImg = findViewById(R.id.fotoSampahImg);
+        unggahButton = findViewById(R.id.unggahbutton);
+        fotoSampahImg = findViewById(R.id.fotoSampahImg);
+        fotoSampagTxt = findViewById(R.id.fotosampahtxt);
 
         //spinner dan adapter pilihan tipe pengambilan
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipePengambilanString, android.R.layout.simple_spinner_item);
@@ -107,6 +104,16 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
 //            }
 //        });
 
+        //upload dari folder
+        unggahButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCam = new Intent(Intent.ACTION_PICK);
+                intentCam.setType("image/*");
+                startActivityForResult(intentCam, GALLERY_ADD_PROFILE);
+            }
+        });
+
         lanjutSetorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,7 +134,8 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         pengajuanRequest.setTipe_pengambilan(tipePengambilanSpinner.getSelectedItem().toString());
         pengajuanRequest.setBerat(totalBeratEt.getText().toString());
         pengajuanRequest.setAdmin_id(admin_id);
-//        pengajuanRequest.setFoto_sampah(path.getBytes().toString());
+        pengajuanRequest.setFoto_sampah(bitmapToString(bitmap));
+//        fotoRequest.setFoto_sampah(bitmapToString(bitmap));
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
         pengajuanResponseCall.enqueue(new Callback<PengajuanResponse>() {
@@ -135,17 +143,19 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             public void onResponse(Call<PengajuanResponse> call, Response<PengajuanResponse> response) {
                 PengajuanResponse pengajuanResponse = response.body();
                 if (pengajuanResponse.getSuccess()==true) {
-                    Toast.makeText(SetorSampahActivity.this, pengajuanResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetorSampahActivity.this, "Data Berhasil Terkirim", Toast.LENGTH_SHORT).show();
                     Intent intentkirimsampah = new Intent(SetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);
                 } else {
+                    Log.d("imageupload", String.valueOf(pengajuanResponse.getMessage()));
                     Toast.makeText(SetorSampahActivity.this, "Data Tidak Berhasil Terkirim"+ pengajuanResponse.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<PengajuanResponse> call, Throwable t) {
-                Toast.makeText(SetorSampahActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(SetorSampahActivity.this, "Throwable" +bitmapToString(bitmap), Toast.LENGTH_LONG).show();
+                Log.d("image",t.getLocalizedMessage());
             }
         });
     }
@@ -162,7 +172,6 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
 
     private boolean pengajuanValidation() {
         String totalBerat = totalBeratEt.getText().toString();
-//        String catatan = catatanSampahEt.getText().toString();
         if(TextUtils.isEmpty(totalBerat)){
             if(TextUtils.isEmpty(totalBerat)){
                 Toast.makeText(SetorSampahActivity.this, "Berat Sampah wajib diisi", Toast.LENGTH_LONG).show();
@@ -173,14 +182,30 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     }
 
 //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
-//            Uri uri = data.getData();
-//            Context context = SetorSampahActivity.this;
-//            path = RealPathUtil.getRealPath(context, uri);
-//            Bitmap bitmap = BitmapFactory.decodeFile(path);
-//            fotoSampahImg.setImageBitmap(bitmap);
-//        }
+//    public void onBackPressed() {
+//        pd.dismiss();
 //    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
+            Uri imgUri = data.getData();
+            fotoSampahImg.setImageURI(imgUri);
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private String bitmapToString(Bitmap bitmap) {
+        if(bitmap!=null){
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            byte [] array = byteArrayOutputStream.toByteArray();
+            return Base64.encodeToString(array, Base64.DEFAULT);
+        }
+        return "";
+    }
 }

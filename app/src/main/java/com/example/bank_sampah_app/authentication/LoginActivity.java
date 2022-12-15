@@ -2,6 +2,7 @@ package com.example.bank_sampah_app.authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +22,7 @@ import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.WelcomeActivity;
+import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import retrofit2.Call;
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText username, password;
     TextView register, forgotPassword;
     Button btnLogin;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResponse.getSuccess()==true) {
                     sessionManager.saveAuthToken(loginResponse.getToken());
                     sessionManager.saveUser(loginResponse.getUser());
-
+//                    pd = new ProgressDialog(LoginActivity.this);
+//                    pd.show();
+//                    pd.setContentView(R.layout.progress_dialog);
+//                    pd.getWindow().setBackgroundDrawableResource(
+//                            android.R.color.transparent
+//                    );
                     Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -120,5 +128,10 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        pd.dismiss();
     }
 }
