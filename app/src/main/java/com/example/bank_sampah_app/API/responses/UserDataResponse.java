@@ -8,7 +8,7 @@ public class UserDataResponse {
     @SerializedName("success")
     private Boolean success;
 
-    @SerializedName("user")
+    @SerializedName("data")
     private User user;
 
     public Boolean getSuccess() {

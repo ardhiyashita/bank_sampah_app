@@ -3,6 +3,7 @@ package com.example.bank_sampah_app;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -115,15 +116,20 @@ public class HomeFragment extends Fragment {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                fetchUserAsync(0);
+                refreshUser(0);
+                Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_home);
+
+                if (currentFragment instanceof HomeFragment) {
+                    FragmentTransaction fragTransaction =   (getActivity()).getSupportFragmentManager().beginTransaction();
+                    fragTransaction.detach(currentFragment);
+                    fragTransaction.attach(currentFragment);
+                    fragTransaction.commit();
+                }
             }
         });
 
         // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
+        swipeContainer.setColorSchemeResources(android.R.color.holo_green_light);
 
 
         setorSampahImg.setOnClickListener(new View.OnClickListener() {
@@ -184,7 +190,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void fetchUserAsync(int page) {
+    public void refreshUser(int page) {
         Call<UserDataResponse> userDataResponseCall = apiClient.getApiService(getActivity()).getUserData();
         userDataResponseCall.enqueue(new Callback<UserDataResponse>() {
             @Override
@@ -192,17 +198,16 @@ public class HomeFragment extends Fragment {
                 UserDataResponse userDataResponse = response.body();
                 if (userDataResponse.getSuccess()==true) {
                     sessionManager.saveUser(userDataResponse.getUser());
-
-                    Toast.makeText(getActivity(), "Data berhasil diperbaharui", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity(), "Data gagal diperbaharui", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Data gagal diperbarui", Toast.LENGTH_LONG).show();
                 }
                 swipeContainer.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<UserDataResponse> call, Throwable t) {
-//                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("DEBUG", "Fetch timeline error: " + t.toString());
             }
         });
