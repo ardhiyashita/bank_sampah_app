@@ -1,12 +1,14 @@
 package com.example.bank_sampah_app.API.responses;
 
+import android.os.Message;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PengajuanResponse {
-
     @SerializedName("success")
     @Expose
     private Boolean success;
@@ -30,4 +32,5 @@ public class PengajuanResponse {
         this.message = message;
     }
 }
+
 
