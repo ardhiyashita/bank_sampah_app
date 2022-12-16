@@ -131,6 +131,7 @@ public class HomeFragment extends Fragment {
                 Intent intenttariksaldo = new Intent(getActivity(), TarikSaldoActivity.class);
                 startActivity(intenttariksaldo);
 
+
             }
         });
 

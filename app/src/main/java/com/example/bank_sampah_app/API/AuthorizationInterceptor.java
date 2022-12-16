@@ -1,8 +1,10 @@
 package com.example.bank_sampah_app.API;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 
@@ -25,7 +27,7 @@ public class AuthorizationInterceptor implements Interceptor {
         Request.Builder requestBuilder = chain.request().newBuilder();
 //        Request initialRequest = chain.request();
 //        Response response = chain.proceed(initialRequest);
-
+//
 //        // jika token expired maka akan
 //        if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
 //            sessionManager.deleteAuthToken();

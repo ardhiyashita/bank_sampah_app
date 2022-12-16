@@ -44,7 +44,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/tv_username_help"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
