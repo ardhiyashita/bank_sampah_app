@@ -68,7 +68,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         User user = sessionManager.fetchUser();
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_back_dark);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         //init
