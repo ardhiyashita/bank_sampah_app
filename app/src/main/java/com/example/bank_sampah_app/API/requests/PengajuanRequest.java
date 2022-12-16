@@ -16,6 +16,8 @@ public class PengajuanRequest {
     private String tipe_pengambilan;
     @SerializedName("berat")
     private String berat;
+    @SerializedName("status")
+    private String status;
     @SerializedName("admin_id")
     private int admin_id;
 
@@ -57,6 +59,14 @@ public class PengajuanRequest {
 
     public void setBerat(String berat) {
         this.berat = berat;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getAdmin_id() {
