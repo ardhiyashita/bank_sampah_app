@@ -104,8 +104,6 @@
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/list_selector_bg_green">
 
                     <ImageView
@@ -135,8 +133,6 @@
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/list_selector_bg_green">
 
                     <ImageView
@@ -179,8 +175,6 @@
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         android:clickable="true"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
                         android:background="@drawable/list_selector_bg_green">
 
                         <ImageView
@@ -211,8 +205,6 @@
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
                     android:background="@drawable/list_selector_bg_accent">
 
 
