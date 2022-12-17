@@ -59,7 +59,7 @@
 
                     <EditText
                         style="@style/display_semibold"
-                        android:id="@+id/tv_jumlah_tarik"
+                        android:id="@+id/jumlah_tarik"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5sp"
