@@ -2,6 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/refresh_profile"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -30,12 +31,13 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_profile"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:layout_margin="10dp"
-                    app:srcCompat="@drawable/ic_ubah_foto_profile" />
+                    tools:src="@drawable/ic_ubah_foto_profile" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"

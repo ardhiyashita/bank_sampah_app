@@ -25,7 +25,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_editprofile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp">
 
@@ -35,16 +35,15 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_edtprofile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="32dp"
-                    android:clickable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_ubah_foto_profile" />
+                    tools:src="@drawable/ic_ubah_foto_profile" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

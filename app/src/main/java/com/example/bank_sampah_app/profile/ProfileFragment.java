@@ -3,6 +3,8 @@ package com.example.bank_sampah_app.profile;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -11,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.Constant;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
 import com.example.bank_sampah_app.HomeFragment;
@@ -32,6 +36,9 @@ import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.HelpFragment;
 import com.squareup.picasso.Picasso;
 
+import java.nio.charset.StandardCharsets;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,7 +54,7 @@ public class ProfileFragment extends Fragment {
     View view;
     LinearLayout lUbahData, lUbahPass, lBantuan, logout;
     SwipeRefreshLayout swipeContainer;
-    ImageView imgProfile;
+    CircleImageView imgProfile;
     TextView tvNama, tvNoHp;
 //    AlertDialog.Builder builder;
 
@@ -110,9 +117,25 @@ public class ProfileFragment extends Fragment {
         });
         swipeContainer.setColorSchemeResources(android.R.color.holo_green_light);
 
+        String image = user.getFoto();
+        String imgData = null;
+
+//        if (image != null){
+//            imgData = imgData.substring(imgData.indexOf(",") + 1);
+//            byte[] decodedString = Base64.decode(imgData, Base64.DEFAULT);
+//            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+//            imgProfile.setImageBitmap(decodedByte);
+//        } else{
+//            imgProfile.setImageResource(R.drawable.ic_ubah_foto_profile);
+//        }
+
+
         String url_image = user.getFoto();
         if (url_image != null){
-            Picasso.get().load(url_image).into(imgProfile);
+            Picasso.get().load(Constant.BASE_URL+"/user/"+url_image).into(imgProfile);
+//            Picasso.get().load(url_image).into(imgProfile);
+        } else{
+            imgProfile.setImageResource(R.drawable.ic_ubah_foto_profile);
         }
 
         lUbahData.setOnClickListener(new View.OnClickListener() {
@@ -209,10 +232,14 @@ public class ProfileFragment extends Fragment {
                     sessionManager.saveUser(userDataResponse.getUser());
                     tvNama.setText(userDataResponse.getUser().getName());
                     tvNoHp.setText(userDataResponse.getUser().getNo_hp());
+                    userDataResponse.getUser().getFoto();
+                    if (userDataResponse.getUser().getFoto() != null){
+                        Picasso.get().load(Constant.BASE_URL+"/user/"+userDataResponse.getUser().getFoto()).into(imgProfile);
+                    }
                     reLoadFragment();
-                    Toast.makeText(getActivity(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Profile diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity(), "Data gagal diperbarui", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Profile gagal diperbarui", Toast.LENGTH_LONG).show();
                 }
             }
 
