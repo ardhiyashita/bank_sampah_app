@@ -3,10 +3,12 @@ package com.example.bank_sampah_app.API;
 import com.example.bank_sampah_app.API.requests.LoginRequest;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.requests.RegisterRequest;
+import com.example.bank_sampah_app.API.requests.TarikRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
+import com.example.bank_sampah_app.API.responses.TarikResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
 
 import retrofit2.Call;
@@ -35,6 +37,9 @@ public interface ApiService {
 
     @POST(Constant.EDIT_USER)
     Call<LoginResponse> userEdit(@Body RegisterRequest editProfileRequest);
+
+    @POST(Constant.TARIK)
+    Call<TarikResponse> tarikSaldo(@Body TarikRequest tarikRequest);
 
     @GET(Constant.TRANSAKSI+"/{id}")
     Call<PengajuanResponse> userTransaksi(@Path("id") int postId);
