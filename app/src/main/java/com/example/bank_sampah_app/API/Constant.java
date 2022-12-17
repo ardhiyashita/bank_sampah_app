@@ -8,4 +8,5 @@ public class Constant {
     public static final String PENGAJUAN = "pengajuan/create";
     public static final String DATA_USER = "data";
     public static final String EDIT_USER = "data/edit";
+    public static final String TRANSAKSI = "pengajuan";
 }

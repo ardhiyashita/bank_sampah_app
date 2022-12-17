@@ -13,6 +13,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
 
@@ -34,4 +35,7 @@ public interface ApiService {
 
     @POST(Constant.EDIT_USER)
     Call<LoginResponse> userEdit(@Body RegisterRequest editProfileRequest);
+
+    @GET(Constant.TRANSAKSI+"/{id}")
+    Call<PengajuanResponse> userTransaksi(@Path("id") int postId);
 }

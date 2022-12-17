@@ -29,9 +29,6 @@ import java.util.ArrayList;
  */
 public class TransaksiFragment extends Fragment {
 
-    private TabLayout tabLayout;
-    private TabItem tabItem;
-    private ViewPager viewPager;
     private RecyclerView rv_transaksi;
     private ArrayList<TransaksiItem> list = new ArrayList<>();
 
@@ -84,16 +81,9 @@ public class TransaksiFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
         rv_transaksi = v.findViewById(R.id.rv_transaksi);
 
-//        list.addAll(FaqData.getListData());
-        showRecyclerList();
-
         return v;
 
     }
 
-    private void showRecyclerList(){
-        rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
-        rv_transaksi.setAdapter(transaksiAdapter);
-    }
+
 }
