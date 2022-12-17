@@ -103,7 +103,10 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                selectImage();
+//                selectImage();
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, GALLERY_ADD_PROFILE);
             }
         });
 
@@ -123,17 +126,17 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             PackageManager pm = getPackageManager();
             int hasPerm = pm.checkPermission(Manifest.permission.CAMERA, getPackageName());
             if (hasPerm == PackageManager.PERMISSION_GRANTED) {
-                final CharSequence[] options = {"Camera", "Pilih dari Galeri","Cancel"};
+                final CharSequence[] options = {"Take Photo", "Choose From Gallery","Cancel"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Pilih Opsi");
+                builder.setTitle("Select Option");
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
-                        if (options[item].equals("Camera")) {
+                        if (options[item].equals("Take Photo")) {
                             dialog.dismiss();
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             startActivityForResult(intent, PICK_IMAGE_CAMERA);
-                        } else if (options[item].equals("Pilih dari Galeri")) {
+                        } else if (options[item].equals("Choose From Gallery")) {
                             dialog.dismiss();
                             Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                             startActivityForResult(pickPhoto, PICK_IMAGE_GALLERY);
@@ -149,30 +152,6 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             Toast.makeText(this, "Camera Permission error", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
-    }
-
-    private void PickImage() {
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestStoragePermission() {
-        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},100);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestCameraPermission() {
-        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},100);
-    }
-
-    private boolean checkStoragePermission() {
-        boolean res2= ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED;
-        return res2;
-    }
-
-    private boolean checkCameraPermission() {
-        boolean res1= ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED;
-        boolean res2= ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED;
-        return res1 && res2;
     }
 
     public void pengajuan() {
@@ -232,17 +211,26 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_CAMERA) {
-            try {
-                bitmap = (Bitmap) data.getExtras().get("data");
-                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bytes);
-                fotoSampahImg.setImageBitmap(bitmap);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (requestCode == PICK_IMAGE_GALLERY) {
+//        if (requestCode == PICK_IMAGE_CAMERA) {
+//            try {
+//                bitmap = (Bitmap) data.getExtras().get("data");
+//                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bytes);
+//                fotoSampahImg.setImageBitmap(bitmap);
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        } else if (requestCode == PICK_IMAGE_GALLERY) {
+//            Uri imgUri = data.getData();
+//            fotoSampahImg.setImageURI(imgUri);
+//            try {
+//                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
             Uri imgUri = data.getData();
             fotoSampahImg.setImageURI(imgUri);
             try {
