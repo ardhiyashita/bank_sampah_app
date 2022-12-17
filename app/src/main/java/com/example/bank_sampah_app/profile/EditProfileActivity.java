@@ -28,12 +28,9 @@ import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
-import com.example.bank_sampah_app.HomeFragment;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.databinding.MainActivityBinding;
-import com.example.bank_sampah_app.help.HelpFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -119,10 +116,11 @@ public class EditProfileActivity extends AppCompatActivity {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (inputValidation()){
+                if (inputValidation()== true){
                     updateUserData();
                 }
             }
+
         });
     }
 
@@ -236,7 +234,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!checkDateFormat(etLahir.getText().toString())){
+                if(checkDateFormat(etLahir.getText().toString())==false){
                     tlLahir.setError("Format tanggal tidak sesuai (yyyy-mm-dd)");
                 } else {
                     tlLahir.setError(null);

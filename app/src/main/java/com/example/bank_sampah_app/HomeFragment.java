@@ -1,7 +1,6 @@
 package com.example.bank_sampah_app;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentTransaction;
@@ -68,7 +67,14 @@ public class HomeFragment extends Fragment {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshUser();
+                refreshUser(0);
+                Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment_home);
+                if (currentFragment instanceof HomeFragment) {
+                    FragmentTransaction fragTransaction =   (getActivity()).getSupportFragmentManager().beginTransaction();
+                    fragTransaction.detach(currentFragment);
+                    fragTransaction.attach(currentFragment);
+                    fragTransaction.commit();
+                }
             }
         });
         swipeContainer.setColorSchemeResources(android.R.color.holo_green_light);
@@ -91,7 +97,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intenttariksaldo = new Intent(getActivity(), TarikSaldoActivity.class);
                 startActivity(intenttariksaldo);
-
 
             }
         });
@@ -133,7 +138,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void refreshUser() {
+    public void refreshUser(int page) {
         Call<UserDataResponse> userDataResponseCall = apiClient.getApiService(getActivity()).getUserData();
         userDataResponseCall.enqueue(new Callback<UserDataResponse>() {
             @Override
@@ -141,13 +146,11 @@ public class HomeFragment extends Fragment {
                 UserDataResponse userDataResponse = response.body();
                 if (userDataResponse.getSuccess()==true) {
                     sessionManager.saveUser(userDataResponse.getUser());
-                    usernameTv.setText(userDataResponse.getUser().getName());
-                    saldoTv.setText(Integer.toString(userDataResponse.getUser().getSaldo()));
-                    reLoadFragment();
                     Toast.makeText(getActivity(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "Data gagal diperbarui", Toast.LENGTH_LONG).show();
                 }
+                swipeContainer.setRefreshing(false);
             }
 
             @Override
@@ -156,20 +159,5 @@ public class HomeFragment extends Fragment {
                 Log.d("DEBUG", "Fetch timeline error: " + t.toString());
             }
         });
-        swipeContainer.setRefreshing(false);
-    }
-
-    public void reLoadFragment()
-    {
-        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.refresh_profile);
-        FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            fragTransaction.detach(this).commitNow();
-            fragTransaction.attach(this).commitNow();
-//            Toast.makeText(getActivity(), "Refresh", Toast.LENGTH_SHORT).show();
-        } else {
-            fragTransaction.detach(this).attach(currentFragment).commit();
-//            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
-        }
     }
 }

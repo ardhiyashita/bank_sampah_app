@@ -11,13 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.appcompat.widget.SearchView;
-
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.User;
-import com.example.bank_sampah_app.authentication.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +24,8 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class HelpFragment extends Fragment {
-    private SessionManager sessionManager;
-
     private RecyclerView rv_faq;
     private ArrayList<HelpItem> list = new ArrayList<>();
-    TextView usernameTv;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,14 +73,7 @@ public class HelpFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_help, container, false);
 
-        sessionManager = new SessionManager(getActivity().getApplicationContext());
-
-        User user = sessionManager.fetchUser();
-
-        usernameTv = v.findViewById(R.id.tv_username_help);
         rv_faq = v.findViewById(R.id.rv_faq);
-
-        usernameTv.setText(user.getName());
 
         list.addAll(FaqData.getListData());
         showRecyclerList();
