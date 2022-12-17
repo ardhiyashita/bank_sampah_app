@@ -19,15 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
-import com.example.bank_sampah_app.API.requests.LoginRequest;
-import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
-import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.help.FaqData;
-import com.example.bank_sampah_app.help.HelpAdapter;
-import com.example.bank_sampah_app.help.HelpItem;
-import com.example.bank_sampah_app.help.QuestionDetailActivity;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanData;
 import com.example.bank_sampah_app.panduan.PanduanDetailActivity;
@@ -41,11 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-///**
-// * A simple {@link Fragment} subclass.
-// * Use the {@link HomeFragment#newInstance} factory method to
-// * create an instance of this fragment.
-// */
+
 public class HomeFragment extends Fragment {
     private ApiClient apiClient;
     private SessionManager sessionManager;
@@ -56,34 +45,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView rv_panduan;
     private ArrayList<PanduanItem> list = new ArrayList<>();
 
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-//
-//    public HomeFragment() {
-//        // Required empty public constructor
-//    }
-//
-//    public static HomeFragment newInstance(String param1, String param2) {
-//        HomeFragment fragment = new HomeFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

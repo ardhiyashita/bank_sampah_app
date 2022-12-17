@@ -1,7 +1,6 @@
 package com.example.bank_sampah_app.tarikSaldo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.setorSampah.SelesaiSetorSampahActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +34,6 @@ public class RincianPenarikanActivity extends AppCompatActivity {
 
         int id =(int) b.get("id");
         int uang =(int) b.get("uang");
-//        String tanggal =(String) ;
 
         tvId.setText(Integer.toString(id));
         tvUang.setText(Integer.toString(uang));
@@ -44,12 +41,9 @@ public class RincianPenarikanActivity extends AppCompatActivity {
         tvTanggal.setText(dateFormatter((String) b.get("tanggal")));
 
         btnSelesai = findViewById(R.id.btn_selesai_tarik);
-        btnSelesai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RincianPenarikanActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        btnSelesai.setOnClickListener(view -> {
+            Intent intent = new Intent(RincianPenarikanActivity.this, MainActivity.class);
+            startActivity(intent);
         });
     }
 

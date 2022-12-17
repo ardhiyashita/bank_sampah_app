@@ -54,22 +54,19 @@
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/img_edtprofile">
 
-                    <ImageView
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_editfoto"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginEnd="8dp"
-                        android:clickable="true"
-                        android:src="@drawable/ic_edit_secondary" />
-
-                    <TextView
-                        android:id="@+id/tv_edtprofile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:clickable="true"
+                        app:cornerRadius="20dp"
+                        android:backgroundTint="@color/accent100"
                         android:text="Edit Foto"
-                        android:textAppearance="@style/body1_semibold"
-                        android:textColor="@color/neutral80" />
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/button"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="32dp"
+                        app:icon="@drawable/ic_edit_secondary"
+                        app:iconSize="20dp"/>
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -79,7 +76,7 @@
                 android:id="@+id/linear_editnama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:orientation="vertical"
                 android:paddingVertical="8dp"
                 app:layout_constraintEnd_toEndOf="parent"

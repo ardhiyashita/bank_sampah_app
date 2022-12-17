@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Patterns;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -17,15 +16,10 @@ import android.widget.TextView;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.TarikRequest;
-import com.example.bank_sampah_app.API.responses.LoginResponse;
-import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.TarikResponse;
-import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
-import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.profile.EditProfileActivity;
 
 import android.view.View;
 import android.widget.Toast;

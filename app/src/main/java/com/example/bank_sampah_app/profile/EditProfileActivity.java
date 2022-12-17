@@ -1,15 +1,21 @@
 package com.example.bank_sampah_app.profile;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -31,6 +37,8 @@ import com.example.bank_sampah_app.help.HelpFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -42,11 +50,14 @@ public class EditProfileActivity extends AppCompatActivity {
     private ApiClient apiClient;
     private SessionManager sessionManager;
 
-    Button btnSimpan;
+    Button btnSimpan, btnEditfoto;
     TextInputEditText etNama, etHp, etEmail, etLahir, etAlamat;
     TextInputLayout tlNama, tlHp, tlEmail, tlLahir, tlAlamat;
-    ImageView imgFoto, imgEdit;
+    ImageView imgFoto;
     String jenis_kelamin;
+
+    private static final int GALLERY_ADD_PROFILE = 1;
+    private Bitmap bitmap = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +74,7 @@ public class EditProfileActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
 
         btnSimpan = findViewById(R.id.btn_simpan_profile);
+        btnEditfoto = findViewById(R.id.btn_editfoto);
 
         etNama = findViewById(R.id.edit_nama);
         etHp = findViewById(R.id.edit_hp);
@@ -75,6 +87,7 @@ public class EditProfileActivity extends AppCompatActivity {
         tlEmail = findViewById(R.id.input_layout_editemail);
         tlLahir = findViewById(R.id.input_layout_editlahir);
         tlAlamat = findViewById(R.id.input_layout_editalamat);
+        imgFoto = findViewById(R.id.img_edtprofile);
 
         User user = sessionManager.fetchUser();
         etNama.setText(user.getName());
@@ -85,9 +98,21 @@ public class EditProfileActivity extends AppCompatActivity {
         jenis_kelamin = user.getJenis_kelamin();
 
         textWatcher();
+        editFotoListener();
         btnSimpanListener();
 
 
+    }
+
+    public void editFotoListener(){
+        btnEditfoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentCam = new Intent(Intent.ACTION_PICK);
+                intentCam.setType("image/*");
+                startActivityForResult(intentCam, GALLERY_ADD_PROFILE);
+            }
+        });
     }
 
     public void btnSimpanListener() {
@@ -109,7 +134,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editProfileRequest.setJenis_kelamin(jenis_kelamin);
         editProfileRequest.setNo_hp(etHp.getText().toString());
         editProfileRequest.setTgl_lahir(etLahir.getText().toString());
-        editProfileRequest.setFoto(null);
+        editProfileRequest.setFoto(bitmapToString(bitmap));
 
         Call<LoginResponse> loginResponseCall = apiClient.getApiService(this).userEdit(editProfileRequest);
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
@@ -240,5 +265,28 @@ public class EditProfileActivity extends AppCompatActivity {
         }catch (ParseException e){
             return false;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
+            Uri imgUri = data.getData();
+            imgFoto.setImageURI(imgUri);
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private String bitmapToString(Bitmap bitmap) {
+        if(bitmap!=null){
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            byte [] array = byteArrayOutputStream.toByteArray();
+            return Base64.encodeToString(array, Base64.DEFAULT);
+        }
+        return "";
     }
 }
