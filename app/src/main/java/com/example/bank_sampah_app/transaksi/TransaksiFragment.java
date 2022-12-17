@@ -1,8 +1,11 @@
 package com.example.bank_sampah_app.transaksi;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -10,8 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.help.FaqData;
+import com.example.bank_sampah_app.help.HelpAdapter;
+import com.example.bank_sampah_app.help.HelpItem;
+import com.example.bank_sampah_app.help.QuestionDetailActivity;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,8 @@ public class TransaksiFragment extends Fragment {
     private TabLayout tabLayout;
     private TabItem tabItem;
     private ViewPager viewPager;
+    private RecyclerView rv_transaksi;
+    private ArrayList<TransaksiItem> list = new ArrayList<>();
 
 //  TODO: Rename parameter arguments, choose names that match
 //  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,23 +82,18 @@ public class TransaksiFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
+        rv_transaksi = v.findViewById(R.id.rv_transaksi);
 
-        tabLayout = v.findViewById(R.id.tablayouttransaksi);
-        tabItem = v.findViewById(R.id.tablayoutdiproses);
-        tabItem = v.findViewById(R.id.tablayoutriwayat);
-        viewPager = v.findViewById(R.id.viewpager);
-
-//        tabLayout.setupWithViewPager(viewPager);
-//
-//        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-//        viewPagerAdapter.addFragment(new DiprosesTransaksiFragment(), "Diproses");
-//        viewPagerAdapter.addFragment(new RiwayatTransaksiFragment(), "Riwayat");
-//        viewPager.setAdapter(viewPagerAdapter);
-
-        com.example.bank_sampah_app.Transaksi.ViewPagerDiprosesAdapter viewPagerAdapter = new com.example.bank_sampah_app.Transaksi.ViewPagerDiprosesAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(viewPagerAdapter);
+//        list.addAll(FaqData.getListData());
+        showRecyclerList();
 
         return v;
 
+    }
+
+    private void showRecyclerList(){
+        rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
+        TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
+        rv_transaksi.setAdapter(transaksiAdapter);
     }
 }
