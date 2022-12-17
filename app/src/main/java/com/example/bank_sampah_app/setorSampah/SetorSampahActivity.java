@@ -123,17 +123,17 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             PackageManager pm = getPackageManager();
             int hasPerm = pm.checkPermission(Manifest.permission.CAMERA, getPackageName());
             if (hasPerm == PackageManager.PERMISSION_GRANTED) {
-                final CharSequence[] options = {"Take Photo", "Choose From Gallery","Cancel"};
+                final CharSequence[] options = {"Camera", "Pilih dari Galeri","Cancel"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Select Option");
+                builder.setTitle("Pilih Opsi");
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int item) {
-                        if (options[item].equals("Take Photo")) {
+                        if (options[item].equals("Camera")) {
                             dialog.dismiss();
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             startActivityForResult(intent, PICK_IMAGE_CAMERA);
-                        } else if (options[item].equals("Choose From Gallery")) {
+                        } else if (options[item].equals("Pilih dari Galeri")) {
                             dialog.dismiss();
                             Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                             startActivityForResult(pickPhoto, PICK_IMAGE_GALLERY);
