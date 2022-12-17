@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.transaksi.riwayat.RiwayatTransaksiFragment;
 
 public class ArticleFragment extends Fragment{
 

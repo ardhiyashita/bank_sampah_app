@@ -1,13 +1,20 @@
 package com.example.bank_sampah_app.setorSampah;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -53,6 +60,8 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     private static final int GALLERY_ADD_PROFILE = 1;
     private Bitmap bitmap = null;
     TextView fotoSampagTxt;
+    private static final int requestcamera_code= 12;
+    private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,29 +97,13 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         //ambil data spinner
         tipePengambilanSpinner.setOnItemSelectedListener(this);
 
-        //akses kamera
-//        unggahButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)  == PackageManager.PERMISSION_GRANTED) {
-//                    Intent intentCam = new Intent();
-//                        intentCam.setType("image/*");
-//                        intentCam.setAction(Intent.ACTION_GET_CONTENT);
-//                    startActivityForResult(intentCam, 10);
-//                }else {
-//                    ActivityCompat.requestPermissions(SetorSampahActivity.this,
-//                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//                }
-//            }
-//        });
 
         //upload dari folder
         unggahButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                Intent intentCam = new Intent(Intent.ACTION_PICK);
-                intentCam.setType("image/*");
-                startActivityForResult(intentCam, GALLERY_ADD_PROFILE);
+                selectImage();
             }
         });
 
@@ -125,9 +118,65 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         });
     }
 
+    private void selectImage() {
+        try {
+            PackageManager pm = getPackageManager();
+            int hasPerm = pm.checkPermission(Manifest.permission.CAMERA, getPackageName());
+            if (hasPerm == PackageManager.PERMISSION_GRANTED) {
+                final CharSequence[] options = {"Take Photo", "Choose From Gallery","Cancel"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Select Option");
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        if (options[item].equals("Take Photo")) {
+                            dialog.dismiss();
+                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(intent, PICK_IMAGE_CAMERA);
+                        } else if (options[item].equals("Choose From Gallery")) {
+                            dialog.dismiss();
+                            Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            startActivityForResult(pickPhoto, PICK_IMAGE_GALLERY);
+                        } else if (options[item].equals("Cancel")) {
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                builder.show();
+            } else
+                Toast.makeText(this, "Camera Permission error", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Camera Permission error", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    private void PickImage() {
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void requestStoragePermission() {
+        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},100);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void requestCameraPermission() {
+        requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},100);
+    }
+
+    private boolean checkStoragePermission() {
+        boolean res2= ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED;
+        return res2;
+    }
+
+    private boolean checkCameraPermission() {
+        boolean res1= ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED;
+        boolean res2= ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED;
+        return res1 && res2;
+    }
+
     public void pengajuan() {
         User user = sessionManager.fetchUser();
-//        File file = new File(path);
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
         pengajuanRequest.setUser_id(user.getId_user());
         pengajuanRequest.setCatatan_sampah(catatanSampahEt.getText().toString());
@@ -135,7 +184,6 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         pengajuanRequest.setBerat(totalBeratEt.getText().toString());
         pengajuanRequest.setAdmin_id(admin_id);
         pengajuanRequest.setFoto_sampah(bitmapToString(bitmap));
-//        fotoRequest.setFoto_sampah(bitmapToString(bitmap));
 
         Call<PengajuanResponse> pengajuanResponseCall = apiClient.getApiService(this).userPengajuan(pengajuanRequest);
         pengajuanResponseCall.enqueue(new Callback<PengajuanResponse>() {
@@ -181,15 +229,20 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         return true;
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        pd.dismiss();
-//    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
+        if (requestCode == PICK_IMAGE_CAMERA) {
+            try {
+                bitmap = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bytes);
+                fotoSampahImg.setImageBitmap(bitmap);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (requestCode == PICK_IMAGE_GALLERY) {
             Uri imgUri = data.getData();
             fotoSampahImg.setImageURI(imgUri);
             try {

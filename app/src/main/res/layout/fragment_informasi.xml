@@ -23,8 +23,7 @@
                     android:text="Informasi"
                     android:gravity="center"
                     android:textColor="@color/neutral80"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/heading2_semibold"/>
             </LinearLayout>
             <!-- jadwal bank sampah -->
             <LinearLayout
@@ -37,8 +36,7 @@
                     android:layout_height="match_parent"
                     android:text="Jadwal Bank Sampah"
                     android:textColor="@color/neutral80"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/heading2_bold"/>
                 <!-- jadwal pengumpulan sampah -->
                 <LinearLayout
                     android:id="@+id/jadwalPengumpulan"
@@ -68,13 +66,13 @@
                             android:text="Jadwal Pengumpulan Sampah"
                             android:textStyle="bold"
                             android:textColor="@color/neutral80"
-                            android:textSize="16sp" />
+                            style="@style/heading3_semibold" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pengumpulan sampah di Bank Sampah Sami Asri"
                             android:textColor="@color/neutral40"
-                            android:textSize="12sp" />
+                            style="@style/body3_regular" />
                     </LinearLayout>
                     <ImageView
                         android:layout_width="80dp"
@@ -112,13 +110,13 @@
                             android:text="Jadwal Penjemputan Sampah"
                             android:textStyle="bold"
                             android:textColor="@color/neutral80"
-                            android:textSize="16sp" />
+                            style="@style/heading3_semibold" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Penjemputan sampah ke rumah warga"
                             android:textColor="@color/neutral40"
-                            android:textSize="12sp" />
+                            style="@style/body3_regular"/>
                     </LinearLayout>
                     <ImageView
                         android:layout_width="80dp"
@@ -139,8 +137,7 @@
                     android:layout_height="match_parent"
                     android:text="Kategori Sampah"
                     android:textColor="@color/neutral80"
-                    android:textStyle="bold"
-                    android:textSize="16sp"/>
+                    style="@style/heading2_bold"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -167,7 +164,7 @@
                                 android:paddingTop="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
@@ -185,7 +182,7 @@
                                 android:paddingHorizontal="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -204,7 +201,7 @@
                                 android:paddingTop="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
@@ -222,7 +219,7 @@
                                 android:paddingHorizontal="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -241,7 +238,7 @@
                                 android:paddingTop="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
@@ -259,7 +256,7 @@
                                 android:paddingHorizontal="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -284,7 +281,7 @@
                                 android:paddingTop="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
@@ -302,7 +299,7 @@
                                 android:paddingHorizontal="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -321,7 +318,7 @@
                                 android:paddingTop="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral80"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                             <ImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
@@ -339,45 +336,8 @@
                                 android:paddingHorizontal="5dp"
                                 android:layout_gravity="center"
                                 android:textColor="@color/neutral40"
-                                android:textSize="12sp"/>
+                                style="@style/body3_regular"/>
                         </LinearLayout>
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical"-->
-<!--                            android:layout_marginHorizontal="5dp"-->
-<!--                            android:layout_weight="1"-->
-<!--                            android:background="@drawable/bg_rectangle_white_stroke">-->
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:gravity="center"-->
-<!--                                android:text="Kresek"-->
-<!--                                android:textStyle="bold"-->
-<!--                                android:paddingHorizontal="5dp"-->
-<!--                                android:paddingTop="5dp"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:textColor="@color/neutral80"-->
-<!--                                android:textSize="12sp"/>-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="80dp"-->
-<!--                                android:layout_height="80dp"-->
-<!--                                android:padding="10dp"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:src="@drawable/kresek" />-->
-<!--                            <TextView-->
-<!--                                android:id="@+id/kresek"-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:gravity="center"-->
-<!--                                android:text="2 Poin/Kg"-->
-<!--                                android:paddingBottom="5dp"-->
-<!--                                android:textStyle="bold"-->
-<!--                                android:paddingHorizontal="5dp"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:textColor="@color/neutral40"-->
-<!--                                android:textSize="12sp"/>-->
-<!--                        </LinearLayout>-->
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
