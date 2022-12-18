@@ -9,7 +9,10 @@ import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
 import com.example.bank_sampah_app.API.responses.TarikResponse;
+import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -39,4 +42,7 @@ public interface ApiService {
 
     @POST(Constant.TARIK)
     Call<TarikResponse> tarikSaldo(@Body TarikRequest tarikRequest);
+
+    @GET(Constant.TRANSAKSI)
+    Call<TransaksiResponse> getTransaksi();
 }

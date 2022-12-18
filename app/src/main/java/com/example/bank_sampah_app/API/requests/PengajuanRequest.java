@@ -1,5 +1,6 @@
 package com.example.bank_sampah_app.API.requests;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -20,6 +21,12 @@ public class PengajuanRequest {
     private String status;
     @SerializedName("admin_id")
     private int admin_id;
+    @SerializedName("created_at")
+    @Expose
+    private String createdAt;
+    @SerializedName("updated_at")
+    @Expose
+    private String updatedAt;
 
     public int getUser_id() {
         return user_id;
@@ -75,5 +82,21 @@ public class PengajuanRequest {
 
     public void setAdmin_id(int admin_id) {
         this.admin_id = admin_id;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

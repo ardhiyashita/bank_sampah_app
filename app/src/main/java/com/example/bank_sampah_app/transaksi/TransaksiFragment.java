@@ -1,26 +1,30 @@
 package com.example.bank_sampah_app.transaksi;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.requests.PengajuanRequest;
+import com.example.bank_sampah_app.API.responses.Datum;
+import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.help.FaqData;
-import com.example.bank_sampah_app.help.HelpAdapter;
-import com.example.bank_sampah_app.help.HelpItem;
-import com.example.bank_sampah_app.help.QuestionDetailActivity;
-import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
+import com.example.bank_sampah_app.User;
+import com.example.bank_sampah_app.authentication.SessionManager;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,11 +33,10 @@ import java.util.ArrayList;
  */
 public class TransaksiFragment extends Fragment {
 
-    private TabLayout tabLayout;
-    private TabItem tabItem;
-    private ViewPager viewPager;
+    private SessionManager sessionManager;
+    private ApiClient apiClient;
     private RecyclerView rv_transaksi;
-    private ArrayList<TransaksiItem> list = new ArrayList<>();
+    List<Datum> list = new ArrayList<>();
 
 //  TODO: Rename parameter arguments, choose names that match
 //  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,17 +86,35 @@ public class TransaksiFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
         rv_transaksi = v.findViewById(R.id.rv_transaksi);
+        apiClient = new ApiClient();
+        sessionManager = new SessionManager(getActivity().getApplicationContext());
 
-//        list.addAll(FaqData.getListData());
-        showRecyclerList();
+        User user = sessionManager.fetchUser();
 
-        return v;
-
-    }
-
-    private void showRecyclerList(){
         rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
         TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
         rv_transaksi.setAdapter(transaksiAdapter);
+
+        Call<TransaksiResponse> transaksiResponseCall = apiClient.getApiService(getActivity()).getTransaksi();
+        transaksiResponseCall.enqueue(new Callback<PengajuanRequest>() {
+            @Override
+            public void onResponse(Call<PengajuanRequest> call, Response<PengajuanRequest> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getActivity(), response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                List<PengajuanRequest> listTransaksi = (List<PengajuanRequest>) response.body();
+                TransaksiAdapter transaksiAdapter = new TransaksiAdapter(listTransaksi);
+                rv_transaksi.setAdapter(transaksiAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<PengajuanRequest> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return v;
+
     }
 }
