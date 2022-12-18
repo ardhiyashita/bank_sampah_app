@@ -116,20 +116,20 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/link_forgotpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:text="Lupa Kata Sandi?"
-            android:textAlignment="viewStart"
-            android:textAppearance="@style/heading4_semibold"
-            android:textColor="@drawable/text_selector"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_password" />
+<!--        <TextView-->
+<!--            android:id="@+id/link_forgotpassword"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:clickable="true"-->
+<!--            android:text="Lupa Kata Sandi?"-->
+<!--            android:textAlignment="viewStart"-->
+<!--            android:textAppearance="@style/heading4_semibold"-->
+<!--            android:textColor="@drawable/text_selector"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/linear_password" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

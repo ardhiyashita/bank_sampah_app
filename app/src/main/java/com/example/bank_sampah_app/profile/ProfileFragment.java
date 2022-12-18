@@ -252,7 +252,7 @@ public class ProfileFragment extends Fragment {
         swipeContainer.setRefreshing(false);
     }
 
-    public void reLoadFragment()
+    private void reLoadFragment()
     {
         Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.refresh_profile);
         FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();

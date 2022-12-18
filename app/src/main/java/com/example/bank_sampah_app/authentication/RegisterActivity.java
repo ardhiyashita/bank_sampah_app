@@ -1,7 +1,9 @@
 package com.example.bank_sampah_app.authentication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,6 +11,8 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,7 +35,8 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
     private ApiClient apiClient;
-    Button btnRegist;
+
+    Button btnRegist, btnDialogLogin;
     TextInputEditText etNama, etHp, etEmail, etLahir, etAlamat, etPass, etCpass;
     TextInputLayout tlNama, tlHp, tlEmail, tlLahir, tlAlamat, tlPass, tLCpass;
     RadioGroup rgGender;
@@ -211,8 +216,8 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 RegisterResponse registerResponse = response.body();
                 if (registerResponse.getSuccess()) {
-                    Toast.makeText(RegisterActivity.this, "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
-                    toLogin();
+//                    Toast.makeText(RegisterActivity.this, "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
+                    welcomeDialog();
                 } else {
                     Toast.makeText(RegisterActivity.this, "Pendaftaran Gagal", Toast.LENGTH_LONG).show();
                 }
@@ -281,6 +286,32 @@ public class RegisterActivity extends AppCompatActivity {
         }catch (ParseException e){
             return false;
         }
+    }
+
+    public void welcomeDialog() {
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.dialog_welcome, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(view);
+        TextView nama = (TextView) view.findViewById(R.id.welcome_nama_user);
+        nama.setText(etNama.getText().toString());
+
+        btnDialogLogin = view.findViewById(R.id.btn_dialog_login);
+
+        AlertDialog alertD = alertDialogBuilder.create();
+
+        btnDialogLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toLogin();
+                alertD.dismiss();
+            }
+        });
+
+        alertDialogBuilder.setCancelable(false);
+
+        alertD.show();
     }
 
 }
