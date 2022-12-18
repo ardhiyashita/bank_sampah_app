@@ -12,7 +12,7 @@ public class TransaksiResponse {
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<Datum> data = null;
+    private List<DataTransaksi> data = null;
 
     public Boolean getSuccess() {
         return success;
@@ -22,11 +22,11 @@ public class TransaksiResponse {
         this.success = success;
     }
 
-    public List<Datum> getData() {
+    public List<DataTransaksi> getData() {
         return data;
     }
 
-    public void setData(List<Datum> data) {
+    public void setData(List<DataTransaksi> data) {
         this.data = data;
     }
 

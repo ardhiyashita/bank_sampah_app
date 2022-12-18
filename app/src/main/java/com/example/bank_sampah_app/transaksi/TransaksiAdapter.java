@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bank_sampah_app.API.responses.Datum;
+import com.example.bank_sampah_app.API.responses.DataTransaksi;
 import com.example.bank_sampah_app.R;
 
 import java.util.List;
@@ -17,9 +17,9 @@ import java.util.List;
 public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.ListTransaksiViewHolder>{
 
     Context context;
-    List<Datum> listTransaksi;
+    List<DataTransaksi> listTransaksi;
 
-    public TransaksiAdapter(List<Datum> list) {
+    public TransaksiAdapter(List<DataTransaksi> list) {
         this.listTransaksi = list;
     }
 
@@ -33,12 +33,10 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.List
 
     @Override
     public void onBindViewHolder(@NonNull TransaksiAdapter.ListTransaksiViewHolder holder, int position) {
-        Datum datum = listTransaksi.get(position);
-        holder.jenisTransaksi.setText(datum.getTipePengambilan());
-        holder.statusTransaksi.setText(datum.getStatus());
-        holder.tanggalTransaksi.setText(datum.getCreatedAt());
-//        TransaksiItem transaksiItem = listTransaksi.get(position);
-//        holder.jenisTransaksi.setText(transaksiItem.getJenisTransaksi());
+        DataTransaksi dataTransaksi = listTransaksi.get(position);
+        holder.jenisTransaksi.setText(dataTransaksi.getTipePengambilan());
+        holder.statusTransaksi.setText(dataTransaksi.getStatus());
+        holder.tanggalTransaksi.setText(dataTransaksi.getCreatedAt());
     }
 
     @Override

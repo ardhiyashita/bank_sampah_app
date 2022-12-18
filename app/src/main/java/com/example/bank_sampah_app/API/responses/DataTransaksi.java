@@ -3,7 +3,7 @@ package com.example.bank_sampah_app.API.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datum {
+public class DataTransaksi {
 
     @SerializedName("id")
     @Expose

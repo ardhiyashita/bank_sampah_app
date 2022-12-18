@@ -13,11 +13,15 @@ import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
-import com.example.bank_sampah_app.API.responses.Datum;
+import com.example.bank_sampah_app.API.responses.DataTransaksi;
+import com.example.bank_sampah_app.API.responses.RegisterResponse;
+import com.example.bank_sampah_app.API.responses.TarikResponse;
 import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
+import com.example.bank_sampah_app.authentication.RegisterActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.help.FaqData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +40,7 @@ public class TransaksiFragment extends Fragment {
     private SessionManager sessionManager;
     private ApiClient apiClient;
     private RecyclerView rv_transaksi;
-    List<Datum> list = new ArrayList<>();
+    List<DataTransaksi> list = new ArrayList<>();
 
 //  TODO: Rename parameter arguments, choose names that match
 //  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -91,25 +95,28 @@ public class TransaksiFragment extends Fragment {
 
         User user = sessionManager.fetchUser();
 
-        rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
-        rv_transaksi.setAdapter(transaksiAdapter);
+
 
         Call<TransaksiResponse> transaksiResponseCall = apiClient.getApiService(getActivity()).getTransaksi();
-        transaksiResponseCall.enqueue(new Callback<PengajuanRequest>() {
+        transaksiResponseCall.enqueue(new Callback<TransaksiResponse>() {
             @Override
-            public void onResponse(Call<PengajuanRequest> call, Response<PengajuanRequest> response) {
-                if(!response.isSuccessful()){
-                    Toast.makeText(getActivity(), response.code(), Toast.LENGTH_SHORT).show();
-                    return;
+            public void onResponse(Call<TransaksiResponse> call, Response<TransaksiResponse> response) {
+                TransaksiResponse transaksiResponse = response.body();
+                if (transaksiResponse.getSuccess()) {
+                    List<DataTransaksi> listTransaksi = transaksiResponse.getData();
+                    list.addAll(FaqData.getListData());
+
+                    rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
+                    rv_transaksi.setAdapter(transaksiAdapter);
+                    Toast.makeText(getActivity(), "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Pendaftaran Gagal", Toast.LENGTH_LONG).show();
                 }
-                List<PengajuanRequest> listTransaksi = (List<PengajuanRequest>) response.body();
-                TransaksiAdapter transaksiAdapter = new TransaksiAdapter(listTransaksi);
-                rv_transaksi.setAdapter(transaksiAdapter);
             }
 
             @Override
-            public void onFailure(Call<PengajuanRequest> call, Throwable t) {
+            public void onFailure(Call<TransaksiResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
