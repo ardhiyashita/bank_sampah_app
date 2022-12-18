@@ -38,10 +38,11 @@
     <string name="penyetoran">Penyetoran</string>
     <string name="ubah_sampah_jadi_berkah">Ubah Sampah \nJadi Berkah</string>
     <string name="simpan">Simpan</string>
+    <string name="saldo">1000</string>
 
     <string-array name="tipePengambilanString">
-        <item>Bank</item>
-        <item>Rumah</item>
+        <item>bank</item>
+        <item>rumah</item>
     </string-array>
 
     <string-array name="jenisSampah">

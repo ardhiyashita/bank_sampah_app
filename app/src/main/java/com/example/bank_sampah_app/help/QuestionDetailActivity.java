@@ -32,7 +32,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
         mTitle.setText("Pertanyaan");
 
 
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 

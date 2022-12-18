@@ -14,11 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.Transaksi.Diproses.DiprosesAdapter;
-import com.example.bank_sampah_app.Transaksi.Diproses.DiprosesItem;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ListViewHolder>{
 

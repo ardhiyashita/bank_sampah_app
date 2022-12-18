@@ -1,22 +1,20 @@
 package com.example.bank_sampah_app.API.responses;
 
+import android.os.Message;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PengajuanResponse {
-
+    @SerializedName("success")
+    @Expose
     private Boolean success;
-
     @SerializedName("message")
+    @Expose
     private String message;
-    private String token;
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 
     public Boolean getSuccess() {
         return success;
@@ -34,3 +32,5 @@ public class PengajuanResponse {
         this.message = message;
     }
 }
+
+

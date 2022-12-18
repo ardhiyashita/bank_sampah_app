@@ -1,15 +1,21 @@
 package com.example.bank_sampah_app.profile;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +23,8 @@ import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
+import com.example.bank_sampah_app.API.responses.UserDataResponse;
+import com.example.bank_sampah_app.HomeFragment;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.LoginActivity;
@@ -35,10 +43,13 @@ import retrofit2.Response;
  */
 public class ProfileFragment extends Fragment {
     private SessionManager sessionManager;
+    private ApiClient apiClient;
     View view;
     LinearLayout lUbahData, lUbahPass, lBantuan, logout;
+    SwipeRefreshLayout swipeContainer;
     ImageView imgProfile;
     TextView tvNama, tvNoHp;
+//    AlertDialog.Builder builder;
 
 //    private static final String ARG_PARAM1 = "param1";
 //    private static final String ARG_PARAM2 = "param2";
@@ -77,7 +88,9 @@ public class ProfileFragment extends Fragment {
 
         sessionManager = new SessionManager(getActivity().getApplicationContext());
         User user = sessionManager.fetchUser();
+        apiClient = new ApiClient();
 
+        swipeContainer =view.findViewById(R.id.refresh_profile);
         lUbahData = view.findViewById(R.id.ubahdataakun);
         lUbahPass = view.findViewById(R.id.ubahpassword);
         lBantuan = view.findViewById(R.id.bantuandanpencarian);
@@ -88,6 +101,14 @@ public class ProfileFragment extends Fragment {
 
         tvNama.setText(user.getName());
         tvNoHp.setText(user.getNo_hp());
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshUser();
+            }
+        });
+        swipeContainer.setColorSchemeResources(android.R.color.holo_green_light);
 
         String url_image = user.getFoto();
         if (url_image != null){
@@ -122,7 +143,20 @@ public class ProfileFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userLogout();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Apakah Yakin Ingin Keluar?")
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                userLogout();
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+                // Create the AlertDialog object and return it
+                builder.show();
             }
         });
 
@@ -138,7 +172,6 @@ public class ProfileFragment extends Fragment {
     }
 
     private void userLogout(){
-        ApiClient apiClient = new ApiClient();
         Call<LogoutResponse> logoutResponseCall = apiClient.getApiService(getActivity().getApplicationContext()).userLogout();
         logoutResponseCall.enqueue(new Callback<LogoutResponse>() {
             @Override
@@ -163,5 +196,46 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+    }
+
+    public void refreshUser() {
+        reLoadFragment();
+        Call<UserDataResponse> userDataResponseCall = apiClient.getApiService(getActivity()).getUserData();
+        userDataResponseCall.enqueue(new Callback<UserDataResponse>() {
+            @Override
+            public void onResponse(Call<UserDataResponse> call, Response<UserDataResponse> response) {
+                UserDataResponse userDataResponse = response.body();
+                if (userDataResponse.getSuccess()==true) {
+                    sessionManager.saveUser(userDataResponse.getUser());
+                    tvNama.setText(userDataResponse.getUser().getName());
+                    tvNoHp.setText(userDataResponse.getUser().getNo_hp());
+                    reLoadFragment();
+                    Toast.makeText(getActivity(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Data gagal diperbarui", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDataResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
+            }
+        });
+        swipeContainer.setRefreshing(false);
+    }
+
+    public void reLoadFragment()
+    {
+        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.refresh_profile);
+        FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            fragTransaction.detach(this).commitNow();
+            fragTransaction.attach(this).commitNow();
+//            Toast.makeText(getActivity(), "Refresh", Toast.LENGTH_SHORT).show();
+        } else {
+            fragTransaction.detach(this).attach(currentFragment).commit();
+//            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
+        }
     }
 }

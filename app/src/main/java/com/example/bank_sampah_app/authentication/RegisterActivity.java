@@ -9,7 +9,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -122,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                if(checkDateFormat(etLahir.getText().toString())==false){
+                if(!checkDateFormat(etLahir.getText().toString())){
                     tlLahir.setError("Format tanggal tidak sesuai (yyyy-mm-dd)");
                 } else {
                     tlLahir.setError(null);
@@ -142,13 +141,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                tvGender.setError(null);
-                checkgroup = checkedId;
-                radioButton = (RadioButton) findViewById(checkedId);
-            }
+        rgGender.setOnCheckedChangeListener((radioGroup, checkedId) -> {
+            tvGender.setError(null);
+            checkgroup = checkedId;
+            radioButton = findViewById(checkedId);
         });
 
         etPass.addTextChangedListener(new TextWatcher() {
@@ -185,24 +181,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void txtLoginListener() {
-        tvLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        tvLogin.setOnClickListener(view -> {
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
     }
 
     public void btnRegisterListener() {
-        btnRegist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (registerValidation()== true){
-                    register();
-                }
+        btnRegist.setOnClickListener(view -> {
+            if (registerValidation()){
+                register();
             }
-
         });
     }
 
@@ -221,11 +210,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 RegisterResponse registerResponse = response.body();
-                if (registerResponse.getSuccess()==true) {
+                if (registerResponse.getSuccess()) {
                     Toast.makeText(RegisterActivity.this, "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
                     toLogin();
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Pendaftaran Gagal" + registerResponse.getMessage().getErrorInfo(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Pendaftaran Gagal", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -285,7 +274,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     public Boolean checkDateFormat(String date){
-        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD");
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
         try {
             format.parse(date);
             return true;

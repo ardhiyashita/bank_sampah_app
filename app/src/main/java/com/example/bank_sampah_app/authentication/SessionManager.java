@@ -33,13 +33,12 @@ public class SessionManager{
     public void deleteAuthToken(){
         editor=sharedPreferences.edit();
         editor.clear();
-        editor.putBoolean("isUserLogin", false);
         editor.apply();
     }
 
     public void saveUser(User user) {
         editor=sharedPreferences.edit();
-        editor.putInt("id_user", user.getId_user());
+        editor.putInt("id", user.getId_user());
         editor.putString("name", user.getName());
         editor.putString("email", user.getEmail());
         editor.putInt(("saldo"), user.getSaldo());
@@ -53,17 +52,17 @@ public class SessionManager{
     }
 
     public User fetchUser(){
-        int id_user = sharedPreferences.getInt("id_user",-1);
+        int id = sharedPreferences.getInt("id",0);
         String name = sharedPreferences.getString("name",null);
         String email = sharedPreferences.getString("email",null);
-        int saldo = sharedPreferences.getInt("saldo",-1);
+        int saldo = sharedPreferences.getInt("saldo",0);
         String foto = sharedPreferences.getString("foto",null);
         String alamat = sharedPreferences.getString("alamat",null);
         String jenis_kelamin = sharedPreferences.getString("jenis_kelamin",null);
         String no_hp = sharedPreferences.getString("no_hp",null);
         String tgl_lahir = sharedPreferences.getString("tgl_lahir",null);
 
-        return new User(id_user,name, email, saldo, foto,alamat,jenis_kelamin,no_hp,tgl_lahir);
+        return new User(id,name, email, saldo, foto,alamat,jenis_kelamin,no_hp,tgl_lahir);
     }
 
 }
