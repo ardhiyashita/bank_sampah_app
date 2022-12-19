@@ -16,7 +16,7 @@
     <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
     <string name="help_title">Masih Butuh Bantuan?</string>
     <string name="kontak_title">Kontak Kami</string>
-    
+
     <string name="jenisTransaksi_1">Setoran</string>
     <string name="jenisTransaksi_2">Penarikan</string>
     <string name="statusTransaksi_1">Penyetoran Sedang Diverifikasi</string>
@@ -38,6 +38,7 @@
     <string name="ubah_sampah_jadi_berkah">Ubah Sampah \nJadi Berkah</string>
     <string name="simpan">Simpan</string>
     <string name="saldo">1000</string>
+    <string name="rp">Rp</string>
 
     <string-array name="tipePengambilanString">
         <item>bank</item>

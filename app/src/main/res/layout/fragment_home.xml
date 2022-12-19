@@ -107,7 +107,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Rp"
+                                android:text="@string/rp"
                                 android:layout_marginEnd="4dp"
                                 android:textAppearance="@style/heading1_bold"
                                 android:textColor="@color/primary100" />
