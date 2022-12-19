@@ -1,38 +1,17 @@
 package com.example.bank_sampah_app.transaksi;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.example.bank_sampah_app.API.ApiClient;
-import com.example.bank_sampah_app.API.requests.PengajuanRequest;
-import com.example.bank_sampah_app.API.responses.DataTransaksi;
-import com.example.bank_sampah_app.API.responses.RegisterResponse;
-import com.example.bank_sampah_app.API.responses.TarikResponse;
-import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.User;
-import com.example.bank_sampah_app.authentication.RegisterActivity;
-import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.help.FaqData;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,11 +20,9 @@ import retrofit2.Response;
  */
 public class TransaksiFragment extends Fragment {
 
-    private SessionManager sessionManager;
-    private ApiClient apiClient;
-    private RecyclerView rv_transaksi;
-    private ArrayList<DataTransaksi> data;
-    private TransaksiAdapter adapter;
+    private TabLayout tabLayout;
+    private TabItem tabItem;
+    private ViewPager viewPager;
 
 //  TODO: Rename parameter arguments, choose names that match
 //  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -94,33 +71,33 @@ public class TransaksiFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
-        rv_transaksi = v.findViewById(R.id.rv_transaksi);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL,true);
-        rv_transaksi.setLayoutManager(layoutManager);
+        tabLayout = v.findViewById(R.id.tablayouttransaksi);
+        tabItem = v.findViewById(R.id.tablayoutdiproses);
+        tabItem = v.findViewById(R.id.tablayoutriwayat);
+        viewPager = v.findViewById(R.id.viewpager);
+        viewPager.setOffscreenPageLimit(2);
 
-        apiClient = new ApiClient();
-        sessionManager = new SessionManager(getActivity().getApplicationContext());
-
-        Call<TransaksiResponse> call = apiClient.getApiService(getActivity()).getTransaksi();
-        call.enqueue(new Callback<TransaksiResponse>() {
+        ViewPagerTransaksiAdapter viewPagerAdapter = new ViewPagerTransaksiAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onResponse(Call<TransaksiResponse> call, Response<TransaksiResponse> response) {
-                TransaksiResponse transaksiResponse = response.body();
-                if (transaksiResponse.getSuccess()) {
-                    data = new ArrayList<>(Arrays.asList(transaksiResponse.getData()));
-                    adapter = new TransaksiAdapter(data);
-                    rv_transaksi.setAdapter(adapter);
-                    Toast.makeText(getActivity(), "Berhasil", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getActivity(), "Gagal", Toast.LENGTH_LONG).show();
-                }
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
-            public void onFailure(Call<TransaksiResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
+        viewPager.setAdapter(viewPagerAdapter);
+
+
 
         return v;
     }

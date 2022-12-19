@@ -17,15 +17,18 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Layout;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +38,7 @@ import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
+import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 
 import java.io.ByteArrayOutputStream;
@@ -62,6 +66,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     TextView fotoSampagTxt;
     private static final int requestcamera_code= 12;
     private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
+    private ProgressDialog pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +160,14 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
     }
 
     public void pengajuan() {
+        //progress dialog
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+        ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Loading...");
+        pd.setView(view);
+        pd.show();
+
         User user = sessionManager.fetchUser();
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
         pengajuanRequest.setUser_id(user.getId_user());
@@ -170,18 +183,20 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             public void onResponse(Call<PengajuanResponse> call, Response<PengajuanResponse> response) {
                 PengajuanResponse pengajuanResponse = response.body();
                 if (pengajuanResponse.getSuccess()==true) {
-                    Toast.makeText(SetorSampahActivity.this, "Data Berhasil Terkirim", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(SetorSampahActivity.this, "Data Berhasil Terkirim", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                     Intent intentkirimsampah = new Intent(SetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);
                 } else {
                     Log.d("imageupload", String.valueOf(pengajuanResponse.getMessage()));
                     Toast.makeText(SetorSampahActivity.this, "Data Tidak Berhasil Terkirim"+ pengajuanResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<PengajuanResponse> call, Throwable t) {
-                Toast.makeText(SetorSampahActivity.this, "Throwable" +bitmapToString(bitmap), Toast.LENGTH_LONG).show();
+                Toast.makeText(SetorSampahActivity.this, "Throwable" +t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 Log.d("image",t.getLocalizedMessage());
             }
         });

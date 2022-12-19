@@ -3,11 +3,13 @@ package com.example.bank_sampah_app.tarikSaldo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -84,6 +86,14 @@ public class TarikSaldoActivity extends AppCompatActivity {
     }
 
     private void tarikSaldo(){
+        //progress dialog
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+        ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Loading...");
+        pd.setView(view);
+        pd.show();
+
         TarikRequest tarikRequest = new TarikRequest();
         tarikRequest.setUang(Integer.parseInt(etTarik.getText().toString()));
         tarikRequest.setCatatan(etCatatan.getText().toString());
@@ -98,9 +108,11 @@ public class TarikSaldoActivity extends AppCompatActivity {
                     intent.putExtra("id",tarikResponse.getData().getId());
                     intent.putExtra("uang",tarikResponse.getData().getUang());
                     intent.putExtra("tanggal",tarikResponse.getData().getCreated_at());
+                    pd.dismiss();
                     startActivity(intent);
                 } else {
                     Toast.makeText(TarikSaldoActivity.this, "Pengajuan Gagal, Coba Lagi" , Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
 

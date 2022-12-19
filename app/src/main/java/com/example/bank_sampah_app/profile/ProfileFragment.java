@@ -1,6 +1,7 @@
 package com.example.bank_sampah_app.profile;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -34,6 +35,7 @@ import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.HelpFragment;
+import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.squareup.picasso.Picasso;
 
 import java.nio.charset.StandardCharsets;
@@ -194,7 +196,14 @@ public class ProfileFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
-    private void userLogout(){
+    public void userLogout(){
+        //progress dialog
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+        ProgressDialog pd = new ProgressDialog(getActivity());
+        pd.setTitle("Loading...");
+        pd.setView(view);
+        pd.show();
         Call<LogoutResponse> logoutResponseCall = apiClient.getApiService(getActivity().getApplicationContext()).userLogout();
         logoutResponseCall.enqueue(new Callback<LogoutResponse>() {
             @Override
@@ -204,6 +213,7 @@ public class ProfileFragment extends Fragment {
                     if (sessionManager.fetchAuthToken() != null) {
                         sessionManager.deleteAuthToken();
                         Toast.makeText(getActivity(),"Logout Berhasil", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

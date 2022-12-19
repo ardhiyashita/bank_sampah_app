@@ -226,6 +226,7 @@
                                 android:layout_margin="5dp"
                                 android:layout_weight="1">
                                 <ImageView
+                                    android:id="@+id/transaksiImg"
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
                                     android:padding="8dp"

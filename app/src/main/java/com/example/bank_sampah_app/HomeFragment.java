@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,12 +22,14 @@ import android.widget.Toast;
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.help.HelpFragment;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanData;
 import com.example.bank_sampah_app.panduan.PanduanDetailActivity;
 import com.example.bank_sampah_app.panduan.PanduanItem;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
+import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 
 import java.util.ArrayList;
 
@@ -38,7 +41,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     private ApiClient apiClient;
     private SessionManager sessionManager;
-    ImageView setorSampahImg, tarikSaldoImg, celengan;
+    ImageView setorSampahImg, tarikSaldoImg, celengan, transaksiImg;
     TextView usernameTv, saldoTv;
     SwipeRefreshLayout swipeContainer;
 
@@ -96,6 +99,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //intent to transaksi
+        transaksiImg = v.findViewById(R.id.transaksiImg);
+
+        transaksiImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new TransaksiFragment());
+            }
+        });
+
         //intent to tarik saldo from celengan
         celengan = v.findViewById(R.id.celengan);
 
@@ -104,7 +117,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intentsetorfromcelengan = new Intent(getActivity(), SetorSampahActivity.class);
                 startActivity(intentsetorfromcelengan);
-
             }
         });
 
@@ -114,6 +126,13 @@ public class HomeFragment extends Fragment {
         showRecyclerList();
 
         return v;
+    }
+    private void replaceFragment(Fragment fragment){
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.commit();
     }
 
     private void showRecyclerList(){

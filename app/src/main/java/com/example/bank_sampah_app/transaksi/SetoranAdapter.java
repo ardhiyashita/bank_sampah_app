@@ -1,6 +1,5 @@
 package com.example.bank_sampah_app.transaksi;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,27 +15,26 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 
-public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.ListTransaksiViewHolder>{
+public class SetoranAdapter extends RecyclerView.Adapter<SetoranAdapter.ListTransaksiViewHolder>{
 
     ArrayList<DataTransaksi> listTransaksi;
 
-    public TransaksiAdapter(ArrayList<DataTransaksi> list) {
+    public SetoranAdapter(ArrayList<DataTransaksi> list) {
         this.listTransaksi = list;
     }
 
 
     @NonNull
     @Override
-    public TransaksiAdapter.ListTransaksiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_transaksi_item, parent, false);
-        return new TransaksiAdapter.ListTransaksiViewHolder(view);
+    public SetoranAdapter.ListTransaksiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_setoran_item, parent, false);
+        return new SetoranAdapter.ListTransaksiViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TransaksiAdapter.ListTransaksiViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SetoranAdapter.ListTransaksiViewHolder holder, int position) {
         DataTransaksi dataTransaksi = listTransaksi.get(position);
         holder.statusTransaksi.setText(dataTransaksi.getStatus());
         holder.tanggalTransaksi.setText(dateFormatter(dataTransaksi.getCreatedAt()));
