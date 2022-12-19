@@ -36,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         refreshUser();
+        if (savedInstanceState == null) {
+            replaceFragment(new HomeFragment());
+        }
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
-
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -91,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserDataResponse> call, Throwable t) {
-//                Toast.makeText(MainActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
+                Toast.makeText(MainActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
                 sessionManager.deleteAuthToken();
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

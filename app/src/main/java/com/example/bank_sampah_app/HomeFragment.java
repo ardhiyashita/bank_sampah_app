@@ -168,7 +168,7 @@ public class HomeFragment extends Fragment {
             fragTransaction.attach(this).commitNow();
 //            Toast.makeText(getActivity(), "Refresh", Toast.LENGTH_SHORT).show();
         } else {
-            fragTransaction.detach(this).attach(currentFragment).commit();
+            fragTransaction.detach(this).attach(this).commit();
 //            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
         }
     }
