@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="Tipe Pengambilan"
+                android:text="Tempat Penyetoran"
                 android:textAppearance="@style/heading2_bold"
                 android:fontFamily="@font/poppinsbold"
                 android:textColor="@color/neutral80"/>

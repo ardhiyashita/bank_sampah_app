@@ -1,7 +1,10 @@
 package com.example.bank_sampah_app.API.responses;
 
+import com.example.bank_sampah_app.help.HelpItem;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 public class DataTransaksi {
 
@@ -35,6 +38,19 @@ public class DataTransaksi {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+
+    public DataTransaksi(Integer id, Integer userId, String fotoSampah, Object catatanSampah, String tipePengambilan, String berat, String status, Object adminId, String createdAt, String updatedAt) {
+        this.id = id;
+        this.userId = userId;
+        this.fotoSampah = fotoSampah;
+        this.catatanSampah = catatanSampah;
+        this.tipePengambilan = tipePengambilan;
+        this.berat = berat;
+        this.status = status;
+        this.adminId = adminId;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
     public Integer getId() {
         return id;
@@ -115,5 +131,4 @@ public class DataTransaksi {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-
 }

@@ -23,7 +23,11 @@ import com.example.bank_sampah_app.authentication.RegisterActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.FaqData;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,7 +44,8 @@ public class TransaksiFragment extends Fragment {
     private SessionManager sessionManager;
     private ApiClient apiClient;
     private RecyclerView rv_transaksi;
-    List<DataTransaksi> list = new ArrayList<>();
+    private ArrayList<DataTransaksi> data;
+    private TransaksiAdapter adapter;
 
 //  TODO: Rename parameter arguments, choose names that match
 //  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,28 +95,24 @@ public class TransaksiFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
         rv_transaksi = v.findViewById(R.id.rv_transaksi);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(),LinearLayoutManager.VERTICAL,true);
+        rv_transaksi.setLayoutManager(layoutManager);
+
         apiClient = new ApiClient();
         sessionManager = new SessionManager(getActivity().getApplicationContext());
 
-        User user = sessionManager.fetchUser();
-
-
-
-        Call<TransaksiResponse> transaksiResponseCall = apiClient.getApiService(getActivity()).getTransaksi();
-        transaksiResponseCall.enqueue(new Callback<TransaksiResponse>() {
+        Call<TransaksiResponse> call = apiClient.getApiService(getActivity()).getTransaksi();
+        call.enqueue(new Callback<TransaksiResponse>() {
             @Override
             public void onResponse(Call<TransaksiResponse> call, Response<TransaksiResponse> response) {
                 TransaksiResponse transaksiResponse = response.body();
                 if (transaksiResponse.getSuccess()) {
-                    List<DataTransaksi> listTransaksi = transaksiResponse.getData();
-                    list.addAll(FaqData.getListData());
-
-                    rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
-                    rv_transaksi.setAdapter(transaksiAdapter);
-                    Toast.makeText(getActivity(), "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
+                    data = new ArrayList<>(Arrays.asList(transaksiResponse.getData()));
+                    adapter = new TransaksiAdapter(data);
+                    rv_transaksi.setAdapter(adapter);
+                    Toast.makeText(getActivity(), "Berhasil", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity(), "Pendaftaran Gagal", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Gagal", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -122,6 +123,5 @@ public class TransaksiFragment extends Fragment {
         });
 
         return v;
-
     }
 }

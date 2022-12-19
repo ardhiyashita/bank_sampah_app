@@ -12,6 +12,8 @@
         android:layout_weight="1"
         android:background="@drawable/bg_rectangle_white_stroke"
         android:orientation="vertical"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,9 +23,6 @@
             style="@style/heading1_semibold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:paddingRight="15dp"
             android:text="Setoran"
             android:textColor="@color/neutral80"
             android:textStyle="bold" />
@@ -33,8 +32,6 @@
             style="@style/smalltext_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:text="Penyetoran sedang diverifikasi"
             android:textColor="@color/primary100"
             android:textStyle="bold" />
@@ -44,9 +41,6 @@
             style="@style/smalltext_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="15dp"
             android:text="Penyetoran sedang diverifikasi"
             android:textColor="@color/neutral80"
             android:textStyle="bold" />

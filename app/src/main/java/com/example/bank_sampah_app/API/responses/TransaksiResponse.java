@@ -3,6 +3,7 @@ package com.example.bank_sampah_app.API.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TransaksiResponse {
@@ -12,7 +13,7 @@ public class TransaksiResponse {
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<DataTransaksi> data = null;
+    private DataTransaksi[] data = null;
 
     public Boolean getSuccess() {
         return success;
@@ -22,11 +23,11 @@ public class TransaksiResponse {
         this.success = success;
     }
 
-    public List<DataTransaksi> getData() {
+    public DataTransaksi[] getData() {
         return data;
     }
 
-    public void setData(List<DataTransaksi> data) {
+    public void setData(DataTransaksi[] data) {
         this.data = data;
     }
 
