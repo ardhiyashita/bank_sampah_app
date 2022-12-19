@@ -65,7 +65,6 @@ public class TarikSaldoActivity extends AppCompatActivity {
                  @Override
                  public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                      if(cb_semuaSaldo.isChecked()){
-                         Toast.makeText(TarikSaldoActivity.this, "Checked", Toast.LENGTH_SHORT).show();
                          etTarik.setText(Integer.toString(user.getSaldo()));
                      }
                  }

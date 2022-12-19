@@ -1,22 +1,27 @@
 package com.example.bank_sampah_app.profile;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Base64;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -25,17 +30,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.Constant;
 import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
-import com.example.bank_sampah_app.API.responses.UserDataResponse;
-import com.example.bank_sampah_app.HomeFragment;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.databinding.MainActivityBinding;
-import com.example.bank_sampah_app.help.HelpFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -57,6 +60,7 @@ public class EditProfileActivity extends AppCompatActivity {
     String jenis_kelamin;
 
     private static final int GALLERY_ADD_PROFILE = 1;
+//    private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
     private Bitmap bitmap = null;
 
     @Override
@@ -97,6 +101,13 @@ public class EditProfileActivity extends AppCompatActivity {
         etAlamat.setText(user.getAlamat());
         jenis_kelamin = user.getJenis_kelamin();
 
+        String url_image = user.getFoto();
+        if (url_image != null){
+            Picasso.get().load(Constant.BASE_URL+"./user/"+url_image).into(imgFoto);
+        } else{
+            imgFoto.setImageResource(R.drawable.ic_ubah_foto_profile);
+        }
+
         textWatcher();
         editFotoListener();
         btnSimpanListener();
@@ -106,11 +117,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void editFotoListener(){
         btnEditfoto.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                Intent intentCam = new Intent(Intent.ACTION_PICK);
-                intentCam.setType("image/*");
-                startActivityForResult(intentCam, GALLERY_ADD_PROFILE);
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, GALLERY_ADD_PROFILE);
             }
         });
     }
@@ -134,6 +146,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editProfileRequest.setJenis_kelamin(jenis_kelamin);
         editProfileRequest.setNo_hp(etHp.getText().toString());
         editProfileRequest.setTgl_lahir(etLahir.getText().toString());
+//        editProfileRequest.setFoto(imgSample);
         editProfileRequest.setFoto(bitmapToString(bitmap));
 
         Call<LoginResponse> loginResponseCall = apiClient.getApiService(this).userEdit(editProfileRequest);
@@ -144,7 +157,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 if (loginResponse.getSuccess()==true) {
                     Toast.makeText(EditProfileActivity.this, "Data Berhasil Diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(EditProfileActivity.this, "Data Tidak Berhasil Diperbarui" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditProfileActivity.this, "Data Gagal Diperbarui" , Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -289,4 +302,5 @@ public class EditProfileActivity extends AppCompatActivity {
         }
         return "";
     }
+
 }

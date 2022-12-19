@@ -17,10 +17,6 @@ public class TarikRequest {
         this.uang = uang;
     }
 
-    public String getCatatan() {
-        return catatan;
-    }
-
     public void setCatatan(String catatan) {
         this.catatan = catatan;
     }

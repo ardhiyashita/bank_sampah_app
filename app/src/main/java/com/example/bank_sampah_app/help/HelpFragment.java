@@ -1,6 +1,7 @@
 package com.example.bank_sampah_app.help;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,12 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.appcompat.widget.SearchView;
 
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.profile.EditProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,7 @@ public class HelpFragment extends Fragment {
     private RecyclerView rv_faq;
     private ArrayList<HelpItem> list = new ArrayList<>();
     TextView usernameTv;
+    LinearLayout alamat, telp;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,8 +90,28 @@ public class HelpFragment extends Fragment {
 
         usernameTv = v.findViewById(R.id.tv_username_help);
         rv_faq = v.findViewById(R.id.rv_faq);
+        alamat = v.findViewById(R.id.alamat_bps);
+        telp = v.findViewById(R.id.telp_bps);
 
         usernameTv.setText(user.getName());
+
+        alamat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://goo.gl/maps/d7kjrZJMdXeiDiNB6"));
+                startActivity(intent);
+            }
+        });
+
+        telp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("https://wa.me/6281337367622"));
+                startActivity(intent);
+            }
+        });
 
         list.addAll(FaqData.getListData());
         showRecyclerList();

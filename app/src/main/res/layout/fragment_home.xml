@@ -167,12 +167,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:gravity="center_vertical"
                             android:baselineAligned="false">
                             <LinearLayout
                                 android:id="@+id/layoutSetorSampah"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
+                                android:gravity="center"
                                 android:layout_margin="5dp"
                                 android:layout_weight="1">
                                 <ImageView
@@ -183,7 +185,7 @@
                                     android:src="@drawable/setor" />
 
                                 <TextView
-                                    android:layout_width="100dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Setor Sampah"
@@ -196,6 +198,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
+                                android:gravity="center"
                                 android:layout_margin="5dp"
                                 android:layout_weight="1">
                                 <ImageView
@@ -206,7 +209,7 @@
                                     android:src="@drawable/tariksaldo" />
 
                                 <TextView
-                                    android:layout_width="100dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Tarik Saldo"
@@ -219,6 +222,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
+                                android:gravity="center"
                                 android:layout_margin="5dp"
                                 android:layout_weight="1">
                                 <ImageView
@@ -228,7 +232,7 @@
                                     android:src="@drawable/riwayattransaksi" />
 
                                 <TextView
-                                    android:layout_width="100dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="Riwayat Transaksi"

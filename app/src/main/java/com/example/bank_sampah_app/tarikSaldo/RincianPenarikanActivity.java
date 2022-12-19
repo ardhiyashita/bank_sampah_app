@@ -14,6 +14,8 @@ import com.example.bank_sampah_app.R;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class RincianPenarikanActivity extends AppCompatActivity {
     TextView tvUang, tvRincianUang, tvId, tvTanggal;
@@ -39,6 +41,7 @@ public class RincianPenarikanActivity extends AppCompatActivity {
         tvUang.setText(Integer.toString(uang));
         tvRincianUang.setText(Integer.toString(uang));
         tvTanggal.setText(dateFormatter((String) b.get("tanggal")));
+//        tvTanggal.setText((String) b.get("tanggal"));
 
         btnSelesai = findViewById(R.id.btn_selesai_tarik);
         btnSelesai.setOnClickListener(view -> {
@@ -48,16 +51,17 @@ public class RincianPenarikanActivity extends AppCompatActivity {
     }
 
     public String dateFormatter(String date){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date dates = null;
-        String date1 = null;
         try {
-            dates = sdf.parse(date);
-            date1 = sdf.format(dates);
-        }catch (ParseException e) {
-            e.printStackTrace();
-        }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date d = sdf.parse(date);
 
-        return date1;
+            SimpleDateFormat output = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+            output.setTimeZone(TimeZone.getDefault());
+            String formattedTime = output.format(d);
+            return formattedTime;
+        }catch (ParseException e) {
+            return null;
+        }
     }
 }

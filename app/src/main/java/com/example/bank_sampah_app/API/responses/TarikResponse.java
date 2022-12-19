@@ -41,7 +41,7 @@ public class TarikResponse {
     public class Data{
         private int user_id;
         private int uang;
-        private Object catatan;
+        private String catatan;
         private String tipe;
         private String updated_at;
         private String created_at;
@@ -63,28 +63,12 @@ public class TarikResponse {
             this.uang = uang;
         }
 
-        public Object getCatatan() {
+        public String getCatatan() {
             return catatan;
         }
 
-        public void setCatatan(Object catatan) {
+        public void setCatatan(String catatan) {
             this.catatan = catatan;
-        }
-
-        public String getTipe() {
-            return tipe;
-        }
-
-        public void setTipe(String tipe) {
-            this.tipe = tipe;
-        }
-
-        public String getUpdated_at() {
-            return updated_at;
-        }
-
-        public void setUpdated_at(String updated_at) {
-            this.updated_at = updated_at;
         }
 
         public String getCreated_at() {

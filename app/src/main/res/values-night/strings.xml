@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">BPS Cemenggaon</string>
+    <string name="hello">Hello,</string>
+    <string name="username">Hrida</string>
+    <string name="bps">BPS</string>
+    <string name="pilahsampah">Sudah Pilah sampah Hari ini?</string>
+    <string name="kelolatabungan">Kelola Tabungan</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help">ada yang bisa dibantu?</string>
+    <string name="help_desc">Kamu bisa cari pertanyaan yang sering ditanyakan atau menghubungi kami jika masih membutuhkan bantuan</string>
+    <string name="banksampah">Bank Sampah Sami Asri</string>
+    <string name="telp">088-123-456</string>
+    <string name="email">bps@gmail.com</string>
+    <string name="alamat">Bank Sampah Sami Asri, Br. Cemenggaon, Ds. Celuk, Kec. Sukawati, Kab. Gianyar, Bali</string>
+    <string name="faq_title">Pertanyaan yang Sering Ditanyakan</string>
+    <string name="help_title">Masih Butuh Bantuan?</string>
+    <string name="kontak_title">Kontak Kami</string>
+
+    <string name="jenisTransaksi_1">Setoran</string>
+    <string name="jenisTransaksi_2">Penarikan</string>
+    <string name="statusTransaksi_1">Penyetoran Sedang Diverifikasi</string>
+    <string name="statusTransaksi_2">Menunggu Penjemputan</string>
+    <string name="statusTransaksi_3">Penarikan Dana Sedang Diproses</string>
+
+    <string name="mulai">Mulai</string>
     <string name="lanjut">Lanjutkan</string>
+    <string name="lewati">Lewati</string>
+    <string name="welcome">Selamat Datang!</string>
+    <string name="welcome_text">Kelola dan ubah sampahmu jadi berkah! \n Bersama Bank Sampah Sami Asri \n BPS Desa Adat Cemenggaon</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk">Masuk</string>
+
+    <string name="select">Pilih Jenis Penyetoran</string>
+    <string name="jenis">Jenis Sampah</string>
+    <string name="setor_sampah">Setor Sampah</string>
+    <string name="penyetoran">Penyetoran</string>
+    <string name="ubah_sampah_jadi_berkah">Ubah Sampah \nJadi Berkah</string>
+    <string name="simpan">Simpan</string>
     <string name="saldo">1000</string>
+
+    <string-array name="tipePengambilanString">
+        <item>bank</item>
+        <item>rumah</item>
+    </string-array>
+
+    <string-array name="jenisSampah">
+        <item>Kantong Plastik</item>
+        <item>Botol Plastik</item>
+        <item>Kertas</item>
+        <item>Logam</item>
+        <item>Lainnya</item>
+    </string-array>
 </resources>
