@@ -212,7 +212,7 @@ public class ProfileFragment extends Fragment {
                 if (logoutResponse.getSuccess()==true) {
                     if (sessionManager.fetchAuthToken() != null) {
                         sessionManager.deleteAuthToken();
-                        Toast.makeText(getActivity(),"Logout Berhasil", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(),"Logout Berhasil", Toast.LENGTH_SHORT).show();
                         pd.dismiss();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
