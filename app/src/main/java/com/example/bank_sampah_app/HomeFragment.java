@@ -19,7 +19,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.responses.ArtikelResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
+import com.example.bank_sampah_app.artikel.Artikel;
+import com.example.bank_sampah_app.artikel.ArtikelActivity;
+import com.example.bank_sampah_app.artikel.ArtikelAdapterHome;
 import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanData;
@@ -29,6 +33,7 @@ import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,12 +44,14 @@ public class HomeFragment extends Fragment {
     private ApiClient apiClient;
     private SessionManager sessionManager;
     ImageView setorSampahImg, tarikSaldoImg, celengan;
-    TextView usernameTv, saldoTv;
+    TextView usernameTv, saldoTv, allArtikel;
     SwipeRefreshLayout swipeContainer;
 
-    private RecyclerView rv_panduan;
+    private RecyclerView rv_panduan, rv_artikel;
     private ArrayList<PanduanItem> list = new ArrayList<>();
+    private ArrayList<Artikel> listArtikel;
 
+    ArtikelAdapterHome artikelAdapterHome;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +68,7 @@ public class HomeFragment extends Fragment {
         setorSampahImg = v.findViewById(R.id.setorSampahImg);
         usernameTv = v.findViewById(R.id.username);
         saldoTv = v.findViewById(R.id.saldo);
+        allArtikel =v.findViewById(R.id.tv_allArtikel);
 
         usernameTv.setText(user.getName());
         saldoTv.setText(Integer.toString(user.getSaldo()));
@@ -108,15 +116,27 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        allArtikel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentArtikel = new Intent(getActivity(), ArtikelActivity.class);
+                startActivity(intentArtikel);
+
+            }
+        });
+
         //panduan
         rv_panduan = v.findViewById(R.id.rv_panduan);
         list.addAll(PanduanData.getListData());
-        showRecyclerList();
+        showRecyclerPanduan();
+
+        rv_artikel = v.findViewById(R.id.rv_article);
+        showRecyclerArtikel();
 
         return v;
     }
 
-    private void showRecyclerList(){
+    private void showRecyclerPanduan(){
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         rv_panduan.setLayoutManager(horizontalLayoutManager);
@@ -129,6 +149,54 @@ public class HomeFragment extends Fragment {
                 Intent moveToDetailPanduan = new Intent(getActivity(), PanduanDetailActivity.class);
                 moveToDetailPanduan.putExtra(PanduanDetailActivity.ITEM_EXTRA, panduanItem);
                 startActivity(moveToDetailPanduan);
+            }
+        });
+    }
+
+    private void showRecyclerArtikel(){
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity()){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+
+        rv_artikel.setLayoutManager(layoutManager);
+        getArtikel();
+
+
+//        if(artikelAdapter!=null){
+//            artikelAdapter.setOnItemClickListener(new ArtikelAdapter.OnItemClickCallback() {
+//                @Override
+//                public void onItemClicked(Artikel artikel) {
+//                    Toast.makeText(getActivity(),artikel.getJudul(), Toast.LENGTH_SHORT).show();
+//                    Intent detailArtikel = new Intent(getActivity(), ArtikelDetailActivity.class);
+//                    detailArtikel.putExtra("artikel", listArtikel);
+//                    startActivity(detailArtikel);
+//                }
+//            });
+//        }
+    }
+
+    private void getArtikel(){
+        Call<ArtikelResponse> artikelResponseCall = apiClient.getApiService(getActivity().getApplicationContext()).getArtikel();
+        artikelResponseCall.enqueue(new Callback<ArtikelResponse>() {
+            @Override
+            public void onResponse(Call<ArtikelResponse> call, Response<ArtikelResponse> response) {
+                ArtikelResponse artikelResponse = response.body();
+                if (artikelResponse.getSuccess()==true) {
+                    listArtikel = new ArrayList<>(Arrays.asList(artikelResponse.getData()));
+                    artikelAdapterHome = new ArtikelAdapterHome(getContext(),listArtikel);
+                    rv_artikel.setAdapter(artikelAdapterHome);
+                } else {
+                    Toast.makeText(getActivity(),"Gagal", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArtikelResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -159,8 +227,7 @@ public class HomeFragment extends Fragment {
         swipeContainer.setRefreshing(false);
     }
 
-    public void reLoadFragment()
-    {
+    public void reLoadFragment() {
         Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.refresh_profile);
         FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -172,4 +239,5 @@ public class HomeFragment extends Fragment {
 //            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

@@ -108,7 +108,7 @@ public class HelpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse("https://wa.me/6281337367622"));
+                        Uri.parse("https://wa.me/6282266071706"));
                 startActivity(intent);
             }
         });

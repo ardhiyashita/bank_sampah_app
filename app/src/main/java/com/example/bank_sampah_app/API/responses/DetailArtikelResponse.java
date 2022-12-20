@@ -3,13 +3,12 @@ package com.example.bank_sampah_app.API.responses;
 import com.example.bank_sampah_app.artikel.Artikel;
 import com.google.gson.annotations.SerializedName;
 
-public class ArtikelResponse {
-
+public class DetailArtikelResponse {
     @SerializedName("success")
     private Boolean success;
 
     @SerializedName("data")
-    private Artikel[] data;
+    private Artikel data;
 
     public Boolean getSuccess() {
         return success;
@@ -19,11 +18,11 @@ public class ArtikelResponse {
         this.success = success;
     }
 
-    public Artikel[] getData() {
+    public Artikel getData() {
         return data;
     }
 
-    public void setData(Artikel[] data) {
+    public void setData(Artikel data) {
         this.data = data;
     }
 }

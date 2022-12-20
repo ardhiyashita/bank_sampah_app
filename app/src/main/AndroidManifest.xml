@@ -16,7 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank_sampah_app">
         <activity
-            android:name=".article.ArtikelActivity"
+            android:name=".artikel.ArtikelDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".artikel.ArtikelActivity"
             android:exported="false" />
         <activity
             android:name=".profile.EditProfileActivity"
