@@ -1,5 +1,6 @@
 package com.example.bank_sampah_app.transaksi;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,9 @@ public class SetoranAdapter extends RecyclerView.Adapter<SetoranAdapter.ListTran
     @Override
     public void onBindViewHolder(@NonNull SetoranAdapter.ListTransaksiViewHolder holder, int position) {
         DataTransaksi dataTransaksi = listTransaksi.get(position);
+        if(dataTransaksi.getStatus().equals("diterima")){
+            holder.statusTransaksi.setTextColor(Color.parseColor("#00A86F"));
+        }
         holder.statusTransaksi.setText(dataTransaksi.getStatus());
         holder.tanggalTransaksi.setText(dateFormatter(dataTransaksi.getCreatedAt()));
     }

@@ -18,17 +18,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/jenisTransaksi"
-            style="@style/heading1_semibold"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Setoran"
-            android:textColor="@color/neutral80"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <TextView
+                style="@style/heading1_semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Penarikan"
+                android:textColor="@color/neutral80"
+                android:textStyle="bold"
+                android:layout_weight="2"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/heading1_semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-Rp"
+                    android:textColor="@color/accent100"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/jumlahPenarikan"
+                    android:layout_marginLeft="4dp"
+                    style="@style/heading1_semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Penarikan"
+                    android:textColor="@color/accent100"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/statusTransaksi"
+            android:id="@+id/statusPenarikan"
             style="@style/smalltext_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,8 +63,9 @@
             android:textColor="@color/accent100"
             android:textStyle="bold" />
 
+
         <TextView
-            android:id="@+id/tanggalTransaksi"
+            android:id="@+id/tanggalPenarikan"
             style="@style/smalltext_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

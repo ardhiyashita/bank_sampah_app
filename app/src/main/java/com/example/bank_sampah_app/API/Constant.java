@@ -10,4 +10,5 @@ public class Constant {
     public static final String EDIT_USER = "data/edit";
     public static final String TARIK = "tabungan/tarik";
     public static final String TRANSAKSI = "pengajuan";
+    public static final String PENARIKAN = "penarikan-saldo";
 }
