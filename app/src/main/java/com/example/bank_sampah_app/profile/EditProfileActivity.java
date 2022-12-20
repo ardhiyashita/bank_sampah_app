@@ -59,9 +59,9 @@ public class EditProfileActivity extends AppCompatActivity {
     ImageView imgFoto;
     String jenis_kelamin;
 
-    private static final int GALLERY_ADD_PROFILE = 1;
+//    private static final int GALLERY_ADD_PROFILE = 1;
 //    private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
-    private Bitmap bitmap = null;
+//    private Bitmap bitmap = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class EditProfileActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
 
         btnSimpan = findViewById(R.id.btn_simpan_profile);
-        btnEditfoto = findViewById(R.id.btn_editfoto);
+//        btnEditfoto = findViewById(R.id.btn_editfoto);
 
         etNama = findViewById(R.id.edit_nama);
         etHp = findViewById(R.id.edit_hp);
@@ -91,7 +91,7 @@ public class EditProfileActivity extends AppCompatActivity {
         tlEmail = findViewById(R.id.input_layout_editemail);
         tlLahir = findViewById(R.id.input_layout_editlahir);
         tlAlamat = findViewById(R.id.input_layout_editalamat);
-        imgFoto = findViewById(R.id.img_edtprofile);
+//        imgFoto = findViewById(R.id.img_edtprofile);
 
         User user = sessionManager.fetchUser();
         etNama.setText(user.getName());
@@ -101,31 +101,31 @@ public class EditProfileActivity extends AppCompatActivity {
         etAlamat.setText(user.getAlamat());
         jenis_kelamin = user.getJenis_kelamin();
 
-        String url_image = user.getFoto();
-        if (url_image != null){
-            Picasso.get().load(Constant.BASE_URL+"./user/"+url_image).into(imgFoto);
-        } else{
-            imgFoto.setImageResource(R.drawable.ic_ubah_foto_profile);
-        }
+//        String url_image = user.getFoto();
+//        if (url_image != null){
+//            Picasso.get().load(Constant.BASE_URL+"./user/"+url_image).into(imgFoto);
+//        } else{
+//            imgFoto.setImageResource(R.drawable.ic_ubah_foto_profile);
+//        }
 
         textWatcher();
-        editFotoListener();
+//        editFotoListener();
         btnSimpanListener();
 
 
     }
 
-    public void editFotoListener(){
-        btnEditfoto.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, GALLERY_ADD_PROFILE);
-            }
-        });
-    }
+//    public void editFotoListener(){
+//        btnEditfoto.setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_PICK);
+//                intent.setType("image/*");
+//                startActivityForResult(intent, GALLERY_ADD_PROFILE);
+//            }
+//        });
+//    }
 
     public void btnSimpanListener() {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +147,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editProfileRequest.setNo_hp(etHp.getText().toString());
         editProfileRequest.setTgl_lahir(etLahir.getText().toString());
 //        editProfileRequest.setFoto(imgSample);
-        editProfileRequest.setFoto(bitmapToString(bitmap));
+//        editProfileRequest.setFoto(bitmapToString(bitmap));
 
         Call<LoginResponse> loginResponseCall = apiClient.getApiService(this).userEdit(editProfileRequest);
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
@@ -280,27 +280,27 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
-            Uri imgUri = data.getData();
-            imgFoto.setImageURI(imgUri);
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    private String bitmapToString(Bitmap bitmap) {
-        if(bitmap!=null){
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-            byte [] array = byteArrayOutputStream.toByteArray();
-            return Base64.encodeToString(array, Base64.DEFAULT);
-        }
-        return "";
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
+//            Uri imgUri = data.getData();
+//            imgFoto.setImageURI(imgUri);
+//            try {
+//                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//    private String bitmapToString(Bitmap bitmap) {
+//        if(bitmap!=null){
+//            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+//            byte [] array = byteArrayOutputStream.toByteArray();
+//            return Base64.encodeToString(array, Base64.DEFAULT);
+//        }
+//        return "";
+//    }
 
 }

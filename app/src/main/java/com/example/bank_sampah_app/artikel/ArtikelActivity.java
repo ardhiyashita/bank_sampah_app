@@ -41,7 +41,7 @@ public class ArtikelActivity extends AppCompatActivity {
         apiClient = new ApiClient();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         mTitle.setText("Artikel");
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
@@ -64,7 +64,7 @@ public class ArtikelActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArtikelResponse> call, Response<ArtikelResponse> response) {
                 ArtikelResponse artikelResponse = response.body();
-                if (artikelResponse.getSuccess()==true) {
+                if (artikelResponse.getSuccess()) {
                     mShimmerViewContainer.stopShimmer();
                     mShimmerViewContainer.setVisibility(View.GONE);
                     rv_artikel.setVisibility(View.VISIBLE);
