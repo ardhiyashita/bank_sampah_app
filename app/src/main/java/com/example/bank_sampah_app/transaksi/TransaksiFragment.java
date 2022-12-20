@@ -1,26 +1,17 @@
 package com.example.bank_sampah_app.transaksi;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.help.FaqData;
-import com.example.bank_sampah_app.help.HelpAdapter;
-import com.example.bank_sampah_app.help.HelpItem;
-import com.example.bank_sampah_app.help.QuestionDetailActivity;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +23,6 @@ public class TransaksiFragment extends Fragment {
     private TabLayout tabLayout;
     private TabItem tabItem;
     private ViewPager viewPager;
-    private RecyclerView rv_transaksi;
-    private ArrayList<TransaksiItem> list = new ArrayList<>();
 
 //  TODO: Rename parameter arguments, choose names that match
 //  the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,18 +71,34 @@ public class TransaksiFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_transaksi, container, false);
-        rv_transaksi = v.findViewById(R.id.rv_transaksi);
+        tabLayout = v.findViewById(R.id.tablayouttransaksi);
+        tabItem = v.findViewById(R.id.tablayoutdiproses);
+        tabItem = v.findViewById(R.id.tablayoutriwayat);
+        viewPager = v.findViewById(R.id.viewpager);
+        viewPager.setOffscreenPageLimit(2);
 
-//        list.addAll(FaqData.getListData());
-        showRecyclerList();
+        ViewPagerTransaksiAdapter viewPagerAdapter = new ViewPagerTransaksiAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        viewPager.setAdapter(viewPagerAdapter);
+
+
 
         return v;
-
-    }
-
-    private void showRecyclerList(){
-        rv_transaksi.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TransaksiAdapter transaksiAdapter = new TransaksiAdapter(list);
-        rv_transaksi.setAdapter(transaksiAdapter);
     }
 }

@@ -2,6 +2,7 @@ package com.example.bank_sampah_app.authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -96,6 +98,14 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 
     private void login() {
+        //progress dialog
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+        ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Loading...");
+        pd.setView(view);
+        pd.show();
+
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername(username.getText().toString());
         loginRequest.setPassword(password.getText().toString());
@@ -108,18 +118,14 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResponse.getSuccess()==true) {
                     sessionManager.saveAuthToken(loginResponse.getToken());
                     sessionManager.saveUser(loginResponse.getUser());
-//                    pd = new ProgressDialog(LoginActivity.this);
-//                    pd.show();
-//                    pd.setContentView(R.layout.progress_dialog);
-//                    pd.getWindow().setBackgroundDrawableResource(
-//                            android.R.color.transparent
-//                    );
-                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Username dan password tidak sesuai", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
                 }
             }
 
@@ -128,10 +134,5 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        pd.dismiss();
     }
 }

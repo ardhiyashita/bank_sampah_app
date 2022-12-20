@@ -8,16 +8,17 @@ import com.example.bank_sampah_app.API.responses.ArtikelResponse;
 import com.example.bank_sampah_app.API.responses.DetailArtikelResponse;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
+import com.example.bank_sampah_app.API.responses.PenarikanResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
 import com.example.bank_sampah_app.API.responses.TarikResponse;
+import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface ApiService {
 
@@ -48,4 +49,10 @@ public interface ApiService {
 
     @GET(Constant.ARTIKEL+"/{slug}")
     Call<DetailArtikelResponse> getDetailArtikel(@Path("slug") String slug);
+
+    @GET(Constant.TRANSAKSI)
+    Call<TransaksiResponse> getTransaksi();
+
+    @GET(Constant.PENARIKAN)
+    Call<PenarikanResponse> getPenarikan();
 }

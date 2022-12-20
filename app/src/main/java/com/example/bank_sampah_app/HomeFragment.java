@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,12 +26,14 @@ import com.example.bank_sampah_app.artikel.Artikel;
 import com.example.bank_sampah_app.artikel.ArtikelActivity;
 import com.example.bank_sampah_app.artikel.ArtikelAdapterHome;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.help.HelpFragment;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanData;
 import com.example.bank_sampah_app.panduan.PanduanDetailActivity;
 import com.example.bank_sampah_app.panduan.PanduanItem;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
+import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -104,6 +107,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //intent to transaksi
+        transaksiImg = v.findViewById(R.id.transaksiImg);
+
+        transaksiImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new TransaksiFragment());
+            }
+        });
+
         //intent to tarik saldo from celengan
         celengan = v.findViewById(R.id.celengan);
 
@@ -134,6 +147,13 @@ public class HomeFragment extends Fragment {
         showRecyclerArtikel();
 
         return v;
+    }
+    private void replaceFragment(Fragment fragment){
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.commit();
     }
 
     private void showRecyclerPanduan(){
@@ -239,5 +259,4 @@ public class HomeFragment extends Fragment {
 //            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
         }
     }
-
 }
