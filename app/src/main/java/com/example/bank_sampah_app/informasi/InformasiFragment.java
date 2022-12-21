@@ -1,16 +1,34 @@
 package com.example.bank_sampah_app.informasi;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.bank_sampah_app.API.ApiClient;
+import com.example.bank_sampah_app.API.responses.DataKategori;
+import com.example.bank_sampah_app.API.responses.DataTransaksi;
+import com.example.bank_sampah_app.API.responses.KategoriResponse;
+import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
+import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.transaksi.SetoranAdapter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +38,11 @@ import com.example.bank_sampah_app.R;
 public class InformasiFragment extends Fragment {
 
     LinearLayout jadwalPengumpulan, jadwalPenjemputan;
+    private SessionManager sessionManager;
+    private ApiClient apiClient;
+    private RecyclerView rv_kategori;
+    private ArrayList<DataKategori> data;
+    private KategoriAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +92,12 @@ public class InformasiFragment extends Fragment {
 
         jadwalPengumpulan = v.findViewById(R.id.jadwalPengumpulan);
         jadwalPenjemputan = v.findViewById(R.id.jadwalPenjemputan);
+        rv_kategori = v.findViewById(R.id.rv_kategori);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        rv_kategori.setLayoutManager(layoutManager);
+
+        apiClient = new ApiClient();
+        sessionManager = new SessionManager(getActivity().getApplicationContext());
 
         jadwalPengumpulan.setOnClickListener(v1 -> {
             Intent intentPengumpulan = new Intent(getActivity(),JadwalPengumpulanSampahActivity.class);
@@ -78,6 +107,39 @@ public class InformasiFragment extends Fragment {
         jadwalPenjemputan.setOnClickListener(v12 -> {
             Intent intentPenjemputan = new Intent(getActivity(),JadwalPenjemputanSampahActivity.class);
             startActivity(intentPenjemputan);
+        });
+
+        //progress dialog
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+        ProgressDialog pd = new ProgressDialog(getActivity());
+        pd.setTitle("Loading...");
+        pd.setView(view);
+        pd.show();
+
+        Call<KategoriResponse> call = apiClient.getApiService(getActivity()).getKategori();
+        call.enqueue(new Callback<KategoriResponse>() {
+            @Override
+            public void onResponse(Call<KategoriResponse> call, Response<KategoriResponse> response) {
+                KategoriResponse kategoriResponse = response.body();
+                if (kategoriResponse.getSuccess()) {
+                    data = new ArrayList<>(Arrays.asList(kategoriResponse.getData()));
+                    adapter = new KategoriAdapter(data);
+                    adapter.notifyItemRangeInserted(0, data.size());
+                    rv_kategori.scrollToPosition(data.size() - 1);
+                    rv_kategori.setAdapter(adapter);
+//                    Toast.makeText(getActivity(), "Setoran Berhasil di Muat", Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                } else {
+                    Toast.makeText(getActivity(), "Kategori Gagal di Muat", Toast.LENGTH_LONG).show();
+                    pd.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<KategoriResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
 
         return v;

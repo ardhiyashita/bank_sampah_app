@@ -4,6 +4,7 @@ import com.example.bank_sampah_app.API.requests.LoginRequest;
 import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.requests.TarikRequest;
+import com.example.bank_sampah_app.API.responses.KategoriResponse;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.PenarikanResponse;
@@ -49,4 +50,7 @@ public interface ApiService {
 
     @GET(Constant.PENARIKAN)
     Call<PenarikanResponse> getPenarikan();
+
+    @GET(Constant.KATEGORI)
+    Call<KategoriResponse> getKategori();
 }
