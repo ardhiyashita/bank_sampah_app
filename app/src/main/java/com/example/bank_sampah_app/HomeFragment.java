@@ -46,7 +46,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     private ApiClient apiClient;
     private SessionManager sessionManager;
-    ImageView setorSampahImg, tarikSaldoImg, celengan;
+    ImageView setorSampahImg, tarikSaldoImg, celengan, transaksiImg;
     TextView usernameTv, saldoTv, allArtikel;
     SwipeRefreshLayout swipeContainer;
 
@@ -183,19 +183,6 @@ public class HomeFragment extends Fragment {
 
         rv_artikel.setLayoutManager(layoutManager);
         getArtikel();
-
-
-//        if(artikelAdapter!=null){
-//            artikelAdapter.setOnItemClickListener(new ArtikelAdapter.OnItemClickCallback() {
-//                @Override
-//                public void onItemClicked(Artikel artikel) {
-//                    Toast.makeText(getActivity(),artikel.getJudul(), Toast.LENGTH_SHORT).show();
-//                    Intent detailArtikel = new Intent(getActivity(), ArtikelDetailActivity.class);
-//                    detailArtikel.putExtra("artikel", listArtikel);
-//                    startActivity(detailArtikel);
-//                }
-//            });
-//        }
     }
 
     private void getArtikel(){

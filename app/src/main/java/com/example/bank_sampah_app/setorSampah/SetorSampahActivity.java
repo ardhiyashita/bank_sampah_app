@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -17,7 +16,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.Layout;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
@@ -28,7 +26,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +35,6 @@ import com.example.bank_sampah_app.API.requests.PengajuanRequest;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
-import com.example.bank_sampah_app.authentication.LoginActivity;
 import com.example.bank_sampah_app.authentication.SessionManager;
 
 import java.io.ByteArrayOutputStream;
@@ -163,10 +159,11 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         //progress dialog
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View view = layoutInflater.inflate(R.layout.progress_dialog, null);
-        ProgressDialog pd = new ProgressDialog(this);
-        pd.setTitle("Loading...");
-        pd.setView(view);
-        pd.show();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(view);
+        AlertDialog alertD = alertDialogBuilder.create();
+        alertDialogBuilder.setCancelable(false);
+        alertD.show();
 
         User user = sessionManager.fetchUser();
         PengajuanRequest pengajuanRequest = new PengajuanRequest();
@@ -184,20 +181,21 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
                 PengajuanResponse pengajuanResponse = response.body();
                 if (pengajuanResponse.getSuccess()==true) {
 //                    Toast.makeText(SetorSampahActivity.this, "Data Berhasil Terkirim", Toast.LENGTH_SHORT).show();
-                    pd.dismiss();
                     Intent intentkirimsampah = new Intent(SetorSampahActivity.this, SelesaiSetorSampahActivity.class);
                     startActivity(intentkirimsampah);
                 } else {
                     Log.d("imageupload", String.valueOf(pengajuanResponse.getMessage()));
                     Toast.makeText(SetorSampahActivity.this, "Data Tidak Berhasil Terkirim"+ pengajuanResponse.getMessage(), Toast.LENGTH_LONG).show();
-                    pd.dismiss();
                 }
+                alertD.dismiss();
             }
 
             @Override
             public void onFailure(Call<PengajuanResponse> call, Throwable t) {
-                Toast.makeText(SetorSampahActivity.this, "Throwable" +t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                Log.d("image",t.getLocalizedMessage());
+                Toast.makeText(SetorSampahActivity.this, "Data Tidak Berhasil Terkirim, Coba Lagi", Toast.LENGTH_LONG).show();
+                alertD.dismiss();
+//                Toast.makeText(SetorSampahActivity.this, "Throwable" +t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                Log.d("image",t.getLocalizedMessage());
             }
         });
     }

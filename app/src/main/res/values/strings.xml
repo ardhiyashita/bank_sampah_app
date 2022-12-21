@@ -39,6 +39,7 @@
     <string name="simpan">Simpan</string>
     <string name="saldo">1000</string>
     <string name="rp">Rp</string>
+    <string name="loading">Loading...</string>
 
     <string-array name="tipePengambilanString">
         <item>bank</item>

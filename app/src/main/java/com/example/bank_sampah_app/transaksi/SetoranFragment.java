@@ -17,6 +17,7 @@ import com.example.bank_sampah_app.API.responses.DataTransaksi;
 import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +37,7 @@ public class SetoranFragment extends Fragment {
     private RecyclerView rv_transaksi;
     private ArrayList<DataTransaksi> data;
     private SetoranAdapter adapter;
+    private ShimmerFrameLayout mShimmerViewContainer;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,6 +84,9 @@ public class SetoranFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_setoran, container, false);
+
+        mShimmerViewContainer = v.findViewById(R.id.shimmer_setoran);
+
         rv_transaksi = v.findViewById(R.id.rv_transaksi);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         rv_transaksi.setLayoutManager(layoutManager);
@@ -89,13 +94,15 @@ public class SetoranFragment extends Fragment {
         apiClient = new ApiClient();
         sessionManager = new SessionManager(getActivity().getApplicationContext());
 
+        mShimmerViewContainer.startShimmer();
+
         //progress dialog
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
-        ProgressDialog pd = new ProgressDialog(getActivity());
-        pd.setTitle("Loading...");
-        pd.setView(view);
-        pd.show();
+//        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+//        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+//        ProgressDialog pd = new ProgressDialog(getActivity());
+//        pd.setTitle("Loading...");
+//        pd.setView(view);
+//        pd.show();
 
         Call<TransaksiResponse> call = apiClient.getApiService(getActivity()).getTransaksi();
         call.enqueue(new Callback<TransaksiResponse>() {
@@ -103,16 +110,17 @@ public class SetoranFragment extends Fragment {
             public void onResponse(Call<TransaksiResponse> call, Response<TransaksiResponse> response) {
                 TransaksiResponse transaksiResponse = response.body();
                 if (transaksiResponse.getSuccess()) {
+                    mShimmerViewContainer.stopShimmer();
+                    mShimmerViewContainer.setVisibility(View.GONE);
+                    rv_transaksi.setVisibility(View.VISIBLE);
                     data = new ArrayList<>(Arrays.asList(transaksiResponse.getData()));
                     adapter = new SetoranAdapter(data);
                     adapter.notifyItemRangeInserted(0, data.size());
                     rv_transaksi.scrollToPosition(data.size() - 1);
                     rv_transaksi.setAdapter(adapter);
 //                    Toast.makeText(getActivity(), "Setoran Berhasil di Muat", Toast.LENGTH_SHORT).show();
-                    pd.dismiss();
                 } else {
                     Toast.makeText(getActivity(), "Setoran Gagal di Muat", Toast.LENGTH_LONG).show();
-                    pd.dismiss();
                 }
             }
 
