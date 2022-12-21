@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:text="Total Berat"
-                    android:textAppearance="@style/heading1_bold"
+                    android:textAppearance="@style/heading2_bold"
                     android:textColor="@color/primary100"
                     android:layout_weight="2"/>
 
@@ -136,10 +136,13 @@
                     android:id="@+id/unggahbutton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="8dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_rectangle_white_stroke"
-                    android:src="@drawable/ic_camera"
-                    android:text="Upload Foto Sampah">
+                    android:backgroundTint="@color/neutral40"
+                    android:text="Upload Foto Sampah"
+                    style="@style/button"
+                    app:cornerRadius="10dp"
+                    android:textAllCaps="false">
                 </Button>
             </LinearLayout>
 

@@ -1,29 +1,25 @@
 package com.example.bank_sampah_app.authentication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.LoginRequest;
-import com.example.bank_sampah_app.API.requests.RegisterRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
-import com.example.bank_sampah_app.WelcomeActivity;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -101,10 +97,11 @@ public class LoginActivity extends AppCompatActivity {
         //progress dialog
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View view = layoutInflater.inflate(R.layout.progress_dialog, null);
-        ProgressDialog pd = new ProgressDialog(this);
-        pd.setTitle("Loading...");
-        pd.setView(view);
-        pd.show();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(view);
+        AlertDialog alertD = alertDialogBuilder.create();
+        alertDialogBuilder.setCancelable(false);
+        alertD.show();
 
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername(username.getText().toString());
@@ -118,15 +115,14 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResponse.getSuccess()==true) {
                     sessionManager.saveAuthToken(loginResponse.getToken());
                     sessionManager.saveUser(loginResponse.getUser());
-//                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                    pd.dismiss();
+                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Username dan password tidak sesuai", Toast.LENGTH_LONG).show();
-                    pd.dismiss();
                 }
+                alertD.dismiss();
             }
 
             @Override
@@ -135,4 +131,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }

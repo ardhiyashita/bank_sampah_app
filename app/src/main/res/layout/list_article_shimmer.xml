@@ -25,8 +25,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:background="#FFFFFF"
-                app:srcCompat="@drawable/bg_rectangle_white_stroke" />
+                app:srcCompat="@drawable/bg_rectangle_lightgrey" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,28 +36,28 @@
                 <TextView
                     android:id="@+id/article_heading"
                     style="@style/heading4_semibold"
-                    android:layout_width="match_parent"
+                    android:layout_width="128dp"
                     android:layout_height="wrap_content"
-                    android:text="4 Keuntungan Memilah Sampah Organik dan Anorganik"
-                    android:textColor="@color/neutral80" />
+                    android:background="@color/neutral20" />
 
                 <TextView
                     android:id="@+id/article_cat"
-                    style="@style/smalltext_semibold"
-                    android:layout_width="match_parent"
+                    style="@style/smalltext_regular"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Lingkungan"
-                    android:textColor="@color/neutral40" />
+                    android:background="@color/neutral20"
+                    />
 
                 <TextView
                     android:id="@+id/article_content"
                     style="@style/smalltext_regular"
+                    android:layout_marginEnd="40dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginTop="8dp"
                     android:maxLines="3"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel id leo vitae sit dui lectus leo. Phasellus..."
-                    android:textColor="@color/neutral40" />
+                    android:background="@color/neutral20"                    />
 
             </LinearLayout>
 

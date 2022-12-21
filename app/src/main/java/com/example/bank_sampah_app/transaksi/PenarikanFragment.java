@@ -19,6 +19,7 @@ import com.example.bank_sampah_app.API.responses.PenarikanResponse;
 import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +39,7 @@ public class PenarikanFragment extends Fragment {
     private RecyclerView rv_penarikan;
     private ArrayList<DataPenarikan> data;
     private PenarikanAdapter adapter;
+    private ShimmerFrameLayout mShimmerViewContainer;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -84,6 +86,8 @@ public class PenarikanFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_penarikan, container, false);
+        mShimmerViewContainer = v.findViewById(R.id.shimmer_tarik);
+
         rv_penarikan = v.findViewById(R.id.rv_penarikan);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         rv_penarikan.setLayoutManager(layoutManager);
@@ -91,13 +95,15 @@ public class PenarikanFragment extends Fragment {
         apiClient = new ApiClient();
         sessionManager = new SessionManager(getActivity().getApplicationContext());
 
+        mShimmerViewContainer.startShimmer();
+
         //progress dialog
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
-        ProgressDialog pd = new ProgressDialog(getActivity());
-        pd.setTitle("Loading...");
-        pd.setView(view);
-        pd.show();
+//        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+//        View view = layoutInflater.inflate(R.layout.progress_dialog, null);
+//        ProgressDialog pd = new ProgressDialog(getActivity());
+//        pd.setTitle("Loading...");
+//        pd.setView(view);
+//        pd.show();
 
         Call<PenarikanResponse> call = apiClient.getApiService(getActivity()).getPenarikan();
         call.enqueue(new Callback<PenarikanResponse>() {
@@ -105,16 +111,17 @@ public class PenarikanFragment extends Fragment {
             public void onResponse(Call<PenarikanResponse> call, Response<PenarikanResponse> response) {
                 PenarikanResponse penarikanResponse = response.body();
                 if (penarikanResponse.getSuccess()) {
+                    mShimmerViewContainer.stopShimmer();
+                    mShimmerViewContainer.setVisibility(View.GONE);
+                    rv_penarikan.setVisibility(View.VISIBLE);
                     data = new ArrayList<>(Arrays.asList(penarikanResponse.getData()));
                     adapter = new PenarikanAdapter(data);
                     adapter.notifyItemRangeInserted(0, data.size());
                     rv_penarikan.scrollToPosition(data.size() - 1);
                     rv_penarikan.setAdapter(adapter);
 //                    Toast.makeText(getActivity(), "Setoran Berhasil di Muat", Toast.LENGTH_SHORT).show();
-                    pd.dismiss();
                 } else {
                     Toast.makeText(getActivity(), "Penarikan Gagal di Muat", Toast.LENGTH_LONG).show();
-                    pd.dismiss();
                 }
             }
 

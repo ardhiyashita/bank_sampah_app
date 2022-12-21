@@ -1,5 +1,6 @@
 package com.example.bank_sampah_app.tarikSaldo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -89,10 +90,11 @@ public class TarikSaldoActivity extends AppCompatActivity {
         //progress dialog
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View view = layoutInflater.inflate(R.layout.progress_dialog, null);
-        ProgressDialog pd = new ProgressDialog(this);
-        pd.setTitle("Loading...");
-        pd.setView(view);
-        pd.show();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(view);
+        AlertDialog alertD = alertDialogBuilder.create();
+        alertDialogBuilder.setCancelable(false);
+        alertD.show();
 
         TarikRequest tarikRequest = new TarikRequest();
         tarikRequest.setUang(Integer.parseInt(etTarik.getText().toString()));
@@ -108,12 +110,11 @@ public class TarikSaldoActivity extends AppCompatActivity {
                     intent.putExtra("id",tarikResponse.getData().getId());
                     intent.putExtra("uang",tarikResponse.getData().getUang());
                     intent.putExtra("tanggal",tarikResponse.getData().getCreated_at());
-                    pd.dismiss();
                     startActivity(intent);
                 } else {
                     Toast.makeText(TarikSaldoActivity.this, "Pengajuan Gagal, Coba Lagi" , Toast.LENGTH_LONG).show();
-                    pd.dismiss();
                 }
+                alertD.dismiss();
             }
 
             @Override

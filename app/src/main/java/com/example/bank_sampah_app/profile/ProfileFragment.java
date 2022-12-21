@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -14,13 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +24,6 @@ import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.Constant;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
-import com.example.bank_sampah_app.HomeFragment;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.LoginActivity;
@@ -37,8 +31,6 @@ import com.example.bank_sampah_app.authentication.SessionManager;
 import com.example.bank_sampah_app.help.HelpFragment;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.squareup.picasso.Picasso;
-
-import java.nio.charset.StandardCharsets;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -200,10 +192,12 @@ public class ProfileFragment extends Fragment {
         //progress dialog
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View view = layoutInflater.inflate(R.layout.progress_dialog, null);
-        ProgressDialog pd = new ProgressDialog(getActivity());
-        pd.setTitle("Loading...");
-        pd.setView(view);
-        pd.show();
+        androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setView(view);
+        androidx.appcompat.app.AlertDialog alertD = alertDialogBuilder.create();
+        alertDialogBuilder.setCancelable(false);
+        alertD.show();
+
         Call<LogoutResponse> logoutResponseCall = apiClient.getApiService(getActivity().getApplicationContext()).userLogout();
         logoutResponseCall.enqueue(new Callback<LogoutResponse>() {
             @Override
@@ -213,7 +207,6 @@ public class ProfileFragment extends Fragment {
                     if (sessionManager.fetchAuthToken() != null) {
                         sessionManager.deleteAuthToken();
 //                        Toast.makeText(getActivity(),"Logout Berhasil", Toast.LENGTH_SHORT).show();
-                        pd.dismiss();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
@@ -221,6 +214,7 @@ public class ProfileFragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(),"Logout Gagal", Toast.LENGTH_SHORT).show();
                 }
+                alertD.dismiss();
             }
 
             @Override
