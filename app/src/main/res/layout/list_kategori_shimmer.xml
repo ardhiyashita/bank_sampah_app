@@ -15,7 +15,7 @@
         android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:src="@drawable/placeholder"
+        android:background="@color/neutral20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,44 +32,25 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/jenisKategori"
             style="@style/heading3_semibold"
-            android:layout_width="match_parent"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:text="Kategori Sampah"
-            android:textColor="@color/neutral80"
+            android:background="@color/neutral20"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@color/neutral20">
 
             <TextView
                 style="@style/heading2_semibold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rp"
-                android:textColor="@color/primary100"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/hargaKategori"
-                style="@style/heading2_semibold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:text="Penarikan"
-                android:textColor="@color/primary100"
-                android:textStyle="bold" />
-
-            <TextView
-                style="@style/heading2_semibold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="/kg"
-                android:textColor="@color/primary100"
-                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

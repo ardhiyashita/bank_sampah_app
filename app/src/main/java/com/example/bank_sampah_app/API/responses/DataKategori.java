@@ -10,6 +10,9 @@ public class DataKategori {
     @SerializedName("nama_kategori")
     @Expose
     private String namaKategori;
+    @SerializedName("gambar")
+    @Expose
+    private String gambar;
     @SerializedName("harga")
     @Expose
     private String harga;
@@ -34,6 +37,14 @@ public class DataKategori {
 
     public void setNamaKategori(String namaKategori) {
         this.namaKategori = namaKategori;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(String gambar) {
+        this.gambar = gambar;
     }
 
     public String getHarga() {

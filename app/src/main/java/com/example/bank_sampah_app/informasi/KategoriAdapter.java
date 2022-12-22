@@ -2,18 +2,22 @@ package com.example.bank_sampah_app.informasi;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bank_sampah_app.API.Constant;
 import com.example.bank_sampah_app.API.responses.DataKategori;
 import com.example.bank_sampah_app.API.responses.DataPenarikan;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.transaksi.PenarikanAdapter;
+import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +43,7 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.ListKa
     @Override
     public void onBindViewHolder(@NonNull KategoriAdapter.ListKategoriViewHolder holder, int position) {
         DataKategori dataKategori = listKategori.get(position);
+        Picasso.get().load(Constant.BASE_URL + dataKategori.getGambar()).into(holder.gambarKategori);
         holder.jenisKategori.setText(dataKategori.getNamaKategori());
         holder.hargaKategori.setText(dataKategori.getHarga());
     }
@@ -50,11 +55,13 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.ListKa
 
     public class ListKategoriViewHolder extends RecyclerView.ViewHolder {
         TextView jenisKategori, hargaKategori;
+        ImageView gambarKategori;
 
         ListKategoriViewHolder(View itemview) {
             super(itemview);
             jenisKategori = itemview.findViewById(R.id.jenisKategori);
             hargaKategori = itemview.findViewById(R.id.hargaKategori);
+            gambarKategori = itemview.findViewById(R.id.img_kategori_sampah);
         }
     }
 }

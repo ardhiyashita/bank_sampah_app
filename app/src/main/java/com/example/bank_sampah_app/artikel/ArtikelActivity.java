@@ -72,7 +72,7 @@ public class ArtikelActivity extends AppCompatActivity {
                     artikelAdapter = new ArtikelAdapter(ArtikelActivity.this,listArtikel);
                     rv_artikel.setAdapter(artikelAdapter);
                 } else {
-                    Toast.makeText(ArtikelActivity.this,"Gagal", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ArtikelActivity.this,"Gagal Memuat Artikel", Toast.LENGTH_SHORT).show();
                 }
             }
 

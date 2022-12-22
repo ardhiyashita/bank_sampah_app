@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 UserDataResponse userDataResponse = response.body();
                 if (userDataResponse.getSuccess()==true) {
                     sessionManager.saveUser(userDataResponse.getUser());
-//                    Toast.makeText(MainActivity.this, "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Data gagal diperbarui", Toast.LENGTH_LONG).show();
                 }
@@ -92,8 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserDataResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
+                Toast.makeText(MainActivity.this, "Sesi telah habis, silahkan login kembali", Toast.LENGTH_SHORT).show();
                 sessionManager.deleteAuthToken();
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -139,15 +139,33 @@
                     android:textColor="@color/neutral80"
                     style="@style/heading2_bold"/>
 
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_kategori"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/list_kategori_shimmer" />
+                        <include layout="@layout/list_kategori_shimmer" />
+                        <include layout="@layout/list_kategori_shimmer" />                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
+                    android:layout_height="wrap_content"
+                    android:padding="4dp">
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_kategori"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:listitem="@layout/list_kategori_item">
+                        tools:listitem="@layout/list_kategori_item"
+                        android:visibility="gone">
                     </androidx.recyclerview.widget.RecyclerView>
                 </LinearLayout>
             </LinearLayout>

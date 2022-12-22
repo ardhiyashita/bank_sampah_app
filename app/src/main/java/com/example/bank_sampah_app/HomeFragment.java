@@ -34,6 +34,7 @@ import com.example.bank_sampah_app.panduan.PanduanItem;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 import com.example.bank_sampah_app.transaksi.TransaksiFragment;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,12 +56,15 @@ public class HomeFragment extends Fragment {
     private ArrayList<Artikel> listArtikel;
 
     ArtikelAdapterHome artikelAdapterHome;
+    private ShimmerFrameLayout mShimmerViewContainer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+
+        mShimmerViewContainer = v.findViewById(R.id.shimmer_home_article);
 
         apiClient = new ApiClient();
         sessionManager = new SessionManager(getActivity().getApplicationContext());
@@ -144,6 +148,7 @@ public class HomeFragment extends Fragment {
         showRecyclerPanduan();
 
         rv_artikel = v.findViewById(R.id.rv_article);
+        mShimmerViewContainer.startShimmer();
         showRecyclerArtikel();
 
         return v;
@@ -192,6 +197,10 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<ArtikelResponse> call, Response<ArtikelResponse> response) {
                 ArtikelResponse artikelResponse = response.body();
                 if (artikelResponse.getSuccess()==true) {
+                    mShimmerViewContainer.stopShimmer();
+                    mShimmerViewContainer.setVisibility(View.GONE);
+                    rv_artikel.setVisibility(View.VISIBLE);
+                    allArtikel.setVisibility(View.VISIBLE);
                     listArtikel = new ArrayList<>(Arrays.asList(artikelResponse.getData()));
                     artikelAdapterHome = new ArtikelAdapterHome(getContext(),listArtikel);
                     rv_artikel.setAdapter(artikelAdapterHome);

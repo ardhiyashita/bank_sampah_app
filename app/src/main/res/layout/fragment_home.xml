@@ -259,8 +259,29 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/shimmer_home_article"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/artikel_title"
+                                tools:visibility="visible">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <include layout="@layout/list_article_shimmer" />
+                                    <include layout="@layout/list_article_shimmer" />
+
+                                </LinearLayout>
+
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rv_article"
+                                android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -278,7 +299,8 @@
                                 android:textAppearance="@style/heading4_semibold"
                                 android:textColor="@color/primary100"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/rv_article" />
+                                app:layout_constraintTop_toBottomOf="@+id/rv_article"
+                                android:visibility="gone"/>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <!-- Panduan -->
