@@ -13,137 +13,129 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginVertical="16dp"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutHeader"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/header_background"
-                android:padding="10dp"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="-105dp">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textHello"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/hello"
-                    android:textAppearance="@style/heading2_regular"
-                    android:textColor="@color/neutral0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/username"
-                    android:textAppearance="@style/heading2_regular"
-                    android:textColor="@color/neutral0"
-                    app:layout_constraintStart_toEndOf="@+id/textHello"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textPilahSampah"
-                    android:layout_width="wrap_content"
-                    android:textAppearance="@style/heading2_bold"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/pilahsampah"
-                    android:textColor="@color/neutral0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textHello" />
-
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/imageNotif"-->
-<!--                    android:layout_width="30dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_marginEnd="15dp"-->
-<!--                    android:src="@drawable/ic_notif"-->
-<!--                    app:layout_constraintBottom_toBottomOf="@id/textHello"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="@id/textHello" />-->
-
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:paddingVertical="16dp"
-                    android:paddingHorizontal="24dp"
-                    android:gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_rectangle_white"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textPilahSampah">
+                    android:background="@drawable/header_background"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="-105dp">
+
+                    <TextView
+                        android:id="@+id/textHello"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/hello"
+                        android:textAppearance="@style/heading2_regular"
+                        android:textColor="@color/neutral0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/username"
+                        android:textAppearance="@style/heading2_regular"
+                        android:textColor="@color/neutral0"
+                        app:layout_constraintStart_toEndOf="@+id/textHello"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textPilahSampah"
+                        android:layout_width="wrap_content"
+                        android:textAppearance="@style/heading2_bold"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/pilahsampah"
+                        android:textColor="@color/neutral0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textHello" />
 
                     <LinearLayout
-                        android:id="@+id/linearSaldo"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1">
-                        <TextView
-                            android:id="@+id/saldoAnda"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Saldo Anda"
-                            android:textColor="@color/neutral80"
-                            android:textAppearance="@style/heading4_regular" />
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:paddingVertical="16dp"
+                        android:paddingHorizontal="24dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bg_rectangle_white"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textPilahSampah">
+
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:id="@+id/linearSaldo"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:layout_weight="1">
                             <TextView
+                                android:id="@+id/saldoAnda"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/rp"
-                                android:layout_marginEnd="4dp"
-                                android:textAppearance="@style/heading1_bold"
-                                android:textColor="@color/primary100" />
-                            <TextView
-                                android:id="@+id/saldo"
-                                android:layout_width="match_parent"
+                                android:text="Saldo Anda"
+                                android:textColor="@color/neutral80"
+                                android:textAppearance="@style/heading4_regular" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="100000"
-                                android:textAppearance="@style/heading1_bold"
-                                android:textColor="@color/primary100" />
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/rp"
+                                    android:layout_marginEnd="4dp"
+                                    android:textAppearance="@style/heading1_bold"
+                                    android:textColor="@color/primary100" />
+                                <TextView
+                                    android:id="@+id/saldo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="100000"
+                                    android:textAppearance="@style/heading1_bold"
+                                    android:textColor="@color/primary100" />
+                            </LinearLayout>
                         </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/celengan"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/celengansetor"
+                            android:layout_marginEnd="8dp"/>
+
                     </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/celengan"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/celengansetor"
-                        android:layout_marginEnd="8dp"/>
-
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/layoutHeader">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp">
+                    android:layout_marginVertical="32dp"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
                     <LinearLayout
                         android:id="@+id/layoutBody"
@@ -245,7 +237,8 @@
                         <!-- Artikel -->
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="16dp">
 
                             <TextView
                                 android:id="@+id/artikel_title"
@@ -324,12 +317,13 @@
                             android:layout_height="wrap_content"
                             android:text="Tentang Kami"
                             android:textAppearance="@style/heading2_bold"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="16dp"
                             android:textColor="@color/neutral80" />
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:gravity="center_vertical"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
                             android:background="@drawable/bg_rectangle_primary">
@@ -341,16 +335,16 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:textAlignment="viewStart"
                                 android:text="Bank Sampah Sami Asri"
-                                android:textAppearance="@style/heading4_semibold"
-                                android:layout_gravity="center"
+                                android:textAppearance="@style/heading3_semibold"
                                 android:textColor="@color/neutral0" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:gravity="center_vertical"
                             android:layout_marginTop="8dp"
                             android:layout_weight="1"
                             android:background="@drawable/bg_rectangle_green">
@@ -362,10 +356,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
                                 android:text="Pesan-Pede"
-                                android:textAppearance="@style/heading4_semibold"
-                                android:layout_gravity="center"
+                                android:textAppearance="@style/heading3_semibold"
+                                android:textAlignment="viewStart"
                                 android:textColor="@color/neutral0" />
                         </LinearLayout>
 
@@ -373,11 +366,9 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 

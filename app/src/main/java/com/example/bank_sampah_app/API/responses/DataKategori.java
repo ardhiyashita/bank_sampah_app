@@ -10,7 +10,7 @@ public class DataKategori {
     @SerializedName("nama_kategori")
     @Expose
     private String namaKategori;
-    @SerializedName("gambar")
+    @SerializedName("foto")
     @Expose
     private String gambar;
     @SerializedName("harga")

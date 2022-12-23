@@ -33,7 +33,7 @@ import retrofit2.Response;
 
 public class ArtikelDetailActivity extends AppCompatActivity {
     private ApiClient apiClient;
-    TextView judul, kategori, tanggal, konten;
+    TextView judul, tanggal, konten;
     ImageView gambar;
     ScrollView artikel;
 
@@ -57,7 +57,6 @@ public class ArtikelDetailActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         judul = findViewById(R.id.detail_artikel_judul);
-        kategori = findViewById(R.id.detail_artikel_kategori);
         tanggal = findViewById(R.id.detail_artikel_tanggal);
         konten = findViewById(R.id.detail_artikel_konten);
         gambar = findViewById(R.id.detail_artikel_gambar);
@@ -83,14 +82,13 @@ public class ArtikelDetailActivity extends AppCompatActivity {
                     artikel.setVisibility(View.VISIBLE);
                     detailArtikel = detailArtikelResponse.getData();
                     judul.setText(detailArtikel.getJudul());
-                    kategori.setText(detailArtikel.getKategori());
                     tanggal.setText(dateFormatter(detailArtikel.getTanggal()));
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                         konten.setText(Html.fromHtml(detailArtikel.getKonten(), Html.FROM_HTML_MODE_COMPACT));
                     } else {
                         konten.setText(Html.fromHtml(detailArtikel.getKonten()));
                     }
-                    Picasso.get().load(Constant.BASE_URL + detailArtikel.getGambar()).into(gambar);
+                    Picasso.get().load("https://pesanpede.com/" + detailArtikel.getGambar()).into(gambar);
 
                 } else {
                     Toast.makeText(ArtikelDetailActivity.this,"Gagal", Toast.LENGTH_SHORT).show();

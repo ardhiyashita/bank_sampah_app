@@ -39,9 +39,8 @@ public class ArtikelAdapterHome extends RecyclerView.Adapter<ArtikelAdapterHome.
     @Override
     public void onBindViewHolder(@NonNull ArtikelAdapterHome.ViewHolder holder, int position) {
         Artikel artikelItem = artikelList.get(position);
-        Picasso.get().load(Constant.BASE_URL + artikelItem.getGambar()).into(holder.gambar);
+        Picasso.get().load("https://pesanpede.com/" + artikelItem.getGambar()).into(holder.gambar);
         holder.judul.setText(artikelItem.getJudul());
-        holder.kategori.setText(artikelItem.getKategori());
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             holder.konten.setText(Html.fromHtml(artikelItem.getKonten(), Html.FROM_HTML_MODE_COMPACT));
@@ -73,7 +72,6 @@ public class ArtikelAdapterHome extends RecyclerView.Adapter<ArtikelAdapterHome.
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView gambar;
         private TextView judul;
-        private TextView kategori;
         private TextView konten;
 
         public ViewHolder(@NonNull View itemView) {
@@ -81,7 +79,6 @@ public class ArtikelAdapterHome extends RecyclerView.Adapter<ArtikelAdapterHome.
 
             gambar=itemView.findViewById(R.id.article_image);
             judul=itemView.findViewById(R.id.article_heading);
-            kategori=itemView.findViewById(R.id.article_cat);
             konten=itemView.findViewById(R.id.article_content);
 
         }

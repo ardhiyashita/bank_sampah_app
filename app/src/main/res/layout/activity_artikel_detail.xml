@@ -94,15 +94,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/detail_artikel_kategori"
-                    style="@style/caption_semibold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="viewStart"
-                    android:text="Lingkungan"
-                    android:textColor="@color/neutral40" />
-
-                <TextView
                     android:id="@+id/detail_artikel_tanggal"
                     style="@style/caption_regular"
                     android:layout_width="wrap_content"

@@ -43,7 +43,7 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.ListKa
     @Override
     public void onBindViewHolder(@NonNull KategoriAdapter.ListKategoriViewHolder holder, int position) {
         DataKategori dataKategori = listKategori.get(position);
-        Picasso.get().load(Constant.BASE_URL + dataKategori.getGambar()).into(holder.gambarKategori);
+        Picasso.get().load("https://pesanpede.com/" + dataKategori.getGambar()).into(holder.gambarKategori);
         holder.jenisKategori.setText(dataKategori.getNamaKategori());
         holder.hargaKategori.setText(dataKategori.getHarga());
     }

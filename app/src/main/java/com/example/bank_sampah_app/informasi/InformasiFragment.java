@@ -54,12 +54,7 @@ public class InformasiFragment extends Fragment {
         rv_kategori = v.findViewById(R.id.rv_kategori);
         mShimmerViewContainer.startShimmer();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext()){
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        };
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         rv_kategori.setLayoutManager(layoutManager);
 
         apiClient = new ApiClient();
@@ -86,8 +81,6 @@ public class InformasiFragment extends Fragment {
                     rv_kategori.setVisibility(View.VISIBLE);
                     data = new ArrayList<>(Arrays.asList(kategoriResponse.getData()));
                     adapter = new KategoriAdapter(data);
-                    adapter.notifyItemRangeInserted(0, data.size());
-                    rv_kategori.scrollToPosition(data.size() - 1);
                     rv_kategori.setAdapter(adapter);
                 } else {
                     Toast.makeText(getActivity(), "Kategori Gagal di Muat", Toast.LENGTH_LONG).show();

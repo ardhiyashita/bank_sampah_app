@@ -24,12 +24,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHold
 
     private ArrayList<Artikel> artikelList;
     Context context;
-//    private ArtikelAdapter.OnItemClickCallback onItemClickCallback;
-//
-//
-//    public void setOnItemClickListener(ArtikelAdapter.OnItemClickCallback onItemClickCallback){
-//        this.onItemClickCallback = onItemClickCallback;
-//    }
 
     public ArtikelAdapter(Context context, ArrayList<Artikel>list){
         this .artikelList=list;
@@ -46,9 +40,8 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ArtikelAdapter.ViewHolder holder, int position) {
         Artikel artikelItem = artikelList.get(position);
-        Picasso.get().load(Constant.BASE_URL + artikelItem.getGambar()).into(holder.gambar);
+        Picasso.get().load("https://pesanpede.com/"+ artikelItem.getGambar()).into(holder.gambar);
         holder.judul.setText(artikelItem.getJudul());
-        holder.kategori.setText(artikelItem.getKategori());
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             holder.konten.setText(Html.fromHtml(artikelItem.getKonten(), Html.FROM_HTML_MODE_COMPACT));
         } else {
@@ -75,7 +68,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView gambar;
         private TextView judul;
-        private TextView kategori;
         private TextView konten;
 
         public ViewHolder(@NonNull View itemView) {
@@ -83,13 +75,9 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHold
 
             gambar=itemView.findViewById(R.id.article_image);
             judul=itemView.findViewById(R.id.article_heading);
-            kategori=itemView.findViewById(R.id.article_cat);
             konten=itemView.findViewById(R.id.article_content);
 
         }
     }
 
-//    public interface OnItemClickCallback{
-//        void onItemClicked(Artikel artikel);
-//    }
 }
