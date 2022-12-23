@@ -18,7 +18,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <ImageView
                 android:id="@+id/article_image"
@@ -41,14 +42,6 @@
                     android:layout_height="wrap_content"
                     android:text="4 Keuntungan Memilah Sampah Organik dan Anorganik"
                     android:textColor="@color/neutral80" />
-
-                <TextView
-                    android:id="@+id/article_cat"
-                    style="@style/smalltext_semibold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lingkungan"
-                    android:textColor="@color/neutral40" />
 
                 <TextView
                     android:id="@+id/article_content"
