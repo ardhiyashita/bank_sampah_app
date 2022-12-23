@@ -5,27 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/neutral0"
-    tools:context=".JadwalPengumpulanSampahActivity">
+    tools:context=".informasi.JadwalPengumpulanSampahActivity">
+
+    <include
+        android:id="@+id/toolbar_jadwaljemput"
+        layout="@layout/layout_toolbar"/>
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!-- jadwal pengumpulan sampah bar -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Jadwal Penjemputan Sampah"
-                style="@style/heading2_semibold"
-                android:gravity="center"
-                android:textColor="@color/neutral100"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-        </LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_jadwaljemput">
         <!-- table view jadwal -->
         <TableLayout
             android:layout_width="match_parent"
@@ -38,14 +29,14 @@
                     android:layout_height="wrap_content"
                     style="@style/heading3_bold"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Hari" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/heading3_bold"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -60,7 +51,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Senin" />
                 <TextView
@@ -68,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -83,7 +74,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Selasa" />
                 <TextView
@@ -91,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -106,7 +97,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Rabu" />
                 <TextView
@@ -114,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -129,7 +120,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Kamis" />
                 <TextView
@@ -137,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -152,7 +143,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Jumat" />
                 <TextView
@@ -160,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -175,7 +166,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Sabtu" />
                 <TextView
@@ -183,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
@@ -198,7 +189,7 @@
                     android:layout_height="wrap_content"
                     style="@style/body3_regular"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     android:layout_weight="1"
                     android:text="Minggu" />
                 <TextView
@@ -206,49 +197,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/neutral100"
+                    android:textColor="@color/neutral80"
                     style="@style/body3_regular"
                     android:layout_weight="1"
                     android:text="Jam Operasional" />
             </TableRow>
         </TableLayout>
         <!-- titik pengumpulan sampah -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/white_ractangle_background">
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Titik Penjemputan Sampah"
-                style="@style/heading3_bold"
-                android:textColor="@color/neutral80"/>
-            <!-- titik kumpul alamat 1 -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_marginVertical="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/titikmap"/>
-                <TextView
-                    android:layout_marginVertical="20dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:textColor="@color/neutral80"
-                    style="@style/smalltext_regular"
-                    android:text="Bank Sampah Sami Asri, Br. Cemenggaon, Ds. Celuk, Kec. Sukawati, Kab. Gianyar, Bali"/>
-            </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,16 +14,17 @@
         android:textAppearance="@style/body3_regular"
         android:textColor="@color/neutral80"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_answer"
+        app:layout_constraintEnd_toStartOf="@+id/imgview_answer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/button_answer"
+        android:id="@+id/imgview_answer"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_next_dark"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/question"

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/neutral0"
-    tools:context=".JadwalPengumpulanSampahActivity">
+    tools:context=".informasi.JadwalPengumpulanSampahActivity">
+
+    <include layout="@layout/layout_toolbar"/>
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -16,15 +18,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Jadwal Pengumpulan Sampah"
-                style="@style/heading2_semibold"
-                android:gravity="center"
-                android:textColor="@color/neutral100"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="Jadwal Pengumpulan Sampah"-->
+<!--                style="@style/heading2_semibold"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="@color/neutral100"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16sp"/>-->
         </LinearLayout>
         <!-- table view jadwal -->
         <TableLayout
@@ -217,10 +219,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/white_ractangle_background">
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_roundedtop_rectangle_white">
             <TextView
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -229,24 +230,25 @@
                 android:textColor="@color/neutral80"/>
             <!-- titik kumpul alamat 1 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/alamat_pengumpulan"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginVertical="20dp"
                 android:orientation="horizontal">
                 <ImageView
-                    android:layout_marginVertical="20dp"
-                    android:layout_marginLeft="20dp"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@drawable/titikmap"/>
+                    android:background="@drawable/ic_map"/>
                 <TextView
-                    android:layout_marginVertical="20dp"
-                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginStart="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:textColor="@color/neutral80"
                     style="@style/smalltext_regular"
-                    android:text="Bank Sampah Sami Asri, Br. Cemenggaon, Ds. Celuk, Kec. Sukawati, Kab. Gianyar, Bali"/>
+                    android:text="@string/alamat"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
