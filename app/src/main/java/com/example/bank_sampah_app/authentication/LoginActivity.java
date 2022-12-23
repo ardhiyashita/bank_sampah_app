@@ -46,13 +46,13 @@ public class LoginActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
 
         btnLogin = findViewById(R.id.btn_login);
-        register = findViewById(R.id.link_register);
+//        register = findViewById(R.id.link_register);
 //        forgotPassword = findViewById(R.id.link_forgotpassword);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
         btnLoginListener();
-        txtRegisterListener();
+//        txtRegisterListener();
 //        txtForgotListener();
 
     }
@@ -73,15 +73,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void txtRegisterListener() {
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+//    public void txtRegisterListener() {
+//        register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
 //    public void txtForgotListener() {
 //        forgotPassword.setOnClickListener(new View.OnClickListener() {

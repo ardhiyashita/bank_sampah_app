@@ -33,18 +33,18 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         //Views
-        btnRegister= findViewById(R.id.btn_welcome_daftar);
+//        btnRegister= findViewById(R.id.btn_welcome_daftar);
         btnLogin= findViewById(R.id.btn_welcome_login);
         linearWelcome = findViewById(R.id.linear_welcome);
 
 
         // Button Daftar
-        btnRegister.setOnClickListener(view -> {
-            Intent registerActivity = new Intent(getApplicationContext(), RegisterActivity.class);
-            startActivity(registerActivity);
-
-            finish();
-        });
+//        btnRegister.setOnClickListener(view -> {
+//            Intent registerActivity = new Intent(getApplicationContext(), RegisterActivity.class);
+//            startActivity(registerActivity);
+//
+//            finish();
+//        });
 
         // Button Login
         btnLogin.setOnClickListener(view -> {

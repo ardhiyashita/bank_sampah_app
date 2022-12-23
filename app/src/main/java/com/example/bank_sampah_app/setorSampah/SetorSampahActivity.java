@@ -16,7 +16,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,6 +91,8 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         unggahButton = findViewById(R.id.unggahbutton);
         fotoSampahImg = findViewById(R.id.fotoSampahImg);
         fotoSampagTxt = findViewById(R.id.fotosampahtxt);
+
+        textWatcher();
 
         //spinner dan adapter pilihan tipe pengambilan
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tipePengambilanString, android.R.layout.simple_spinner_item);
@@ -212,13 +216,41 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
 
     private boolean pengajuanValidation() {
         String totalBerat = totalBeratEt.getText().toString();
-        if(TextUtils.isEmpty(totalBerat)){
-            if(TextUtils.isEmpty(totalBerat)){
-                Toast.makeText(SetorSampahActivity.this, "Berat Sampah wajib diisi", Toast.LENGTH_LONG).show();
+        String foto = bitmapToString(bitmap);
+        if( TextUtils.isEmpty(totalBerat) || TextUtils.isEmpty(foto)) {
+            if( TextUtils.isEmpty(totalBerat) && TextUtils.isEmpty(foto)) {
+                Toast.makeText(SetorSampahActivity.this, "Berat dan Foto Wajib Diisi", Toast.LENGTH_SHORT).show();
             }
+            if(TextUtils.isEmpty(totalBerat)){
+                totalBeratEt.setError("Berat Sampah tidak boleh kosong (perkiraan berat)");
+            } else if(TextUtils.isEmpty(foto)) {
+                Toast.makeText(SetorSampahActivity.this, "Foto Sampah Wajib Diisi", Toast.LENGTH_SHORT).show();
+            }
+            return false;
+        } else if (Integer.parseInt(totalBerat)<=0 ) {
+            totalBeratEt.setError("Berat Sampah tidak kurang dari 0 KG (perkiraan berat)");
             return false;
         }
         return true;
+
+    }
+
+    private void textWatcher(){
+        totalBeratEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(pengajuanValidation()){
+                    totalBeratEt.setError(null);
+                }
+
+            }
+        });
+
     }
 
     @Override

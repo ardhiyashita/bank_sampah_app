@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -38,10 +39,9 @@ public class RincianPenarikanActivity extends AppCompatActivity {
         int uang =(int) b.get("uang");
 
         tvId.setText(Integer.toString(id));
-        tvUang.setText(Integer.toString(uang));
-        tvRincianUang.setText(Integer.toString(uang));
+        tvUang.setText(formatRupiah(uang));
+        tvRincianUang.setText(formatRupiah(uang));
         tvTanggal.setText(dateFormatter((String) b.get("tanggal")));
-//        tvTanggal.setText((String) b.get("tanggal"));
 
         btnSelesai = findViewById(R.id.btn_selesai_tarik);
         btnSelesai.setOnClickListener(view -> {
@@ -63,5 +63,11 @@ public class RincianPenarikanActivity extends AppCompatActivity {
         }catch (ParseException e) {
             return null;
         }
+    }
+
+    private String formatRupiah(int number){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        return formatRupiah.format(number);
     }
 }

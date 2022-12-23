@@ -131,32 +131,32 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/ubahpassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/list_selector_bg_green"
-                        android:clickable="true"
-                        android:orientation="horizontal"
-                        android:paddingVertical="16dp">
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/ubahpassword"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/list_selector_bg_green"-->
+<!--                        android:clickable="true"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:paddingVertical="16dp">-->
 
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/ic_password_secondary" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView3"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_weight="1"-->
+<!--                            app:srcCompat="@drawable/ic_password_secondary" />-->
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Ubah Password"
-                            android:textAppearance="@style/body2_regular"
-                            android:textColor="@color/neutral80" />
-                    </LinearLayout>
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:text="Ubah Password"-->
+<!--                            android:textAppearance="@style/body2_regular"-->
+<!--                            android:textColor="@color/neutral80" />-->
+<!--                    </LinearLayout>-->
 
                     <LinearLayout
                         android:layout_width="match_parent"

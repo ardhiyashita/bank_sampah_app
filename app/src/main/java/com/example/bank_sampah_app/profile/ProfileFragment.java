@@ -49,7 +49,7 @@ public class ProfileFragment extends Fragment {
     LinearLayout lUbahData, lUbahPass, lBantuan, logout;
     SwipeRefreshLayout swipeContainer;
     CircleImageView imgProfile;
-    TextView tvNama, tvNoHp;
+    TextView tvNama, tvNomor;
 //    AlertDialog.Builder builder;
 
 //    private static final String ARG_PARAM1 = "param1";
@@ -93,15 +93,17 @@ public class ProfileFragment extends Fragment {
 
         swipeContainer =view.findViewById(R.id.refresh_profile);
         lUbahData = view.findViewById(R.id.ubahdataakun);
-        lUbahPass = view.findViewById(R.id.ubahpassword);
+//        lUbahPass = view.findViewById(R.id.ubahpassword);
         lBantuan = view.findViewById(R.id.bantuandanpencarian);
         logout = view.findViewById(R.id.logout);
         imgProfile = view.findViewById(R.id.img_profile);
         tvNama = view.findViewById(R.id.tv_namaprofile);
-        tvNoHp = view.findViewById(R.id.tv_hpprofile);
+        tvNomor = view.findViewById(R.id.tv_hpprofile);
 
         tvNama.setText(user.getName());
-        tvNoHp.setText(user.getNo_hp());
+        tvNomor.setText(user.getNo_buku());
+        imgProfile.setImageResource(R.drawable.ic_ubah_foto_profile);
+
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -111,8 +113,8 @@ public class ProfileFragment extends Fragment {
         });
         swipeContainer.setColorSchemeResources(android.R.color.holo_green_light);
 
-        String image = user.getFoto();
-        String imgData = null;
+//        String image = user.getFoto();
+//        String imgData = null;
 
 //        if (image != null){
 //            imgData = imgData.substring(imgData.indexOf(",") + 1);
@@ -124,13 +126,13 @@ public class ProfileFragment extends Fragment {
 //        }
 
 
-        String url_image = user.getFoto();
-        if (url_image != null){
-            Picasso.get().load(Constant.BASE_URL+"/user/"+url_image).into(imgProfile);
-//            Picasso.get().load(url_image).into(imgProfile);
-        } else{
-            imgProfile.setImageResource(R.drawable.ic_ubah_foto_profile);
-        }
+//        String url_image = user.getFoto();
+//        if (url_image != null){
+//            Picasso.get().load(Constant.BASE_URL+"/user/"+url_image).into(imgProfile);
+//        } else{
+//            imgProfile.setImageResource(R.drawable.ic_ubah_foto_profile);
+//        }
+
 
         lUbahData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,11 +237,11 @@ public class ProfileFragment extends Fragment {
                 if (userDataResponse.getSuccess()==true) {
                     sessionManager.saveUser(userDataResponse.getUser());
                     tvNama.setText(userDataResponse.getUser().getName());
-                    tvNoHp.setText(userDataResponse.getUser().getNo_hp());
-                    userDataResponse.getUser().getFoto();
-                    if (userDataResponse.getUser().getFoto() != null){
-                        Picasso.get().load(Constant.BASE_URL+"/user/"+userDataResponse.getUser().getFoto()).into(imgProfile);
-                    }
+                    tvNomor.setText(userDataResponse.getUser().getNo_buku());
+//                    userDataResponse.getUser().getFoto();
+//                    if (userDataResponse.getUser().getFoto() != null){
+//                        Picasso.get().load(Constant.BASE_URL+"/user/"+userDataResponse.getUser().getFoto()).into(imgProfile);
+//                    }
                     reLoadFragment();
 //                    Toast.makeText(getActivity(), "Profile diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
@@ -258,7 +260,6 @@ public class ProfileFragment extends Fragment {
 
     private void reLoadFragment()
     {
-        Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.refresh_profile);
         FragmentTransaction fragTransaction = (getActivity()).getSupportFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             fragTransaction.detach(this).commitNow();

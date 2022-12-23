@@ -4,6 +4,7 @@ public class User {
 
     private int id;
     private String name;
+    private String no_buku;
     private String email;
     private int saldo;
     private String foto;
@@ -12,9 +13,10 @@ public class User {
     private String no_hp;
     private String tgl_lahir;
 
-    public User(int id_user, String name, String email, int saldo, String foto, String alamat, String jenis_kelamin, String no_hp, String tgl_lahir) {
+    public User(int id_user, String name, String no_buku, String email, int saldo, String foto, String alamat, String jenis_kelamin, String no_hp, String tgl_lahir) {
         this.id = id_user;
         this.name = name;
+        this.no_buku = no_buku;
         this.email = email;
         this.saldo = saldo;
         this.foto = foto;
@@ -38,6 +40,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNo_buku() {
+        return no_buku;
+    }
+
+    public void setNo_buku(String no_buku) {
+        this.no_buku = no_buku;
     }
 
     public String getEmail() {

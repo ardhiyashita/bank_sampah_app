@@ -27,6 +27,9 @@ import com.example.bank_sampah_app.authentication.SessionManager;
 import android.view.View;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,7 +65,7 @@ public class TarikSaldoActivity extends AppCompatActivity {
         etCatatan = findViewById(R.id.input_nota_tarik);
 
         User user = sessionManager.fetchUser();
-        tvSemuaSaldo.setText(Integer.toString(user.getSaldo()));
+        tvSemuaSaldo.setText(formatRupiah(user.getSaldo()));
 
         cb_semuaSaldo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                  @Override
@@ -160,5 +163,11 @@ public class TarikSaldoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String formatRupiah(int number){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        return formatRupiah.format(number);
     }
 }

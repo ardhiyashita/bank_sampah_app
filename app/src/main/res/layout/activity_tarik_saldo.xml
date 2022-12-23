@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Tarik saldo saat ini: Rp"
+                    android:text="Tarik saldo saat ini: "
                     android:textAppearance="@style/smalltext_regular"
                     android:textColor="@color/neutral80" />
 

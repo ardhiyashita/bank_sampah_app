@@ -40,6 +40,7 @@ public class SessionManager{
         editor=sharedPreferences.edit();
         editor.putInt("id", user.getId_user());
         editor.putString("name", user.getName());
+        editor.putString("no_buku", user.getNo_buku());
         editor.putString("email", user.getEmail());
         editor.putInt(("saldo"), user.getSaldo());
         editor.putString("foto", user.getFoto());
@@ -53,6 +54,7 @@ public class SessionManager{
 
     public User fetchUser(){
         int id = sharedPreferences.getInt("id",0);
+        String no_buku = sharedPreferences.getString("no_buku",null);
         String name = sharedPreferences.getString("name",null);
         String email = sharedPreferences.getString("email",null);
         int saldo = sharedPreferences.getInt("saldo",0);
@@ -62,7 +64,7 @@ public class SessionManager{
         String no_hp = sharedPreferences.getString("no_hp",null);
         String tgl_lahir = sharedPreferences.getString("tgl_lahir",null);
 
-        return new User(id,name, email, saldo, foto,alamat,jenis_kelamin,no_hp,tgl_lahir);
+        return new User(id,name,no_buku,email,saldo,foto,alamat,jenis_kelamin,no_hp,tgl_lahir);
     }
 
 }
