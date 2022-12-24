@@ -58,8 +58,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private SessionManager sessionManager;
 
     Button btnSimpan, btnEditfoto;
-    TextInputEditText etNama, etHp, etEmail, etLahir, etAlamat;
-    TextInputLayout tlNama, tlHp, tlEmail, tlLahir, tlAlamat;
+    TextInputEditText etBuku, etNama, etHp, etEmail, etLahir, etAlamat;
+    TextInputLayout tlBuku, tlNama, tlHp, tlEmail, tlLahir, tlAlamat;
     ImageView imgFoto;
     String jenis_kelamin;
 
@@ -84,26 +84,32 @@ public class EditProfileActivity extends AppCompatActivity {
         btnSimpan = findViewById(R.id.btn_simpan_profile);
 //        btnEditfoto = findViewById(R.id.btn_editfoto);
 
+        etBuku = findViewById(R.id.edit_buku);
         etNama = findViewById(R.id.edit_nama);
         etHp = findViewById(R.id.edit_hp);
-        etEmail = findViewById(R.id.edit_email);
-        etLahir = findViewById(R.id.edit_lahir);
         etAlamat = findViewById(R.id.edit_alamat);
 
+        tlBuku = findViewById(R.id.input_layout_editbuku);
         tlNama = findViewById(R.id.input_layout_editnama);
         tlHp = findViewById(R.id.input_layout_edithp);
-        tlEmail = findViewById(R.id.input_layout_editemail);
-        tlLahir = findViewById(R.id.input_layout_editlahir);
         tlAlamat = findViewById(R.id.input_layout_editalamat);
+
+
+//        tlEmail = findViewById(R.id.input_layout_editemail);
+//        tlLahir = findViewById(R.id.input_layout_editlahir);
+//        etEmail = findViewById(R.id.edit_email);
+//        etLahir = findViewById(R.id.edit_lahir);
 //        imgFoto = findViewById(R.id.img_edtprofile);
 
         User user = sessionManager.fetchUser();
         etNama.setText(user.getName());
+        etBuku.setText(user.getNo_buku());
         etHp.setText(user.getNo_hp());
-        etEmail.setText(user.getEmail());
-        etLahir.setText(user.getTgl_lahir());
         etAlamat.setText(user.getAlamat());
-        jenis_kelamin = user.getJenis_kelamin();
+
+//        etEmail.setText(user.getEmail());
+//        etLahir.setText(user.getTgl_lahir());
+//        jenis_kelamin = user.getJenis_kelamin();
 
 //        String url_image = user.getFoto();
 //        if (url_image != null){
@@ -152,12 +158,13 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void updateUserData() {
         RegisterRequest editProfileRequest = new RegisterRequest();
-        editProfileRequest.setName(etNama.getText().toString());
-        editProfileRequest.setEmail(etEmail.getText().toString());
-        editProfileRequest.setAlamat(etAlamat.getText().toString());
-        editProfileRequest.setJenis_kelamin(jenis_kelamin);
+//        editProfileRequest.setName(etNama.getText().toString());
         editProfileRequest.setNo_hp(etHp.getText().toString());
-        editProfileRequest.setTgl_lahir(etLahir.getText().toString());
+        editProfileRequest.setAlamat(etAlamat.getText().toString());
+
+//        editProfileRequest.setEmail(etEmail.getText().toString());
+//        editProfileRequest.setJenis_kelamin(jenis_kelamin);
+//        editProfileRequest.setTgl_lahir(etLahir.getText().toString());
 //        editProfileRequest.setFoto(imgSample);
 //        editProfileRequest.setFoto(bitmapToString(bitmap));
 
@@ -185,23 +192,15 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private boolean inputValidation(){
-        String nama = etNama.getText().toString();
         String hp = etHp.getText().toString();
-        String lahir = etLahir.getText().toString();
         String alamat = etAlamat.getText().toString();
 
-        if(TextUtils.isEmpty(nama) || TextUtils.isEmpty(hp) || TextUtils.isEmpty(lahir) || TextUtils.isEmpty(alamat)){
-            if(TextUtils.isEmpty(nama) && TextUtils.isEmpty(hp) && TextUtils.isEmpty(lahir) && TextUtils.isEmpty(alamat) ){
+        if(TextUtils.isEmpty(hp) || TextUtils.isEmpty(alamat)){
+            if(TextUtils.isEmpty(hp) && TextUtils.isEmpty(alamat) ){
                 Toast.makeText(EditProfileActivity.this, "Semua data wajib diisi", Toast.LENGTH_LONG).show();
-            }
-            if(TextUtils.isEmpty(nama)){
-                tlNama.setError("Nama wajib diisi");
             }
             if(TextUtils.isEmpty(hp)){
                 tlHp.setError("Nomor HP wajib diisi");
-            }
-            if(TextUtils.isEmpty(lahir)){
-                tlLahir.setError("Tanggal Lahir wajib diisi");
             }
             if(TextUtils.isEmpty(alamat)){
                 tlAlamat.setError("Alamat wajib diisi");
@@ -212,17 +211,17 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void textWatcher(){
-        etNama.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-            @Override
-            public void afterTextChanged(Editable editable) {
-                tlNama.setError(null);
-            }
-        });
+//        etNama.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                tlNama.setError(null);
+//            }
+//        });
 
         etHp.addTextChangedListener(new TextWatcher() {
             @Override
@@ -236,42 +235,41 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
-        etEmail.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(TextUtils.isEmpty(etEmail.getText().toString())){
-                    tlEmail.setError(null);
-                    tlEmail.setErrorEnabled(false);
-                }
-                else {
-                    if(!Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString()).matches()){
-                        tlEmail.setError("Alamat email salah");
-                    } else {
-                        tlEmail.setError(null); }
-                }
-            }
-        });
-
-        etLahir.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(!checkDateFormat(etLahir.getText().toString())){
-                    tlLahir.setError("Format tanggal tidak sesuai (yyyy-mm-dd)");
-                } else {
-                    tlLahir.setError(null);
-                }
-            }
-        });
+//        etEmail.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                if(TextUtils.isEmpty(etEmail.getText().toString())){
+//                    tlEmail.setError(null);
+//                    tlEmail.setErrorEnabled(false);
+//                }
+//                else {
+//                    if(!Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString()).matches()){
+//                        tlEmail.setError("Alamat email salah");
+//                    } else {
+//                        tlEmail.setError(null); }
+//                }
+//            }
+//        });
+//        etLahir.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                if(!checkDateFormat(etLahir.getText().toString())){
+//                    tlLahir.setError("Format tanggal tidak sesuai (yyyy-mm-dd)");
+//                } else {
+//                    tlLahir.setError(null);
+//                }
+//            }
+//        });
 
         etAlamat.addTextChangedListener(new TextWatcher() {
             @Override
@@ -286,15 +284,15 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
-    public Boolean checkDateFormat(String date){
-        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD");
-        try {
-            format.parse(date);
-            return true;
-        }catch (ParseException e){
-            return false;
-        }
-    }
+//    public Boolean checkDateFormat(String date){
+//        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD");
+//        try {
+//            format.parse(date);
+//            return true;
+//        }catch (ParseException e){
+//            return false;
+//        }
+//    }
 
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

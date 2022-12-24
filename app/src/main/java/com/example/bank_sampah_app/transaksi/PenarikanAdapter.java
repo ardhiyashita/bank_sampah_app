@@ -13,10 +13,12 @@ import com.example.bank_sampah_app.API.responses.DataPenarikan;
 import com.example.bank_sampah_app.API.responses.DataTransaksi;
 import com.example.bank_sampah_app.R;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class PenarikanAdapter extends RecyclerView.Adapter<PenarikanAdapter.ListPenarikanViewHolder>{
@@ -42,7 +44,7 @@ public class PenarikanAdapter extends RecyclerView.Adapter<PenarikanAdapter.List
         }
         holder.statusPenarikan.setText(dataPenarikan.getStatus());
         holder.tanggalPenarikan.setText(dateFormatter(dataPenarikan.getCreatedAt()));
-        holder.jumlahPenarikan.setText(dataPenarikan.getUang());
+        holder.jumlahPenarikan.setText(formatRupiah(dataPenarikan.getUang()));
     }
 
     @Override
@@ -74,5 +76,11 @@ public class PenarikanAdapter extends RecyclerView.Adapter<PenarikanAdapter.List
         }catch (ParseException e) {
             return null;
         }
+    }
+
+    private String formatRupiah(int number){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        return formatRupiah.format(number);
     }
 }

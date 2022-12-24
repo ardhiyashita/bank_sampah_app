@@ -15,7 +15,7 @@ public class DataKategori {
     private String gambar;
     @SerializedName("harga")
     @Expose
-    private String harga;
+    private int harga;
     @SerializedName("created_at")
     @Expose
     private Object createdAt;
@@ -47,11 +47,11 @@ public class DataKategori {
         this.gambar = gambar;
     }
 
-    public String getHarga() {
+    public int getHarga() {
         return harga;
     }
 
-    public void setHarga(String harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
 

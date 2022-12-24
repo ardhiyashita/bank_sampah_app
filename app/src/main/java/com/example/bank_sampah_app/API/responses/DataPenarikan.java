@@ -15,7 +15,7 @@ public class DataPenarikan {
     private Object adminId;
     @SerializedName("uang")
     @Expose
-    private String uang;
+    private int uang;
     @SerializedName("catatan")
     @Expose
     private String catatan;
@@ -53,11 +53,11 @@ public class DataPenarikan {
         this.adminId = adminId;
     }
 
-    public String getUang() {
+    public int getUang() {
         return uang;
     }
 
-    public void setUang(String uang) {
+    public void setUang(int uang) {
         this.uang = uang;
     }
 

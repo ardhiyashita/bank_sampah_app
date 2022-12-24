@@ -26,7 +26,6 @@ import com.example.bank_sampah_app.artikel.Artikel;
 import com.example.bank_sampah_app.artikel.ArtikelActivity;
 import com.example.bank_sampah_app.artikel.ArtikelAdapterHome;
 import com.example.bank_sampah_app.authentication.SessionManager;
-import com.example.bank_sampah_app.help.HelpFragment;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanData;
 import com.example.bank_sampah_app.panduan.PanduanDetailActivity;
@@ -36,8 +35,10 @@ import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
 import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
         allArtikel =v.findViewById(R.id.tv_allArtikel);
 
         usernameTv.setText(user.getName());
-        saldoTv.setText(Integer.toString(user.getSaldo()));
+        saldoTv.setText(formatRupiah(user.getSaldo()));
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -226,7 +227,7 @@ public class HomeFragment extends Fragment {
                 if (userDataResponse.getSuccess()==true) {
                     sessionManager.saveUser(userDataResponse.getUser());
                     usernameTv.setText(userDataResponse.getUser().getName());
-                    saldoTv.setText(Integer.toString(userDataResponse.getUser().getSaldo()));
+                    saldoTv.setText(formatRupiah(userDataResponse.getUser().getSaldo()));
                     reLoadFragment();
                     Toast.makeText(getActivity(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
@@ -254,5 +255,11 @@ public class HomeFragment extends Fragment {
             fragTransaction.detach(this).attach(this).commit();
 //            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private String formatRupiah(int number){
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        return formatRupiah.format(number);
     }
 }
