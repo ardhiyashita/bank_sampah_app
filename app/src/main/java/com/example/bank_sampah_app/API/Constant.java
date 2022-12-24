@@ -13,6 +13,6 @@ public class Constant {
 
     public static final String TRANSAKSI = "pengajuan";
     public static final String PENARIKAN = "penarikan-saldo";
-    public static final String KATEGORI = "kategori";
+    public static final String KATEGORI = "barang";
     public static final String PENGUMUMAN = "pengumuman";
 }
