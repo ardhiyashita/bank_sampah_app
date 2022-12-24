@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primary60">
+    android:layout_marginVertical="8dp"
+    android:background="@drawable/bg_rectangle_green60">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             style="@style/heading3_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jadwal Penjemputan Sampah"
+            android:text="Judul"
             android:textColor="@color/neutral80"
             android:textStyle="bold" />
 
@@ -27,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Penjemputan sampah ke rumah warga"
-            android:textColor="@color/neutral40" />
+            android:textColor="@color/neutral80" />
     </LinearLayout>
 
 </LinearLayout>
