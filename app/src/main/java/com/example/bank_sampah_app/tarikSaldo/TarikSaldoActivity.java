@@ -23,10 +23,12 @@ import com.example.bank_sampah_app.API.responses.TarikResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.User;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 
 import android.view.View;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -84,7 +86,9 @@ public class TarikSaldoActivity extends AppCompatActivity {
         btnLanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(inputValidation()){
                     tarikSaldo();
+                }
             }
         });
     }
@@ -129,6 +133,40 @@ public class TarikSaldoActivity extends AppCompatActivity {
 
     private void textWatcher(){
         etTarik.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void afterTextChanged(Editable s) {
+//                etTarik.removeTextChangedListener(this);
+//                try {
+//                    String originalString = s.toString();
+//
+//                    Long longval;
+//                    longval = Long.parseLong(originalString);
+//
+//                    DecimalFormat formatter = (DecimalFormat) NumberFormat.getNumberInstance(Locale.ITALIAN);
+//                    String formattedString = formatter.format(longval);
+//
+//                    //setting text after format to EditText
+//                    etTarik.setText(formattedString);
+//                    etTarik.setSelection(etTarik.getText().length());
+//                } catch (NumberFormatException nfe) {
+//                    nfe.printStackTrace();
+//                }
+//
+//                etTarik.addTextChangedListener(this);
+                if(inputValidation()){
+                    etTarik.setError(null);
+                }
+
+            }
+        });
+
+        etCatatan.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
@@ -136,28 +174,8 @@ public class TarikSaldoActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable editable) {
-                String jumlahTxt = etTarik.getText().toString();
-                int jumlah;
-                if(!jumlahTxt.equals("")){
-                    jumlah = Integer.parseInt(jumlahTxt);
-                }else {
-                    jumlah = 0;
-                }
-                String saldoTxt = tvSemuaSaldo.getText().toString();
-                int saldo = Integer.parseInt(saldoTxt);
-
-                if(TextUtils.isEmpty(jumlahTxt) || jumlah<=0 ||jumlah>saldo ){
-                    if(TextUtils.isEmpty(jumlahTxt)){
-                        etTarik.setError("Jumlah saldo tidak boleh kosong");
-                    }
-                    if(jumlah<=0){
-                        etTarik.setError("Jumlah tidak boleh kurang dari 0");
-                    }
-                    if(jumlah>saldo){
-                        etTarik.setError("Jumlah yang anda masukan melebihi saldo saat ini:" + saldoTxt);
-                    }
-                } else {
-                    etTarik.setError(null);
+                if(inputValidation()){
+                    etCatatan.setError(null);
                 }
 
             }
@@ -165,9 +183,49 @@ public class TarikSaldoActivity extends AppCompatActivity {
 
     }
 
+    public boolean inputValidation(){
+        String jumlahTxt = etTarik.getText().toString();
+        String catatan = etCatatan.getText().toString();
+        int jumlah;
+        if(!jumlahTxt.equals("")){
+            jumlah = Integer.parseInt(jumlahTxt);
+        }else {
+            jumlah = 0;
+        }
+        int saldo = sessionManager.fetchUser().getSaldo();
+
+        if( jumlah<=0 ||jumlah>saldo || TextUtils.isEmpty(catatan)){
+            if(jumlah<=0 && TextUtils.isEmpty(catatan)){
+                Toast.makeText(TarikSaldoActivity.this, "Jumlah Penarikan dan Catatan Wajib Diisi", Toast.LENGTH_SHORT).show();
+            }
+            if(jumlah<=0){
+                etTarik.setError("Jumlah tidak boleh kurang dari 0");
+            }
+            if(jumlah>saldo){
+                etTarik.setError("Jumlah yang anda masukan melebihi saldo saat ini:" + formatRupiah(saldo) );
+            }
+            if(TextUtils.isEmpty(catatan)){
+                etCatatan.setError("Catatan penarikan wajib diisi");
+            }
+            return false;
+        }
+        return true;
+    }
+
     private String formatRupiah(int number){
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         return formatRupiah.format(number);
     }
+
+//    public static String trimCommaOfString(String string) {
+//        if(string.contains(".")){
+//            return string.replace(".","");}
+//        else {
+//            return string;
+//        }
+//
+//    }
+
+
 }

@@ -3,6 +3,8 @@ package com.example.bank_sampah_app.API.responses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 
 public class TarikResponse {
     @SerializedName("success")
@@ -10,7 +12,7 @@ public class TarikResponse {
     private Boolean success;
     @SerializedName("message")
     @Expose
-    private String message;
+    private Message message;
     @SerializedName("data")
     private Data data;
 
@@ -30,11 +32,11 @@ public class TarikResponse {
         this.success = success;
     }
 
-    public String getMessage() {
+    public Message getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Message message) {
         this.message = message;
     }
 
@@ -87,4 +89,17 @@ public class TarikResponse {
             this.id = id;
         }
     }
+
+    public class Message{
+        public ArrayList<Object> getErrorInfo() {
+            return errorInfo;
+        }
+
+        public void setErrorInfo(ArrayList<Object> errorInfo) {
+            this.errorInfo = errorInfo;
+        }
+
+        public ArrayList<Object> errorInfo;
+    }
+
 }
