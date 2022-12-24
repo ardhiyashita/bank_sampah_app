@@ -16,8 +16,10 @@ import android.widget.Toast;
 
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.responses.DataKategori;
+import com.example.bank_sampah_app.API.responses.DataPengumuman;
 import com.example.bank_sampah_app.API.responses.DataTransaksi;
 import com.example.bank_sampah_app.API.responses.KategoriResponse;
+import com.example.bank_sampah_app.API.responses.PengumumanResponse;
 import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.authentication.SessionManager;
@@ -36,9 +38,11 @@ public class InformasiFragment extends Fragment {
 
     LinearLayout jadwalPengumpulan, jadwalPenjemputan;
     private ApiClient apiClient;
-    private RecyclerView rv_kategori;
+    private RecyclerView rv_kategori, rv_pengumuman;
     private ArrayList<DataKategori> data;
+    private ArrayList<DataPengumuman> dataPengumumen;
     private KategoriAdapter adapter;
+    private PengumumanAdapter pengumumanAdapter;
 
     private ShimmerFrameLayout mShimmerViewContainer;
 
@@ -49,24 +53,36 @@ public class InformasiFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_informasi, container, false);
         mShimmerViewContainer = v.findViewById(R.id.shimmer_kategori);
 
-        jadwalPengumpulan = v.findViewById(R.id.jadwalPengumpulan);
-        jadwalPenjemputan = v.findViewById(R.id.jadwalPenjemputan);
+        rv_pengumuman = v.findViewById(R.id.rv_pengumuman);
+
         rv_kategori = v.findViewById(R.id.rv_kategori);
         mShimmerViewContainer.startShimmer();
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        RecyclerView.LayoutManager layoutManagerPengumuman = new LinearLayoutManager(getActivity().getApplicationContext());
         rv_kategori.setLayoutManager(layoutManager);
+        rv_pengumuman.setLayoutManager(layoutManagerPengumuman);
 
         apiClient = new ApiClient();
 
-        jadwalPengumpulan.setOnClickListener(v1 -> {
-            Intent intentPengumpulan = new Intent(getActivity(),JadwalPengumpulanSampahActivity.class);
-            startActivity(intentPengumpulan);
-        });
+        Call<PengumumanResponse> callPengumuman = apiClient.getApiService(getActivity()).getPengumuman();
+        callPengumuman.enqueue(new Callback<PengumumanResponse>() {
+            @Override
+            public void onResponse(Call<PengumumanResponse> call, Response<PengumumanResponse> response) {
+                PengumumanResponse pengumumanResponse = response.body();
+                if (pengumumanResponse.getSuccess()) {
+                    dataPengumumen = new ArrayList<>(Arrays.asList(pengumumanResponse.getData()));
+                    pengumumanAdapter = new PengumumanAdapter(dataPengumumen);
+                    rv_pengumuman.setAdapter(pengumumanAdapter);
+                } else {
+                    Toast.makeText(getActivity(), "Kategori Gagal di Muat", Toast.LENGTH_LONG).show();
+                }
+            }
 
-        jadwalPenjemputan.setOnClickListener(v12 -> {
-            Intent intentPenjemputan = new Intent(getActivity(),JadwalPenjemputanSampahActivity.class);
-            startActivity(intentPenjemputan);
+            @Override
+            public void onFailure(Call<PengumumanResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
 
 

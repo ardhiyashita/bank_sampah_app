@@ -7,21 +7,36 @@ public class DataKategori {
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("nama_kategori")
+    @SerializedName("nama")
     @Expose
-    private String namaKategori;
-    @SerializedName("foto")
+    private String nama;
+    @SerializedName("satuan")
     @Expose
-    private String gambar;
+    private String satuan;
+    @SerializedName("kategori_id")
+    @Expose
+    private Integer kategoriId;
+    @SerializedName("child_status")
+    @Expose
+    private Object childStatus;
     @SerializedName("harga")
     @Expose
-    private int harga;
+    private Integer harga;
+    @SerializedName("stok")
+    @Expose
+    private Integer stok;
+    @SerializedName("is_default")
+    @Expose
+    private Integer isDefault;
+    @SerializedName("foto")
+    @Expose
+    private String foto;
     @SerializedName("created_at")
     @Expose
-    private Object createdAt;
+    private String createdAt;
     @SerializedName("updated_at")
     @Expose
-    private Object updatedAt;
+    private String updatedAt;
 
     public Integer getId() {
         return id;
@@ -31,43 +46,83 @@ public class DataKategori {
         this.id = id;
     }
 
-    public String getNamaKategori() {
-        return namaKategori;
+    public String getNama() {
+        return nama;
     }
 
-    public void setNamaKategori(String namaKategori) {
-        this.namaKategori = namaKategori;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public String getGambar() {
-        return gambar;
+    public String getSatuan() {
+        return satuan;
     }
 
-    public void setGambar(String gambar) {
-        this.gambar = gambar;
+    public void setSatuan(String satuan) {
+        this.satuan = satuan;
     }
 
-    public int getHarga() {
+    public Integer getKategoriId() {
+        return kategoriId;
+    }
+
+    public void setKategoriId(Integer kategoriId) {
+        this.kategoriId = kategoriId;
+    }
+
+    public Object getChildStatus() {
+        return childStatus;
+    }
+
+    public void setChildStatus(Object childStatus) {
+        this.childStatus = childStatus;
+    }
+
+    public Integer getHarga() {
         return harga;
     }
 
-    public void setHarga(int harga) {
+    public void setHarga(Integer harga) {
         this.harga = harga;
     }
 
-    public Object getCreatedAt() {
+    public Integer getStok() {
+        return stok;
+    }
+
+    public void setStok(Integer stok) {
+        this.stok = stok;
+    }
+
+    public Integer getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(Integer isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Object createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Object getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Object updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 }
