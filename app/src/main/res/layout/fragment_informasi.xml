@@ -50,105 +50,10 @@
                         android:layout_height="match_parent"
                         android:text="Jadwal Bank Sampah"
                         android:textColor="@color/neutral80" />
-                    <!-- jadwal pengumpulan sampah -->
-                    <LinearLayout
-                        android:id="@+id/jadwalPengumpulan"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_rectangle_green60"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
 
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_marginRight="8dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_calendar" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:orientation="vertical">
-
-                            <TextView
-                                style="@style/heading3_semibold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Jadwal Pengumpulan Sampah"
-                                android:textColor="@color/neutral80"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                style="@style/body3_regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pengumpulan sampah di Bank Sampah Sami Asri"
-                                android:textColor="@color/neutral40" />
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_next_green" />
-                    </LinearLayout>
                     !-- jadwal jemput sampah -->
 
-                    <LinearLayout
-                        android:id="@+id/jadwalPenjemputan"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_rectangle_green60"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
 
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_marginRight="8dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_truck" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:orientation="vertical">
-
-                            <TextView
-                                style="@style/heading3_semibold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Jadwal Penjemputan Sampah"
-                                android:textColor="@color/neutral80"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                style="@style/body3_regular"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Penjemputan sampah ke rumah warga"
-                                android:textColor="@color/neutral40" />
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_next_green" />
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary60">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/judul_pengumuman"
+            style="@style/heading3_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jadwal Penjemputan Sampah"
+            android:textColor="@color/neutral80"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/isi_pengumuman"
+            style="@style/body3_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penjemputan sampah ke rumah warga"
+            android:textColor="@color/neutral40" />
+    </LinearLayout>
+
+</LinearLayout>
