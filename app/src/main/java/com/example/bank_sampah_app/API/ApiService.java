@@ -11,6 +11,7 @@ import com.example.bank_sampah_app.API.responses.LoginResponse;
 import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.PenarikanResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
+import com.example.bank_sampah_app.API.responses.PengumumanResponse;
 import com.example.bank_sampah_app.API.responses.RegisterResponse;
 import com.example.bank_sampah_app.API.responses.TarikResponse;
 import com.example.bank_sampah_app.API.responses.TransaksiResponse;
@@ -60,4 +61,7 @@ public interface ApiService {
 
     @GET(Constant.KATEGORI)
     Call<KategoriResponse> getKategori();
+
+    @GET(Constant.PENGUMUMAN)
+    Call<PengumumanResponse> getPengumuman();
 }
