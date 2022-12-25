@@ -37,12 +37,6 @@
             android:name=".setorSampah.SelesaiSetorSampahActivity"
             android:exported="false" />
         <activity
-            android:name=".informasi.JadwalPenjemputanSampahActivity"
-            android:exported="false" />
-        <activity
-            android:name=".informasi.JadwalPengumpulanSampahActivity"
-            android:exported="false" />
-        <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
