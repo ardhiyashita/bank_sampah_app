@@ -158,7 +158,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void updateUserData() {
         RegisterRequest editProfileRequest = new RegisterRequest();
-//        editProfileRequest.setName(etNama.getText().toString());
+        editProfileRequest.setName(etNama.getText().toString());
         editProfileRequest.setNo_hp(etHp.getText().toString());
         editProfileRequest.setAlamat(etAlamat.getText().toString());
 
@@ -174,7 +174,6 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
                 if (loginResponse.getSuccess()==true) {
-//                    Toast.makeText(EditProfileActivity.this, "Data Berhasil Diperbarui", Toast.LENGTH_SHORT).show();
                     finishDialog("Data Berhasil Diperbarui", loginResponse.getSuccess(),"Selesai");
                 } else {
                     Toast.makeText(EditProfileActivity.this, "Data Gagal Diperbarui" , Toast.LENGTH_LONG).show();
@@ -185,7 +184,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-//                Toast.makeText(EditProfileActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfileActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 finishDialog("Data Gagal Diperbarui", false,"Coba Lagi");
             }
         });
@@ -211,18 +210,6 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void textWatcher(){
-//        etNama.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                tlNama.setError(null);
-//            }
-//        });
-
         etHp.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
@@ -234,42 +221,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 tlHp.setError(null);
             }
         });
-
-//        etEmail.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if(TextUtils.isEmpty(etEmail.getText().toString())){
-//                    tlEmail.setError(null);
-//                    tlEmail.setErrorEnabled(false);
-//                }
-//                else {
-//                    if(!Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString()).matches()){
-//                        tlEmail.setError("Alamat email salah");
-//                    } else {
-//                        tlEmail.setError(null); }
-//                }
-//            }
-//        });
-//        etLahir.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if(!checkDateFormat(etLahir.getText().toString())){
-//                    tlLahir.setError("Format tanggal tidak sesuai (yyyy-mm-dd)");
-//                } else {
-//                    tlLahir.setError(null);
-//                }
-//            }
-//        });
 
         etAlamat.addTextChangedListener(new TextWatcher() {
             @Override
@@ -284,38 +235,6 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
-//    public Boolean checkDateFormat(String date){
-//        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-DD");
-//        try {
-//            format.parse(date);
-//            return true;
-//        }catch (ParseException e){
-//            return false;
-//        }
-//    }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==GALLERY_ADD_PROFILE && resultCode==RESULT_OK){
-//            Uri imgUri = data.getData();
-//            imgFoto.setImageURI(imgUri);
-//            try {
-//                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//    private String bitmapToString(Bitmap bitmap) {
-//        if(bitmap!=null){
-//            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-//            byte [] array = byteArrayOutputStream.toByteArray();
-//            return Base64.encodeToString(array, Base64.DEFAULT);
-//        }
-//        return "";
-//    }
 
     public void finishDialog(String title, Boolean status, String buttonText) {
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
