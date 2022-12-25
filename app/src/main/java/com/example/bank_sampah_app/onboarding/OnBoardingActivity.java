@@ -40,13 +40,15 @@ public class OnBoardingActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
         //next activity
         if (restorePreData()){
-            if (preferences.contains("isUserLogin")) {
-                Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
-                startActivity(intent);
-            } else {
-                Intent intent = new Intent(OnBoardingActivity.this, WelcomeActivity.class);
-                startActivity(intent);
-            }
+//            if (preferences.contains("isUserLogin")) {
+//                Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
+//                startActivity(intent);
+//            } else {
+//                Intent intent = new Intent(OnBoardingActivity.this, WelcomeActivity.class);
+//                startActivity(intent);
+//            }
+            Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
+            startActivity(intent);
             finish();
         }
 

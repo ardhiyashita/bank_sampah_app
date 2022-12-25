@@ -7,6 +7,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 import com.example.bank_sampah_app.API.ApiClient;
 import com.example.bank_sampah_app.API.requests.LoginRequest;
 import com.example.bank_sampah_app.API.responses.LoginResponse;
+import com.example.bank_sampah_app.ConnectionReceiver;
 import com.example.bank_sampah_app.MainActivity;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
@@ -27,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements ConnectionReceiver.ReceiverListener {
     private SessionManager sessionManager;
     private ApiClient apiClient;
     TextInputEditText username, password;
@@ -39,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        checkConnection();
         setContentView(R.layout.activity_login);
 
         apiClient = new ApiClient();
@@ -130,6 +134,63 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private boolean checkConnection() {
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.new.conn.CONNECTIVITY_CHANGE");
+
+        registerReceiver(new ConnectionReceiver(), intentFilter);
+
+        ConnectionReceiver.Listener = this;
+        ConnectivityManager manager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        boolean isConnected = networkInfo != null && networkInfo.isConnectedOrConnecting();
+
+        noInternetDialog(isConnected);
+        return isConnected;
+    }
+
+    private void noInternetDialog(boolean isConnected){
+        if (!isConnected) {
+            LayoutInflater layoutInflater = LayoutInflater.from(this);
+            View view = layoutInflater.inflate(R.layout.dialog_no_internet, null);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setView(view);
+
+            AlertDialog alertD = alertDialogBuilder.create();
+
+            Button btnRetry = view.findViewById(R.id.btn_dialog_retry);
+            btnRetry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkConnection();
+                    alertD.dismiss();
+                }
+            });
+
+            alertD.show();
+        }
+
+    }
+
+    @Override
+    public void onNetworkChange(boolean isConnected) {
+        noInternetDialog(isConnected);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkConnection();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        checkConnection();
     }
 
 }

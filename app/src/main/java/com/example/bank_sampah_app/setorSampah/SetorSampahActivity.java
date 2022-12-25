@@ -223,7 +223,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
             }
             if(TextUtils.isEmpty(totalBerat)){
                 totalBeratEt.setError("Berat Sampah tidak boleh kosong (perkiraan berat)");
-            } else if(TextUtils.isEmpty(foto)) {
+            } if(TextUtils.isEmpty(foto)) {
                 Toast.makeText(SetorSampahActivity.this, "Foto Sampah Wajib Diisi", Toast.LENGTH_SHORT).show();
             }
             return false;
