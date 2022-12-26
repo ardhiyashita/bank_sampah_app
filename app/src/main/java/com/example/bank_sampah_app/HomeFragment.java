@@ -26,12 +26,20 @@ import com.example.bank_sampah_app.artikel.Artikel;
 import com.example.bank_sampah_app.artikel.ArtikelActivity;
 import com.example.bank_sampah_app.artikel.ArtikelAdapterHome;
 import com.example.bank_sampah_app.authentication.SessionManager;
+import com.example.bank_sampah_app.help.FaqData;
+import com.example.bank_sampah_app.help.HelpAdapter;
+import com.example.bank_sampah_app.help.HelpItem;
+import com.example.bank_sampah_app.help.QuestionDetailActivity;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanData;
 import com.example.bank_sampah_app.panduan.PanduanDetailActivity;
 import com.example.bank_sampah_app.panduan.PanduanItem;
 import com.example.bank_sampah_app.setorSampah.SetorSampahActivity;
 import com.example.bank_sampah_app.tarikSaldo.TarikSaldoActivity;
+import com.example.bank_sampah_app.tentangKami.TentangData;
+import com.example.bank_sampah_app.tentangKami.TentangDetailActivity;
+import com.example.bank_sampah_app.tentangKami.TentangKamiAdapter;
+import com.example.bank_sampah_app.tentangKami.TentangKamiItem;
 import com.example.bank_sampah_app.transaksi.TransaksiFragment;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
@@ -52,7 +60,8 @@ public class HomeFragment extends Fragment {
     TextView usernameTv, saldoTv, allArtikel;
     SwipeRefreshLayout swipeContainer;
 
-    private RecyclerView rv_panduan, rv_artikel;
+    private RecyclerView rv_panduan, rv_artikel, rv_tentang_kami;
+    private ArrayList<TentangKamiItem> listTentang = new ArrayList<>();
     private ArrayList<PanduanItem> list = new ArrayList<>();
     private ArrayList<Artikel> listArtikel;
 
@@ -148,12 +157,34 @@ public class HomeFragment extends Fragment {
         list.addAll(PanduanData.getListData());
         showRecyclerPanduan();
 
+        //artikel
         rv_artikel = v.findViewById(R.id.rv_article);
         mShimmerViewContainer.startShimmer();
         showRecyclerArtikel();
 
+        //tentang kami
+        rv_tentang_kami = v.findViewById(R.id.rv_tentang_kami);
+        listTentang.addAll(TentangData.getListTentang());
+        showRecyclerTentang();
+
         return v;
     }
+
+    private void showRecyclerTentang() {
+        rv_tentang_kami.setLayoutManager(new LinearLayoutManager(getActivity()));
+        TentangKamiAdapter tentangKamiAdapter = new TentangKamiAdapter(listTentang);
+        rv_tentang_kami.setAdapter(tentangKamiAdapter);
+
+        tentangKamiAdapter.setOnItemClickListener(new TentangKamiAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(TentangKamiItem tentangKamiItem) {
+                Intent moveToDetailQuestion = new Intent(getActivity(), TentangDetailActivity.class);
+                moveToDetailQuestion.putExtra(TentangDetailActivity.ITEM_EXTRA, tentangKamiItem);
+                startActivity(moveToDetailQuestion);
+            }
+        });
+    }
+
     private void replaceFragment(Fragment fragment){
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

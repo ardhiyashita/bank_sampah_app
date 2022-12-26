@@ -21,7 +21,7 @@ public class FaqData {
             "Sampah yang disetorkan akan ditimbang sesuai jenisnya, kemudian akan dikonversikan ke dalam rupiah sesuai dengan harga sampah saat penimbangan.",
             "Sampah yang akan disetor harus dipilah terlebih dahulu agar memudahkan proses penimbangan sampah.",
             "Jenis-jenis sampah yang ditampung di bank sampah dapat dilihat di fitur informasi",
-            "Anda dapat mengunjungu website pesan-pede di link berikut: https://pesanpede.com"
+            "Anda dapat mengunjungu website pesan-pede yaitu pesanpede.com"
     };
 
     static ArrayList<HelpItem> getListData(){

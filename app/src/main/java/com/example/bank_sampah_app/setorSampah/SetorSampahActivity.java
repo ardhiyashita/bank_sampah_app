@@ -227,7 +227,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
                 Toast.makeText(SetorSampahActivity.this, "Foto Sampah Wajib Diisi", Toast.LENGTH_SHORT).show();
             }
             return false;
-        } else if (Integer.parseInt(totalBerat)<=0 ) {
+        } else if (totalBerat=="0" ) {
             totalBeratEt.setError("Berat Sampah tidak kurang dari 0 KG (perkiraan berat)");
             return false;
         }

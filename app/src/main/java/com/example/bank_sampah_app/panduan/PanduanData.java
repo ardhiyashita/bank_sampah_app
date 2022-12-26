@@ -14,35 +14,28 @@ public class PanduanData {
     };
 
     private static String [] content = {
-        "1. Pengguna melakukan registrasi akun pada saat pertama kali akan menggunakan aplikasi,\n" +
-                "adapun pengguna dapat data diri seperti Nama, Nomor Telepon, Email, Alamat dan\n" +
-                "Password.\n\n" +
-                "2. Setelah melakukan registrasi pengguna dapat melakukan login pada aplikasi\n" +
-                "menggunakan username dan password yang dimasukan pada saat registrasi akun.\n\n" +
+        "1. Pengguna melakukan permintaan no.buku dan password ke pihak bank sampah,\n\n" +
+                "2. Setelah mendapatkan no.buku dan password pengguna dapat melakukan login pada aplikasi\n" +
+                "menggunakan no.buku dan password yang didapat.\n\n" +
                 "3. Pengguna dapat menggunakan fitur-fitur yang terdapat pada aplikasi diantaranya:\n\n" +
                 "Fitur Informasi:\n" + "Fitur informasi merupakan fitur yang memuat berbagai informasi mengenai sistem bank sampah, diantaranya:\n" +
-                "- Jadwal penjemputan sampah\n" +
-                "- jadwal pengumpulan sampah\n" +
-                "- kategori sampah\n\n" +
+                "- Pengumuman dari Bank Sampah Sami Asri\n" +
+                "- Informasi kategori sampah\n\n" +
                 "Fitur Kelola Tabungan:\n" + "Fitur kelola tabungan adalah adalah fitur yang digunakan untuk mengelola saldo yang didapatkan oleh pengguna ketika sudah berhasil menyetorkan sampah, adapun fitur kelola tabungan ini terdiri dari:\n" +
                 "- Tarik saldo: digunakan untuk menarik saldo yang sudah dimiliki oleh pengguna pada saat\n" +
                 "penyetoran sampah\n" +
-                "- Riwayat transaksi: digunakan untuk melihat riwayat transaksi yang dilakukan oleh\n" +
+                "- Riwayat transaksi: digunakan untuk melihat riwayat transaksi penyetoran sampah dan tarik saldo yang dilakukan oleh\n" +
                 "pengguna\n" +
-                "- Setor sampah: Pengguna bisa menyetorkan sampah, dan juga memilih apakah ingin\n" +
+                "- Setor sampah: Pengguna bisa menyetorkan sampah saat bukan jadwal pengumpulan, dan juga memilih apakah ingin\n" +
                 "menyetorkan sampah secara langsung ke Bank Sampah atau melalui jasa penjemputan\n\n" +
                 "Fitur Artikel\n" +
                 "- Melalui fitur baca artikel pengguna bisa membaca artikel yang berkaitan dengan cara\n" +
-                "pengelolaan sampah\n\n" +
+                "pengelolaan sampah, informasi mengenai lingkungan, dan lainnya\n\n" +
                 "Fitur Panduan\n" +
                 "- Fitur panduan merupakan fitur yang berfungsi untuk memberikan panduan mengenai cara\n" +
                 "menggunakan aplikasi kepada pengguna\n\n" +
-                "Fitur Transaksi:\n" +
-                "fitur transaksi berfungsi untuk melihat:\n" +
-                "- Transaksi yang sedang di proses\n" +
-                "- Riwayat transaksi yang sudah di proses\n\n" +
                 "Fitur Bantuan: untuk membantu pengguna saat menggunakan aplikasi melalui pertanyaan-pertanyaan yang sering kali ditanyakan\n\n" +
-                "Fitur Profile: merupakan fitur yang berisikan ubah data akun, ubah password dan log out\n\n" +
+                "Fitur Profile: merupakan fitur yang berisikan ubah data akun, bantuan dan kontak, dan log out\n\n" +
                 "4. Jika sudah selesai menggunakan aplikasi, pengguna dapat melakukan Logout akun dan\n" +
                 "melakukan login kembali apabila ingin menggunakan aplikasi",
 
@@ -55,7 +48,7 @@ public class PanduanData {
             "1. Masuk ke menu tarik saldo\n" +
                     "2. Masukkan nominal saldo yang akan ditarik\n" +
                     "3. Centang “Tarik saldo saat ini”\n" +
-                    "4. Tulis catatan pengambilan dana kepada petugas\n" +
+                    "4. Tulis catatan pengambilan dana kepada petugas (opsional)\n" +
                     "5. Tekan lanjut dan muncul rincian penarikan lalu tekan selesai",
 
             "a. Memilah Sampah organik dan anorganik\n\n" +
