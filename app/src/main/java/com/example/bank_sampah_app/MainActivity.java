@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionReceive
                     alertD.dismiss();
                 }
             });
-
+            alertDialogBuilder.setCancelable(false);
             alertD.show();
         }
 

@@ -19,23 +19,25 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
-            <!-- isian panduan detail -->
-            <androidx.recyclerview.widget.RecyclerView
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                tools:listitem="@layout/list_panduan_detail"/>
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="200dp"
+                android:id="@+id/panduanDetailImage"
+                android:src="@drawable/caramenggunakan"
+                android:layout_marginBottom="16dp" />
+
             <TextView
                 android:id="@+id/panduanDetailTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Judul"
                 android:gravity="center"
-                android:textColor="@color/neutral100"
+                android:textColor="@color/neutral80"
                 style="@style/heading3_semibold"/>
+
             <TextView
                 android:id="@+id/panduanContentDetailTv"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:text="isian"
                 android:layout_marginBottom="30dp"
                 android:layout_width="match_parent"

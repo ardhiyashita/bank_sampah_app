@@ -69,25 +69,28 @@
     <ScrollView
         android:id="@+id/artikel_konten"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_artikel_detail">
 
         <LinearLayout
-            android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="16dp"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/detail_artikel_judul"
+                style="@style/heading1_semibold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/neutral80"
                 android:text="judul"
-                style="@style/heading1_semibold"/>
+                android:textColor="@color/neutral80" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,8 +102,8 @@
                     style="@style/caption_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="viewStart"
                     android:text="Lingkungan"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/neutral40" />
 
             </LinearLayout>
@@ -111,20 +114,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="16dp"
+                android:adjustViewBounds="true"
                 android:maxHeight="300dp"
                 android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/detail_artikel_konten"
+                style="@style/body2_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="30dp"
                 android:text="body"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/neutral80"
-                style="@style/body2_regular"/>
+                android:justificationMode="inter_word"
+                android:textColor="@color/neutral80" />
         </LinearLayout>
     </ScrollView>
 

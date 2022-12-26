@@ -1,5 +1,6 @@
 package com.example.bank_sampah_app.panduan;
 
+import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.help.HelpItem;
 
 import java.util.ArrayList;
@@ -63,12 +64,20 @@ public class PanduanData {
                     "Cukup banyak lembaga-lembaga yang menerima sampah anorganik untuk diolah kembali dan tempat penampungan dan pengolahan sampah juga bekerja sama dengan komunitas yang peduli dengan lingkungan."
     };
 
+    private static int [] gambar = {
+            R.drawable.caramenggunakan,
+            R.drawable.caranyetor,
+            R.drawable.caranarik,
+            R.drawable.caramilah,
+    };
+
     public static ArrayList<PanduanItem> getListData(){
         ArrayList<PanduanItem> list = new ArrayList<>();
         for (int position = 0; position <panduan.length; position++) {
             PanduanItem panduanItem = new PanduanItem();
             panduanItem.setPanduan(panduan[position]);
             panduanItem.setContent(content[position]);
+            panduanItem.setGambar(gambar[position]);
             list.add(panduanItem);
         }
         return list;

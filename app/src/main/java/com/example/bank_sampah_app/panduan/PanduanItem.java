@@ -6,6 +6,7 @@ import android.os.Parcelable;
 public class PanduanItem implements Parcelable {
     String panduan;
     String content;
+    int gambar;
 
     public PanduanItem(){
 
@@ -14,6 +15,7 @@ public class PanduanItem implements Parcelable {
     protected PanduanItem(Parcel in) {
         panduan = in.readString();
         content = in.readString();
+        gambar = in.readInt();
     }
 
     public static final Creator<PanduanItem> CREATOR = new Creator<PanduanItem>() {
@@ -44,6 +46,14 @@ public class PanduanItem implements Parcelable {
         this.content = content;
     }
 
+    public int getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(int gambar) {
+        this.gambar = gambar;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -53,5 +63,6 @@ public class PanduanItem implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(panduan);
         dest.writeString(content);
+        dest.writeInt(gambar);
     }
 }

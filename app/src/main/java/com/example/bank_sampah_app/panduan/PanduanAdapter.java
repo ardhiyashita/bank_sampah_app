@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.help.HelpAdapter;
 import com.example.bank_sampah_app.help.HelpItem;
@@ -39,6 +40,9 @@ public class PanduanAdapter extends RecyclerView.Adapter<PanduanAdapter.ListView
     public void onBindViewHolder(@NonNull PanduanAdapter.ListViewHolder holder, int position) {
         PanduanItem panduanItem = listPanduan.get(position);
         holder.panduan.setText(panduanItem.getPanduan());
+        Glide.with(holder.itemView.getContext())
+                .load(panduanItem.getGambar())
+                .into(holder.panduan_img);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
