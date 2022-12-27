@@ -15,7 +15,7 @@ public class PanduanData {
     };
 
     private static String [] content = {
-        "1. Pengguna melakukan permintaan no.buku dan password ke pihak bank sampah,\n\n" +
+        "1. Pengguna yang sudah terdaftar sebagai nasabah akan diberikan no.buku dan password oleh pihak bank sampah. Namun, apabila pengguna belum mnenjadi nasabah atau belum memiliki no. buku tabungan, dapat melakukan pendaftaran langsung ke petugas bank sampah\n\n" +
                 "2. Setelah mendapatkan no.buku dan password pengguna dapat melakukan login pada aplikasi\n" +
                 "menggunakan no.buku dan password yang didapat.\n\n" +
                 "3. Pengguna dapat menggunakan fitur-fitur yang terdapat pada aplikasi diantaranya:\n\n" +
@@ -42,15 +42,16 @@ public class PanduanData {
 
             "1. Masuk ke menu setor sampah\n" +
                     "2. Pilih tipe pengambilan: “Bank (jika Anda menyetor langsung ke bank atau Rumah (jika ingin sampah Anda dijemput)”\n" +
-                    "3. Masukan total berat sampah Anda\n" +
-                    "4. Unggah bukti penyetoran berupa foto sampah yang akan disetor\n" +
+                    "3. Masukan perkiraan total berat sampah Anda\n" +
+                    "4. Unggah bukti penyetoran berupa foto sampah yang telah disetor di bank sampah\n" +
                     "5. Tekan kirim\n",
 
             "1. Masuk ke menu tarik saldo\n" +
                     "2. Masukkan nominal saldo yang akan ditarik\n" +
-                    "3. Centang “Tarik saldo saat ini”\n" +
-                    "4. Tulis catatan pengambilan dana kepada petugas (opsional)\n" +
-                    "5. Tekan lanjut dan muncul rincian penarikan lalu tekan selesai",
+                    "3. Centang “Tarik saldo saat ini” apabila Anda ingin menarik semua saldo yang dimiliki\n" +
+                    "4. Tulis catatan pengambilan dana kepada petugas (opsional), misalnya mengenai tempat dan waktu bertemu dengan petugas bank sampah untuk melakukan penarikan dan mendapatkan uang tunai\n" +
+                    "5. Tekan lanjut dan muncul rincian penarikan lalu tekan selesai\n" +
+                    "6. Jika terdapat kesalahan saat membuat penarikan, dapat menghubungi bank sampah pada kontak yang telah disediakan",
 
             "a. Memilah Sampah organik dan anorganik\n\n" +
                     "Pisahkan sampah organik dan anorganik yang dihasilkan sampah rumah tangga.\n" +
@@ -59,9 +60,9 @@ public class PanduanData {
                     "b. Memilah sampah Anorganik\n\n" +
                     "Cara memilah sampah anorganik dengan memisahkan masing-masing kategori turunannya, seperti plastik (kantong kresek, kemasan plastik, dan sebagainya), kertas, kemasan tetra pack, kaleng, dan beling. Sampah anorganik ini dapat di recycle atau di reuse sehingga sampah tidak berakhir di TPA dan memiliki nilai ekonomis\n\n" +
                     "c. Olah sampah organik menjadi pupuk kompos\n\n" +
-                    "Sampah organik dapat diolah menjadi pupuk dan kompos yang berasal dari sampah sisa makanan dan daun lebih cepat terurai dan lebih cepat bisa digunakan sebagai pupuk tanaman.\n\n" +
-                    "d. Serahkan sampah anorganik ke lembaga pengolahan sampah\n\n" +
-                    "Cukup banyak lembaga-lembaga yang menerima sampah anorganik untuk diolah kembali dan tempat penampungan dan pengolahan sampah juga bekerja sama dengan komunitas yang peduli dengan lingkungan."
+                    "Sampah organik dapat diolah menjadi pupuk dan kompos yang berasal dari sampah sisa makanan dan daun lebih cepat terurai dan lebih cepat bisa digunakan sebagai pupuk tanaman. Apabila memiliki teba modern, sisa sampah organik dapat dibuang ke dalam lubang teba modern untuk menjadi kompos\n\n" +
+                    "d. Serahkan sampah anorganik ke bank sampah\n\n" +
+                    "Sampah anorganik seperti plastik, botol, kertas, dan lain sebagainya yang telah dipilah dapat dikumpulkan dan disetor ke bank sampah."
     };
 
     private static int [] gambar = {

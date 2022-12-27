@@ -61,6 +61,7 @@ public class InformasiFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         RecyclerView.LayoutManager layoutManagerPengumuman = new LinearLayoutManager(getActivity().getApplicationContext());
         rv_kategori.setLayoutManager(layoutManager);
+        rv_kategori.setNestedScrollingEnabled(false);
         rv_pengumuman.setLayoutManager(layoutManagerPengumuman);
 
         apiClient = new ApiClient();
