@@ -1,5 +1,6 @@
 package com.example.bank_sampah_app.tentangKami;
 
+import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.help.HelpItem;
 import com.example.bank_sampah_app.panduan.PanduanItem;
 
@@ -17,12 +18,18 @@ public class TentangData {
             "PESAN-PEDE (Pengelolaan Sampah Mandiri Pedesaan) adalah sistem pengelolaan sampah organik dan anorganik melalui pemilahan sejak dari rumah. Pola ini dimulai sejak tahun 2020 dan telah diresmikan oleh Bupati Gianyar pada tahun 2021. Masyarakat Desa Adat Cemenggaon memiliki 1 lubang dalam tanah di rumah untuk menampung sampah organik sisa rutinitas rumah tangga atau upacara adat yang bernama “Teba Modern”. Teba modern ini adalah lubang permanen yang terbuat dari tumpukan buis ± selebar 1 m dan memiliki kedalaman ± 3m. Untuk sampah anorganik, pihak desa telah memiliki Bank Sampah Sami Asri yang mengelola sampah anorganik dari masyarakat."
     };
 
+    private static int [] logo = {
+            R.drawable.logo_bps,
+            R.drawable.logo_pesanpede,
+    };
+
     public static ArrayList<TentangKamiItem> getListTentang(){
         ArrayList<TentangKamiItem> listTentang = new ArrayList<>();
         for (int position = 0; position <tentang.length; position++) {
             TentangKamiItem tentangKamiItem = new TentangKamiItem();
             tentangKamiItem.setTentang(tentang[position]);
             tentangKamiItem.setContent(content[position]);
+            tentangKamiItem.setLogo(logo[position]);
             listTentang.add(tentangKamiItem);
         }
         return listTentang;

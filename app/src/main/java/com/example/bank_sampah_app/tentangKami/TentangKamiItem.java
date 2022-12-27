@@ -9,6 +9,16 @@ public class TentangKamiItem implements Parcelable{
     String tentang;
     String content;
 
+    public int getLogo() {
+        return logo;
+    }
+
+    public void setLogo(int logo) {
+        this.logo = logo;
+    }
+
+    int logo;
+
     public TentangKamiItem(){
 
     }
@@ -16,6 +26,7 @@ public class TentangKamiItem implements Parcelable{
     protected TentangKamiItem(Parcel in) {
         tentang = in.readString();
         content = in.readString();
+        logo = in.readInt();
     }
 
     public static final Parcelable.Creator<TentangKamiItem> CREATOR = new Parcelable.Creator<TentangKamiItem>() {
@@ -55,5 +66,6 @@ public class TentangKamiItem implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(tentang);
         dest.writeString(content);
+        dest.writeInt(logo);
     }
 }

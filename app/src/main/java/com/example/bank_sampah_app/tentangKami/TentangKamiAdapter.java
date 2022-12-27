@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.bank_sampah_app.R;
 import com.example.bank_sampah_app.panduan.PanduanAdapter;
 import com.example.bank_sampah_app.panduan.PanduanItem;
@@ -38,6 +39,9 @@ public class TentangKamiAdapter extends RecyclerView.Adapter<TentangKamiAdapter.
     public void onBindViewHolder(@NonNull TentangKamiAdapter.ListViewHolder holder, int position) {
         TentangKamiItem tentangKamiItem = listTentang.get(position);
         holder.tentang.setText(tentangKamiItem.getTentang());
+        Glide.with(holder.itemView.getContext())
+                .load(tentangKamiItem.getLogo())
+                .into(holder.tentang_img);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
