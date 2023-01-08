@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral0"
+    tools:context=".profile.EditProfileActivity">
+
+    <include
+        android:id="@+id/toolbar_editprofile"
+        layout="@layout/layout_toolbar" />
+
+    <ScrollView
+        android:id="@+id/scrollview_edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_editprofile"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_editprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/layout_editimage"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/img_edtprofile"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:layout_marginTop="32dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    tools:src="@drawable/ic_ubah_foto_profile" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/img_edtprofile">-->
+
+<!--                    <com.google.android.material.button.MaterialButton-->
+<!--                        android:id="@+id/btn_editfoto"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        app:cornerRadius="20dp"-->
+<!--                        android:backgroundTint="@color/accent100"-->
+<!--                        android:text="Edit Foto"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textAppearance="@style/button"-->
+<!--                        android:paddingVertical="8dp"-->
+<!--                        android:paddingHorizontal="32dp"-->
+<!--                        app:icon="@drawable/ic_edit_secondary"-->
+<!--                        app:iconSize="20dp"/>-->
+
+<!--                </LinearLayout>-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <LinearLayout
+                android:id="@+id/linear_editbuku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor Buku Tabungan"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_editbuku"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="none"
+                    android:enabled="false"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_buku"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColor="@color/neutral60" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_editnama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_editbuku">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Lengkap"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_editnama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundMode="none"
+                    android:enabled="false"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColor="@color/neutral60" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_edithp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_editnama">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor HP"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_edithp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/error"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_hp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_custom_input"
+                        android:inputType="phone"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linear_editemail"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingVertical="8dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/linear_edithp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Email"-->
+<!--                    android:textAlignment="viewStart"-->
+<!--                    android:textAppearance="@style/heading3_semibold"-->
+<!--                    android:textColor="@color/neutral80" />-->
+
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/input_layout_editemail"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    app:boxBackgroundColor="@color/neutral0"-->
+<!--                    app:boxBackgroundMode="outline"-->
+<!--                    app:boxStrokeColor="@color/error"-->
+<!--                    app:errorEnabled="true"-->
+<!--                    app:errorIconDrawable="@drawable/ic_error_outline_red"-->
+<!--                    app:errorIconTint="@color/error"-->
+<!--                    app:errorTextColor="@color/error"-->
+<!--                    app:hintEnabled="false">-->
+
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/edit_email"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/bg_custom_input"-->
+<!--                        android:inputType="textEmailAddress"-->
+<!--                        android:paddingTop="8dp"-->
+<!--                        android:paddingBottom="8dp"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:textAppearance="@style/body2_regular"-->
+<!--                        android:textColorHint="@color/neutral40" />-->
+
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linear_editlahir"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingVertical="8dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/linear_editemail">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Tanggal Lahir"-->
+<!--                    android:textAlignment="viewStart"-->
+<!--                    android:textAppearance="@style/heading3_semibold"-->
+<!--                    android:textColor="@color/neutral80" />-->
+
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/input_layout_editlahir"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    app:boxBackgroundColor="@color/neutral0"-->
+<!--                    app:boxBackgroundMode="outline"-->
+<!--                    app:boxStrokeColor="@color/error"-->
+<!--                    app:errorEnabled="true"-->
+<!--                    app:errorIconDrawable="@drawable/ic_error_outline_red"-->
+<!--                    app:errorIconTint="@color/error"-->
+<!--                    app:errorTextColor="@color/error"-->
+<!--                    app:hintEnabled="false">-->
+
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:id="@+id/edit_lahir"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/bg_custom_input"-->
+<!--                        android:paddingTop="8dp"-->
+<!--                        android:paddingBottom="8dp"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:textAppearance="@style/body2_regular"-->
+<!--                        android:textColorHint="@color/neutral40" />-->
+
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+<!--            </LinearLayout>-->
+
+            <LinearLayout
+                android:id="@+id/linear_editalamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_edithp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/heading3_semibold"
+                    android:textColor="@color/neutral80" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_editalamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:boxBackgroundColor="@color/neutral0"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/error"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error_outline_red"
+                    app:errorIconTint="@color/error"
+                    app:errorTextColor="@color/error"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_custom_input"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:singleLine="true"
+                        android:textAppearance="@style/body2_regular"
+                        android:textColorHint="@color/neutral40" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_simpan_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_rectangle_primary"
+        android:text="@string/simpan"
+        android:textAllCaps="false"
+        android:textAppearance="@style/button"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
