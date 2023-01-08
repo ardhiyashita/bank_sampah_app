@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/neutral0"
+    tools:context=".panduan.PanduanDetailActivity">
+
+    <include layout="@layout/layout_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/panduanDetailImage"
+                android:src="@drawable/caramenggunakan"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/panduanDetailTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Judul"
+                android:gravity="center"
+                android:textColor="@color/neutral80"
+                style="@style/heading3_semibold"/>
+
+            <TextView
+                android:id="@+id/panduanContentDetailTv"
+                android:layout_marginTop="16dp"
+                android:text="isian"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/neutral100"
+                style="@style/body2_regular"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
