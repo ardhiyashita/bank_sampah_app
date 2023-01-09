@@ -40,13 +40,6 @@ public class OnBoardingActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("login", Context.MODE_PRIVATE);
         //next activity
         if (restorePreData()){
-//            if (preferences.contains("isUserLogin")) {
-//                Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
-//                startActivity(intent);
-//            } else {
-//                Intent intent = new Intent(OnBoardingActivity.this, WelcomeActivity.class);
-//                startActivity(intent);
-//            }
             Intent intent = new Intent(OnBoardingActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -63,7 +56,6 @@ public class OnBoardingActivity extends AppCompatActivity {
 
         tabIndicator = findViewById(R.id.tab_indicator);
 
-        // Fill data
         final List<OnBoardingItem> mList = new ArrayList<>();
         mList.add(new OnBoardingItem("Sayangi Bumi Sedari Dini","Dengan memilah sampah sendiri, bisa membantu bumi menjadi lebih asri!", R.drawable.asset_onboarding1));
         mList.add(new OnBoardingItem("Lingkungan Bersih Bebas dari Sampah","Hidup sehat dengan lingkungan bersih dan terjaga, bebas dari sampah!", R.drawable.asset_onboarding2));

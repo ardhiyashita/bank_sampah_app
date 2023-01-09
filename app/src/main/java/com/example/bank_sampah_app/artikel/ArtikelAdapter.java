@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHolder> {
 
-    private ArrayList<Artikel> artikelList;
+    private final ArrayList<Artikel> artikelList;
     Context context;
 
     public ArtikelAdapter(Context context, ArrayList<Artikel>list){
@@ -51,7 +51,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onItemClickCallback.onItemClicked(artikelList.get(holder.getAdapterPosition()));
                 Intent intent =  new Intent(context, ArtikelDetailActivity.class);
                 intent.putExtra("slug", artikelItem.getSlug());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -66,9 +65,9 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView gambar;
-        private TextView judul;
-        private TextView konten;
+        private final ImageView gambar;
+        private final TextView judul;
+        private final TextView konten;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

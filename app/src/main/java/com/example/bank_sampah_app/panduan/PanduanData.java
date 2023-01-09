@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 public class PanduanData {
 
-    private static String [] panduan = {
+    private static final String [] panduan = {
         "Cara Menggunakan Aplikasi",
                 "Cara Penyetoran Sampah",
                 "Cara Penarikan Saldo",
             "Cara Memilah Sampah"
     };
 
-    private static String [] content = {
+    private static final String [] content = {
         "1. Pengguna yang sudah terdaftar sebagai nasabah akan diberikan no.buku dan password oleh pihak bank sampah. Namun, apabila pengguna belum mnenjadi nasabah atau belum memiliki no. buku tabungan, dapat melakukan pendaftaran langsung ke petugas bank sampah\n\n" +
                 "2. Setelah mendapatkan no.buku dan password pengguna dapat melakukan login pada aplikasi\n" +
                 "menggunakan no.buku dan password yang didapat.\n\n" +
@@ -65,7 +65,7 @@ public class PanduanData {
                     "Sampah anorganik seperti plastik, botol, kertas, dan lain sebagainya yang telah dipilah dapat dikumpulkan dan disetor ke bank sampah."
     };
 
-    private static int [] gambar = {
+    private static final int [] gambar = {
             R.drawable.caramenggunakan,
             R.drawable.caranyetor,
             R.drawable.caranarik,

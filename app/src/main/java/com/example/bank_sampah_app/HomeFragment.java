@@ -61,8 +61,8 @@ public class HomeFragment extends Fragment {
     SwipeRefreshLayout swipeContainer;
 
     private RecyclerView rv_panduan, rv_artikel, rv_tentang_kami;
-    private ArrayList<TentangKamiItem> listTentang = new ArrayList<>();
-    private ArrayList<PanduanItem> list = new ArrayList<>();
+    private final ArrayList<TentangKamiItem> listTentang = new ArrayList<>();
+    private final ArrayList<PanduanItem> list = new ArrayList<>();
     private ArrayList<Artikel> listArtikel;
 
     ArtikelAdapterHome artikelAdapterHome;
@@ -237,13 +237,13 @@ public class HomeFragment extends Fragment {
                     artikelAdapterHome = new ArtikelAdapterHome(getContext(),listArtikel);
                     rv_artikel.setAdapter(artikelAdapterHome);
                 } else {
-                    Toast.makeText(getActivity(),"Gagal", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Gagal memuat artikel", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ArtikelResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -268,8 +268,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<UserDataResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
+                Toast.makeText(getActivity(), "Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
             }
         });
         swipeContainer.setRefreshing(false);
@@ -281,10 +280,8 @@ public class HomeFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             fragTransaction.detach(this).commitNow();
             fragTransaction.attach(this).commitNow();
-//            Toast.makeText(getActivity(), "Refresh", Toast.LENGTH_SHORT).show();
         } else {
             fragTransaction.detach(this).attach(this).commit();
-//            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -51,7 +51,7 @@ public class ArtikelDetailActivity extends AppCompatActivity {
         apiClient = new ApiClient();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         mTitle.setText("Artikel");
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
@@ -91,13 +91,13 @@ public class ArtikelDetailActivity extends AppCompatActivity {
                     Picasso.get().load("https://pesanpede.com/" + detailArtikel.getGambar()).into(gambar);
 
                 } else {
-                    Toast.makeText(ArtikelDetailActivity.this,"Gagal", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ArtikelDetailActivity.this,"Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DetailArtikelResponse> call, Throwable t) {
-                Toast.makeText(ArtikelDetailActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ArtikelDetailActivity.this, "Gagal memuat, coba lagi" , Toast.LENGTH_SHORT).show();
 
             }
         });

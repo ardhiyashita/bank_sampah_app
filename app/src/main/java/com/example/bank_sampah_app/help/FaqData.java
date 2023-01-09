@@ -3,7 +3,7 @@ package com.example.bank_sampah_app.help;
 import java.util.ArrayList;
 
 public class FaqData {
-    private static String [] question = {
+    private static final String [] question = {
             "Apa yang saya lakukan setelah terdaftar menjadi nasabah Bank Sampah Sami Asri?",
             "Bagaimana cara menyetorkan sampah yang sudah terpilah di Bank Sampah Sami Asri?",
             "Apakah sampah yang sudah saya pilah bisa dijemput ke rumah?",
@@ -13,7 +13,7 @@ public class FaqData {
             "Jenis-jenis sampah apa saja yang ditampung oleh bank sampah?",
             "Dimana saya bisa mendapatkan informasi terkait aktivitas dan kegiatan Bank Sampah Sami Asri?"
     };
-    private static String [] answer = {
+    private static final String [] answer = {
             "Anda bisa langsung memilah sampah yang akan disetorkan sesuai jenisnya berdasarkan panduan pemilahan dan menyetorkan nya ke Bank Sampah Sami Asri.",
             "Penyetoran sampah yang sudah terpilah dapat dilakukan dengan 2 cara yaitu,\n\nSetor langsung ke Bank Sampah Sami Asri di saat jadwal penyetoran atau menggunakan Fitur Setor Sampah dan menyetorkan sampah Anda sendiri di Bank Sampah saat bukan jadwal penyetoran sampah\n",
             "Bisa. Kamu dapat menggunakan layanan penjemputan sampah dari Aplikasi Bank Sampah Sami Asri jika permintaan penjemputan di terima oleh Admin Bank Sampah",

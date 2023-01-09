@@ -106,7 +106,7 @@ public class InformasiFragment extends Fragment {
 
             @Override
             public void onFailure(Call<KategoriResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
             }
         });
 

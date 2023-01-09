@@ -5,13 +5,13 @@ import com.example.bank_sampah_app.help.HelpItem;
 import java.util.ArrayList;
 
 public class TransaksiData {
-    private static String [] jenisTransaksi = {
+    private static final String [] jenisTransaksi = {
             "Penarikan",
             "Setoran",
             "Setoran",
             "Penarikan"
     };
-    private static String [] statusTransaksi = {
+    private static final String [] statusTransaksi = {
             "Diproses",
             "Diproses",
             "Diproses",

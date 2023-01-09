@@ -51,7 +51,7 @@ public class TarikSaldoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tarik_saldo);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         mTitle.setText("Tarik Saldo");
 
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
@@ -126,7 +126,7 @@ public class TarikSaldoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TarikResponse> call, Throwable t) {
-                Toast.makeText(TarikSaldoActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(TarikSaldoActivity.this, "Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -141,24 +141,6 @@ public class TarikSaldoActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
             @Override
             public void afterTextChanged(Editable s) {
-//                etTarik.removeTextChangedListener(this);
-//                try {
-//                    String originalString = s.toString();
-//
-//                    Long longval;
-//                    longval = Long.parseLong(originalString);
-//
-//                    DecimalFormat formatter = (DecimalFormat) NumberFormat.getNumberInstance(Locale.ITALIAN);
-//                    String formattedString = formatter.format(longval);
-//
-//                    //setting text after format to EditText
-//                    etTarik.setText(formattedString);
-//                    etTarik.setSelection(etTarik.getText().length());
-//                } catch (NumberFormatException nfe) {
-//                    nfe.printStackTrace();
-//                }
-//
-//                etTarik.addTextChangedListener(this);
                 if(inputValidation()){
                     etTarik.setError(null);
                 }
@@ -217,15 +199,5 @@ public class TarikSaldoActivity extends AppCompatActivity {
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         return formatRupiah.format(number);
     }
-
-//    public static String trimCommaOfString(String string) {
-//        if(string.contains(".")){
-//            return string.replace(".","");}
-//        else {
-//            return string;
-//        }
-//
-//    }
-
 
 }

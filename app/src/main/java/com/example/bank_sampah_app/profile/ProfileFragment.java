@@ -37,48 +37,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
     private SessionManager sessionManager;
     private ApiClient apiClient;
     View view;
-    LinearLayout lUbahData, lUbahPass, lBantuan, logout;
+    LinearLayout lUbahData, lBantuan, logout;
     SwipeRefreshLayout swipeContainer;
     CircleImageView imgProfile;
     TextView tvNama, tvNomor;
-//    AlertDialog.Builder builder;
 
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    private String mParam1;
-//    private String mParam2;
 
     public ProfileFragment() {
         // Required empty public constructor
-    }
-
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
     }
 
     @Override
@@ -93,7 +63,6 @@ public class ProfileFragment extends Fragment {
 
         swipeContainer =view.findViewById(R.id.refresh_profile);
         lUbahData = view.findViewById(R.id.ubahdataakun);
-//        lUbahPass = view.findViewById(R.id.ubahpassword);
         lBantuan = view.findViewById(R.id.bantuandanpencarian);
         logout = view.findViewById(R.id.logout);
         imgProfile = view.findViewById(R.id.img_profile);
@@ -143,15 +112,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-//        lUbahPass.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intentUbahPass = new Intent(getActivity(), UbahPasswordActivity.class);
-//                startActivity(intentUbahPass);
-//
-//            }
-//        });
-
         lBantuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +134,6 @@ public class ProfileFragment extends Fragment {
                                 // User cancelled the dialog
                             }
                         });
-                // Create the AlertDialog object and return it
                 builder.show();
             }
         });
@@ -208,7 +167,6 @@ public class ProfileFragment extends Fragment {
                 if (logoutResponse.getSuccess()==true) {
                     if (sessionManager.fetchAuthToken() != null) {
                         sessionManager.deleteAuthToken();
-//                        Toast.makeText(getActivity(),"Logout Berhasil", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
@@ -221,7 +179,7 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onFailure(Call<LogoutResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Logout Gagal", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -238,21 +196,19 @@ public class ProfileFragment extends Fragment {
                     sessionManager.saveUser(userDataResponse.getUser());
                     tvNama.setText(userDataResponse.getUser().getName());
                     tvNomor.setText(userDataResponse.getUser().getNo_buku());
-//                    userDataResponse.getUser().getFoto();
-//                    if (userDataResponse.getUser().getFoto() != null){
-//                        Picasso.get().load(Constant.BASE_URL+"/user/"+userDataResponse.getUser().getFoto()).into(imgProfile);
-//                    }
+                    userDataResponse.getUser().getFoto();
+                    if (userDataResponse.getUser().getFoto() != null){
+                        Picasso.get().load(Constant.BASE_URL+"/user/"+userDataResponse.getUser().getFoto()).into(imgProfile);
+                    }
                     reLoadFragment();
-//                    Toast.makeText(getActivity(), "Profile diperbarui", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity(), "Profile gagal diperbarui", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Gagal memuat, coba lagi", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UserDataResponse> call, Throwable t) {
-                Toast.makeText(getActivity(), "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("DEBUG", "Fetch timeline error: " + t.toString());
+                Toast.makeText(getActivity(), "Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
             }
         });
         swipeContainer.setRefreshing(false);
@@ -264,10 +220,8 @@ public class ProfileFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             fragTransaction.detach(this).commitNow();
             fragTransaction.attach(this).commitNow();
-//            Toast.makeText(getActivity(), "Refresh", Toast.LENGTH_SHORT).show();
         } else {
             fragTransaction.detach(this).attach(this).commit();
-//            Toast.makeText(getActivity(), "Gagallll", Toast.LENGTH_SHORT).show();
         }
     }
 }

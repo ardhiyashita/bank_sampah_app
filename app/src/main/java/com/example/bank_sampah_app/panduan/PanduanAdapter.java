@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class PanduanAdapter extends RecyclerView.Adapter<PanduanAdapter.ListViewHolder>{
 
-    private ArrayList<PanduanItem> listPanduan;
+    private final ArrayList<PanduanItem> listPanduan;
     private PanduanAdapter.OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickListener(PanduanAdapter.OnItemClickCallback onItemClickCallback){

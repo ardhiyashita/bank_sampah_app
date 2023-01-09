@@ -25,13 +25,6 @@ public class AuthorizationInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request.Builder requestBuilder = chain.request().newBuilder();
-//        Request initialRequest = chain.request();
-//        Response response = chain.proceed(initialRequest);
-//
-//        // jika token expired maka akan
-//        if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
-//            sessionManager.deleteAuthToken();
-//        }
 
         // Jika token ada di session manager, token sisipkan di request header
         if (sessionManager.fetchAuthToken() != null) {

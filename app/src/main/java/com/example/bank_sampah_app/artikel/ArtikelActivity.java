@@ -78,7 +78,7 @@ public class ArtikelActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArtikelResponse> call, Throwable t) {
-                Toast.makeText(ArtikelActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ArtikelActivity.this, "Gagal memuat, coba lagi", Toast.LENGTH_SHORT).show();
 
             }
         });

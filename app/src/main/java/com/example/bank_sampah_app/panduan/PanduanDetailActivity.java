@@ -31,7 +31,7 @@ public class PanduanDetailActivity extends AppCompatActivity {
         }
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         mTitle.setText("Panduan");
 
 

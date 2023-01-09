@@ -7,7 +7,7 @@ import com.example.bank_sampah_app.User;
 
 public class SessionManager{
 
-    private SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
     public static final String SHARED_PREF_NAME="login";
     public static final String USER_TOKEN = "user_token";
 

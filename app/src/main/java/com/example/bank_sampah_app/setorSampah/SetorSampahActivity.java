@@ -72,7 +72,7 @@ public class SetorSampahActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_setor_sampah);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         mTitle.setText("Setor Sampah");
 
         apiClient = new ApiClient();

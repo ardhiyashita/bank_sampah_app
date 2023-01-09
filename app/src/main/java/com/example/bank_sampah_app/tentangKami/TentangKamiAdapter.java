@@ -17,7 +17,7 @@ import com.example.bank_sampah_app.panduan.PanduanItem;
 import java.util.ArrayList;
 
 public class TentangKamiAdapter extends RecyclerView.Adapter<TentangKamiAdapter.ListViewHolder> {
-    private ArrayList<TentangKamiItem> listTentang;
+    private final ArrayList<TentangKamiItem> listTentang;
     private TentangKamiAdapter.OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickListener(TentangKamiAdapter.OnItemClickCallback onItemClickCallback){

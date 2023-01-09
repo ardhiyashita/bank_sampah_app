@@ -1,11 +1,8 @@
 package com.example.bank_sampah_app.help;
 
-import android.content.Context;
-import android.telecom.StatusHints;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +15,7 @@ import java.util.ArrayList;
 
 public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ListViewHolder>{
 
-    private ArrayList<HelpItem> listQuestion;
+    private final ArrayList<HelpItem> listQuestion;
     private OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickListener(OnItemClickCallback onItemClickCallback){

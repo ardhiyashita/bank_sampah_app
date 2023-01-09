@@ -58,14 +58,10 @@ public class EditProfileActivity extends AppCompatActivity {
     private SessionManager sessionManager;
 
     Button btnSimpan, btnEditfoto;
-    TextInputEditText etBuku, etNama, etHp, etEmail, etLahir, etAlamat;
-    TextInputLayout tlBuku, tlNama, tlHp, tlEmail, tlLahir, tlAlamat;
+    TextInputEditText etBuku, etNama, etHp,  etAlamat;
+    TextInputLayout tlBuku, tlNama, tlHp, tlAlamat;
     ImageView imgFoto;
-    String jenis_kelamin;
 
-//    private static final int GALLERY_ADD_PROFILE = 1;
-//    private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
-//    private Bitmap bitmap = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +69,7 @@ public class EditProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        TextView mTitle = toolbar.findViewById(R.id.toolbar_title);
         mTitle.setText("Edit Profile");
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_dark);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
@@ -93,12 +89,6 @@ public class EditProfileActivity extends AppCompatActivity {
         tlNama = findViewById(R.id.input_layout_editnama);
         tlHp = findViewById(R.id.input_layout_edithp);
         tlAlamat = findViewById(R.id.input_layout_editalamat);
-
-
-//        tlEmail = findViewById(R.id.input_layout_editemail);
-//        tlLahir = findViewById(R.id.input_layout_editlahir);
-//        etEmail = findViewById(R.id.edit_email);
-//        etLahir = findViewById(R.id.edit_lahir);
 //        imgFoto = findViewById(R.id.img_edtprofile);
 
         User user = sessionManager.fetchUser();
@@ -106,10 +96,6 @@ public class EditProfileActivity extends AppCompatActivity {
         etBuku.setText(user.getNo_buku());
         etHp.setText(user.getNo_hp());
         etAlamat.setText(user.getAlamat());
-
-//        etEmail.setText(user.getEmail());
-//        etLahir.setText(user.getTgl_lahir());
-//        jenis_kelamin = user.getJenis_kelamin();
 
 //        String url_image = user.getFoto();
 //        if (url_image != null){
@@ -162,9 +148,6 @@ public class EditProfileActivity extends AppCompatActivity {
         editProfileRequest.setNo_hp(etHp.getText().toString());
         editProfileRequest.setAlamat(etAlamat.getText().toString());
 
-//        editProfileRequest.setEmail(etEmail.getText().toString());
-//        editProfileRequest.setJenis_kelamin(jenis_kelamin);
-//        editProfileRequest.setTgl_lahir(etLahir.getText().toString());
 //        editProfileRequest.setFoto(imgSample);
 //        editProfileRequest.setFoto(bitmapToString(bitmap));
 
@@ -176,7 +159,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 if (loginResponse.getSuccess()==true) {
                     finishDialog("Data Berhasil Diperbarui", loginResponse.getSuccess(),"Selesai");
                 } else {
-                    Toast.makeText(EditProfileActivity.this, "Data Gagal Diperbarui" , Toast.LENGTH_LONG).show();
                     finishDialog("Data Gagal Diperbarui", loginResponse.getSuccess(),"Coba Lagi");
 
                 }
@@ -184,7 +166,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(EditProfileActivity.this, "Throwable" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 finishDialog("Data Gagal Diperbarui", false,"Coba Lagi");
             }
         });

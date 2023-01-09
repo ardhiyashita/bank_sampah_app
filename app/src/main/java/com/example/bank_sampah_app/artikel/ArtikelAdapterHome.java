@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class ArtikelAdapterHome extends RecyclerView.Adapter<ArtikelAdapterHome.ViewHolder> {
 
-    private ArrayList<Artikel> artikelList;
+    private final ArrayList<Artikel> artikelList;
     Context context;
     private final int limit = 3;
 
@@ -70,9 +70,9 @@ public class ArtikelAdapterHome extends RecyclerView.Adapter<ArtikelAdapterHome.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView gambar;
-        private TextView judul;
-        private TextView konten;
+        private final ImageView gambar;
+        private final TextView judul;
+        private final TextView konten;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
