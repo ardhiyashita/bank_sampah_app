@@ -20,12 +20,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="horizontal"
             android:layout_weight="1">
             <TextView
                 style="@style/heading1_semibold"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Penarikan"
                 android:textColor="@color/neutral80"
@@ -44,7 +44,7 @@
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/jumlahPenarikan"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
                     style="@style/heading1_semibold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.bank_sampah_app.authentication.LoginActivity;
-import com.example.bank_sampah_app.authentication.RegisterActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btnRegister, btnLogin;

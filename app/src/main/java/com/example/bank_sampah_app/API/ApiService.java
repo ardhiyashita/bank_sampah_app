@@ -12,7 +12,6 @@ import com.example.bank_sampah_app.API.responses.LogoutResponse;
 import com.example.bank_sampah_app.API.responses.PenarikanResponse;
 import com.example.bank_sampah_app.API.responses.PengajuanResponse;
 import com.example.bank_sampah_app.API.responses.PengumumanResponse;
-import com.example.bank_sampah_app.API.responses.RegisterResponse;
 import com.example.bank_sampah_app.API.responses.TarikResponse;
 import com.example.bank_sampah_app.API.responses.TransaksiResponse;
 import com.example.bank_sampah_app.API.responses.UserDataResponse;
@@ -27,10 +26,6 @@ public interface ApiService {
 
     @POST(Constant.LOGIN)
     Call<LoginResponse> userLogin(@Body LoginRequest loginRequest);
-
-
-    @POST(Constant.REGISTER)
-    Call<RegisterResponse> userRegister(@Body RegisterRequest registerRequest);
 
     @GET(Constant.LOGOUT)
     Call<LogoutResponse> userLogout();

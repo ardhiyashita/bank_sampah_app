@@ -89,7 +89,7 @@
                 style="@style/heading1_semibold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="judul"
+                android:text="@string/loremipsum"
                 android:textColor="@color/neutral80" />
 
             <LinearLayout
@@ -102,7 +102,7 @@
                     style="@style/caption_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lingkungan"
+                    android:text="@string/loremipsum"
                     android:textAlignment="viewStart"
                     android:textColor="@color/neutral40" />
 
@@ -127,7 +127,7 @@
                 android:layout_gravity="center_vertical|end"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="30dp"
-                android:text="body"
+                android:text="@string/loremipsum"
                 android:justificationMode="inter_word"
                 android:textColor="@color/neutral80" />
         </LinearLayout>

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="10dp"
@@ -149,7 +149,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
                 android:gravity="bottom"
                 android:orientation="vertical">
 
@@ -157,7 +156,6 @@
                     android:id="@+id/lanjutSetorButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_marginVertical="20dp"
                     android:background="@drawable/bg_rectangle_primary"
                     style="@style/button"

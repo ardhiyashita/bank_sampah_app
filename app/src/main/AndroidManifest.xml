@@ -44,13 +44,15 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="bps.pesanpede.com" android:path="/login"/>
+            </intent-filter>
         </activity>
-        <activity
-            android:name=".authentication.RegisterActivity"
-            android:exported="false" />
         <activity
             android:name=".authentication.LoginActivity"
             android:exported="false" />
@@ -62,8 +64,10 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:label="Home" />
+            android:exported="true"
+            android:label="Home">
+        </activity>
+
         <activity
             android:name=".tarikSaldo.RincianPenarikanActivity"
             android:exported="false" />

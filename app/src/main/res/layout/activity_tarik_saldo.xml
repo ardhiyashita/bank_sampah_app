@@ -147,6 +147,7 @@
                 android:hint="Tulis catatan pengambilan dana kepada petugas"
                 android:inputType="textMultiLine"
                 android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:paddingTop="16dp"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/body3_regular" />
@@ -167,8 +168,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsregular"
-                    android:layout_marginLeft="5dp"
-                    android:gravity="center|left"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center|start"
                     android:text="Penarikan dana dapat dilakukan setelah pengajuan disetujui petugas bank sampah."
                     android:textColor="@color/neutral40"
                     android:textSize="8sp" />
